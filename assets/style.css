@@ -65,8 +65,9 @@ table{background-color: #fff;}
 .listing-detail span:hover{background: #72b70f;}
 
 
-.status.rented{background:rgba(104,167,13,0.8);}
-.status.new{background:rgba(190,7,46,0.8);}
+.status.vacant{background:rgba(104,167,13,0.8);}
+.status.rented{background:rgba(190,7,46,0.8);}
+.status.new{background:rgba(104,167,13,0.8);}
 
 .recommended{position: relative;}
 .recommended .carousel-indicators{position: absolute;text-align: left;left: 0;bottom: -40px;margin: 0;}
