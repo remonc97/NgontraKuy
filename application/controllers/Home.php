@@ -5,6 +5,7 @@ class Home extends CI_Controller {
 
 	public function index()
 	{
-		$this->load->view('home');
+	    $data['featured'] = $this->Kontrakan->getFeatured();
+		$this->load->view('home',$data);
 	}
 }

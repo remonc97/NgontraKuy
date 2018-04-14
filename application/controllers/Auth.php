@@ -6,7 +6,9 @@
  * Time: 16:44
  */
 
-class Auth
+class Auth extends CI_Controller
 {
+    public function login(){
 
+    }
 }
