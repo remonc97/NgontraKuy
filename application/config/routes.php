@@ -59,4 +59,4 @@ $route['ContactUs'] = '';
 $route['NewsLetter'] = '';
 $route['Register'] = '';
 $route['Login'] = '';
-$route['About'] = '';
+$route['AllHomes'] = '';
