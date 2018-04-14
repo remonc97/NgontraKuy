@@ -57,6 +57,7 @@ $route['About'] = '';
 $route['Agents'] = '';
 $route['ContactUs'] = '';
 $route['NewsLetter'] = '';
-$route['Register'] = '';
-$route['Login'] = '';
 $route['AllHomes'] = '';
+
+$route['Register'] = '';
+$route['Login'] = 'Auth/login';
