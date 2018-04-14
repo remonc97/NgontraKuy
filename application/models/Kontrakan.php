@@ -6,7 +6,9 @@
  * Time: 16:48
  */
 
-class Kontrakan
+class Kontrakan extends CI_Model
 {
-
+    public function getFeatured(){
+        return $this->db->get('rumah',11)->result();
+    }
 }

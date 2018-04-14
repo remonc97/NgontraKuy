@@ -37,12 +37,18 @@ $this->view('template/header');
 
             </div>
             <!-- Nav Starts -->
+            <style>
+                .nav li a{
+                    font-family: 'Ubuntu', sans-serif !important;
+                }
+            </style>
             <div class="navbar-collapse  collapse">
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="active"><a href="<?php echo site_url()?>">Home</a></li>
+                    <li class="active"><a href="<?php echo site_url()?>" >Home</a></li>
                     <li><a href="<?php echo site_url() ?>">About</a></li>
                     <li><a href="<?php echo site_url('Agents')?>">Agents</a></li>
                     <li><a href="<?php echo site_url('ContactUs')?>">Contact Us</a></li>
+                    <li><a href="<?php echo site_url('About')?>">About</a></li>
                 </ul>
             </div>
             <!-- #Nav Ends -->
@@ -57,10 +63,10 @@ $this->view('template/header');
 
     <!-- Header Starts -->
     <div class="header">
-        <a href="<?php echo site_url()?>"><img src="<?php echo base_url('assets/images/logo.png')?>" alt="NgontraKuy"></a>
+        <a href="<?php echo site_url()?>"><img src="<?php echo base_url('assets/images/logo1.png')?>" width="200px" alt="NgontraKuy"></a>
 
         <ul class="pull-right">
-            <li><a href="#" data-toggle="modal" data-target="#loginpop">Login</a></li>
+            <li style="margin-top: 20px"><a href="#" style="font-family: 'Ubuntu', sans-serif;" data-toggle="modal" data-target="#loginpop">Login</a></li>
         </ul>
     </div>
     <!-- #Header Starts -->
@@ -70,74 +76,22 @@ $this->view('template/header');
     <div id="slider" class="sl-slider-wrapper">
 
         <div class="sl-slider">
-
             <div class="sl-slide" data-orientation="horizontal" data-slice1-rotation="-25" data-slice2-rotation="-25" data-slice1-scale="2" data-slice2-scale="2">
                 <div class="sl-slide-inner">
                     <div class="bg-img bg-img-1"></div>
-                    <h2><a href="#">2 Bed Rooms and 1 Dinning Room Aparment on Sale</a></h2>
-                    <blockquote>
-                        <p class="location"><span class="glyphicon glyphicon-map-marker"></span> 1890 Syndey, Australia</p>
-                        <p>Until he extends the circle of his compassion to all living things, man will not himself find peace.</p>
-                        <cite>$ 20,000,000</cite>
-                    </blockquote>
-                </div>
-            </div>
-
-            <div class="sl-slide" data-orientation="vertical" data-slice1-rotation="10" data-slice2-rotation="-15" data-slice1-scale="1.5" data-slice2-scale="1.5">
-                <div class="sl-slide-inner">
-                    <div class="bg-img bg-img-2"></div>
-                    <h2><a href="#">2 Bed Rooms and 1 Dinning Room Aparment on Sale</a></h2>
-                    <blockquote>
-                        <p class="location"><span class="glyphicon glyphicon-map-marker"></span> 1890 Syndey, Australia</p>
-                        <p>Until he extends the circle of his compassion to all living things, man will not himself find peace.</p>
-                        <cite>$ 20,000,000</cite>
-                    </blockquote>
-                </div>
-            </div>
-
-            <div class="sl-slide" data-orientation="horizontal" data-slice1-rotation="3" data-slice2-rotation="3" data-slice1-scale="2" data-slice2-scale="1">
-                <div class="sl-slide-inner">
-                    <div class="bg-img bg-img-3"></div>
-                    <h2><a href="#">2 Bed Rooms and 1 Dinning Room Aparment on Sale</a></h2>
-                    <blockquote>
-                        <p class="location"><span class="glyphicon glyphicon-map-marker"></span> 1890 Syndey, Australia</p>
-                        <p>Until he extends the circle of his compassion to all living things, man will not himself find peace.</p>
-                        <cite>$ 20,000,000</cite>
-                    </blockquote>
-                </div>
-            </div>
-
-            <div class="sl-slide" data-orientation="vertical" data-slice1-rotation="-5" data-slice2-rotation="25" data-slice1-scale="2" data-slice2-scale="1">
-                <div class="sl-slide-inner">
-                    <div class="bg-img bg-img-4"></div>
-                    <h2><a href="#">2 Bed Rooms and 1 Dinning Room Aparment on Sale</a></h2>
-                    <blockquote>
-                        <p class="location"><span class="glyphicon glyphicon-map-marker"></span> 1890 Syndey, Australia</p>
-                        <p>Until he extends the circle of his compassion to all living things, man will not himself find peace.</p>
-                        <cite>$ 20,000,000</cite>
-                    </blockquote>
-                </div>
-            </div>
-
-            <div class="sl-slide" data-orientation="horizontal" data-slice1-rotation="-5" data-slice2-rotation="10" data-slice1-scale="2" data-slice2-scale="1">
-                <div class="sl-slide-inner">
-                    <div class="bg-img bg-img-5"></div>
-                    <h2><a href="#">2 Bed Rooms and 1 Dinning Room Aparment on Sale</a></h2>
-                    <blockquote>
-                        <p class="location"><span class="glyphicon glyphicon-map-marker"></span> 1890 Syndey, Australia</p>
-                        <p>Until he extends the circle of his compassion to all living things, man will not himself find peace.</p>
-                        <cite>$ 20,000,000</cite>
+                    <br/>
+                    <h2><a href="#"><img src="<?php echo base_url('assets/images/white.png')?>" width="250px"/></a></h2>
+                    <blockquote style="font-family:'Ubuntu', sans-serif">
+                        <br/><br/>
+                        <p>Pengen jalan-jalan tapi nginep di hotel terlalu mahal?<br/>Mending ngontrak aja!</p><br/>
+                        <a class="btn btn-success" role="button" href="<?php echo site_url('Register')?>">Join Now</a>
                     </blockquote>
                 </div>
             </div>
         </div><!-- /sl-slider -->
 
         <nav id="nav-dots" class="nav-dots">
-            <span class="nav-dot-current"></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
+
         </nav>
 
     </div><!-- /slider-wrapper -->
@@ -154,27 +108,20 @@ $this->view('template/header');
                         <input type="text" class="form-control" placeholder="Search of Properties">
                         <div class="row">
                             <div class="col-lg-3 col-sm-3 ">
-                                <select class="form-control">
+                                <select class="form-control" name="type">
                                     <option>Type</option>
                                     <option value="furnished">Furnished</option>
                                     <option value="unfurnished">Unfurnished</option>
                                 </select>
                             </div>
                             <div class="col-lg-3 col-sm-4">
-                                <select class="form-control">
+                                <select name="price" class="form-control">
                                     <option>Price</option>
                                     <option value="lo-hi">Lowest - Highest</option>
                                     <option value="hi-lo">Highest - Lowest</option>
                                 </select>
                             </div>
-                            <div class="col-lg-3 col-sm-4">
-                                <select class="form-control">
-                                    <option>Property</option>
-                                    <option value="cluster">Cluster</option>
-                                    <option value="complex">Complex</option>
-                                </select>
-                            </div>
-                            <div class="col-lg-3 col-sm-4">
+                            <div class="col-lg-3 col-sm-4 col-sm-offset-3">
                                 <input class="btn btn-success" role="button" type="submit" value="Find Now"/>
                             </div>
                         </div>
@@ -191,102 +138,23 @@ $this->view('template/header');
     <div class="properties-listing spacer"> <a href="<?php echo site_url('AllHomes')?>" class="pull-right viewall">View All Listing</a>
         <h2>Featured Properties</h2>
         <div id="owl-example" class="owl-carousel">
-            <div class="properties">
-                <div class="image-holder"><img src="<?php echo base_url('assets/images/properties/1.jpg')?>" class="img-responsive" alt="properties"/>
-                    <div class="status sold">Sold</div>
-                </div>
-                <h4><a href="property-detail.php">Royal Inn</a></h4>
-                <p class="price">Price: $234,900</p>
-                <div class="listing-detail"><span data-toggle="tooltip" data-placement="bottom" data-original-title="Bed Room">5</span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Living Room">2</span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Parking">2</span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Kitchen">1</span> </div>
-                <a class="btn btn-primary" href="property-detail.php">View Details</a>
-            </div>
-            <div class="properties">
-                <div class="image-holder"><img src="<?php echo base_url('assets/images/properties/2.jpg')?>" class="img-responsive" alt="properties"/>
-                    <div class="status new">New</div>
-                </div>
-                <h4><a href="property-detail.php">Royal Inn</a></h4>
-                <p class="price">Price: $234,900</p>
-                <div class="listing-detail"><span data-toggle="tooltip" data-placement="bottom" data-original-title="Bed Room">5</span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Living Room">2</span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Parking">2</span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Kitchen">1</span> </div>
-                <a class="btn btn-primary" href="property-detail.php">View Details</a>
-            </div>
-            <div class="properties">
-                <div class="image-holder"><img src="<?php echo base_url('assets/images/properties/3.jpg')?>" class="img-responsive" alt="properties"/></div>
-                <h4><a href="property-detail.php">Royal Inn</a></h4>
-                <p class="price">Price: $234,900</p>
-                <div class="listing-detail"><span data-toggle="tooltip" data-placement="bottom" data-original-title="Bed Room">5</span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Living Room">2</span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Parking">2</span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Kitchen">1</span> </div>
-                <a class="btn btn-primary" href="property-detail.php">View Details</a>
-            </div>
-            <div class="properties">
-                <div class="image-holder"><img src="<?php echo base_url('assets/images/properties/4.jpg')?>" class="img-responsive" alt="properties"/></div>
-                <h4><a href="property-detail.php">Royal Inn</a></h4>
-                <p class="price">Price: $234,900</p>
-                <div class="listing-detail"><span data-toggle="tooltip" data-placement="bottom" data-original-title="Bed Room">5</span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Living Room">2</span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Parking">2</span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Kitchen">1</span> </div>
-                <a class="btn btn-primary" href="property-detail.php">View Details</a>
-            </div>
-            <div class="properties">
-                <div class="image-holder"><img src="<?php echo base_url('assets/images/properties/1.jpg')?>" class="img-responsive" alt="properties"/>
-                    <div class="status sold">Sold</div>
-                </div>
-                <h4><a href="property-detail.php">Royal Inn</a></h4>
-                <p class="price">Price: $234,900</p>
-                <div class="listing-detail"><span data-toggle="tooltip" data-placement="bottom" data-original-title="Bed Room">5</span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Living Room">2</span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Parking">2</span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Kitchen">1</span> </div>
-                <a class="btn btn-primary" href="property-detail.php">View Details</a>
-            </div>
-            <div class="properties">
-                <div class="image-holder"><img src="<?php echo base_url('assets/images/properties/2.jpg')?>" class="img-responsive" alt="properties"/>
-                    <div class="status sold">Sold</div>
-                </div>
-                <h4><a href="property-detail.php">Royal Inn</a></h4>
-                <p class="price">Price: $234,900</p>
-                <div class="listing-detail"><span data-toggle="tooltip" data-placement="bottom" data-original-title="Bed Room">5</span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Living Room">2</span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Parking">2</span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Kitchen">1</span> </div>
-                <a class="btn btn-primary" href="property-detail.php">View Details</a>
-            </div>
-            <div class="properties">
-                <div class="image-holder"><img src="<?php echo base_url('assets/images/properties/3.jpg')?>" class="img-responsive" alt="properties"/>
-                    <div class="status new">New</div>
-                </div>
-                <h4><a href="property-detail.php">Royal Inn</a></h4>
-                <p class="price">Price: $234,900</p>
-                <div class="listing-detail"><span data-toggle="tooltip" data-placement="bottom" data-original-title="Bed Room">5</span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Living Room">2</span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Parking">2</span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Kitchen">1</span> </div>
-                <a class="btn btn-primary" href="property-detail.php">View Details</a>
-            </div>
-            <div class="properties">
-                <div class="image-holder"><img src="<?php echo base_url('assets/images/properties/4.jpg')?>" class="img-responsive" alt="properties"/></div>
-                <h4><a href="property-detail.php">Royal Inn</a></h4>
-                <p class="price">Price: $234,900</p>
-                <div class="listing-detail"><span data-toggle="tooltip" data-placement="bottom" data-original-title="Bed Room">5</span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Living Room">2</span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Parking">2</span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Kitchen">1</span> </div>
-                <a class="btn btn-primary" href="property-detail.php">View Details</a>
-            </div>
-            <div class="properties">
-                <div class="image-holder"><img src="<?php echo base_url('assets/images/properties/1.jpg')?>" class="img-responsive" alt="properties"/></div>
-                <h4><a href="property-detail.php">Royal Inn</a></h4>
-                <p class="price">Price: $234,900</p>
-                <div class="listing-detail"><span data-toggle="tooltip" data-placement="bottom" data-original-title="Bed Room">5</span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Living Room">2</span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Parking">2</span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Kitchen">1</span> </div>
-                <a class="btn btn-primary" href="property-detail.php">View Details</a>
-            </div>
-            <div class="properties">
-                <div class="image-holder"><img src="<?php echo base_url('assets/images/properties/2.jpg')?>" class="img-responsive" alt="properties"/></div>
-                <h4><a href="property-detail.php">Royal Inn</a></h4>
-                <p class="price">Price: $234,900</p>
-                <div class="listing-detail"><span data-toggle="tooltip" data-placement="bottom" data-original-title="Bed Room">5</span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Living Room">2</span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Parking">2</span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Kitchen">1</span> </div>
-                <a class="btn btn-primary" href="property-detail.php">View Details</a>
-            </div>
-            <div class="properties">
-                <div class="image-holder"><img src="<?php echo base_url('assets/images/properties/3.jpg')?>" class="img-responsive" alt="properties"/></div>
-                <h4><a href="property-detail.php">Royal Inn</a></h4>
-                <p class="price">Price: $234,900</p>
-                <div class="listing-detail"><span data-toggle="tooltip" data-placement="bottom" data-original-title="Bed Room">5</span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Living Room">2</span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Parking">2</span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Kitchen">1</span> </div>
-                <a class="btn btn-primary" href="property-detail.php">View Details</a>
-            </div>
-        </div>
-    </div>
-    <div class="spacer">
-        <div class="row">
-            <hr style="border: 0.150px solid darkgray;"/>
-            <div class="col-md-offset-1 col-md-10 recent-view text-center">
-                <h3>About Us</h3>
-                <p>The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.<br><a href="about.php">Learn More</a></p>
-            </div>
+
+            <?php
+            foreach($featured as $row){
+                echo
+                "
+                    <div class=\"properties\">
+                        <div class=\"image-holder\"><img src=\"<?php echo base_url('assets/images/properties/1.jpg')?>\" class=\"img-responsive\" alt=\"properties\"/>
+                            <div class=\"status <?php echo $row->status ?>\"><?php echo $row->status ?></div>
+                        </div>
+                        <h4><a href=\"<?php echo site_url('HomeDetails/'.$row->id_rmh)?>\"><?php echo $row->nm_rmh ?></a></h4>
+                        <p class=\"price\">Price: Rp<?php echo $row->harga?></p>
+                        <a class=\"btn btn-primary\" href=\"<?php echo site_url('HomeDetails/'/$row->id_rmh)?>\">View Details</a>
+                    </div>  
+                ";
+            }
+            ?>
+
         </div>
     </div>
 </div>
