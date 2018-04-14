@@ -16,14 +16,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 </div>
 
                 <div class="col-lg-3 col-sm-3">
-                    <h4>Newsletter</h4>
-                    <p>Get notified about the latest homes in our marketplace.</p>
-                    <form class="form-inline" role="form" action="<?php echo site_url('NewsLetter')?>">
-                        <input type="text" placeholder="Enter Your email address" class="form-control">
-                        <a class="btn btn-success" role="button" type="submit">Notify Me!</a></form>
-                </div>
-
-                <div class="col-lg-3 col-sm-3">
                     <h4>Follow us</h4>
                     <a href="#"><img src="<?php echo base_url('assets/images/facebook.png')?>" alt="facebook"></a>
                     <a href="#"><img src="<?php echo base_url('assets/images/twitter.png')?>" alt="twitter"></a>
@@ -31,15 +23,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <a href="#"><img src="<?php echo base_url('assets/images/instagram.png')?>" alt="instagram"></a>
                 </div>
 
-                <div class="col-lg-3 col-sm-3">
+                <div class="col-lg-3 col-sm-3 col-sm-offset-3">
                     <h4>Contact us</h4>
                     <p><b>NgontraKuy Inc.</b><br>
                         <span class="glyphicon glyphicon-map-marker"></span> 8290 Walk Street, Australia <br>
                         <span class="glyphicon glyphicon-envelope"></span> hello@bootstrapreal.com<br>
-                        <span class="glyphicon glyphicon-earphone"></span> (123) 456-7890</p>
+                        <span class="glyphicon glyphicon-earphone"></span> (123) 456-7890
+                    </p>
                 </div>
             </div>
-            <p class="copyright">Copyright 2013. All rights reserved.	</p>
+            <p class="copyright">Copyright NgontraKuy&copy;<?php echo date('Y')?>. All rights reserved.</p>
 
         </div>
     </div>
@@ -59,7 +52,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <label class="sr-only" for="exampleInputPassword2">Password</label>
                                 <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password" name="password">
                             </div>
-                            <a type="submit" role="button" class="btn btn-success">Sign in</a>
+                            <input type="submit" role="button" class="btn btn-success" value="Sign In"/>
                         </form>
                     </div>
                     <div class="col-sm-6">

@@ -41,8 +41,8 @@ $this->view('template/header');
                 <ul class="nav navbar-nav navbar-right">
                     <li class="active"><a href="<?php echo site_url()?>">Home</a></li>
                     <li><a href="<?php echo site_url() ?>">About</a></li>
-                    <li><a href="agents.php">Agents</a></li>
-                    <li><a href="contact.php">Contact Us</a></li>
+                    <li><a href="<?php echo site_url('Agents')?>">Agents</a></li>
+                    <li><a href="<?php echo site_url('ContactUs')?>">Contact Us</a></li>
                 </ul>
             </div>
             <!-- #Nav Ends -->
@@ -57,7 +57,7 @@ $this->view('template/header');
 
     <!-- Header Starts -->
     <div class="header">
-        <a href="index.php"><img src="<?php echo base_url('assets/images/logo.png')?>" alt="Realestate"></a>
+        <a href="<?php echo site_url()?>"><img src="<?php echo base_url('assets/images/logo.png')?>" alt="NgontraKuy"></a>
 
         <ul class="pull-right">
             <li><a href="#" data-toggle="modal" data-target="#loginpop">Login</a></li>
@@ -146,40 +146,39 @@ $this->view('template/header');
 <div class="banner-search">
     <div class="container">
         <!-- banner -->
-        <h3>Buy, Sale & Rent</h3>
+        <h3>Book your homes here</h3>
         <div class="searchbar">
             <div class="row">
                 <div class="col-lg-6 col-sm-6">
-                    <input type="text" class="form-control" placeholder="Search of Properties">
-                    <div class="row">
-                        <div class="col-lg-3 col-sm-3 ">
-                            <select class="form-control">
-                                <option>Buy</option>
-                                <option>Rent</option>
-                                <option>Sale</option>
-                            </select>
+                    <form action="<?php echo site_url('FindHomes')?>" method="post">
+                        <input type="text" class="form-control" placeholder="Search of Properties">
+                        <div class="row">
+                            <div class="col-lg-3 col-sm-3 ">
+                                <select class="form-control">
+                                    <option>Type</option>
+                                    <option value="furnished">Furnished</option>
+                                    <option value="unfurnished">Unfurnished</option>
+                                </select>
+                            </div>
+                            <div class="col-lg-3 col-sm-4">
+                                <select class="form-control">
+                                    <option>Price</option>
+                                    <option value="lo-hi">Lowest - Highest</option>
+                                    <option value="hi-lo">Highest - Lowest</option>
+                                </select>
+                            </div>
+                            <div class="col-lg-3 col-sm-4">
+                                <select class="form-control">
+                                    <option>Property</option>
+                                    <option value="cluster">Cluster</option>
+                                    <option value="complex">Complex</option>
+                                </select>
+                            </div>
+                            <div class="col-lg-3 col-sm-4">
+                                <input class="btn btn-success" role="button" type="submit" value="Find Now"/>
+                            </div>
                         </div>
-                        <div class="col-lg-3 col-sm-4">
-                            <select class="form-control">
-                                <option>Price</option>
-                                <option>$150,000 - $200,000</option>
-                                <option>$200,000 - $250,000</option>
-                                <option>$250,000 - $300,000</option>
-                                <option>$300,000 - above</option>
-                            </select>
-                        </div>
-                        <div class="col-lg-3 col-sm-4">
-                            <select class="form-control">
-                                <option>Property</option>
-                                <option>Apartment</option>
-                                <option>Building</option>
-                                <option>Office Space</option>
-                            </select>
-                        </div>
-                        <div class="col-lg-3 col-sm-4">
-                            <button class="btn btn-success"  onclick="window.location.href='buysalerent.php'">Find Now</button>
-                        </div>
-                    </div>
+                    </form>
                 </div>
                 <div class="col-lg-5 col-lg-offset-1 col-sm-6 ">
                 </div>
@@ -189,7 +188,7 @@ $this->view('template/header');
 </div>
 <!-- banner -->
 <div class="container">
-    <div class="properties-listing spacer"> <a href="buysalerent.php" class="pull-right viewall">View All Listing</a>
+    <div class="properties-listing spacer"> <a href="<?php echo site_url('AllHomes')?>" class="pull-right viewall">View All Listing</a>
         <h2>Featured Properties</h2>
         <div id="owl-example" class="owl-carousel">
             <div class="properties">
