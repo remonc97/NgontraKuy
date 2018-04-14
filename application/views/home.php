@@ -45,7 +45,6 @@ $this->view('template/header');
             <div class="navbar-collapse  collapse">
                 <ul class="nav navbar-nav navbar-right">
                     <li class="active"><a href="<?php echo site_url()?>" >Home</a></li>
-                    <li><a href="<?php echo site_url() ?>">About</a></li>
                     <li><a href="<?php echo site_url('Agents')?>">Agents</a></li>
                     <li><a href="<?php echo site_url('ContactUs')?>">Contact Us</a></li>
                     <li><a href="<?php echo site_url('About')?>">About</a></li>
