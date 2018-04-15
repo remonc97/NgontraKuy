@@ -52,6 +52,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     } );
     </script>
 
+    <script> 
+        window.setTimeout(function() {
+            $(".alert-success").fadeTo(500, 0).slideUp(500, function(){ $(this).remove(); });
+            $(".alert-danger").fadeTo(500, 0).slideUp(500, function(){ $(this).remove(); }); 
+        }, 3000); 
+    </script>
+
 
 </head>
 

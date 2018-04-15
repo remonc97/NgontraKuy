@@ -71,31 +71,53 @@ $this->view('template/header');
     <!-- #Header Starts -->
 </div>
 
-
 <div class="container-fluid">
   <div class="panel panel-default">
     <div class="panel-heading">
-        <button class="btn btn-default" style="background-color: #40ff00; color: white" data-toggle="modal" href="#" data-target="#entryPesanModal"><i class="fa fa-plus"></i> Buat Pesan Baru</button>
+        <button class="btn btn-default" style="background-color: #72b70f; color: white" data-toggle="modal" href="#" data-target="#entryPesanModal"><i class="fa fa-plus"></i> Buat Pesan Baru</button>
     </div>
+    <?php if($this->session->flashdata('pesan') == TRUE ) { ?>
+    <div class="row">
+      <div class="col-md-12">
+      <div class="alert alert-success fade in" id="alert">
+        <p><center><b><?php echo $this->session->flashdata('pesan') ?></b></center></p>
+      </div>
+    </div>
+    </div>
+    <?php } ?>
+
+    <?php if($this->session->flashdata('pesanGagal') == TRUE ) { ?>
+    <div class="row">
+      <div class="col-md-12">
+      <div class="alert alert-danger" id="alert">
+        <p><center><b><?php echo $this->session->flashdata('pesanGagal') ?></b></center></p>
+      </div>
+    </div>
+    </div>
+    <?php } ?>
         <div class="panel-body">
             <table style="table-layout:fixed" class="table table-striped table-bordered table-hover" id="datatablepesan">
             <thead>
             <tr>
+              <th align="center" width="50px">No.</th>
               <th>Tanggal Pesan</th>
               <th>Jenis Pesan</th>
               <th>Status</th>
-              <th>Lihat Pesan</th>
-              <th>Hapus Pesan</th>
+              <th width="225px">Action</th>
             </tr>
               </thead>
               <tbody>
                 <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><a href="#modalLihatPesan<?php ?>" class="btn btn-warning btn-circle" id="lihatPesan" data-toggle="modal"><span class="glyphicon glyphicon-eye-open"></span> </a></td>
-                    <td><a href="#modalHapusPesan<?php ?>" class="btn btn-danger btn-circle" id="hapusPesan" data-toggle="modal"><span class="glyphicon glyphicon-trash"></span> </a></td>
+                    <?php $no=1; ?>
+                    <?php foreach($detilPesan as $data){?>
+                    <td align="center"><?php echo $no ?></td>
+                    <td><?php echo $data->tglpesan;?></td>
+                    <td><?php echo $data->jenispesan;?></td>
+                    <td><span class="label label-success"><?php echo $data->status;?></span></td>
+                    <td><a href="#detilPesanModal<?php echo $data->idpesan ?>" class="btn btn-default btn-circle" style="background-color: #1ac6ff; color: white" id="lihatPesan" data-toggle="modal"><span class="glyphicon glyphicon-eye-open"></span> Lihat Pesan </a>
+                    <a href="#hapusPesanModal<?php echo $data->idpesan ?>" class="btn btn-danger btn-circle" id="hapusPesan" data-toggle="modal"><span class="glyphicon glyphicon-trash"></span> Hapus Pesan</a></td>
                 </tr>
+                <?php $no++; } ?>
               </tbody>
             </table>
         </div>
