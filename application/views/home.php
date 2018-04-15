@@ -67,6 +67,9 @@ $this->view('template/header');
         <ul class="pull-right">
             <li style="margin-top: 20px"><a href="#" style="font-family: 'Ubuntu', sans-serif;" data-toggle="modal" data-target="#loginpop">Login</a></li>
         </ul>
+		<ul class="pull-right">
+            <li style="margin-top: 20px"><a href="#" style="font-family: 'Ubuntu', sans-serif;" data-toggle="modal" data-target="#loginpop">Tambah Kosan</a></li>
+        </ul>
     </div>
     <!-- #Header Starts -->
 </div>
