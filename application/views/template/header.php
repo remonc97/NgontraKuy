@@ -37,6 +37,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
     <!-- Ditambah Zacky -->
     <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
     <!-- Datatables -->
     <link rel="stylesheet" href="<?php echo base_url('/assets/datatables/dataTables.bootstrap.css')?>">
     <link rel="stylesheet" href="<?php echo base_url('/assets/datatables/dataTables.bootstrap.min.css')?>">
@@ -45,6 +47,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <script src="<?php echo base_url('/assets/datatables/jquery.dataTables.min.js')?>"></script>
     <script src="<?php echo base_url('/assets/datatables/dataTables.bootstrap.min.js')?>"></script>
     <script src="<?php echo base_url('/assets/datatables/dataTables.bootstrap.js')?>"></script>
+    <script src="<?php echo base_url('/assets/bootstrap/js/bootstrap.min.js')?>"></script>
 
     <script type="text/javascript">
     $(document).ready( function () {

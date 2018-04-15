@@ -1,4 +1,4 @@
- <!-- detil modal Barang -->
+ <!-- detil modal Pesan -->
 <?php foreach($detilPesan as $data){?>
 <div class="modal fade" tabindex="-1" id="detilPesanModal<?php echo $data->idpesan ?>" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">

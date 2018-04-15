@@ -27,7 +27,7 @@ class M_Inbox extends CI_Model {
 
   public function detilPesan()
   {
-    $result = $this->db->query("SELECT * FROM user,pesan WHERE user.iduser = pesan.iduser;");
+    $result = $this->db->query("SELECT * FROM user,pesan WHERE user.iduser = pesan.iduser");
     return $result->result();
   }
 
@@ -37,10 +37,34 @@ class M_Inbox extends CI_Model {
     return $result->result();
   }
 
+  public function getIsi($iduser)
+  {
+    $result = $this->db->query("SELECT tglpesan,isi from pesan where iduser = '".$iduser."'");
+    return $result->result();
+  }
+
+  public function getMerge()
+  {
+    $result = $this->db->query("SELECT * FROM user,pesan WHERE user.iduser = pesan.iduser and auth = 2 group by user.iduser");
+    return $result->result();
+  }  
+
+  public function getCustomer()
+  {
+    $result = $this->db->query("SELECT * FROM user,pesan WHERE user.iduser = pesan.iduser and auth = 2");
+    return $result->result();
+  }
+
   public function deletePesan($id)
   {
     $this->db->where('idpesan', $id);
      $this->db->delete('pesan');
+  }
+
+  public function prosesPesan($idpesan,$data)
+  {
+    $this->db->where('iduser',$idpesan);
+    $this->db->update('pesan',$data);
   }
 
 }
