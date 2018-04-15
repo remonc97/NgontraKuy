@@ -6,7 +6,16 @@
  * Time: 9:30
  */
 
-class User
+class User extends CI_Model
 {
-
+    public function ceklogin($db){
+        return $this->db->where('email',$db['email'])->where('password',$db['password'])->get('user')->row();
+    }
+    public function ceksession(){
+        if($this->session->userdata('email') != null){
+            return true;
+        }else{
+            return false;
+        }
+    }
 }
