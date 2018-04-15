@@ -182,7 +182,7 @@ $this->view('template/footer');
 ?>
 <script type="text/javascript">
     $(document).ready(function(){
-        if(<?php echo json_encode(($this->session->flashdata('successbook')) ?> == 'true'){
+        if(<?php echo json_encode(($this->session->flashdata('successbook'))) ?> == 'true'){
             alert('book request submitted. check your inbox frequently for book confirmation message from the owner');
         }
     }
