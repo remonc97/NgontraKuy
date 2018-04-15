@@ -34,6 +34,25 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             font-family: 'Ubuntu', sans-serif;
         }
     </style>
+
+    <!-- Ditambah Zacky -->
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Datatables -->
+    <link rel="stylesheet" href="<?php echo base_url('/assets/datatables/dataTables.bootstrap.css')?>">
+    <link rel="stylesheet" href="<?php echo base_url('/assets/datatables/dataTables.bootstrap.min.css')?>">
+    <link rel="stylesheet" href="<?php echo base_url('/assets/datatables/jquery.dataTables.css')?>">
+    <link rel="stylesheet" href="<?php echo base_url('/assets/datatables/jquery.dataTables.min.css')?>">
+    <script src="<?php echo base_url('/assets/datatables/jquery.dataTables.min.js')?>"></script>
+    <script src="<?php echo base_url('/assets/datatables/dataTables.bootstrap.min.js')?>"></script>
+    <script src="<?php echo base_url('/assets/datatables/dataTables.bootstrap.js')?>"></script>
+
+    <script type="text/javascript">
+    $(document).ready( function () {
+        $('#datatablepesan').DataTable();
+    } );
+    </script>
+
+
 </head>
 
 <body>
