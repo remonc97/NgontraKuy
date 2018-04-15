@@ -81,6 +81,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							<div class="form-group">
 								<label for="dayatampung">Daya Tampung:</label>
 								<select class="form-control" id="dayatampung" name="dayatampung">
+									<option selected>Choose...</option>
 									<option>1</option>
 									<option>2</option>
 									<option>3</option>
@@ -116,6 +117,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								<label><input type="checkbox" value="">Dapur</label>
 							</div>
 							</div>
+							
+							<label class="custom-file">Pilih Gambar
+								<input type="file" id="gambar" name="gambar" class="custom-file-input">
+								<span class="custom-file-control"></span>
+							</label>
 							<br>
                             <input type="submit" role="button" class="btn btn-success" value="Create"/>
                         </form>
