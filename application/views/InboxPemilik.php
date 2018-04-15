@@ -117,16 +117,18 @@ $this->view('template/header');
                     <td><?php echo $data->jenispesan;?></td>
                     <td>
                         <?php if($data->status == "Submitted") { ?>
-                        <span class="label label-success"><?php echo $data->status;?></span>
-                        <?php } else { ?>
+                        <span class="label label-primary"><?php echo $data->status;?></span>
+                        <?php } if($data->status == "On Process") { ?>
                         <span class="label label-danger"><?php echo $data->status;?></span>
+                        <?php } if($data->status == "Solved") { ?>
+                        <span class="label label-success"><?php echo $data->status;?></span>
                         <?php } ?>
                     </td>
                     <td>
                         <a href="#detilPesanModal<?php echo $data->idpesan ?>" class="btn btn-default btn-circle" id="lihatPesan" data-toggle="modal"><i class="glyphicon glyphicon-envelope"></i> Lihat Pesan </a>
                         <a href="#balasPesanModal<?php echo $data->idpesan ?>" class="btn btn-default btn-circle" style="background-color: #1ac6ff; color: white" id="lihatPesan" data-toggle="modal"><i class="glyphicon glyphicon-send"></i> Balas Pesan </a>
                         <a href="#prosesPesanModal<?php echo $data->iduser ?>" class="btn btn-danger btn-circle" id="prosesPesan" data-toggle="modal"><i class="fa fa-gears"></i> Proses </a>
-                        <a href="#prosesPesanModal<?php echo $data->idpesan ?>" class="btn btn-default btn-circle" style="background-color: #72b70f; color: white" id="hapusPesan" data-toggle="modal"><span class="glyphicon glyphicon-ok"></span> Selesai</a></td>
+                        <a href="#solvePesanModal<?php echo $data->idpesan ?>" class="btn btn-default btn-circle" style="background-color: #72b70f; color: white" id="solvePesan" data-toggle="modal"><span class="glyphicon glyphicon-ok"></span> Selesai</a></td>
                 </tr>
                 <?php $no++; } ?>
               </tbody>

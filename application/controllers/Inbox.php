@@ -48,6 +48,7 @@ class Inbox extends CI_Controller {
 	    $this->load->view('modalInbox/pemilik/LihatPesan',$data);
 	    $this->load->view('modalInbox/pemilik/balasPesan',$data);
 	    $this->load->view('modalInbox/pemilik/prosesPesan',$data);
+	    $this->load->view('modalInbox/pemilik/solvePesan',$data);
 	    $this->load->view('template/footer');
 	}
 
@@ -103,6 +104,28 @@ class Inbox extends CI_Controller {
 		$idpesan = $this->input->post('iduser');
 
 		$status = "On Process";
+
+		$data = array(
+			'status' => $status
+		);
+
+		$result = $this->M_Inbox->prosesPesan($idpesan,$data);
+
+		$data = NULL;
+		if (!$result){
+			$this->session->set_flashdata('pesan','Pesan Berhasil Diproses');
+	   		redirect('Inbox');
+		}else{
+			$this->session->set_flashdata('pesanGagal','Pesan Tidak Berhasil Diproses');
+    		redirect('Inbox');
+		}	
+	}
+
+	public function solvePesan()
+	{
+		$idpesan = $this->input->post('iduser');
+
+		$status = "Solved";
 
 		$data = array(
 			'status' => $status

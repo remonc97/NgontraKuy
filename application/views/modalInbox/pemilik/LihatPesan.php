@@ -26,9 +26,11 @@
                 <td>Status</td>
                 <td>:</td>
                 <?php if($data->status == "Submitted") {?>
-                <td style="text-transform:capitalize;"><span class="label label-success"><?php echo $data->status;?></span>
-                <?php } else { ?>
+                <td style="text-transform:capitalize;"><span class="label label-primary"><?php echo $data->status;?></span>
+                <?php } if($data->status == "On Process") { ?>
                 <td style="text-transform:capitalize;"><span class="label label-danger"><?php echo $data->status;?></span>
+                <?php } if($data->status == "Solved") { ?>
+                <td style="text-transform:capitalize;"><span class="label label-success"><?php echo $data->status;?></span>
                 <?php } ?>
               </td>
               </tr>
