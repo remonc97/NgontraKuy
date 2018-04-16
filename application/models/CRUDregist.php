@@ -42,7 +42,7 @@ class user_model extends CI_Model
 		
 		try{
 			$this->db->where('iduser',$id);
-			$this->db->update('user',$data);
+			$this->db->update('user', $data);
 			$checkupdate = true;
 		}catch (Exception $ex) {
 			$checkupdate = false;

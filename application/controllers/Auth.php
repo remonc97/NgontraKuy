@@ -109,7 +109,7 @@ class Wikipedia extends CI_Controller {
 	
 	public function InsetData(){
 		$nama = $this->input->post('nama');
-		$email = $this->input->post('email');
+		//$email = $this->input->post('email');
 		$tgllahir = $this->input->post('tgllahir');
 		$notelp = $this->input->post('notelp');
 		
