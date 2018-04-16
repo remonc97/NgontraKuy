@@ -66,5 +66,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         </div>
     </div>
     <!-- /.modal -->
+	<!--BeginModal View-->
+
+	<!--End Modal View-->
 </body>
 </html>

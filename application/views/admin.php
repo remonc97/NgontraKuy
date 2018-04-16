@@ -57,14 +57,16 @@ $this->view('template/header');
 					<th class="center">E-mail</th>
 					<th class="center">Nama</th>
 					<th class="center">Auth</th>
+					<th class="center">Action</th>
 				</tr>
 				</thead>
 				<tbody>
 				<?php foreach($all as $user) {?>
 				<tr>
-					<td><?php echo $user->email;?></td>
-					<td><?php echo $user->nama;?></td>
-					<td><?php echo $user->auth;?></td>
+					<td class="center"><?php echo $user->email;?></td>
+					<td class="center"><?php echo $user->nama;?></td>
+					<td class="center"><?php echo $user->auth;?></td>
+					<td class="center"><a data-toggle="modal" data-target="#viewpop" type="button" class="btn btn-default" style="background-color: aquamarine;"><b>View</b></a> | <a href="#" type="button" class="btn btn-warning"><b>Edit</b></a> | <a href="#" type="button" class="btn btn-danger"><b>Delete</b></a></td>
 				</tr>
 				<?php } ?>
 				</tbody>
@@ -84,7 +86,26 @@ $this->view('template/header');
 		</div>
 	</div>
 </div>
+<div id="viewpop" class="modal fade">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="row">
+				<div class="col-md-12">
+<!--					--><?php //echo base_url('getuser')?>
+					<!--						<form action="">-->
+					<h3>Data <?php echo $oneuser->email;?></h3>
+					<ul>
+						<li>a</li>
+						<li>a</li>
+						<li>a</li>
+					</ul>
+					<!--						</form>-->
+				</div>
 
+			</div>
+		</div>
+	</div>
+</div>
 <?php
 #include footer file
 $this->view('template/footer');

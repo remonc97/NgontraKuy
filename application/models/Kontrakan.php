@@ -15,4 +15,8 @@ class Kontrakan extends CI_Model
     	$hasil = $this->db->get('user');
     	return $hasil->result();
 	}
+	public function get1User($id){
+    	$hasil = $this->db->get('user')->where('iduser', $id);
+    	return $hasil->row();
+    }
 }
