@@ -109,6 +109,7 @@ class Wikipedia extends CI_Controller {
 	
 	public function InsetData(){
 		$nama = $this->input->post('nama');
+		$email = $this->input->post('email');
 		$tgllahir = $this->input->post('tgllahir');
 		$notelp = $this->input->post('notelp');
 		
@@ -125,6 +126,7 @@ class Wikipedia extends CI_Controller {
 		}else{
 			echo json_encode(array('Gagal' => false));
 		}
+		
 	
 	}
 	
