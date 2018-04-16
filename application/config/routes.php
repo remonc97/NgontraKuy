@@ -60,4 +60,4 @@ $route['NewsLetter'] = '';
 $route['AllHomes'] = '';
 
 $route['Register'] = '';
-$route['Login'] = 'Auth/login';
+$route['Login'] = 'Regist/login';

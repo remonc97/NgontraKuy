@@ -35,7 +35,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <p class="copyright">Copyright NgontraKuy&copy;<?php echo date('Y')?>. All rights reserved.</p>
 
         </div>
-    </div>
+    
+	</div>
     <!-- Modal -->
     <div id="loginpop" class="modal fade">
         <div class="modal-dialog">
@@ -58,7 +59,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <div class="col-sm-6">
                         <h4>New User Sign Up</h4>
                         <p>Join today and book homes of your dream.</p>
-                        <a href="<?php echo site_url('Register')?>" role="button" class="btn btn-info" >Join Now</a>
+                        <a href="<?php echo blink('Home/regis')?>" role="button" class="btn btn-info" >Join Now</a>
                     </div>
 
                 </div>

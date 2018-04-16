@@ -1,8 +1,9 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 #include header file
-$this->view('template/header');
+	$this->view('template/header'); 
 ?>
+
 <style>
     .bg-img-1 {
         background-image: url(<?php echo base_url('assets/images/slider/1.jpg')?>);
@@ -83,7 +84,20 @@ $this->view('template/header');
                     <blockquote style="font-family:'Ubuntu', sans-serif">
                         <br/><br/>
                         <p>Pengen jalan-jalan tapi nginep di hotel terlalu mahal?<br/>Mending ngontrak aja!</p><br/>
-                        <a class="btn btn-success" role="button" href="<?php echo site_url('Register')?>">Join Now</a>
+						
+						
+						<!--<button class="btn btn-success"   data-toggle="modal" data-target="#loginpop">Join Now</button> -->
+						<!--
+						<button type="submit" class="btn btn-success uppercase" href="<//?php echo site_url('views/register')?>">Join Now</button>
+						-->
+						
+						<!--<ul class="pull-right">
+						<a href="#" style="font-family: 'Ubuntu', sans-serif;" data-toggle="modal" data-target="#registerpop">Join Now</a></li>
+						</ul>
+						-->
+						
+						
+                        <a class="btn btn-success" role="button" href="<?php echo blink('Home/regis')?>">Join Now</a>
                     </blockquote>
                 </div>
             </div>
