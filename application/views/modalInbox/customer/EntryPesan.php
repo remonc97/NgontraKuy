@@ -32,9 +32,13 @@
           </select> 
         </div>
 
+        <div class="form-group"><label>Subject</label>
+          <input required class="form-control required text-capitalize" data-placement="top" data-trigger="manual" type="text" name="subject">
+        </div>
+
         <div class="form-group"><label>Isi Pesan</label>
           <textarea name="isipesan" class="form-control"></textarea>
-        </div>
+        </div>        
 
       </div>
         <div class="modal-footer">

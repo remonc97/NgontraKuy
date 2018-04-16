@@ -127,8 +127,12 @@ $this->view('template/header');
                     <td>
                         <a href="#detilPesanModal<?php echo $data->idpesan ?>" class="btn btn-default btn-circle" id="lihatPesan" data-toggle="modal"><i class="glyphicon glyphicon-envelope"></i> Lihat Pesan </a>
                         <a href="#balasPesanModal<?php echo $data->idpesan ?>" class="btn btn-default btn-circle" style="background-color: #1ac6ff; color: white" id="lihatPesan" data-toggle="modal"><i class="glyphicon glyphicon-send"></i> Balas Pesan </a>
+                        <?php if($data->status != "On Process" && $data->status != "Solved") { ?>
                         <a href="#prosesPesanModal<?php echo $data->iduser ?>" class="btn btn-danger btn-circle" id="prosesPesan" data-toggle="modal"><i class="fa fa-gears"></i> Proses </a>
+                        <?php } ?>
+                        <?php if($data->status != "Solved") { ?>
                         <a href="#solvePesanModal<?php echo $data->idpesan ?>" class="btn btn-default btn-circle" style="background-color: #72b70f; color: white" id="solvePesan" data-toggle="modal"><span class="glyphicon glyphicon-ok"></span> Selesai</a></td>
+                        <?php } ?>
                 </tr>
                 <?php $no++; } ?>
               </tbody>

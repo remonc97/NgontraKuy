@@ -14,7 +14,7 @@ foreach($pesan as $data){ ?>
         <form class="" action="<?php echo site_url('Inbox/solvePesan') ?>" method="post">
           <input type='hidden' value='<?php echo $data->iduser?>' name='iduser'>
             <button type='button' class='btn btn-default' data-dismiss='modal'>Batal</button>
-            <button class='btn btn-danger' aria-label='Proses' type='submit' name='hapus'><span class="glyphicon glyphicon-ok"></span> Proses</button>
+            <button class='btn btn-default' style="background-color: #72b70f; color: white" aria-label='Proses' type='submit' name='hapus'><span class="glyphicon glyphicon-ok"></span> Selesai</button>
         </form>
       </div>
     </div>
