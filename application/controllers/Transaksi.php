@@ -10,14 +10,14 @@ class Transaksi extends CI_Controller
 {
     #nampilin form untuk booking
     public function formbooking(){
-        $key = explode("+",$this->uri->segment(2));
+        $key = explode("_",$this->uri->segment(2));
         $data['idbooking'] = $key[0];
         $data['idrumah'] = $key[1];
         $this->load->view('formbooking',$data);
     }
     #proses request book kontrakan
     public function requestbooking(){
-        $key = explode("+",$this->uri->segment(3));
+        $key = explode("_",$this->uri->segment(3));
         $data = array(
             'idbooking' => $key[0],
             'iduser' => $this->session->userdata('iduser'),
