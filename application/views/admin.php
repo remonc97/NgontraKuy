@@ -54,27 +54,19 @@ $this->view('template/header');
 			<table class="table table-striped table-bordered table-hover">
 				<thead>
 				<tr>
-					<th class="center">aaa</th>
-					<th class="center">aaa</th>
-					<th class="center">aaa</th>
+					<th class="center">E-mail</th>
+					<th class="center">Nama</th>
+					<th class="center">Auth</th>
 				</tr>
 				</thead>
 				<tbody>
+				<?php foreach($all as $user) {?>
 				<tr>
-					<td>a</td>
-					<td>a</td>
-					<td>a</td>
+					<td><?php echo $user->email;?></td>
+					<td><?php echo $user->nama;?></td>
+					<td><?php echo $user->auth;?></td>
 				</tr>
-				<tr>
-					<td>b</td>
-					<td>b</td>
-					<td>b</td>
-				</tr>
-				<tr>
-					<td>c</td>
-					<td>c</td>
-					<td>c</td>
-				</tr>
+				<?php } ?>
 				</tbody>
 			</table>
 		</div>

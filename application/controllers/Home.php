@@ -2,6 +2,11 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Home extends CI_Controller {
+	public function __construct()
+	{
+		parent::__construct();
+		$this->load->model('Kontrakan');
+	}
 
 	public function index()
 	{
@@ -10,6 +15,7 @@ class Home extends CI_Controller {
 	}
 	public function Admin()
 	{
-		$this->load->view('admin');
+		$data['all'] = $this->Kontrakan->getUser();
+		$this->load->view('admin',$data);
 	}
 }
