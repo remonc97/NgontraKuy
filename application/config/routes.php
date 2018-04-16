@@ -59,5 +59,5 @@ $route['ContactUs'] = '';
 $route['NewsLetter'] = '';
 $route['AllHomes'] = '';
 
-$route['Register'] = '';
+$route['Register'] = 'Home/Admin';
 $route['Login'] = 'Auth/login';

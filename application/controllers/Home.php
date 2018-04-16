@@ -8,4 +8,8 @@ class Home extends CI_Controller {
 	    $data['featured'] = $this->Kontrakan->getFeatured();
 		$this->load->view('home',$data);
 	}
+	public function Admin()
+	{
+		$this->load->view('admin');
+	}
 }
