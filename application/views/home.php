@@ -161,12 +161,12 @@ $this->view('template/header');
                 echo
                 "
                     <div class=\"properties\">
-                        <div class=\"image-holder\"><img src=\"<?php echo base_url('assets/images/properties/1.jpg')?>\" class=\"img-responsive\" alt=\"properties\"/>
+                        <div class=\"image-holder\"><img src=".base_url('assets/images/properties/1.jpg')." class=\"img-responsive\" alt=\"properties\"/>
                             <div class=\"status <?php echo $row->status ?>\"><?php echo $row->status ?></div>
                         </div>
-                        <h4><a href=\"<?php echo site_url('HomeDetails/'.$row->id_rmh)?>\"><?php echo $row->nm_rmh ?></a></h4>
-                        <p class=\"price\">Price: Rp<?php echo $row->harga?></p>
-                        <a class=\"btn btn-primary\" href=\"<?php echo site_url('HomeDetails/'/$row->id_rmh)?>\">View Details</a>
+                        <h4><a href=".site_url('HomeDetails/'.$row->idrumah).">".$row->nmrumah."</a></h4>
+                        <p class=\"price\">Price: Rp".$row->harga."</p>
+                        <a class='btn btn-primary' href=".site_url('HomeDetails/'.$row->idrumah).">View Details</a>
                     </div>  
                 ";
             }
