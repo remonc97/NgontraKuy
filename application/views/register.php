@@ -56,11 +56,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<div class="form-group">
 			<input class="form-control placeholder-no-fix" type="number" placeholder="Phone Number" name="notelp"/>
 		</div>
-		<div class="form-group">
-			<input class="form-control placeholder-no-fix" type="text" placeholder="Address" name="address"/>
-		</div>
-		
-		
+				
 		<p class="hint">
 			 Enter your account details below:
 		</p>
@@ -77,7 +73,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		
 		
 		<div class="form-actions">
-			<input type="submit" id="register-submit-btn" class="btn btn-success uppercase pull-right" value="register" role="button">
+			<input type="submit" id="register-submit-btn" class="btn btn-success uppercase pull-right" value="Register" role="button">
 		</div>
 	</form>
 

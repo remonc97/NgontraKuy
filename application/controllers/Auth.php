@@ -1,6 +1,3 @@
-
-
-
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 class Auth extends CI_Controller {
@@ -28,7 +25,6 @@ class Auth extends CI_Controller {
 	}
 	
 	
-
 	//Buat View
 	public function index()
 	{
@@ -36,12 +32,6 @@ class Auth extends CI_Controller {
 			redirect('');
 		}
 		
-		$menu = array(
-			"crudbiasa" => "active",
-			"crudjson" => "",
-			"crudvalidaiton" => ""
-		);
-
 		$alluser = $this->CRUDregist->getAlluser();
 		$nama = $this->session->nama;
 		$auth = $this->session->auth;
@@ -49,6 +39,9 @@ class Auth extends CI_Controller {
 		$data['datauser'] = $alluser;
 		$data['menu'] = $menu;
 		$data['auth'] = $auth;
+		
+		//$data['autoid'] = $this->CRUDregist->buat_kode();
+		
 		$this->load->view('Home',$data);
 	}
 
@@ -57,12 +50,6 @@ class Auth extends CI_Controller {
 			redirect('');	
 		}
 		
-		$menu = array(
-			"crudbiasa" => "active",
-			"crudjson" => "",
-			"crudvalidaiton" => ""
-		
-		);
 		$nama = $this->session->nama;
 		$auth = $this->session->auth;
 		$data['nama'] = $nama;
@@ -85,7 +72,7 @@ class Auth extends CI_Controller {
 		$data = array(
 		'nama' =>$nama,
 		'email' =>$email,
-		'password' =>$password,
+		'password'=> md5($password),
 		'tgllahir'=> $tgllahir,		
 		'notelp'=>$notelp
 		);
@@ -103,12 +90,7 @@ class Auth extends CI_Controller {
 		if($this->session->name==NULL){
 			redirect('');	
 		}
-		$menu = array(
-			"crudbiasa" => "active",
-			"crudjson" => "",
-			"crudvalidaiton" => ""
 		
-		);
 		$nama = $this->session->name;
 		$auth = $this->session->auth;		
 		$result = $this->CRUDregis->getUser($id);
@@ -133,7 +115,7 @@ class Auth extends CI_Controller {
 		$data = array(
 		'nama' => $nama,
 		'email' => $email,
-		'password' => $password,
+		'password'=> md5($password),
 		'tgllahir'=>$tgllahir,
 		'notelp' =>$notelp
 		);
@@ -153,15 +135,10 @@ class Auth extends CI_Controller {
 		if($this->session->name==NULL){
 			redirect('');	
 		}
-		$menu = array(
-			"crudbiasa" => "active",
-			"crudjson" => "",
-			"crudvalidaiton" => ""
-		);
 		
 		$nama = $this->session->name;
 		$auth = $this->session->auth;
-		$result = $this->WikipediaModel->getBuku($id);
+		$result = $this->CRUDregist->getUser($id);
 		
 		$data['data'] = $result;
 		$data['nama'] = $nama;
@@ -171,6 +148,7 @@ class Auth extends CI_Controller {
 	}
 	*/
 	
+	
 	public function DeleteData($id){
 		$result = $this->CRUDregist->DeleteUser($id);
 		if ($result){
@@ -179,7 +157,7 @@ class Auth extends CI_Controller {
 		}
 	}
 	
-
+	/*
 	public function authnodatabase(){
 		
 		$email = $this->input->post('email');
@@ -239,6 +217,8 @@ class Auth extends CI_Controller {
 		//redirect to default controller and index function
 		//$this->load->view('Login2');			
 	}
+	
+*/
 	
 	public function ShowSession(){
 		
