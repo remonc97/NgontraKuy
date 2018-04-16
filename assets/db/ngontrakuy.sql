@@ -18,6 +18,7 @@ nmkontrakan varchar(100) not null,
 notelp varchar(14),
 deskripsi text, #penjelasan tentang kontrakan tsb
 alamat text,
+gambar text,
 foreign key(iduser) references user(iduser)
 );
 
