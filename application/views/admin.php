@@ -61,60 +61,13 @@ $this->view('template/header');
 			</table>
 		</div>
 		<div class="col-lg-4 visible-lg">
-			<div class="tabbable">
-				<ul class="nav nav-tabs">
-					<li class=""><a href="#tab1" data-toggle="tab">Recent Post</a></li>
-					<li class=""><a href="#tab2" data-toggle="tab">Most Popular</a></li>
-					<li class="active"><a href="#tab3" data-toggle="tab">Most Commented</a></li>
-				</ul>
-				<div class="tab-content">
-					<div class="tab-pane" id="tab1">
-						<ul class="list-unstyled">
-							<li>
-								<h5><a href="blogdetail.php">Real estate marketing growing</a></h5>
-								<div class="info">Posted on: Jan 20, 2013</div>
-							</li>
-							<li>
-								<h5><a href="blogdetail.php">Real estate marketing growing</a></h5>
-								<div class="info">Posted on: Jan 20, 2013</div>
-							</li>
-							<li>
-								<h5><a href="blogdetail.php">Real estate marketing growing</a></h5>
-								<div class="info">Posted on: Jan 20, 2013</div>
-							</li>
-						</ul>
-					</div>
-					<div class="tab-pane" id="tab2">
-						<ul  class="list-unstyled">
-							<li>
-								<h5><a href="blogdetail.php">Market update on new apartments</a></h5>
-								<div class="info">Posted on: Jan 20, 2013</div>
-							</li>
-
-							<li>
-								<h5><a href="blogdetail.php">Market update on new apartments</a></h5>
-								<div class="info">Posted on: Jan 20, 2013</div>
-							</li>
-
-							<li>
-								<h5><a href="blogdetail.php">Market update on new apartments</a></h5>
-								<div class="info">Posted on: Jan 20, 2013</div>
-							</li>
-						</ul>
-					</div>
-					<div class="tab-pane active" id="tab3">
-						<ul class="list-unstyled">
-							<li>
-								<h5><a href="blogdetail.php">Creative business to takeover the market</a></h5>
-								<div class="info">Posted on: Jan 20, 2013</div>
-							</li>
-
-							<li>
-								<h5><a href="blogdetail.php">Creative business to takeover the market</a></h5>
-								<div class="info">Posted on: Jan 20, 2013</div>
-							</li>
-						</ul>
-					</div>
+			<div class="panel panel-default">
+				<div class="panel-heading">News</div>
+				<div class="panel-body">
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate.
+				</div>
+				<div class="text-center">
+					<a href="#"><i class="fa fa-plus"></i>Full Story</a>
 				</div>
 			</div>
 		</div>
