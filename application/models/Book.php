@@ -6,7 +6,7 @@
  * Time: 15:07
  */
 
-class Book
+class Book extends CI_Model
 {
 
 }
