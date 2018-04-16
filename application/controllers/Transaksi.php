@@ -16,6 +16,7 @@ class Transaksi extends CI_Controller
             $data['nama'] = $this->session->userdata('nama');
             $data['idbooking'] = $this->Book->makeID();
             $data['idrumah'] = $key;
+            $data['rumah'] = $this->Kontrakan->getOne($data['idrumah']);
             $this->load->view('formbooking', $data);
         }
     }

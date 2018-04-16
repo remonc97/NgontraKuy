@@ -183,7 +183,7 @@ $this->view('template/header');
                             </tr>
                             <tr>
                                 <td>&nbsp;</td>
-                                <td>&nbsp;</td>
+                                <td><?php echo (!isset($rumah->nmkontrakan)) ? '': $rumah->nmkontrakan?></td>
                             </tr>
                             <tr>
                                 <td>2.&nbsp;&nbsp;</td>
@@ -191,7 +191,7 @@ $this->view('template/header');
                             </tr>
                             <tr>
                                 <td>&nbsp;</td>
-                                <td>&nbsp;</td>
+                                <td><?php echo (!isset($rumah->alamat)) ? '': $rumah->alamat?></td>
                             </tr>
                             <tr>
                                 <td>3.&nbsp;&nbsp;</td>
@@ -199,11 +199,15 @@ $this->view('template/header');
                             </tr>
                             <tr>
                                 <td>&nbsp;</td>
-                                <td>&nbsp;</td>
+                                <td><?php echo (!isset($rumah->notelp)) ? '': $rumah->notelp?></td>
                             </tr>
                             <tr>
                                 <td>4.&nbsp;&nbsp;</td>
                                 <td>Kontrakan Fee&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td>&nbsp;</td>
+                                <td><?php echo (!isset($rumah->harga)) ? '': $rumah->harga?></td>
                             </tr>
                         </table>
                     </div>
