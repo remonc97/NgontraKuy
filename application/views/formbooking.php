@@ -99,17 +99,138 @@ $this->view('template/header');
 
 <div class="container">
     <div class="spacer">
+        <?php echo form_open(site_url('Booking/proses/'.$this->input->post('idbooking').'_'.$this->input->post('idrumah')))?>
         <div class="row">
             <div class="col-lg-7 col-sm-7 ">
-                <?php echo form_open(site_url('Booking/proses/'.$this->input->post('idbooking').'_'.$this->input->post('idrumah')))?>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="idbooking">Booking ID</label>
+                            <input type="text" id="idbooking" name="idbooking" class="form-control" readonly value="<?php echo (!isset($idbooking)) ? '': $idbooking ?>">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="bookingdate">Booking Date</label>
+                            <input type="date" id="bookingdate" name="tglbooking" class="form-control" value="<?php echo date('Y-m-d')?>">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
 
-                <?php echo form_close()?>
-            </div>
-
-            <div class="col-lg-5 col-sm-5">
-
+                </div>
             </div>
         </div>
+        <div class="row">
+            <hr style="border: 1px solid darkgray"/>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 col-sm-6">
+                <div class="row">
+                    <div class="col-md-12">
+                        <br/>
+                        <p style="font-size:14pt">
+                            Tenant Information
+                        </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="name">Tenant Name</label>
+                            <input type="text" id="name" name="nama" class="form-control" value="<?php echo $nama ?>">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="number">Phone No.</label>
+                            <input type="text" id="number" name="notelp" class="form-control">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="cekin">Check In Date</label>
+                            <input type="date" id="cekin" name="tglcheckin" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="cekout">Check Out Date</label>
+                            <input type="date" id="cekout" name="tglcheckout" class="form-control">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-5 col-sm-5 col-sm-offset-1 col-lg-offset-1">
+                <div class="row">
+                    <div class="col-md-12">
+                        <br/>
+                        <p style="font-size:14pt">
+                            Kontrakan Information
+                        </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <table style="background-color:transparent;font-size: 12pt">
+                            <tr>
+                                <td>1.&nbsp;&nbsp;</td>
+                                <td>Kontrakan Name&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td>2.&nbsp;&nbsp;</td>
+                                <td>Kontrakan Address&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td>3.&nbsp;&nbsp;</td>
+                                <td>Kontrakan Phone No.&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td>4.&nbsp;&nbsp;</td>
+                                <td>Kontrakan Fee&nbsp;</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <br/>
+                <div class="checkbox">
+                    <label style="font-size: 12pt">
+                        <input type="checkbox" name="agree"> by clicking this, you, the new Tenant, will follow the terms and conditions
+                        in NgontraKuy.
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <input type="submit" role="button" class="btn btn-primary" name="book" value="Book Now!">
+            </div>
+        </div>
+        <?php echo form_close()?>
     </div>
 </div>
+<?php
+#include footer file
+$this->view('template/footer');
+?>
 
