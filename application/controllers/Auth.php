@@ -1,5 +1,6 @@
 
 
+
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 class Auth extends CI_Controller {
@@ -76,13 +77,16 @@ class Auth extends CI_Controller {
 	
 	public function InsetData(){
 		$nama = $this->input->post('nama');
-		//$email = $this->input->post('email');
+		$email = $this->input->post('email');
+		$password = $this->input->post('password');
 		$tgllahir = $this->input->post('tgllahir');
 		$notelp = $this->input->post('notelp');
 		
 		$data = array(
 		'nama' =>$nama,
-		'tgllahir'=> $tgllahir,
+		'email' =>$email,
+		'password' =>$password,
+		'tgllahir'=> $tgllahir,		
 		'notelp'=>$notelp
 		);
 		
@@ -121,11 +125,15 @@ class Auth extends CI_Controller {
 	public function EditData(){
 		$id = $this->input->post('iduser');
 		$nama = $this->input->post('nama');
+		$email = $this->input->post('email');
+		$password = $this->input->post('password');
 		$tgllahir = $this->input->post('tgllahir');
 		$notelp = $this->input->post('notelp');
 		
 		$data = array(
 		'nama' => $nama,
+		'email' => $email,
+		'password' => $password,
 		'tgllahir'=>$tgllahir,
 		'notelp' =>$notelp
 		);
