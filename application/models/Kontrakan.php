@@ -11,4 +11,7 @@ class Kontrakan extends CI_Model
     public function getFeatured(){
         return $this->db->get('rumah',11)->result();
     }
+    public function getRumah($id_rmh){
+        return $this->db->where('idrumah',$id_rmh)->get('rumah')->row();
+    }
 }
