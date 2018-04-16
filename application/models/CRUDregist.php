@@ -1,6 +1,7 @@
-<?php
-class user_model extends CI_Model
-{
+<?php 
+if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+class CRUDregist extends CI_Model{
+	
     function __construct()
     {
         // Call the Model constructor
@@ -65,16 +66,7 @@ class user_model extends CI_Model
 		return $checkupdate;
 	}
 	
- 	
-}
-
-	
-	
-	
-	
-	
-	
-	
+ 		
 
     //send verification email to user's email id
     function sendEmail($to_email)
@@ -111,4 +103,3 @@ class user_model extends CI_Model
         return $this->db->update('user', $data);
     }
 }
-?>

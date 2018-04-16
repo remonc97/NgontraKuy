@@ -1,21 +1,4 @@
 
-/**
- * Created by PhpStorm.
- * User: Chia
- * Date: 14/04/2018
- * Time: 16:44
- */
- 
- 
-/*
-class Auth extends CI_Controller
-{
-    public function login(){
-
-    }
-}
-*/
-
 
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
@@ -43,23 +26,7 @@ class Auth extends CI_Controller {
 			$this->load->model('CRUDregist');
 	}
 	
-	//default function when program first running
-	public function index()
-	{
-		$this->load->view('register');
-	}
 	
-	
-	<?php
-defined('BASEPATH') OR exit('No direct script access allowed');
-
-class Wikipedia extends CI_Controller {
-
-
-	public function __construct() {
-		parent::__construct();
-		$this->load->model('CRUDregist');
-	}
 
 	//Buat View
 	public function index()
@@ -122,12 +89,10 @@ class Wikipedia extends CI_Controller {
 		$result = $this->CRUDregist->InsertUser($data);
 		$data = NULL;
 		if ($result){
-			redirect('Auth');
+			redirect('Home');
 		}else{
 			echo json_encode(array('Gagal' => false));
-		}
-		
-	
+		}	
 	}
 	
 	public function Edit($id){
@@ -206,13 +171,7 @@ class Wikipedia extends CI_Controller {
 		}
 	}
 	
-}
-	
-	
-	
-	
-	
-	
+
 	public function authnodatabase(){
 		
 		$email = $this->input->post('email');
@@ -270,9 +229,7 @@ class Wikipedia extends CI_Controller {
 		}
 		redirect('');
 		//redirect to default controller and index function
-		//$this->load->view('Login2');	
-		
-		
+		//$this->load->view('Login2');			
 	}
 	
 	public function ShowSession(){

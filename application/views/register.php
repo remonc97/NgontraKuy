@@ -14,7 +14,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <!-- banner -->
 
 
-<form class="login-form" >
+<form class="login-form" action="<?php blink('Auth/InsetData')?>" method="post">
 
 <!--action="<//?php blink('Auth/auth')?>" method="post">-->
 
@@ -42,13 +42,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<!-- BEGIN REGISTRATION FORM -->
 	
 	
-	<form class="register-form" action= "<?php echo blink('Auth/InsetData');?>" method="post">
+	<form class="register-form" >
 		<!--<h3>Sign Up</h3>-->
 		<p class="hint">
 			 Enter your personal details below:
 		</p>
 		<div class="form-group">
-			<input class="form-control placeholder-no-fix" type="text" placeholder="Full Name" name="nama"/>
+			<input class="form-control placeholder-no-fix" type="text" placeholder="Full Name" name="nama" id="nama"/>
 		</div>
 		<div class="form-group">
 			<input class="form-control placeholder-no-fix" type="date" placeholder="Tanggal Lahir -> dd-mm-yyyy" name="tgllahir"/>
@@ -77,7 +77,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		
 		
 		<div class="form-actions">
-			<button type="submit" id="register-submit-btn" class="btn btn-success uppercase pull-right">Register</button>
+			<input type="submit" id="register-submit-btn" class="btn btn-success uppercase pull-right" value="register" role="button">
 		</div>
 	</form>
 
