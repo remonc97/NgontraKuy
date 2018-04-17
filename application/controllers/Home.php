@@ -16,11 +16,16 @@ class Home extends CI_Controller {
 	public function Admin()
 	{
 		$data['all'] = $this->Kontrakan->getUser();
-		$data2['oneuser'] = $this->Kontrakan->get1User();
-		$this->load->view('admin',$data,$data2);
+
+		$this->load->view('admin',$data);
 	}
 	public function User()
 	{
 		$data['all'] = $this->Kontrakan->getUser();
+	}
+	public function view()
+	{
+		$data1['one'] = $this->Kontrakan->get1User($this->uri->segment(2));
+		$this->load->view('Modal_Admin/ShowPemilik', $data1);
 	}
 }
