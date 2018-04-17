@@ -64,6 +64,7 @@ $route['Booking/(:any)'] = 'Transaksi/formbooking';
 $route['Booking/proses/(:any)'] = 'Transaksi/requestbooking';
 $route['Booking/confirm/(:any)'] = 'Transaksi/book';
 $route['Booking/cancel/(:any)'] = 'Transaksi/cancel';
+$route['HomeDetails/(:any)']='Home/detail';
 
 $route['Register'] = '';
 $route['Login'] = 'Auth/login';
