@@ -62,7 +62,8 @@ $this->view('template/header');
 							<td class="center"><?php echo $user->email; ?></td>
 							<td class="center"><?php echo $user->nama; ?></td>
 							<td class="center"><?php echo 'Pemilik Kontrakan'; ?></td>
-							<td class="center"><a href="<?php echo base_url('view/' . $user->iduser) ?>" data-toggle="modal" class="btn btn-default" style="background-color: aquamarine;"><b>View</b></a> | <a href="#" type="button" class="btn btn-warning"><b>Edit</b></a>
+							<td class="center"><a href="<?php echo base_url('view/' . $user->iduser) ?>" data-toggle="modal" class="btn btn-default" style="background-color: aquamarine;"><b>View</b></a> |
+								<a href="<?php echo base_url('edit/'.$user->iduser)?>" type="button" class="btn btn-warning"><b>Edit</b></a>
 								| <a href="#" type="button" class="btn btn-danger"><b>Delete</b></a></td>
 						</tr>
 						<?php

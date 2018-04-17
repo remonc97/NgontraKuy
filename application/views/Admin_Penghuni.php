@@ -37,8 +37,8 @@ $this->view('template/header');
 <div class="inside-banner">
 	<div class="container">
 
-		<h2>List Pemilik Kontrakan</h2>
-		<span class="pull"><a href="#">Admin</a> / List Pemilik Kontrakan</span>
+		<h2>List Penghuni Kontrakan</h2>
+		<span class="pull"><a href="#">Admin</a> / List Penghuni Kontrakan</span>
 	</div>
 </div>
 <!-- banner -->
@@ -61,9 +61,10 @@ $this->view('template/header');
 						<tr>
 							<td class="center"><?php echo $user->email; ?></td>
 							<td class="center"><?php echo $user->nama; ?></td>
-							<td class="center"><?php echo 'Pemilik Kontrakan'; ?></td>
-							<td class="center"><a href="<?php echo base_url('view/' . $user->iduser) ?>" data-toggle="modal" class="btn btn-default" style="background-color: aquamarine;"><b>View</b></a> | <a href="#" type="button" class="btn btn-warning"><b>Edit</b></a>
-								| <a href="#" type="button" class="btn btn-danger"><b>Delete</b></a></td>
+							<td class="center"><?php echo 'Penghuni Kontrakan'; ?></td>
+							<td class="center"><a href="<?php echo base_url('view/' . $user->iduser) ?>" data-toggle="modal" class="btn btn-default" style="background-color: aquamarine;"><b>View</b></a> |
+								<a href="<?php echo base_url('edit/'.$user->iduser)?>" type="button" class="btn btn-warning"><b>Edit</b></a>
+								| <a href="<?php echo base_url('delete/'.$user->iduser)?>" type="button" class="btn btn-danger"><b>Delete</b></a></td>
 						</tr>
 						<?php
 					}else {
