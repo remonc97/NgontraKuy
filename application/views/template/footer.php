@@ -26,9 +26,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <div class="col-lg-3 col-sm-3 col-sm-offset-3">
                     <h4>Contact us</h4>
                     <p><b>NgontraKuy Inc.</b><br>
-                        <span class="glyphicon glyphicon-map-marker"></span> 8290 Walk Street, Australia <br>
-                        <span class="glyphicon glyphicon-envelope"></span> hello@bootstrapreal.com<br>
-                        <span class="glyphicon glyphicon-earphone"></span> (123) 456-7890
+                        <span class="glyphicon glyphicon-map-marker"></span>
+                        Jl. Ciledug Raya, Petukangan Utara,
+                        Jakarta Selatan, 12260.
+                        DKI Jakarta, Indonesia.<br>
+                        <span class="glyphicon glyphicon-envelope"></span> cs@ngontraKuy.com<br>
+                        <span class="glyphicon glyphicon-earphone"></span> (+62) 812-8692-3378
                     </p>
                 </div>
             </div>
