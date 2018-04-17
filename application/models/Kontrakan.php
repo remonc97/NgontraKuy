@@ -16,6 +16,6 @@ class Kontrakan extends CI_Model
                         ->from('rumah')
                         ->join('kontrakan','kontrakan.idkontrakan=idkontrakan')
                         ->join('user','user.iduser=kontrakan.iduser')
-                        ->where('idrumah',$id_rmh)->get('rumah')->row();
+                        ->where('idrumah',$id_rmh)->get()->row();
     }
 }
