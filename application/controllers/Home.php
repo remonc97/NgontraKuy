@@ -14,4 +14,12 @@ class Home extends CI_Controller {
             $this->load->view('home',$data);
         }
 	}
+
+	public function detail($id_rmh){
+		$id_rmh=$this->uri->segment(2);
+		$details=$this->Kontrakan->getRumah($id_rmh);
+		$data['details']=$details;
+		$this->load->view('detailrumah',$data);
+
+	}
 }
