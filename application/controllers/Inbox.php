@@ -18,6 +18,7 @@ class Inbox extends CI_Controller {
 		$data['featured'] = $this->Kontrakan->getFeatured();
 	    if($this->User->ceksession() == true){
 	        $nama = $this->session->userdata('nama');
+	        $email = $this->session->userdata('email');
             
             $mergeCustomer = $this->M_Inbox->getMergeCustomer();
 			$detilPesan = $this->M_Inbox->detilPesan();
@@ -26,6 +27,7 @@ class Inbox extends CI_Controller {
 			$pesan = $this->M_Inbox->getAllPesan();
 			$data = [
 				'customer' => $customer,
+				'email' => $email,
 				'nama' => $nama,
 				'session' => true,
 				'mergeCustomer' => $mergeCustomer,
@@ -125,7 +127,7 @@ class Inbox extends CI_Controller {
 		$status="Submitted";
 
 		$data = array(
-			'iduser' =>$idpesan,
+			'idpesan' =>$idpesan,
 			'iduser' =>$iduser,
 			'pesancustomer' => $isipesan
 		);

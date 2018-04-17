@@ -128,8 +128,17 @@ $this->view('template/header');
               </thead>
               <tbody>
                 <tr>
+
                     <?php $no=1; ?>
                     <?php foreach($detilPesan as $data){?>
+
+                    <?php $isi = $this->M_Inbox->detilPesan2($email);
+
+                    if($session == $isi) {
+
+                    ?>
+
+
                     <td align="center"><?php echo $no ?></td>
                     <td><?php echo $data->tglpesan;?></td>
                     <td><?php echo $data->jenispesan;?></td>
@@ -150,13 +159,12 @@ $this->view('template/header');
                         <a href="#detilPesanModal<?php echo $data->idpesan ?>" class="btn btn-default btn-circle" style="background-color: #1ac6ff; color: white" id="lihatPesan" data-toggle="modal"><span class="glyphicon glyphicon-eye-open"></span> Lihat Pesan </a>
                     <a href="#hapusPesanModal<?php echo $data->idpesan ?>" class="btn btn-danger btn-circle" id="hapusPesan" data-toggle="modal"><span class="glyphicon glyphicon-trash"></span> Hapus Pesan</a></td>
                 </tr>
-                <?php $no++; } ?>
+                <?php } $no++; } ?>
               </tbody>
             </table>
         </div>
     </div>
 </div>
-
 
 <div class="banner-search">
     <div class="container">

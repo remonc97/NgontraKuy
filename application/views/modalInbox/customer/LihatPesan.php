@@ -53,10 +53,14 @@
                   <div class="container-fluid" style="margin-top: 20px">
                     <table class="table table-striped" border="0">
                     <tbody>
+                      <tr style="text-transform:capitalize;">
+                        <td><?php echo "Saya"?></td>
+                        <td><?php echo $data->isi ?></td>
+                    </tr>
                     <?php $isi = $this->M_Inbox->getPesanCustomer($data->iduser); ?>
                     <?php foreach($isi as $data2) { ?>
                     <tr style="text-transform:capitalize;">
-                      <td><?php echo $data2->tglpesan ?></td>
+                      <td><?php echo "Saya"?></td>
                       <td><?php echo $data2->pesancustomer ?></td>
                     </tr>
                       <?php } ?>
