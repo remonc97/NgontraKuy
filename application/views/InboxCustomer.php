@@ -64,9 +64,28 @@ $this->view('template/header');
     <div class="header">
         <a href="<?php echo site_url()?>"><img src="<?php echo base_url('assets/images/logo1.png')?>" width="200px" alt="NgontraKuy"></a>
 
-        <ul class="pull-right">
-            <li style="margin-top: 20px"><a href="#" style="font-family: 'Ubuntu', sans-serif;" data-toggle="modal" data-target="#loginpop">Login</a></li>
-        </ul>
+        
+        <?php if(isset($session) && $session == true){
+                echo
+                    "
+                <ul class=\"pull-right dropdown\">
+                    <li style=\"margin-top: 20px;\">
+                        <a href=\"#\" style=\"text-transform:Capitalize;font-family: 'Ubuntu', sans-serif;\" class=\"dropdown-toggle\" data-toggle=\"dropdown\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\">Hi, $nama! <span class=\"caret\"></span></a>
+                        <ul class=\"dropdown-menu\"  style=\"padding-top: 10px;padding-bottom: 10px;\">
+                            <li><a href=".site_url('Profile').">Profile</a></li>
+                            <li><a href=".site_url('Inbox').">Inbox</a></li>
+                            <li><a href=".site_url('Logout').">Log out</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                ";
+            }else{
+                echo "
+                <ul class=\"pull-right\">
+                    <li style=\"margin-top: 20px\"><a href=\"#\" style=\"font-family: 'Ubuntu', sans-serif;\" data-toggle=\"modal\" data-target=\"#loginpop\">Login</a></li>
+                </ul>";
+            } ?>
+        
     </div>
     <!-- #Header Starts -->
 </div>
@@ -102,8 +121,9 @@ $this->view('template/header');
               <th align="center" width="50px">No.</th>
               <th>Tanggal Pesan</th>
               <th>Jenis Pesan</th>
+              <th>Subject</th>
               <th>Status</th>
-              <th width="225px">Action</th>
+              <th width="340px">Action</th>
             </tr>
               </thead>
               <tbody>
@@ -113,8 +133,21 @@ $this->view('template/header');
                     <td align="center"><?php echo $no ?></td>
                     <td><?php echo $data->tglpesan;?></td>
                     <td><?php echo $data->jenispesan;?></td>
-                    <td><span class="label label-success"><?php echo $data->status;?></span></td>
-                    <td><a href="#detilPesanModal<?php echo $data->idpesan ?>" class="btn btn-default btn-circle" style="background-color: #1ac6ff; color: white" id="lihatPesan" data-toggle="modal"><span class="glyphicon glyphicon-eye-open"></span> Lihat Pesan </a>
+                    <td><b><?php echo $data->subject;?></b></td>
+                    <td>
+                        <?php if($data->status == 'Submitted') { ?>
+                        <span class="label label-primary"><?php echo $data->status;?></span>
+                        <?php } ?>
+                        <?php if($data->status == 'On Process') { ?>
+                        <span class="label label-danger"><?php echo $data->status;?></span>
+                        <?php } ?>
+                        <?php if($data->status == 'Solved') { ?>
+                        <span class="label label-success"><?php echo $data->status;?></span>
+                        <?php } ?>
+                    </td>
+                    <td>
+                        <a href="#balasPesanModal<?php echo $data->idpesan ?>" class="btn btn-default btn-circle" style="background-color: #72b70f; color: white" id="balasPesan" data-toggle="modal"><i class="glyphicon glyphicon-send"></i> Balas Pesan </a>
+                        <a href="#detilPesanModal<?php echo $data->idpesan ?>" class="btn btn-default btn-circle" style="background-color: #1ac6ff; color: white" id="lihatPesan" data-toggle="modal"><span class="glyphicon glyphicon-eye-open"></span> Lihat Pesan </a>
                     <a href="#hapusPesanModal<?php echo $data->idpesan ?>" class="btn btn-danger btn-circle" id="hapusPesan" data-toggle="modal"><span class="glyphicon glyphicon-trash"></span> Hapus Pesan</a></td>
                 </tr>
                 <?php $no++; } ?>
@@ -161,3 +194,11 @@ $this->view('template/header');
         </div>
     </div>
 </div>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        if(<?php echo json_encode(($this->session->flashdata('successbook'))) ?> == 'true'){
+            alert('book request submitted. check your inbox frequently for book confirmation message from the owner');
+        }
+    }
+</script>

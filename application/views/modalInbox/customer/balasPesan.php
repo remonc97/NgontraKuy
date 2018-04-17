@@ -1,5 +1,5 @@
-   <!-- detil modal Barang -->
-<?php foreach($customer as $data) { ?>
+ <!-- detil modal Pesan -->
+<?php foreach($detilPesan as $data){?>
 <div class="modal fade" tabindex="-1" id="balasPesanModal<?php echo $data->idpesan ?>" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -8,14 +8,17 @@
          <h3 id="myModalLabel"><span class="glyphicon glyphicon-envelope"></span> Pesan</h3>
       </div>
       <div class="modal-body">
-          <form method="POST" action="<?php echo site_url('Inbox/balasPesan')?>" enctype="multipart/form-data">
+        <form method="POST" action="<?php echo site_url('Inbox/balasPesanCustomer')?>" enctype="multipart/form-data">
             <div class="modal-body">
 
-              <input required class="form-control required text-capitalize" data-placement="top" data-trigger="manual" type="hidden" name="<?php echo $data->iduser ?>">
+              <input required class="form-control required text-capitalize" data-placement="top" data-trigger="manual" type="hidden" name="pengirim" value="<?php echo $data->iduser ?>">
 
-              <div class="form-group"><label>Nama Pengirim Pesan</label>
-                <input type="text" name="nama" class="form-control" value="<?php echo $data->nama?>" readonly="">
-                 <input required class="form-control required text-capitalize" data-placement="top" data-trigger="manual" type="hidden" value="<?php echo $data->iduser ?>" name="penerima">
+              <input required class="form-control required text-capitalize" data-placement="top" data-trigger="manual" type="hidden" name="idpesan" value="<?php echo $data->idpesan ?>">
+
+               <input required class="form-control required text-capitalize" data-placement="top" data-trigger="manual" type="hidden" name="tglpesan">
+
+              <div class="form-group"><label>Kepada</label>
+                <input type="text" name="nama" class="form-control" value="<?php echo $data->penerima?>" readonly="">
               </div>
 
               <div class="form-group"><label>Jenis Pesan</label>
@@ -26,7 +29,6 @@
                 <?php } ?>
               </div>
               
-
               <div class="form-group"><label>Isi Pesan</label>
                 <textarea name="isipesan" class="form-control"></textarea>
               </div>
@@ -37,10 +39,9 @@
                 <p class="help-block pull-left text-danger hide" id="form-error">&nbsp; The form is not valid. </p>
               </div>
            </form>
+        </div>
       </div>
     </div>
   </div>
-</div>
-<!-- /.Detil modal Barang -->
-<?php } ?>
-  
+  <!-- /.Detil modal Barang -->
+  <?php } ?>

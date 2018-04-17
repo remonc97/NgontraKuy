@@ -58,6 +58,13 @@ $route['Agents'] = '';
 $route['ContactUs'] = '';
 $route['NewsLetter'] = '';
 $route['AllHomes'] = '';
+$route['Profile'] = '';
+$route['Inbox'] = 'Inbox';
+$route['Booking/(:any)'] = 'Transaksi/formbooking';
+$route['Booking/proses/(:any)'] = 'Transaksi/requestbooking';
+$route['Booking/confirm/(:any)'] = 'Transaksi/book';
+$route['Booking/cancel/(:any)'] = 'Transaksi/cancel';
 
 $route['Register'] = '';
 $route['Login'] = 'Auth/login';
+$route['Logout'] = 'Auth/logout';

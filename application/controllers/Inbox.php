@@ -14,20 +14,38 @@ class Inbox extends CI_Controller {
 	//ini customer
 	public function index()
 	{
-		$detilPesan = $this->M_Inbox->detilPesan();
-		$pemilik = $this->M_Inbox->getPemilik();
-		$pesan = $this->M_Inbox->getAllPesan();
-		$data = [
-			'detilPesan' => $detilPesan,
-			'pemilik' => $pemilik,
-			'pesan' => $pesan
-		];
-	    $this->load->view('template/header');
-	    $this->load->view('InboxCustomer',$data);
-	    $this->load->view('modalInbox/customer/EntryPesan',$data);
-	    $this->load->view('modalInbox/customer/LihatPesan',$data);
-	    $this->load->view('modalInbox/customer/HapusPesan',$data);
-	    $this->load->view('template/footer');
+
+		$data['featured'] = $this->Kontrakan->getFeatured();
+	    if($this->User->ceksession() == true){
+	        $nama = $this->session->userdata('nama');
+            
+            $mergeCustomer = $this->M_Inbox->getMergeCustomer();
+			$detilPesan = $this->M_Inbox->detilPesan();
+			$customer = $this->M_Inbox->getCustomer();
+			$pemilik = $this->M_Inbox->getPemilik();
+			$pesan = $this->M_Inbox->getAllPesan();
+			$data = [
+				'customer' => $customer,
+				'nama' => $nama,
+				'session' => true,
+				'mergeCustomer' => $mergeCustomer,
+				'detilPesan' => $detilPesan,
+				'pemilik' => $pemilik,
+				'pesan' => $pesan
+			];
+
+		    $this->load->view('template/header',$data);
+		    $this->load->view('InboxCustomer',$data);
+		    $this->load->view('modalInbox/customer/EntryPesan',$data);
+		    $this->load->view('modalInbox/customer/balasPesan',$data);
+		    $this->load->view('modalInbox/customer/LihatPesan',$data);
+		    $this->load->view('modalInbox/customer/HapusPesan',$data);
+		    $this->load->view('template/footer');
+        }else{
+            // $this->load->view('home',$data);
+        }
+
+		
 	}
 
 	//ini pemilik
@@ -56,9 +74,11 @@ class Inbox extends CI_Controller {
 	{
 		$idpesan = $this->input->post('idpesan');
 		$tglpesan = $this->input->post('tglpesan');
-		$penerima = $this->input->post('penerima');
+		$iduser = $this->input->post('pengirim');
 		$jenispesan = $this->input->post('jenispesan');
+		$subject = $this->input->post('subject');
 		$isipesan = $this->input->post('isipesan');
+		$penerima = $this->input->post('penerima');
 
 		$tglpesan = date("Y/m/d");
 
@@ -66,10 +86,12 @@ class Inbox extends CI_Controller {
 
 		$data = array(
 			'idpesan' => $idpesan,
-			'iduser' =>$penerima,
+			'iduser' =>$iduser,
 			'tglpesan'=> $tglpesan,
 			'jenispesan' =>$jenispesan,
+			'subject' => $subject,
 			'isi' => $isipesan,
+			'penerima' => $penerima,
 			'status' => $status
 		);
 
@@ -90,6 +112,34 @@ class Inbox extends CI_Controller {
 		$this->M_Inbox->deletePesan($idpesan);
 		$this->session->set_flashdata('pesan','Pesan Berhasil Dihapus');
 		redirect('Inbox');
+	}
+
+	public function balasPesanCustomer()
+	{
+		$idpesan = $this->input->post('idpesan');
+		$iduser = $this->input->post('pengirim');
+		$isipesan = $this->input->post('isipesan');
+
+		$tglpesan = date("Y/m/d");
+
+		$status="Submitted";
+
+		$data = array(
+			'iduser' =>$idpesan,
+			'iduser' =>$iduser,
+			'pesancustomer' => $isipesan
+		);
+
+		$result = $this->M_Inbox->BalasPesanCustomer($data);
+
+		$data = NULL;
+		if ($result){
+			$this->session->set_flashdata('pesan','Pesan Berhasil Dikirim');
+	   		redirect('Inbox');
+		}else{
+			$this->session->set_flashdata('pesanGagal','Pesan Tidak Berhasil Disimpan');
+    		redirect('Inbox');
+		}
 	}
 
 
@@ -175,5 +225,7 @@ class Inbox extends CI_Controller {
     		redirect('Inbox');
 		}
 	}
+
+
 
 }

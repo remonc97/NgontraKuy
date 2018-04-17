@@ -13,14 +13,22 @@
       <form method="POST" action="<?php echo site_url('Inbox/kirimPesan')?>" enctype="multipart/form-data">
       <div class="modal-body">
 
+        <?php foreach($customer as $data2) { ?>
+         <input required class="form-control required text-capitalize" data-placement="top" data-trigger="manual" type="hidden" name="pengirim" value="<?php echo $data2->iduser ?>">
+        <?php } ?>
+
         <input required class="form-control required text-capitalize" data-placement="top" data-trigger="manual" type="hidden" name="idpesan">
 
          <input required class="form-control required text-capitalize" data-placement="top" data-trigger="manual" type="hidden" name="tglpesan">
 
+        <div class="form-group"><label>Nama Pengirim</label>
+          <input required class="form-control required text-capitalize" data-placement="top" data-trigger="manual" type="text" name="nama" value="<?php echo $nama ?>" readonly>
+        </div>
+
         <div class="form-group"><label>Nama Penerima</label>
           <select name="penerima" class="form-control">
             <?php foreach($pemilik as $data) { ?>
-            <option value="<?php echo $data->iduser ?>"><?php echo $data->nama ?></option>
+            <option value="<?php echo $data->nama ?>"><?php echo $data->nama ?></option>
             <?php } ?>
           </select> 
         </div>

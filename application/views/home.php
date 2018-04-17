@@ -64,9 +64,27 @@ $this->view('template/header');
     <div class="header">
         <a href="<?php echo site_url()?>"><img src="<?php echo base_url('assets/images/logo1.png')?>" width="200px" alt="NgontraKuy"></a>
 
-        <ul class="pull-right">
-            <li style="margin-top: 20px"><a href="#" style="font-family: 'Ubuntu', sans-serif;" data-toggle="modal" data-target="#loginpop">Login</a></li>
-        </ul>
+
+            <?php if(isset($session) && $session == true){
+                echo
+                    "
+                <ul class=\"pull-right dropdown\">
+                    <li style=\"margin-top: 20px;\">
+                        <a href=\"#\" style=\"text-transform:Capitalize;font-family: 'Ubuntu', sans-serif;\" class=\"dropdown-toggle\" data-toggle=\"dropdown\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\">Hi, $nama! <span class=\"caret\"></span></a>
+                        <ul class=\"dropdown-menu\"  style=\"padding-top: 10px;padding-bottom: 10px;\">
+                            <li><a href=".site_url('Profile').">Profile</a></li>
+                            <li><a href=".site_url('Inbox').">Inbox</a></li>
+                            <li><a href=".site_url('Logout').">Log out</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                ";
+            }else{
+                echo "
+                <ul class=\"pull-right\">
+                    <li style=\"margin-top: 20px\"><a href=\"#\" style=\"font-family: 'Ubuntu', sans-serif;\" data-toggle=\"modal\" data-target=\"#loginpop\">Login</a></li>
+                </ul>";
+            } ?>
     </div>
     <!-- #Header Starts -->
 </div>
@@ -143,12 +161,12 @@ $this->view('template/header');
                 echo
                 "
                     <div class=\"properties\">
-                        <div class=\"image-holder\"><img src=\"<?php echo base_url('assets/images/properties/1.jpg')?>\" class=\"img-responsive\" alt=\"properties\"/>
+                        <div class=\"image-holder\"><img src=".base_url('assets/images/properties/1.jpg')." class=\"img-responsive\" alt=\"properties\"/>
                             <div class=\"status <?php echo $row->status ?>\"><?php echo $row->status ?></div>
                         </div>
-                        <h4><a href=\"<?php echo site_url('HomeDetails/'.$row->id_rmh)?>\"><?php echo $row->nm_rmh ?></a></h4>
-                        <p class=\"price\">Price: Rp<?php echo $row->harga?></p>
-                        <a class=\"btn btn-primary\" href=\"<?php echo site_url('HomeDetails/'/$row->id_rmh)?>\">View Details</a>
+                        <h4><a href=".site_url('HomeDetails/'.$row->idrumah).">".$row->nmrumah."</a></h4>
+                        <p class=\"price\">Price: Rp".$row->harga."</p>
+                        <a class='btn btn-primary' href=".site_url('HomeDetails/'.$row->idrumah).">View Details</a>
                     </div>  
                 ";
             }
@@ -162,3 +180,10 @@ $this->view('template/header');
 #include footer file
 $this->view('template/footer');
 ?>
+<script type="text/javascript">
+    $(document).ready(function(){
+        if(<?php echo json_encode(($this->session->flashdata('successbook'))) ?> == 'true'){
+            alert('book request submitted. check your inbox frequently for book confirmation message from the owner');
+        }
+    }
+</script>

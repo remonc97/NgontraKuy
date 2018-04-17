@@ -43,7 +43,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <div class="row">
                     <div class="col-sm-6 login">
                         <h4>Login</h4>
-                        <form class="" role="form" action="<?php echo site_url('Login')?>">
+                        <?php echo form_open(site_url('Login'))?>
+<!--                        <form class="" role="form" action="--><?php //echo site_url('Login')?><!--">-->
                             <div class="form-group">
                                 <label class="sr-only" for="exampleInputEmail2">Email address</label>
                                 <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Enter email" name="email">
@@ -53,7 +54,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password" name="password">
                             </div>
                             <input type="submit" role="button" class="btn btn-success" value="Sign In"/>
-                        </form>
+<!--                        </form>-->
+                        <?php echo form_close()?>
                     </div>
                     <div class="col-sm-6">
                         <h4>New User Sign Up</h4>
