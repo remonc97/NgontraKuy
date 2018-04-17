@@ -72,11 +72,84 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="modal-content">
                 <div class="row">
                     <div class="col-sm-12">
-                        <h4>Input Kontrakan</h4>
-                        <form class="" role="form" action="<?php echo site_url('Login')?>">
+                        <h4>Input Rumah</h4>
+                        <form class="" role="form" action="<?php echo site_url('Login')?>"> 
+							<div class="form-group">
+                                <label for="ukuran">Id Kontrakan</label>
+                                <input type="text" class="form-control" id="idkontrakan" placeholder="RM0001" name="idkontrakan" disabled>
+                            </div>
                             <div class="form-group">
                                 <label for="nmrumah">Nama Kontrakan</label>
-                                <input type="text" class="form-control" id="nmrumah" placeholder="Nama Kontrakan" name="nmrumah">
+                                <input type="text" class="form-control" id="nmrumah" placeholder="Nama Rumah" name="nmrumah">
+                            </div> 
+							<div class="form-group">
+								<label for="dayatampung">Daya Tampung:</label>
+								<select class="form-control" id="dayatampung" name="dayatampung">
+									<option selected>Choose...</option>
+									<option>1</option>
+									<option>2</option>
+									<option>3</option>
+									<option>4</option>
+								</select>
+							</div> 
+                            <div class="form-group">
+                                <label for="ukuran">Ukuran</label>
+                                <input type="text" class="form-control" id="ukuran" placeholder="Ukuran" name="ukuran">
+                            </div>
+                            <div class="form-group">
+                                <label for="harga">Harga</label>
+                                <input type="text" class="form-control" id="harga" placeholder="Rp." name="harga">
+                            </div>
+							<div class="form-group">
+							<label for="harga">Fasilitas</label>
+							<div class="checkbox">
+								<label><input type="checkbox" value="">Kasur</label>
+							</div>
+							<div class="checkbox">
+								<label><input type="checkbox" value="">Ac</label>
+							</div>
+							<div class="checkbox">
+								<label><input type="checkbox" value="">Ruang Tamu</label>
+							</div>
+							<div class="checkbox">
+								<label><input type="checkbox" value="">Kamar Tidur</label>
+							</div>
+							<div class="checkbox">
+								<label><input type="checkbox" value="">Kamar Mandi</label>
+							</div>
+							<div class="checkbox">
+								<label><input type="checkbox" value="">Dapur</label>
+							</div>
+							</div>
+							
+							<label class="custom-file">Pilih Gambar
+								<input type="file" id="gambar" name="gambar" class="custom-file-input">
+								<span class="custom-file-control"></span>
+							</label>
+							<br>
+                            <input type="submit" role="button" class="btn btn-success" value="Create"/>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.modal -->
+	<!-- Modal -->
+    <div id="TamKon2" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <h4>Input Kontrakan</h4>
+                        <form class="" role="form" action="<?php echo site_url('Login')?>"> 
+							<div class="form-group">
+                                <label for="ukuran">Id User</label>
+                                <input type="text" class="form-control" id="idkontrakan" placeholder="RM0001" name="idkontrakan" disabled>
+                            </div>
+                            <div class="form-group">
+                                <label for="nmrumah">Nama Kontrakan</label>
+                                <input type="text" class="form-control" id="nmrumah" placeholder="Nama Rumah" name="nmrumah">
                             </div> 
 							<div class="form-group">
 								<label for="dayatampung">Daya Tampung:</label>

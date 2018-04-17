@@ -68,7 +68,10 @@ $this->view('template/header');
             <li style="margin-top: 20px"><a href="#" style="font-family: 'Ubuntu', sans-serif;" data-toggle="modal" data-target="#loginpop">Login</a></li>
         </ul>
 		<ul class="pull-right">
-            <li style="margin-top: 20px"><a href="#" style="font-family: 'Ubuntu', sans-serif;" data-toggle="modal" data-target="#TamKon">Tambah Kosan</a></li>
+            <li style="margin-top: 20px"><a href="#" style="font-family: 'Ubuntu', sans-serif;" data-toggle="modal" data-target="#TamKon">Tambah Rumah</a></li>
+        </ul>
+		<ul class="pull-right">
+            <li style="margin-top: 20px"><a href="#" style="font-family: 'Ubuntu', sans-serif;" data-toggle="modal" data-target="#TamKon2">Tambah Kontrakan</a></li>
         </ul>
     </div>
     <!-- #Header Starts -->
