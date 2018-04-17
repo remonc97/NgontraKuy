@@ -15,7 +15,7 @@ class Home extends CI_Controller {
         }
 	}
 
-	public function detail($id_rmh){
+	public function detail(){
 		$id_rmh=$this->uri->segment(2);
 		$details=$this->Kontrakan->getRumah($id_rmh);
 		$data['details']=$details;
