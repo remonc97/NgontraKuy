@@ -192,7 +192,7 @@ $this->view('template/header');
 						<div class="col-lg-12  col-sm-6">
 							<div class="property-info">
 								<p class="price"><?php echo $details->harga;?></p>
-                <a class="btn btn-success" href="site_url('Booking/'.$details->idrumah)">Tertarik</a>
+                <a class="btn btn-success" href="<?php site_url('Booking/'.$details->idrumah)?>">Tertarik</a>
 								<!-- <p class="area"><span class="glyphicon glyphicon-map-marker"></span> 344 Villa, Syndey, Australia</p> -->
 
 								<div class="profile">
