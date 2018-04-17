@@ -5,7 +5,7 @@ $this->view('template/header');
 ?>
 <!-- #Header Starts -->
 <div class="container">
-    <!-- Header Starts -->
+	<!-- Header Starts -->
 	<div class="header">
 		<a href="<?php echo site_url()?>"><img src="<?php echo base_url('assets/images/logo1.png')?>" width="200px" alt="NgontraKuy"></a>
 
@@ -31,7 +31,7 @@ $this->view('template/header');
                 </ul>";
 		} ?>
 	</div>
-    <!-- #Header Starts -->
+	<!-- #Header Starts -->
 
 </div>
 <div class="inside-banner">
@@ -56,7 +56,7 @@ $this->view('template/header');
 				</thead>
 				<tbody>
 				<?php foreach($all as $user) {
-					if($user->auth == 1) {
+					if($user->auth == 2) {
 						?>
 						<tr>
 							<td class="center"><?php echo $user->email; ?></td>
@@ -78,8 +78,8 @@ $this->view('template/header');
 				<div class="panel-heading center" style="font-size: large"><b>Menu</b></div>
 				<div class="panel-body" style="font-size: large">
 					<ul class="nav nav-pills nav-stacked">
-						<li class="active"><a href="<?php echo base_url('Admin')?>">List Pemilik Kontrakan</a></li>
-						<li><a href="<?php echo base_url('Admin/Penghuni')?>">List Penghuni Kontrakan</a></li>
+						<li ><a href="<?php echo base_url('Admin')?>">List Pemilik Kontrakan</a></li>
+						<li class="active"><a href="<?php echo base_url('Admin/Penghuni')?>">List Penghuni Kontrakan</a></li>
 						<li><a>Inbox</a></li>
 					</ul>
 				</div>

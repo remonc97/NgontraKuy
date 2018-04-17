@@ -67,12 +67,12 @@ $this->view('template/header');
 						<td><?php echo $one->notelp;?></td>
 					</tr>
 					<tr>
-						<td>Auth</td>
+						<td>Status</td>
 						<td>:</td>
-						<td><?php echo $one->auth;?></td>
+						<td><?php echo 'Pemilik Kontrakan';?></td>
 					</tr>
 				</table>
-				<button class="btn btn-default" style="margin: 20px; background-color: #0a5d5e; color: white">Go Back!</button>
+				<a href="<?php echo base_url('Admin')?>" class="btn btn-default" style="margin: 20px; background-color: #0a5d5e; color: white">Go Back!</a>
 			</div>
 			<div class="col-lg-2"></div>
 		</div>

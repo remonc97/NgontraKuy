@@ -13,19 +13,4 @@ class Home extends CI_Controller {
 	    $data['featured'] = $this->Kontrakan->getFeatured();
 		$this->load->view('home',$data);
 	}
-	public function Admin()
-	{
-		$data['all'] = $this->Kontrakan->getUser();
-
-		$this->load->view('admin',$data);
-	}
-	public function User()
-	{
-		$data['all'] = $this->Kontrakan->getUser();
-	}
-	public function view()
-	{
-		$data1['one'] = $this->Kontrakan->get1User($this->uri->segment(2));
-		$this->load->view('Modal_Admin/ShowPemilik', $data1);
-	}
 }
