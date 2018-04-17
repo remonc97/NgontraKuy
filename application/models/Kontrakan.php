@@ -14,7 +14,7 @@ class Kontrakan extends CI_Model
     public function getRumah($id_rmh){
         return $this->db->select('*')
                         ->from('rumah')
-                        ->join('kontrakan','kontrakan.idkontrakan=idkontrakan')
+                        ->join('kontrakan','kontrakan.idkontrakan=rumah.idkontrakan')
                         ->join('user','user.iduser=kontrakan.iduser')
                         ->where('idrumah',$id_rmh)->get()->row();
     }
