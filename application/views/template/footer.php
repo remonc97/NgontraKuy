@@ -79,7 +79,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <input type="text" class="form-control" id="idkontrakan" placeholder="RM0001" name="idkontrakan" disabled>
                             </div>
                             <div class="form-group">
-                                <label for="nmrumah">Nama Kontrakan</label>
+                                <label for="nmrumah">Nama Rumah</label>
                                 <input type="text" class="form-control" id="nmrumah" placeholder="Nama Rumah" name="nmrumah">
                             </div> 
 							<div class="form-group">
@@ -142,59 +142,27 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <div class="row">
                     <div class="col-sm-12">
                         <h4>Input Kontrakan</h4>
-                        <form class="" role="form" action="<?php echo site_url('Login')?>"> 
+                        <form class="" role="form" action="<?php blink('Takon/InsetData')?>"> 
 							<div class="form-group">
-                                <label for="ukuran">Id User</label>
-                                <input type="text" class="form-control" id="idkontrakan" placeholder="RM0001" name="idkontrakan" disabled>
+                                <label for="ukuran">ID User</label>
+                                <input type="text" class="form-control" id="iduser" placeholder="RM0001" name="iduser" disabled>
                             </div>
                             <div class="form-group">
                                 <label for="nmrumah">Nama Kontrakan</label>
-                                <input type="text" class="form-control" id="nmrumah" placeholder="Nama Rumah" name="nmrumah">
+                                <input type="text" class="form-control" id="nmkontrakan" placeholder="Nama Kontrakan" name="nmkontrakan">
                             </div> 
-							<div class="form-group">
-								<label for="dayatampung">Daya Tampung:</label>
-								<select class="form-control" id="dayatampung" name="dayatampung">
-									<option selected>Choose...</option>
-									<option>1</option>
-									<option>2</option>
-									<option>3</option>
-									<option>4</option>
-								</select>
-							</div> 
                             <div class="form-group">
-                                <label for="ukuran">Ukuran</label>
-                                <input type="text" class="form-control" id="ukuran" placeholder="Ukuran" name="ukuran">
+                                <label for="ukuran">No. Telpon</label>
+                                <input type="text" class="form-control" id="notelp" placeholder="No. Telpon" name="notelp">
                             </div>
                             <div class="form-group">
-                                <label for="harga">Harga</label>
-                                <input type="text" class="form-control" id="harga" placeholder="Rp." name="harga">
+                                <label for="harga">Deskripsi</label>
+                                <input type="text" class="form-control" id="deskripsi" placeholder="Deskripsi.." name="deskripsi">
                             </div>
-							<div class="form-group">
-							<label for="harga">Fasilitas</label>
-							<div class="checkbox">
-								<label><input type="checkbox" value="">Kasur</label>
-							</div>
-							<div class="checkbox">
-								<label><input type="checkbox" value="">Ac</label>
-							</div>
-							<div class="checkbox">
-								<label><input type="checkbox" value="">Ruang Tamu</label>
-							</div>
-							<div class="checkbox">
-								<label><input type="checkbox" value="">Kamar Tidur</label>
-							</div>
-							<div class="checkbox">
-								<label><input type="checkbox" value="">Kamar Mandi</label>
-							</div>
-							<div class="checkbox">
-								<label><input type="checkbox" value="">Dapur</label>
-							</div>
-							</div>
-							
-							<label class="custom-file">Pilih Gambar
-								<input type="file" id="gambar" name="gambar" class="custom-file-input">
-								<span class="custom-file-control"></span>
-							</label>
+                            <div class="form-group">
+                                <label for="harga">Alamat</label>
+                                <input type="text" class="form-control" id="alamat" placeholder="Alamat" name="alamat">
+                            </div>
 							<br>
                             <input type="submit" role="button" class="btn btn-success" value="Create"/>
                         </form>
