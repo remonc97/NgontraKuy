@@ -53,9 +53,9 @@ $route['default_controller'] = 'home';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
-$route['About'] = '';
-$route['Agents'] = '';
-$route['ContactUs'] = '';
+$route['About'] = 'Home/About';
+$route['Agents'] = 'Home/Agents';
+$route['ContactUs'] = 'Home/Contact';
 $route['NewsLetter'] = '';
 $route['AllHomes'] = '';
 $route['Profile'] = '';

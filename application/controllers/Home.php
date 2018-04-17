@@ -14,4 +14,13 @@ class Home extends CI_Controller {
             $this->load->view('home',$data);
         }
 	}
+	public function Agents(){
+	    $this->load->view('agents');
+    }
+	public function About(){
+	    $this->load->view('about');
+    }
+	public function Contact(){
+	    $this->load->view('contact');
+    }
 }
