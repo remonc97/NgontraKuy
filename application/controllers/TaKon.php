@@ -46,23 +46,39 @@ class TaKon extends CI_Controller {
 	
 	public function InsetRumah(){
 		
+		$config['upload_path'] = './uploads';
+		$config['allowed_types'] = 'gif|jpg|png';
+		$config['max_size']	= '100';
+		$config['max_width']  = '1024';
+		$config['max_height']  = '768';
+
+		$this->load->library('upload', $config);
+
+		$this->upload->initialize($config);
+		
 		$nmrumah = $this->input->post('nmrumah');
 		$dayatampung = $this->input->post('dayatampung');
 		$ukuran = $this->input->post('ukuran');
 		$harga = $this->input->post('harga');
 		$idkontrakan = $this->input->post('idkontrakan');
-		$id = $this->input->post('iduser');
+		$fasilitas = $this->input->post('fasilitas');
+		$gambar = $this->input->post('gambar');
+		$status = $this->input->post('status');
+		$idrumah = $this->input->post('idrumah');
 		
 		$data = array(
 		'nmrumah' =>$nmrumah,
 		'dayatampung'=> $dayatampung,
 		'ukuran'=>$ukuran,
 		'harga' => $harga,
-		'iduser'=>$iduser
+		'fasilitas' => $fasilitas,
+		'gambar' => $gambar,
+		'status' => $status,
+		'idkontrakan'=>$idkontrakan
 		
 		);
 		
-		$result = $this->Kontrakan->InsertKontra($data);
+		$result = $this->Kontrakan->InsertRumah($data);
 		
 		$data = NULL;
 		if ($result){

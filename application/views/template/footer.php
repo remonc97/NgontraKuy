@@ -73,11 +73,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <div class="row">
                     <div class="col-sm-12">
                         <h4>Input Rumah</h4>
-                        <form class="" role="form" action="<?php echo site_url('Login')?>"> 
-							<input type="hidden" id="idkontrakan" name="idkontrakan" value="<?php echo $this->uri->segment(3);?>" />
+                        <form role="form" action="<?php echo site_url('Takon/InsetRumah')?>" method="post"> 
+							<input type="hidden" id="idrumah" name="idrumah" value="<?php echo $this->uri->segment(3);?>" />
 							<div class="form-group">
-                                <label for="ukuran">Id Kontrakan</label>
-                                <input type="text" class="form-control" id="idkontrakan" placeholder="RM0001" name="idkontrakan">
+                                <label for="ukuran">ID Kontrakan</label>
+                                <input type="text" class="form-control" id="idkontrakan" placeholder="ID Kontrakan" name="idkontrakan">
                             </div>
                             <div class="form-group">
                                 <label for="nmrumah">Nama Rumah</label>
@@ -86,8 +86,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							<div class="form-group">
 								<label for="dayatampung">Daya Tampung:</label>
 								<select class="form-control" id="dayatampung" name="dayatampung">
-									<option selected>Choose...</option>
-									<option>1</option>
+									<option selected>1</option>
 									<option>2</option>
 									<option>3</option>
 									<option>4</option>
@@ -102,7 +101,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <input type="text" class="form-control" id="harga" placeholder="Rp." name="harga">
                             </div>
 							<div class="form-group">
-							<label for="harga">Fasilitas</label>
+							<label for="fasilitas">Fasilitas</label>
 							<div class="checkbox" id="fasilitas">
 								<label><input type="checkbox" value="Kasur">Kasur</label>
 							</div>
@@ -122,6 +121,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								<label><input type="checkbox" value="Dapur">Dapur</label>
 							</div>
 							</div>
+                            <div class="form-group">
+                                <label for="status">Status</label>
+                                <input type="text" class="form-control" id="status" placeholder="Status" name="status">
+                            </div>
 							
 							<label class="custom-file">Pilih Gambar
 								<input type="file" id="gambar" name="gambar" class="custom-file-input">

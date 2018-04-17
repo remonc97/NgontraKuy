@@ -34,4 +34,22 @@ class Kontrakan extends CI_Model
 
 
 	}
+	
+	public function InsertRumah($data){
+
+		$checkinsert = false;
+
+		try{
+
+			$this->db->insert('rumah',$data);
+			$checkinsert = true;
+		}catch (Exception $ex) {
+
+			$checkinsert = false;
+		}
+
+		return $checkinsert;
+
+
+	}
 }
