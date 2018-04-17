@@ -11,66 +11,67 @@ class Inbox extends CI_Controller {
 	}
 
 
-	//ini customer
 	public function index()
 	{
+		$auth = $this->session->auth;
+		if($auth == 0){
 
-		$data['featured'] = $this->Kontrakan->getFeatured();
-	    if($this->User->ceksession() == true){
-	        $nama = $this->session->userdata('nama');
-	        $email = $this->session->userdata('email');
-            
-            $mergeCustomer = $this->M_Inbox->getMergeCustomer();
+			//ini customer
+			$data['featured'] = $this->Kontrakan->getFeatured();
+		    if($this->User->ceksession() == true){
+		        $nama = $this->session->userdata('nama');
+		        $email = $this->session->userdata('email');
+	            
+	            $mergeCustomer = $this->M_Inbox->getMergeCustomer();
+				$detilPesan = $this->M_Inbox->detilPesan();
+				$customer = $this->M_Inbox->getCustomer();
+				$pemilik = $this->M_Inbox->getPemilik();
+				$pesan = $this->M_Inbox->getAllPesan();
+				$data = [
+					'customer' => $customer,
+					'email' => $email,
+					'nama' => $nama,
+					'session' => true,
+					'mergeCustomer' => $mergeCustomer,
+					'detilPesan' => $detilPesan,
+					'pemilik' => $pemilik,
+					'pesan' => $pesan
+				];
+
+			    $this->load->view('template/header',$data);
+			    $this->load->view('InboxCustomer',$data);
+			    $this->load->view('modalInbox/customer/EntryPesan',$data);
+			    $this->load->view('modalInbox/customer/balasPesan',$data);
+			    $this->load->view('modalInbox/customer/LihatPesan',$data);
+			    $this->load->view('modalInbox/customer/HapusPesan',$data);
+			    $this->load->view('template/footer');
+	        }else{
+	            redirect('');
+	        }	
+		} else {
+
+			//ini pemilik
+			$merge = $this->M_Inbox->getMerge();
 			$detilPesan = $this->M_Inbox->detilPesan();
 			$customer = $this->M_Inbox->getCustomer();
-			$pemilik = $this->M_Inbox->getPemilik();
 			$pesan = $this->M_Inbox->getAllPesan();
 			$data = [
-				'customer' => $customer,
-				'email' => $email,
-				'nama' => $nama,
-				'session' => true,
-				'mergeCustomer' => $mergeCustomer,
+				'merge' => $merge,
 				'detilPesan' => $detilPesan,
-				'pemilik' => $pemilik,
+				'customer' => $customer,
 				'pesan' => $pesan
 			];
-
-		    $this->load->view('template/header',$data);
-		    $this->load->view('InboxCustomer',$data);
-		    $this->load->view('modalInbox/customer/EntryPesan',$data);
-		    $this->load->view('modalInbox/customer/balasPesan',$data);
-		    $this->load->view('modalInbox/customer/LihatPesan',$data);
-		    $this->load->view('modalInbox/customer/HapusPesan',$data);
+		    $this->load->view('template/header');
+		    $this->load->view('InboxPemilik',$data);
+		    $this->load->view('modalInbox/pemilik/LihatPesan',$data);
+		    $this->load->view('modalInbox/pemilik/balasPesan',$data);
+		    $this->load->view('modalInbox/pemilik/prosesPesan',$data);
+		    $this->load->view('modalInbox/pemilik/solvePesan',$data);
 		    $this->load->view('template/footer');
-        }else{
-            // $this->load->view('home',$data);
-        }
-
-		
+		}
 	}
 
-	//ini pemilik
-	// public function index()
-	// {
-	// 	$merge = $this->M_Inbox->getMerge();
-	// 	$detilPesan = $this->M_Inbox->detilPesan();
-	// 	$customer = $this->M_Inbox->getCustomer();
-	// 	$pesan = $this->M_Inbox->getAllPesan();
-	// 	$data = [
-	// 		'merge' => $merge,
-	// 		'detilPesan' => $detilPesan,
-	// 		'customer' => $customer,
-	// 		'pesan' => $pesan
-	// 	];
-	//     $this->load->view('template/header');
-	//     $this->load->view('InboxPemilik',$data);
-	//     $this->load->view('modalInbox/pemilik/LihatPesan',$data);
-	//     $this->load->view('modalInbox/pemilik/balasPesan',$data);
-	//     $this->load->view('modalInbox/pemilik/prosesPesan',$data);
-	//     $this->load->view('modalInbox/pemilik/solvePesan',$data);
-	//     $this->load->view('template/footer');
-	// }
+	
 
 	public function kirimPesan()
 	{

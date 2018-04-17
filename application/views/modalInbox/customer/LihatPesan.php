@@ -57,7 +57,7 @@
                         <td><?php echo "Saya"?></td>
                         <td><?php echo $data->isi ?></td>
                     </tr>
-                    <?php $isi = $this->M_Inbox->getPesanCustomer($data->iduser); ?>
+                    <?php $isi = $this->M_Inbox->getPesanCustomer($data->idpesan); ?>
                     <?php foreach($isi as $data2) { ?>
                     <tr style="text-transform:capitalize;">
                       <td><?php echo "Saya"?></td>

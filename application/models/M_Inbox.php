@@ -91,10 +91,10 @@ class M_Inbox extends CI_Model {
     return $checkinsert;
   }
 
-  public function getPesanCustomer($iduser)
+  public function getPesanCustomer($idpesan)
   {
-    $result = $this->db->query("SELECT * FROM pesancustomer,pesan WHERE pesan.iduser = pesancustomer.iduser and pesan.iduser = '".$iduser."' group by id");
-    return $result->result();
+    $result = $this->db->query("SELECT * FROM pesancustomer,pesan WHERE pesan.iduser = pesancustomer.iduser and pesancustomer.idpesan = '".$idpesan."'  group by id");
+    return $result->result(); 
   }
 
 }
