@@ -74,9 +74,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <div class="col-sm-12">
                         <h4>Input Rumah</h4>
                         <form class="" role="form" action="<?php echo site_url('Login')?>"> 
+							<input type="hidden" id="idkontrakan" name="idkontrakan" value="<?php echo $this->uri->segment(3);?>" />
 							<div class="form-group">
                                 <label for="ukuran">Id Kontrakan</label>
-                                <input type="text" class="form-control" id="idkontrakan" placeholder="RM0001" name="idkontrakan" disabled>
+                                <input type="text" class="form-control" id="idkontrakan" placeholder="RM0001" name="idkontrakan">
                             </div>
                             <div class="form-group">
                                 <label for="nmrumah">Nama Rumah</label>
@@ -102,23 +103,23 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             </div>
 							<div class="form-group">
 							<label for="harga">Fasilitas</label>
-							<div class="checkbox">
-								<label><input type="checkbox" value="">Kasur</label>
+							<div class="checkbox" id="fasilitas">
+								<label><input type="checkbox" value="Kasur">Kasur</label>
 							</div>
 							<div class="checkbox">
-								<label><input type="checkbox" value="">Ac</label>
+								<label><input type="checkbox" value="Ac">Ac</label>
 							</div>
 							<div class="checkbox">
-								<label><input type="checkbox" value="">Ruang Tamu</label>
+								<label><input type="checkbox" value="Ruang Tamu">Ruang Tamu</label>
 							</div>
 							<div class="checkbox">
-								<label><input type="checkbox" value="">Kamar Tidur</label>
+								<label><input type="checkbox" value="Kamar Tidur">Kamar Tidur</label>
 							</div>
 							<div class="checkbox">
-								<label><input type="checkbox" value="">Kamar Mandi</label>
+								<label><input type="checkbox" value="Kamar Mandi">Kamar Mandi</label>
 							</div>
 							<div class="checkbox">
-								<label><input type="checkbox" value="">Dapur</label>
+								<label><input type="checkbox" value="Dapur">Dapur</label>
 							</div>
 							</div>
 							
@@ -142,10 +143,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <div class="row">
                     <div class="col-sm-12">
                         <h4>Input Kontrakan</h4>
-                        <form class="" role="form" action="<?php blink('Takon/InsetData')?>"> 
+                        <form role="form" action="<?php blink('Takon/InsetData')?>" method="post"> 
+							<input type="hidden" id="idkontrakan" name="idkontrakan" value="<?php echo $this->uri->segment(3);?>" />
 							<div class="form-group">
                                 <label for="ukuran">ID User</label>
-                                <input type="text" class="form-control" id="iduser" placeholder="RM0001" name="iduser" disabled>
+                                <input type="text" class="form-control" id="iduser" placeholder="ID User" name="iduser">
                             </div>
                             <div class="form-group">
                                 <label for="nmrumah">Nama Kontrakan</label>
