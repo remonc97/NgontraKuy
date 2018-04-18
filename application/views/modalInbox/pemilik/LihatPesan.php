@@ -13,7 +13,7 @@
           <table class="table table-striped" border="0">
             <tbody>
               <tr>
-                <td width="150px">Nama Penerima</td>
+                <td width="150px">Nama Pengirim</td>
                 <td>:</td>
                 <td style="text-transform:capitalize;"><?php echo $data->nama ?></td>
               </tr>

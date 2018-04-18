@@ -55,12 +55,14 @@ class Inbox extends CI_Controller {
 		    if($this->User->ceksession() == true){
 		        $nama = $this->session->userdata('nama');
 		        $email = $this->session->userdata('email');
+		        $auth = $this->session->userdata('auth');
 
 				$merge = $this->M_Inbox->getMerge();
 				$detilPesan = $this->M_Inbox->detilPesan();
 				$customer = $this->M_Inbox->getCustomer2();
 				$pesan = $this->M_Inbox->getAllPesan();
 				$data = [
+					'auth' => $auth,
 					'merge' => $merge,
 					'email' => $email,
 					'nama' => $nama,

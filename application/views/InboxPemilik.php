@@ -108,27 +108,30 @@ $this->view('template/header');
                 <tr>
                     <?php $no=1; ?>
                     <?php foreach($customer as $data){?>
+                    <?php $isi = $this->M_Inbox->getTampilPesanCustomer($data->penerima); ?>
+                    <?php foreach($isi as $data2){ ?>
                     <td align="center"><?php echo $no ?></td>
-                    <td><?php echo $data->nama;?></td>
-                    <td><?php echo $data->tglpesan;?></td>
-                    <td><?php echo $data->jenispesan;?></td>
+                    <td><?php echo $data2->nama;?></td>
+                    <td><?php echo $data2->tglpesan;?></td>
+                    <td><?php echo $data2->jenispesan;?></td>
                     <td>
-                        <?php if($data->status == "Submitted") { ?>
+                        <?php if($data2->status == "Submitted") { ?>
                         <span class="label label-primary"><?php echo $data->status;?></span>
-                        <?php } if($data->status == "On Process") { ?>
+                        <?php } if($data2->status == "On Process") { ?>
                         <span class="label label-danger"><?php echo $data->status;?></span>
-                        <?php } if($data->status == "Solved") { ?>
+                        <?php } if($data2->status == "Solved") { ?>
                         <span class="label label-success"><?php echo $data->status;?></span>
                         <?php } ?>
                     </td>
                     <td>
                         <a href="#detilPesanModal<?php echo $data->idpesan ?>" class="btn btn-default btn-circle" id="lihatPesan" data-toggle="modal"><i class="glyphicon glyphicon-envelope"></i> Lihat Pesan </a>
-                        <a href="#balasPesanModal<?php echo $data->idpesan ?>" class="btn btn-default btn-circle" style="background-color: #1ac6ff; color: white" id="lihatPesan" data-toggle="modal"><i class="glyphicon glyphicon-send"></i> Balas Pesan </a>
+                        <a href="#balasPesanModal<?php echo $data2->idpesan ?>" class="btn btn-default btn-circle" style="background-color: #1ac6ff; color: white" id="lihatPesan" data-toggle="modal"><i class="glyphicon glyphicon-send"></i> Balas Pesan </a>
                         <?php if($data->status != "On Process" && $data->status != "Solved") { ?>
-                        <a href="#prosesPesanModal<?php echo $data->iduser ?>" class="btn btn-danger btn-circle" id="prosesPesan" data-toggle="modal"><i class="fa fa-gears"></i> Proses </a>
+                        <a href="#prosesPesanModal<?php echo $data2->iduser ?>" class="btn btn-danger btn-circle" id="prosesPesan" data-toggle="modal"><i class="fa fa-gears"></i> Proses </a>
                         <?php } ?>
                         <?php if($data->status != "Solved") { ?>
-                        <a href="#solvePesanModal<?php echo $data->idpesan ?>" class="btn btn-default btn-circle" style="background-color: #72b70f; color: white" id="solvePesan" data-toggle="modal"><span class="glyphicon glyphicon-ok"></span> Selesai</a></td>
+                        <a href="#solvePesanModal<?php echo $data2->idpesan ?>" class="btn btn-default btn-circle" style="background-color: #72b70f; color: white" id="solvePesan" data-toggle="modal"><span class="glyphicon glyphicon-ok"></span> Selesai</a></td>
+                        <?php } ?>
                         <?php } ?>
                 </tr>
                 <?php $no++; } ?>

@@ -103,4 +103,10 @@ class M_Inbox extends CI_Model {
     return $result->result(); 
   }
 
+  public function getTampilPesanCustomer($penerima)
+  {
+    $result = $this->db->query("SELECT * FROM user,pesan where pesan.iduser = user.iduser and penerima = '".$penerima."'");
+    return $result->result(); 
+  }
+
 }
