@@ -6,15 +6,17 @@ class Profile extends CI_Controller {
 	public function index()
 	{
 	    if($this->User->ceksession() == true){
+          // die('masuk');
           $auth=$this->session->auth;
 	        $data['session'] = true;
-          $data['iduser']=$this->session->userdata('iduser');
+          $iduser=$this->uri->segment(2);
+          $datauser=$this->User->getUser($iduser);
+          $data['datauser']=$datauser;
 	        $data['nama'] = $this->session->userdata('nama');
           $data['auth']=$auth;
             $this->load->view('profiluser',$data);
         }else{
             redirect('/','refresh');
-            
         }
   }
 
