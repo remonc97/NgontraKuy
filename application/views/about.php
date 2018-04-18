@@ -100,12 +100,25 @@ $this->view('template/header');
                 <div class="col-lg-8  col-lg-offset-2">
                     <center><img src="<?php echo base_url('assets/images/logo1.png')?>" class="img-responsive thumbnail"  alt="realestate"></center><br/>
                     <h3>Business Background</h3>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-                        when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-                        It has survived not only five centuries, but also the leap into electronic typesetting,
-                        remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
-                        and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                    <p>"Kontrakan" (Rent house) is one option for those who do not have a permanent place living, 
+						maybe tourists (domestic and foreign) or people who want to live in at a certain time for reasons 
+						of mobility of work, education, or for common family reasons owned by new married couples. 
+						"Kontrakan" (Rent house) is considered as the right choice for living because of reasonable price 
+						and adequate facilities.<br></p>
+						
+					<p> But, all this time, to look for "Kontrakan" (Rent house), you need to go to the "Kontrakan" (Rent house) 
+						location to look at and assess a "Kontrakan" (Rent house) facility, find out the rent price and 
+						see what the "Kontrakan" (Rent house) is empty so you can live there. <br></p>
+						
+					<p> With the above explanation, NgontraKuy present to reduce the burden from seeker "Kontrakan" (Rent house). 
+						In this website, you can:
+						- Finding a rent house according your specific needs and capabilities without to go to the rent house location,
+						- Booking the rent house according to the time desired,
+						- Communicate with the rent house owners by online, and
+						- Knowing the total cost to be paid each month if you are already a tenant of the rent house.
+					<br></p>
+
+					<p> With NgontraKuy, developers hope that this website can be useful for the public. </p>
                 </div>
 
             </div>
