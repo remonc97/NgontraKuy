@@ -109,24 +109,17 @@ $this->view('template/header');
         <div class="searchbar">
             <div class="row">
                 <div class="col-lg-6 col-sm-6">
-                    <form action="<?php echo site_url('FindHomes')?>" method="post">
-                        <input type="text" class="form-control" placeholder="Search of Properties">
+                    <form action="<?php blink('FindHomes')?>" method="post">
+                        <input type="text" class="form-control" placeholder="Search of Properties" id="search">
                         <div class="row">
-                            <div class="col-lg-3 col-sm-3 ">
-                                <select class="form-control" name="type">
-                                    <option>Type</option>
-                                    <option value="furnished">Furnished</option>
-                                    <option value="unfurnished">Unfurnished</option>
-                                </select>
-                            </div>
                             <div class="col-lg-3 col-sm-4">
-                                <select name="price" class="form-control">
+                                <select name="price" autocomplete="off" role="menu" class="form-control" id="ddharga">
                                     <option>Price</option>
                                     <option value="lo-hi">Lowest - Highest</option>
                                     <option value="hi-lo">Highest - Lowest</option>
                                 </select>
                             </div>
-                            <div class="col-lg-3 col-sm-4 col-sm-offset-3">
+                            <div class="col-lg-3 col-sm-4 col-sm-offset-6">
                                 <input class="btn btn-success" role="button" type="submit" value="Find Now"/>
                             </div>
                         </div>
