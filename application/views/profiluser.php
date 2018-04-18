@@ -112,24 +112,17 @@ $this->view('template/header');
                 <td align="center">Nama</td>
                 <td align="center">:</td>
                 <td align="center"><?php echo $datauser->nama;?></td>
-
-
              </tr>
               <tr>
                 <td align="center">Tanggal Lahir</td>
                 <td align="center">:</td>
                 <td align="center"><a href="<?php echo $datauser->tgllahir;?>"></td>
-
-
               </tr>
-
              <tr>
               <td align="center">Nomor Telepon</td
               <td align="center">:</td>
               <td align="center"><a href="<?php echo $datauser->notelp;?>"></td>
-
              </tr>
-
              <tr>
                <td align="center">Email</td>
                <td align="center">:</td>
