@@ -27,6 +27,7 @@ class Auth extends CI_Controller
             'email' => $db->email,
             'nama' => $db->nama,
             'auth' => $db->auth,
+            'iduser' => $db->iduser
         );
         $this->session->set_userdata($session);
         return true;
