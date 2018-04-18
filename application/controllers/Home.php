@@ -23,10 +23,12 @@ class Home extends CI_Controller {
 				$data['session'] = true;
 				$data['nama'] = $this->session->userdata('nama');
 					$this->load->view('home',$data);
+						$this->load->view('detailrumah',$data);
 			}else{
 					$this->load->view('home',$data);
+					$this->load->view('detailrumah',$data);
 			}
-		$this->load->view('detailrumah',$data);
+
 
 	}
 }
