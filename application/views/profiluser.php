@@ -87,31 +87,38 @@ $this->view('template/header');
   <div class="col-lg-6 col-lg-offset-3 col-sm-6 col-sm-offset-3 col-xs-12 ">
     <div class="table-scrollable">
       <table class="table table-hover">
-        <thead>
+        <?php if(isset($datauser)){?>
+          <tbody>
+
               <tr>
                 <td align="center">Nama</td>
-                <td align="center">Tanggal Lahir</td>
-                <td align="center">Nomor Telepon</td>
-                <td align="center">Email</td>
+                <td align="center">:</td>
+                <td align="center"><?php echo $datauser->nama;?></td>
+
+
              </tr>
-        </thead>
-        <tbody>
               <tr>
+                <td align="center">Tanggal Lahir</td>
                 <td align="center">:</td>
-                <td align="center">:</td>
-                <td align="center">:</td>
-                <td align="center">:</td>
+                <td align="center"><a href="<?php echo $datauser->tgllahir;?>"></td>
+
+
               </tr>
-        </tbody>
-         <?php if(isset($datauser)){?>
-       <tbody>
+
              <tr>
-              <td align="center"><?php echo $datauser->nama;?></td>
-              <td align="center"><a href="<?php echo $datauser->tgllahir;?>"></td>
+              <td align="center">Nomor Telepon</td
+              <td align="center">:</td>
               <td align="center"><a href="<?php echo $datauser->notelp;?>"></td>
-              <td align="center"><a href="<?php echo $datauser->email;?>"></td>
+
              </tr>
-         </tbody>
+
+             <tr>
+               <td align="center">Email</td>
+               <td align="center">:</td>
+               <td align="center"><a href="<?php echo $datauser->email;?>"></td>
+             </tr>
+
+             </tbody>
                  <?php }else { ?>
          <tbody>
               <tr>
