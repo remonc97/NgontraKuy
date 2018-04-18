@@ -63,10 +63,7 @@ $this->view('template/header');
     <!-- Header Starts -->
     <div class="header">
         <a href="<?php echo site_url()?>"><img src="<?php echo base_url('assets/images/logo1.png')?>" width="200px" alt="NgontraKuy"></a>
-
-        <ul class="pull-right">
-            <li style="margin-top: 20px"><a href="#" style="font-family: 'Ubuntu', sans-serif;" data-toggle="modal" data-target="#loginpop">Login</a></li>
-        </ul>
+            
     </div>
     <!-- #Header Starts -->
 </div>
@@ -110,7 +107,7 @@ $this->view('template/header');
               <tbody>
                 <tr>
                     <?php $no=1; ?>
-                    <?php foreach($merge as $data){?>
+                    <?php foreach($customer as $data){?>
                     <td align="center"><?php echo $no ?></td>
                     <td><?php echo $data->nama;?></td>
                     <td><?php echo $data->tglpesan;?></td>

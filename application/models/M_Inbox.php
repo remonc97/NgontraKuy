@@ -43,6 +43,12 @@ class M_Inbox extends CI_Model {
     return $result->result();
   }
 
+  public function getCustomer2()
+  {
+    $result = $this->db->query("SELECT * FROM user,pesan where pesan.iduser = user.iduser and auth = 0");
+    return $result->result();
+  }
+
   public function getCustomer()
   {
     $result = $this->db->query("SELECT * FROM user where auth = 0");
@@ -75,7 +81,7 @@ class M_Inbox extends CI_Model {
 
   public function prosesPesan($idpesan,$data)
   {
-    $this->db->where('iduser',$idpesan);
+    $this->db->where('idpesan',$idpesan);
     $this->db->update('pesan',$data);
   }
 

@@ -12,7 +12,7 @@ foreach($pesan as $data){ ?>
       </div>
       <div class='modal-footer'>
         <form class="" action="<?php echo site_url('Inbox/prosesPesan') ?>" method="post">
-          <input type='hidden' value='<?php echo $data->iduser?>' name='iduser'>
+          <input type='hidden' value='<?php echo $data->idpesan?>' name='idpesan'>
             <button type='button' class='btn btn-default' data-dismiss='modal'>Batal</button>
             <button class='btn btn-danger' aria-label='Proses' type='submit' name='hapus'><i class="fa fa-gears"></i> Proses</button>
         </form>

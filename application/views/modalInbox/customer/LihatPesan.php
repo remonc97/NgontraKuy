@@ -49,7 +49,9 @@
                 </tbody>
                 </table>
 
-                <h4><center>History Chat<center></h4>
+                <hr>
+              <h4><center>History Chat<center></h4>
+                <hr>
                   <div class="container-fluid" style="margin-top: 20px">
                     <table class="table table-striped" border="0">
                     <tbody>
@@ -73,4 +75,4 @@
     </div>
   </div>
   <!-- /.Detil modal Barang -->
-  <?php } ?>
+  <?php } ?>  

@@ -48,26 +48,36 @@ class Inbox extends CI_Controller {
 	        }else{
 	            redirect('');
 	        }	
-		} else {
+		} if($auth == 1) {
 
 			//ini pemilik
-			$merge = $this->M_Inbox->getMerge();
-			$detilPesan = $this->M_Inbox->detilPesan();
-			$customer = $this->M_Inbox->getCustomer();
-			$pesan = $this->M_Inbox->getAllPesan();
-			$data = [
-				'merge' => $merge,
-				'detilPesan' => $detilPesan,
-				'customer' => $customer,
-				'pesan' => $pesan
-			];
-		    $this->load->view('template/header');
-		    $this->load->view('InboxPemilik',$data);
-		    $this->load->view('modalInbox/pemilik/LihatPesan',$data);
-		    $this->load->view('modalInbox/pemilik/balasPesan',$data);
-		    $this->load->view('modalInbox/pemilik/prosesPesan',$data);
-		    $this->load->view('modalInbox/pemilik/solvePesan',$data);
-		    $this->load->view('template/footer');
+			$data['featured'] = $this->Kontrakan->getFeatured();
+		    if($this->User->ceksession() == true){
+		        $nama = $this->session->userdata('nama');
+		        $email = $this->session->userdata('email');
+
+				$merge = $this->M_Inbox->getMerge();
+				$detilPesan = $this->M_Inbox->detilPesan();
+				$customer = $this->M_Inbox->getCustomer2();
+				$pesan = $this->M_Inbox->getAllPesan();
+				$data = [
+					'merge' => $merge,
+					'email' => $email,
+					'nama' => $nama,
+					'detilPesan' => $detilPesan,
+					'customer' => $customer,
+					'pesan' => $pesan,
+				];
+			    $this->load->view('template/header');
+			    $this->load->view('InboxPemilik',$data);
+			    $this->load->view('modalInbox/pemilik/LihatPesan',$data);
+			    $this->load->view('modalInbox/pemilik/balasPesan',$data);
+			    $this->load->view('modalInbox/pemilik/prosesPesan',$data);
+			    $this->load->view('modalInbox/pemilik/solvePesan',$data);
+			    $this->load->view('template/footer');
+			}else{
+				redirect('');
+			}
 		}
 	}
 
@@ -146,6 +156,8 @@ class Inbox extends CI_Controller {
 	}
 
 
+
+
 ////////////////////////////////////////////////////////////////////////////////////////////////
 
 
@@ -154,7 +166,7 @@ class Inbox extends CI_Controller {
 
 	public function prosesPesan()
 	{
-		$idpesan = $this->input->post('iduser');
+		$idpesan = $this->input->post('idpesan');
 
 		$status = "On Process";
 
@@ -176,7 +188,7 @@ class Inbox extends CI_Controller {
 
 	public function solvePesan()
 	{
-		$idpesan = $this->input->post('iduser');
+		$idpesan = $this->input->post('idpesan');
 
 		$status = "Solved";
 

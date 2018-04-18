@@ -37,20 +37,26 @@
               </tbody>
             </table>
 
+              <hr>
             <h4><center>History Chat<center></h4>
-            <div class="container-fluid" style="margin-top: 20px">
-              <table class="table table-striped" border="0">
-              <tbody>
-              <?php $isi = $this->M_Inbox->getIsi($data->iduser); ?>
-              <?php foreach($isi as $data) { ?>
-              <tr style="text-transform:capitalize;">
-                <td><?php echo $data->tglpesan ?></td>
-                <td><?php echo $data->isi ?></td>
-              </tr>
-                <?php } ?>
-              </tbody>
-            </table>
-            </div>
+              <hr>
+                  <div class="container-fluid" style="margin-top: 20px">
+                    <table class="table table-striped" border="0">
+                    <tbody>
+                      <tr style="text-transform:capitalize;">
+                        <td><?php echo "Saya"?></td>
+                        <td><?php echo $data->isi ?></td>
+                    </tr>
+                    <?php $isi = $this->M_Inbox->getPesanCustomer($data->idpesan); ?>
+                    <?php foreach($isi as $data2) { ?>
+                    <tr style="text-transform:capitalize;">
+                      <td><?php echo "Saya"?></td>
+                      <td><?php echo $data2->pesancustomer ?></td>
+                    </tr>
+                      <?php } ?>
+                    </tbody>
+                  </table>
+                  </div>
           </form>   
          </div>
       </div>
