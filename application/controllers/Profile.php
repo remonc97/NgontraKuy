@@ -13,8 +13,9 @@ class Profile extends CI_Controller {
           $data['auth']=$auth;
             $this->load->view('profiluser',$data);
         }else{
-            $this->load->view('profiluser',$data);
+            redirect('/','refresh');
+            
         }
   }
-  
+
 }
