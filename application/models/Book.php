@@ -8,5 +8,7 @@
 
 class Book extends CI_Model
 {
-
+    public function getIdBooking($iduser){
+        return $this->db->where('iduser',$iduser)->get('booking')->row();
+    }
 }

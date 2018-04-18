@@ -150,11 +150,10 @@ $this->view('template/header');
             <div class="col-lg-4 col-lg-offset-1 col-sm-4 col-sm-offset-1 col-xs-12">
                 <div class="col-md-12">
                     <div class="panel panel-default">
-                        <div class="panel-heading"><h4>Links</h4></div>
+                        <div class="panel-heading"><h4>News</h4></div>
                         <div class="panel-body">
                             <ul style="list-style-type: none">
                                 <li>
-                                    <a></a>
                                 </li>
                             </ul>
                         </div>
