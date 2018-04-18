@@ -100,27 +100,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <label for="harga">Harga</label>
                                 <input type="text" class="form-control" id="harga" placeholder="Rp." name="harga">
                             </div>
-							<div class="form-group">
-							<label for="fasilitas">Fasilitas</label>
-							<div class="checkbox" id="fasilitas">
-								<label><input type="checkbox" value="Kasur">Kasur</label>
-							</div>
-							<div class="checkbox">
-								<label><input type="checkbox" value="Ac">Ac</label>
-							</div>
-							<div class="checkbox">
-								<label><input type="checkbox" value="Ruang Tamu">Ruang Tamu</label>
-							</div>
-							<div class="checkbox">
-								<label><input type="checkbox" value="Kamar Tidur">Kamar Tidur</label>
-							</div>
-							<div class="checkbox">
-								<label><input type="checkbox" value="Kamar Mandi">Kamar Mandi</label>
-							</div>
-							<div class="checkbox">
-								<label><input type="checkbox" value="Dapur">Dapur</label>
-							</div>
-							</div>
+                            <div class="form-group">
+                                <label for="fasilitas">Fasilitas</label>
+                                <input type="text" class="form-control" id="fasilitas" placeholder="Fasilitas" name="fasilitas">
+                            </div>
                             <div class="form-group">
                                 <label for="status">Status</label>
                                 <input type="text" class="form-control" id="status" placeholder="Status" name="status">
