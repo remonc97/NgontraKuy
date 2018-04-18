@@ -65,6 +65,7 @@ class Inbox extends CI_Controller {
 					'auth' => $auth,
 					'merge' => $merge,
 					'email' => $email,
+					'session' => TRUE,
 					'nama' => $nama,
 					'detilPesan' => $detilPesan,
 					'customer' => $customer,
