@@ -45,16 +45,11 @@ class TaKon extends CI_Controller {
 	}
 	
 	public function InsetRumah(){
-		
-		$config['upload_path'] = './uploads';
-		$config['allowed_types'] = 'gif|jpg|png';
-		$config['max_size']	= '100';
-		$config['max_width']  = '1024';
-		$config['max_height']  = '768';
-
+		$config['upload_path']          = './upload/';
+		$config['allowed_types']        = 'gif|jpg|png|gif';
 		$this->load->library('upload', $config);
-
 		$this->upload->initialize($config);
+		$this->upload->do_upload('gambar');
 		
 		$nmrumah = $this->input->post('nmrumah');
 		$dayatampung = $this->input->post('dayatampung');
