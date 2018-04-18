@@ -17,8 +17,8 @@ class User extends CI_Model
         }else{
             return false;
         }
-    }  
+    }
   public function getUser($iduser){
-    return $this->db->where('iduser',$iduser)->get('user');
+    return $this->db->where('iduser',$iduser)->get('user')->row();
   }
 }
