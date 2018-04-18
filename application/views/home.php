@@ -44,7 +44,7 @@ $this->view('template/header');
             </style>
             <div class="navbar-collapse  collapse">
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="active"><a href="<?php echo site_url()?>" >Home</a></li>
+                    <li class="active"><a href="<?php echo site_url('Home')?>" >Home</a></li>
                     <li><a href="<?php echo site_url('Agents')?>">Agents</a></li>
                     <li><a href="<?php echo site_url('ContactUs')?>">Contact Us</a></li>
                     <li><a href="<?php echo site_url('About')?>">About</a></li>
@@ -167,7 +167,7 @@ $this->view('template/header');
                         <h4><a href=".site_url('HomeDetails/'.$row->idrumah).">".$row->nmrumah."</a></h4>
                         <p class=\"price\">Price: Rp".$row->harga."</p>
                         <a class='btn btn-primary' href=".site_url('HomeDetails/'.$row->idrumah).">View Details</a>
-                    </div>  
+                    </div>
                 ";
             }
             ?>
