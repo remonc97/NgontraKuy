@@ -91,56 +91,68 @@ $this->view('template/header');
 
 <!-- banner -->
 <div class="inside-banner">
-  <div class="container">
-    <span class="pull-right"><a href="#">Home</a> / Profile</span>
-    <h2>Profile</h2>
-</div>
+    <div class="container">
+        <span class="pull-right"><a href="#">Home</a> / Profile</span>
+        <h2>Profile</h2>
+    </div>
 </div>
 <!-- banner -->
 
 
 <div class="container">
-<div class="spacer">
-<div class="row register">
-  <div class="col-lg-6 col-lg-offset-3 col-sm-6 col-sm-offset-3 col-xs-12 ">
-    <div class="table-scrollable">
-      <table class="table table-hover">
-        <?php if(isset($datauser)){?>
-          <tbody>
+    <div class="spacer">
+        <div class="row register">
+            <div class="col-lg-7 col-sm-7 col-xs-12 " style="background-color: white;padding:50px">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h3>My Profile</h3><br/>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="table-scrollable">
+                            <table class="table table-hover">
+                                <?php if(isset($datauser)){?>
+                                    <tbody>
+                                    <tr>
+                                        <td align="center">Nama</td>
+                                        <td align="center">:</td>
+                                        <td align="center"><?php echo $datauser->nama;?></td>
+                                    </tr>
+                                    <tr>
+                                        <td align="center">Tanggal Lahir</td>
+                                        <td align="center">:</td>
+                                        <td align="center"><?php echo $datauser->tgllahir;?></td>
+                                    </tr>
+                                    <tr>
+                                        <td align="center">Nomor Telepon</td>
+                                        <td align="center">:</td>
+                                        <td align="center"><?php echo $datauser->notelp;?></td>
+                                    </tr>
+                                    <tr>
+                                        <td align="center">Email</td>
+                                        <td align="center">:</td>
+                                        <td align="center"><?php echo $datauser->email;?></td>
+                                    </tr>
+                                    </tbody>
+                                <?php }else { ?>
+                                    <tbody>
+                                    <tr>
+                                        <td>No data </td>
+                                    </tr>
+                                    </tbody>
+                                <?php } ?>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-              <tr>
-                <td align="center">Nama</td>
-                <td align="center">:</td>
-                <td align="center"><?php echo $datauser->nama;?></td>
-             </tr>
-              <tr>
-                <td align="center">Tanggal Lahir</td>
-                <td align="center">:</td>
-                <td align="center"><a href="<?php echo $datauser->tgllahir;?>"></td>
-              </tr>
-             <tr>
-              <td align="center">Nomor Telepon</td
-              <td align="center">:</td>
-              <td align="center"><a href="<?php echo $datauser->notelp;?>"></td>
-             </tr>
-             <tr>
-               <td align="center">Email</td>
-               <td align="center">:</td>
-               <td align="center"><a href="<?php echo $datauser->email;?>"></td>
-             </tr>
-
-             </tbody>
-                 <?php }else { ?>
-         <tbody>
-              <tr>
-                <td>No data </td>
-              </tr>
-         </tbody>
-                 <?php } ?>
-     </table>
-    </div>
         </div>
+    </div>
+</div>
 
-</div>
-</div>
-</div>
+<?php
+#include footer file
+$this->view('template/footer');
+?>
