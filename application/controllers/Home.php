@@ -16,19 +16,17 @@ class Home extends CI_Controller {
 	}
 
 	public function detail(){
+		$data['nama']=$this->session->userdata('nama');
 		$id_rmh=$this->uri->segment(2);
 		$details=$this->Kontrakan->getRumah($id_rmh);
 		$data['details']=$details;
-		if($this->User->ceksession() == true){
-				$data['session'] = true;
-				$data['nama'] = $this->session->userdata('nama');
-					$this->load->view('home',$data);
-						$this->load->view('detailrumah',$data);
-			}else{
-					$this->load->view('home',$data);
-					$this->load->view('detailrumah',$data);
-			}
-
+		 if($this->User->ceksession() == true){
+			 $data['session'] = true;
+			 $data['nama'] = $this->session->userdata('nama');
+			 $this->load->view('detailrumah',$data);
+		 }else{
+			 $this->load->view('detailrumah',$data);
+		 }
 
 	}
 }
