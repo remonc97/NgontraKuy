@@ -109,7 +109,11 @@ class Auth extends CI_Controller {
         $db = $this->User->ceklogin($data);
         if($db != null){
             if($this->makesession($db) == true){
-                redirect('/','refresh');
+                if($this->session->userdata('auth')=='0' || $this->session->userdata()=='1'){
+                    redirect('/','refresh');
+                }else{
+                    redirect('Admin','refresh');
+                }
             }
         }else{
             redirect('/','refresh');
