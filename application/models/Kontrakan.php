@@ -84,4 +84,30 @@ class Kontrakan extends CI_Model
                         ->join('user','user.iduser=kontrakan.iduser')
                         ->where('idrumah',$id_rmh)->get()->row();
     }
+
+    public function getAllKontrakan($iduser){
+
+		return $this->db->where('iduser',$iduser)->get('kontrakan');
+	}
+
+    public function DeleteKontrakan($idkontrakan){
+  		$checkupdate = false;
+
+  		try{
+  			$this->db->where('idkontrakan',$idkontrakan);
+  			$this->db->delete('kontrakan');
+  			$checkupdate = true;
+  		}catch (Exception $ex) {
+
+  			$checkupdate = false;
+  		}
+
+  		return $checkupdate;
+
+  	}
+
+    public function getOneKontrakan($idkontrakan){
+      return $this->db->where('idkontrakan',$idkontrakan)->get('kontrakan')->row();
+    }
+
 }
