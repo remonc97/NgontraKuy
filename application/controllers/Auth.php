@@ -2,65 +2,21 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 class Auth extends CI_Controller {
 
-	/**
-	 * Index Page for this controller.
-	 *
-	 * Maps to the following URL
-	 * 		http://example.com/index.php/welcome
-	 *	- or -
-	 * 		http://example.com/index.php/welcome/index
-	 *	- or -
-	 * Since this controller is set as the default controller in
-	 * config/routes.php, it's displayed at http://example.com/
-	 *
-	 * So any other public methods not prefixed with an underscore will
-	 * map to /index.php/welcome/<method_name>
-	 * @see https://codeigniter.com/user_guide/general/urls.html
-	 
-	 */
-	 
-	public function __construct() {
-		parent::__construct();	
-			$this->load->model('CRUDregist');
-	}
+//	public function Add(){
+//		if($this->session->nama==NULL){
+//			redirect('');
+//		}
+//
+//		$nama = $this->session->nama;
+//		$auth = $this->session->auth;
+//		$data['nama'] = $nama;
+//		$data['auth'] = $auth;
+//		$this->load->view('register',$data);
+//	}
 	
-	
-	//Buat View
-	public function index()
-	{
-		if($this->session->name==NULL){
-			redirect('');
-		}
-		
-		$alluser = $this->CRUDregist->getAlluser();
-		$nama = $this->session->nama;
-		$auth = $this->session->auth;
-		$data['nama'] = $nama;
-		$data['datauser'] = $alluser;
-		$data['menu'] = $menu;
-		$data['auth'] = $auth;
-		
-		//$data['autoid'] = $this->CRUDregist->buat_kode();
-		
-		$this->load->view('Home',$data);
-	}
-
-	public function Add(){
-		if($this->session->nama==NULL){
-			redirect('');	
-		}
-		
-		$nama = $this->session->nama;
-		$auth = $this->session->auth;
-		$data['nama'] = $nama;
-		$data['menu'] = $menu;
-		$data['auth'] = $auth;
-		$this->load->view('register',$data);
-	}
-	
-	public function NewData(){
-		$this->load->view('register');
-	}
+//	public function NewData(){
+//		$this->load->view('register');
+//	}
 	
 	public function InsetData(){
 		$nama = $this->input->post('nama');
@@ -99,7 +55,6 @@ class Auth extends CI_Controller {
 		$data['data'] = $result;
 		$data['nama'] = $nama;
 		$data['auth'] = $auth;
-		$data['menu'] = $menu;
 		$this->load->view('Edit',$data);
 		
 	}
@@ -123,111 +78,54 @@ class Auth extends CI_Controller {
 		$result = $this->CRUDregist->UpdateUser($id,$data);
 		$data = NULL;
 		if ($result){
-			redirect('Auth');	
+			redirect('Home');
 		}else{
 			echo json_encode(array('success' => false));
 		}
 	}
-	
-	
-	/*
-	public function View($id){
-		if($this->session->name==NULL){
-			redirect('');	
-		}
-		
-		$nama = $this->session->name;
-		$auth = $this->session->auth;
-		$result = $this->CRUDregist->getUser($id);
-		
-		$data['data'] = $result;
-		$data['nama'] = $nama;
-		$data['auth'] = $auth;
-		$data['menu'] = $menu;
-		$this->load->view('View2',$data);
-	}
-	*/
-	
-	
+
 	public function DeleteData($id){
 		$result = $this->CRUDregist->DeleteUser($id);
 		if ($result){
-			redirect('Auth');
+			redirect('Home');
 		}else{
 		}
 	}
 	
-	/*
-	public function authnodatabase(){
-		
-		$email = $this->input->post('email');
-		$password = $this->input->post('password');
-		
-		
-		$newdata = array('email'  => $email);
-		
-		$this->session->set_userdata($newdata);
-		$data['email'] = $email;
-		
-		//kondsi if
-		if($email=="admin"){
-			
-			$this->load->view('Gatau',$data);
-			
-		}else{
-			
-			$this->load->view('error');
-		}
-	}
-	
-	public function auth(){
-		
-		$email = $this->input->post('email');
-		$password = $this->input->post('password');
-		
-		$checkUser = $this->CRUDregist->readUser($email,$password);
-	
-	
-		if($checkUser==NULL){
-				
-			$this->load->view('register');	
-				
-		}else{
-			$newdata = array(
-				'name'  => $checkUser->nama,
-				'email'  => $checkUser->email,
-				'auth'=>$checkUser->auth
-			  );
-			//set seassion
-			$this->session->set_userdata($newdata);
-			redirect('home');
-		}
-	}
-	
-	public function logout(){
-		
-		$sess_array = $this->session->all_userdata();
-		
-		foreach($sess_array as $key =>$val){
-		if($key!='email'
-		  && $key!='name'     
-		  && $key!='RESERVER_KEY_HERE')$this->session->unset_userdata($key);
-		}
-		redirect('');
-		//redirect to default controller and index function
-		//$this->load->view('Login2');			
-	}
-	
-*/
-	
-	public function ShowSession(){
-		
-		$username = $this->session->username;
-		
-		$data['email'] = $email;
-		
-		$this->load->view('ShowSession',$data);
-	}
-	
-	
+//	public function ShowSession(){
+//
+//		$username = $this->session->username;
+//
+//		$data['email'] = $email;
+//
+//		$this->load->view('ShowSession',$data);
+//	}
+
+    public function login(){
+        $data = array(
+            'email' => $this->input->post('email'),
+            'password' => $this->input->post('password'),
+        );
+        $db = $this->User->ceklogin($data);
+        if($db != null){
+            if($this->makesession($db) == true){
+                redirect('/','refresh');
+            }
+        }else{
+            redirect('/','refresh');
+        }
+    }
+    public function makesession($db){
+        $session = array(
+            'email' => $db->email,
+            'nama' => $db->nama,
+            'auth' => $db->auth,
+        );
+        $this->session->set_userdata($session);
+        return true;
+    }
+    public function logout(){
+        $this->session->sess_destroy();
+        redirect('/', 'refresh');
+    }
 }

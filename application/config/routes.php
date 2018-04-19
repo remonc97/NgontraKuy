@@ -59,6 +59,13 @@ $route['ContactUs'] = '';
 $route['NewsLetter'] = '';
 $route['AllHomes'] = '';
 $route['Search'] = 'TaKon/Search';
+$route['Profile'] = '';
+$route['Inbox'] = '';
+$route['Booking/(:any)'] = 'Transaksi/formbooking';
+$route['Booking/proses/(:any)'] = 'Transaksi/requestbooking';
+$route['Booking/confirm/(:any)'] = 'Transaksi/book';
+$route['Booking/cancel/(:any)'] = 'Transaksi/cancel';
 
 $route['Register'] = '';
-$route['Login'] = 'Regist/login';
+$route['Login'] = 'Auth/login';
+$route['Logout'] = 'Auth/logout';

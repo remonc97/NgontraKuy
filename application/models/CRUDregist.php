@@ -23,28 +23,7 @@ class CRUDregist extends CI_Model{
 		
 		return $checkinsert; 
 	}
-	
-	/*
-	// ------------ membuat autonumber ---------------------
-	
-	public function buat_kode() {
-		$res = " ";
-		$next = 0;
-		$query = $this->db->select('ifnull(max(convert(right(iduser,7), signed integer)),0) as kode')-> get('user')->row();
-			$next = ($query->kode)+1;
-			if($query->kode != 0){
-				$res = "0000000".$next;
-				$res = "U".substr($res, strlen($res)-9);
-			} else {
-				$res = "U00000001";
-			}
-			return$res;
-	}
-	*/
-	
-	
-	
-	
+
 	
 	public function readUser($user,$password){
 		$result = $this->db->where('UPPER(email)', strtoupper($user))->where('password',md5($password))->limit(1)->get('email');

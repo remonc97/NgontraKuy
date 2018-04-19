@@ -36,6 +36,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         body{
             font-family: 'Ubuntu', sans-serif;
         }
+        ul .dropdown-menu > li a{
+            font-family: 'Ubuntu', sans-serif;
+            font-size: 14pt;
+            text-transform: capitalize;
+        }
     </style>
 </head>
 
