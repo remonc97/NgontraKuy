@@ -65,26 +65,32 @@ $this->view('template/header');
       <a href="<?php echo site_url()?>"><img src="<?php echo base_url('assets/images/logo1.png')?>" width="200px" alt="NgontraKuy"></a>
 
 
-          <?php if(isset($session) && $session == true){
-              echo
-                  "
-              <ul class=\"pull-right dropdown\">
-                  <li style=\"margin-top: 20px;\">
-                      <a href=\"#\" style=\"text-transform:Capitalize;font-family: 'Ubuntu', sans-serif;\" class=\"dropdown-toggle\" data-toggle=\"dropdown\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\">Hi, $nama! <span class=\"caret\"></span></a>
-                      <ul class=\"dropdown-menu\"  style=\"padding-top: 10px;padding-bottom: 10px;\">
-                          <li><a href=".site_url('Profile').">Profile</a></li>
-                          <li><a href=".site_url('Inbox').">Inbox</a></li>
-                          <li><a href=".site_url('Logout').">Log out</a></li>
-                      </ul>
-                  </li>
-              </ul>
-              ";
-          }else{
-              echo "
-              <ul class=\"pull-right\">
-                  <li style=\"margin-top: 20px\"><a href=\"#\" style=\"font-family: 'Ubuntu', sans-serif;\" data-toggle=\"modal\" data-target=\"#loginpop\">Login</a></li>
-              </ul>";
-          } ?>
+      <?php if(isset($session) && $session == true){
+          echo
+              "
+                <ul class=\"pull-right\">
+                    <li style=\"margin-top: -10px\"><a href=\"#\" style=\"text-transform:Capitalize;font-family: 'Ubuntu', sans-serif;\" data-toggle=\"modal\" data-target=\"#TamKon2\">Tambah Kontrakan</a></li>
+                    <li style=\"margin-top: -10px\"><a href=\"#\" style=\"text-transform:Capitalize;font-family: 'Ubuntu', sans-serif;\" data-toggle=\"modal\" data-target=\"#TamKon\">Tambah Rumah</a></li>
+                    <li style=\"margin-top: -10px;padding-top: 10px;padding-bottom: 10px;\">
+                        <ul class='dropdown'>
+                            <li>
+                                <a href=\"#\" style=\"text-transform:Capitalize;font-family: 'Ubuntu', sans-serif;\" class=\"dropdown-toggle\" data-toggle=\"dropdown\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\">Hi, $nama! <span class=\"caret\"></span></a>
+                                <ul class=\"dropdown-menu\"  >
+                                    <li><a href=".site_url('Profile').">Profile</a></li>
+                                    <li><a href=".site_url('Inbox').">Inbox</a></li>
+                                    <li><a href=".site_url('Logout').">Log out</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                ";
+      }else{
+          echo "
+                <ul class=\"pull-right\">
+                    <li style=\"margin-top: 20px\"><a href=\"#\" style=\"font-family: 'Ubuntu', sans-serif;\" data-toggle=\"modal\" data-target=\"#loginpop\">Login</a></li>
+                </ul>";
+      } ?>
   </div>
     <!-- #Header Starts -->
 </div>
@@ -106,40 +112,43 @@ $this->view('template/header');
                 <div class="row">
                     <div class="col-md-12">
                         <h3>List Kontrakan</h3><br/>
+                        <br/>
+                        <br/>
+                        <br/>
                     </div>
                 </div>
                 <table class="table table-hover">
-														<thead>
-                                                        	<tr>
-                                                                <td align="center">No</td>
-                                                                <td align="center">Nama Kontrakan</td>
-                                                                <td align="center">No Telepon</td>
-                                                                <td align="center">Alamat</td>
-                                                                <td align="center">Action</td>
-                                                             </tr>
-                                                         </thead>
-                                                         <?php if(isset($datakontrakan)){?>
-                                                         <tbody>
-                                                         	 <?php $x = 1; ?>
-                                                         	 <?php foreach($datakontrakan as $data){ ?>
-                                                             <tr>
-                                                                <td align="center"><?php echo $x;?></td>
-                                                                <td align="center"><?php echo $data->nmkontrakan;?></td>
-                                                                <td align="center"><?php echo $data->notelp;?></td>
-                                                                <td align="center"><?php echo $data->alamat;?></td>
-                                                                <td align="center"><a href="<?php echo base_url('ViewKontrakan/'.$data->idkontrakan)?>" class="btn btn-warning" name="btnadd" id="btnadd">View</a> | <a href="<?php echo base_url('DaftarKontrakan/DeleteData/'.$data->idkontrakan.'')?>" class="btn btn-danger" name="btnadd" id="btnadd">Delete</a></td>
-                                                             </tr>
-                                                             <?php $x = $x+1; ?>
-                                                             <?php } ?>
-                                                         </tbody>
-                                                         <?php }else { ?>
-                                                         <tbody>
-                                                         	<tr>
-                                                            	<td>No data </td>
-                                                            </tr>
-                                                         </tbody>
-                                                         <?php } ?>
-                               					     </table>
+                    <thead>
+                        <tr>
+                            <td align="center">No</td>
+                            <td align="center">Nama Kontrakan</td>
+                            <td align="center">No Telepon</td>
+                            <td align="center">Alamat</td>
+                            <td align="center">Action</td>
+                         </tr>
+                     </thead>
+                     <?php if(isset($datakontrakan) && $datakontrakan!=null){?>
+                     <tbody>
+                         <?php $x = 1; ?>
+                         <?php foreach($datakontrakan as $data){ ?>
+                         <tr>
+                            <td align="center"><?php echo $x;?></td>
+                            <td align="center"><?php echo $data->nmkontrakan;?></td>
+                            <td align="center"><?php echo $data->notelp;?></td>
+                            <td align="center"><?php echo $data->alamat;?></td>
+                            <td align="center"><a href="<?php echo base_url('ViewKontrakan/'.$data->idkontrakan)?>" class="btn btn-warning" name="btnadd" id="btnadd">View</a> | <a href="<?php echo base_url('DaftarKontrakan/DeleteData/'.$data->idkontrakan.'')?>" class="btn btn-danger" name="btnadd" id="btnadd">Delete</a></td>
+                         </tr>
+                         <?php $x = $x+1; ?>
+                         <?php } ?>
+                     </tbody>
+                     <?php }else { ?>
+                     <tbody>
+                        <tr>
+                            <td colspan="5"><center>No data</center></td>
+                        </tr>
+                     </tbody>
+                     <?php } ?>
+                 </table>
             </div>
         </div>
     </div>
