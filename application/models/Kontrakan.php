@@ -53,13 +53,18 @@ class Kontrakan extends CI_Model
 
 	}
 	
-	  public function viewByNis($nis){  
-	  
-	  $this->db->where('nis', $nis);    
-	  $result = $this->db->get('siswa')->row(); 
-	  // Tampilkan data siswa berdasarkan NIS        
-	  return $result;   
-	  
-	  }
+	 public function get_results($search_term='default')
+    {
+        // Use the Active Record class for safer queries.
+        $this->db->select('*');
+        $this->db->from('rumah');
+        $this->db->like('fasilitas',$search_term);
+
+        // Execute the query.
+        $query = $this->db->get();
+
+        // Return the results.
+        return $query->result_array();
+    }
 	
 }

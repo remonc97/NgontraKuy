@@ -127,33 +127,15 @@ $this->view('template/header');
             </div>
         </div>
     </div>
+</div><div>
+    <?php
+        // List up all results.
+        foreach ($results as $val)
+        {
+            echo $val['fasilitas'];
+        }
+    ?>
 </div>
-<!-- banner -->
-<div class="container">
-    <div class="properties-listing spacer"> <a href="<?php echo site_url('AllHomes')?>" class="pull-right viewall">View All Listing</a>
-        <h2>Featured Properties</h2>
-        <div id="owl-example" class="owl-carousel">
-
-            <?php
-            foreach($featured as $row){
-                echo
-                "
-                    <div class=\"properties\">
-                        <div class=\"image-holder\"><img src=\"<?php echo base_url('assets/images/properties/1.jpg')?>\" class=\"img-responsive\" alt=\"properties\"/>
-                            <div class=\"status <?php echo $row->status ?>\"><?php echo $row->status ?></div>
-                        </div>
-                        <h4><a href=\"<?php echo site_url('HomeDetails/'.$row->id_rmh)?>\"><?php echo $row->nm_rmh ?></a></h4>
-                        <p class=\"price\">Price: Rp<?php echo $row->harga?></p>
-                        <a class=\"btn btn-primary\" href=\"<?php echo site_url('HomeDetails/'/$row->id_rmh)?>\">View Details</a>
-                    </div>  
-                ";
-            }
-            ?>
-
-        </div>
-    </div>
-</div>
-
 <?php
 #include footer file
 $this->view('template/footer');

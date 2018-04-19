@@ -28,6 +28,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <script type="text/javascript" src="<?php echo base_url('assets/slitslider/js/jquery.ba-cond.min.js')?>"></script>
     <script type="text/javascript" src="<?php echo base_url('assets/slitslider/js/jquery.slitslider.js')?>"></script>
     <!-- slitslider -->
+	
+	
+        <script src="<?php echo base_url(); ?>assets/custom.js"></script>
     <?php $this->view('template/fonts')?>
     <style>
         body{
