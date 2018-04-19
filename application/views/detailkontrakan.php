@@ -121,27 +121,27 @@ $this->view('template/header');
                     <div class="col-md-12">
                         <div class="table-scrollable">
                             <table class="table table-hover">
-                                <?php if(isset($datauser)){?>
+                                <?php if(isset($getdata)){?>
                                     <tbody>
                                     <tr>
                                         <td align="center">Nama Kontrakan</td>
                                         <td align="center">:</td>
-                                        <td align="center"><?php echo $datauser->nmkontrakan;?></td>
+                                        <td align="center"><?php echo $getdata->nmkontrakan;?></td>
                                     </tr>
                                     <tr>
                                         <td align="center">Nomor Telepon</td>
                                         <td align="center">:</td>
-                                        <td align="center"><?php echo $datauser->notelp;?></td>
+                                        <td align="center"><?php echo $getdata->notelp;?></td>
                                     </tr>
                                     <tr>
                                         <td align="center">Deskripsi</td>
                                         <td align="center">:</td>
-                                        <td align="center"><?php echo $datauser->deskripsi;?></td>
+                                        <td align="center"><?php echo $getdata->deskripsi;?></td>
                                     </tr>
                                     <tr>
                                         <td align="center">Alamat</td>
                                         <td align="center">:</td>
-                                        <td align="center"><?php echo $datauser->alamat;?></td>
+                                        <td align="center"><?php echo $getdata->alamat;?></td>
                                     </tr>
                                     </tbody>
                                 <?php }else { ?>
