@@ -92,7 +92,7 @@ $this->view('template/header');
 <!-- banner -->
 <div class="inside-banner">
     <div class="container">
-        <span class="pull-right"><a href="#">Home</a> / Profile</span>
+        <span class="pull-right"><a href="<?php echo site_url()?>">Home</a> / Profile</span>
         <h2>Profile</h2>
     </div>
 </div>
@@ -102,7 +102,16 @@ $this->view('template/header');
 <div class="container">
     <div class="spacer">
         <div class="row register">
-            <div class="col-lg-7 col-sm-7 col-xs-12 " style="background-color: white;padding:50px">
+            <div class="col-lg-3 col-sm-4 col-xs-12">
+                <div class="col-md-3">
+                    <div class="card">
+                      <div class="card-body text-center">
+                        <p><img class=" img-fluid" src="<?php echo base_url('assets/images/woman.png')?>" alt="card image" width="200px" height="200px"></p>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-5 col-sm-6 col-xs-12 " style="background-color: white;padding:50px">
                 <div class="row">
                     <div class="col-md-12">
                         <h3>My Profile</h3><br/>
@@ -147,17 +156,37 @@ $this->view('template/header');
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 col-lg-offset-1 col-sm-4 col-sm-offset-1 col-xs-12">
-                <div class="col-md-12">
-                    <div class="panel panel-default">
-                        <div class="panel-heading"><h4>News</h4></div>
-                        <div class="panel-body">
-                            <ul style="list-style-type: none">
-                                <li>
-                                </li>
-                            </ul>
-                        </div>
+            <div class="col-lg-4 col-sm-4 col-xs-12">
+                <div class="row">
+                  <?php if($auth=='1'){?>
+                  <div class="col-md-12">
+                      <div class="panel panel-default">
+                          <div class="panel-heading"><h4>News</h4></div>
+                          <div class="panel-body">
+                              <ul style="list-style-type: none">
+                                  <li>
+                                  </li>
+                              </ul>
+                          </div>
+                      </div>
                     </div>
+                    <?php } ?>
+                    <div class="col-md-12">
+                        <div class="panel panel-default">
+                            <div class="panel-heading"><h4>Links</h4></div>
+                            <div class="panel-body">
+                                <ul style="list-style-type: none">
+                                  <?php if($auth=='1'){?>
+                                    <li><a href="<?php echo site_url('Invoices')?>">Invoices</a></li>
+                                    <li><a href="<?php echo site_url('ListKontrakan')?>">List Kontrakan</li>
+                                  <?php }
+                                    else{?>
+                                    <li><a href="<?php echo site_url('Invoices')?>">Invoices</a></li>
+                                  <?php } ?>
+                                </ul>
+                            </div>
+                        </div>
+                      </div>
                 </div>
             </div>
         </div>
