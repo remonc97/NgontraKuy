@@ -8,10 +8,10 @@
          <h3 id="myModalLabel"><span class="glyphicon glyphicon-envelope"></span> Pesan</h3>
       </div>
       <div class="modal-body">
-          <form method="POST" action="<?php echo site_url('Inbox/balasPesanCustomer')?>" enctype="multipart/form-data">
+          <form method="POST" action="<?php echo site_url('Inbox/balasPesanCustomer2')?>" enctype="multipart/form-data">
             <div class="modal-body">
 
-              <input required class="form-control required text-capitalize" data-placement="top" data-trigger="manual" type="hidden" name="<?php echo $data->iduser ?>">
+              <input required class="form-control required text-capitalize" data-placement="top" data-trigger="manual" type="hidden" name="idpesan" value="<?php echo $data->idpesan ?>">
 
               <div class="form-group"><label>Nama Pengirim Pesan</label>
                 <input type="text" name="nama" class="form-control" value="<?php echo $data->nama?>" readonly="">

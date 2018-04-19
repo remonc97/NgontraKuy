@@ -244,6 +244,32 @@ class Inbox extends CI_Controller {
 		}
 	}
 
+	public function balasPesanCustomer2()
+	{
+		$idpesan = $this->input->post('idpesan');
+		$iduser = $this->input->post('penerima');
+		$isipesan = $this->input->post('isipesan');
 
+		$tglpesan = date("Y/m/d");
+
+		$status="Submitted";
+
+		$data = array(
+			'idpesan' =>$idpesan,
+			'iduser' =>$iduser,
+			'pesancustomer' => $isipesan
+		);
+
+		$result = $this->M_Inbox->BalasPesanCustomer($data);
+
+		$data = NULL;
+		if ($result){
+			$this->session->set_flashdata('pesan','Pesan Berhasil Dikirim');
+	   		redirect('Inbox');
+		}else{
+			$this->session->set_flashdata('pesanGagal','Pesan Tidak Berhasil Disimpan');
+    		redirect('Inbox');
+		}
+	}
 
 }

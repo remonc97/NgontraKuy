@@ -27,7 +27,7 @@ class M_Inbox extends CI_Model {
 
   public function detilPesan2($id)
   {
-    $result = $this->db->query("SELECT * FROM user,pesan WHERE user.iduser = pesan.iduser and email ='".$id."'");
+    $result = $this->db->query("SELECT * FROM user,pesan WHERE user.iduser = pesan.iduser and nama ='".$id."'");
     return $result->result();
   }
 

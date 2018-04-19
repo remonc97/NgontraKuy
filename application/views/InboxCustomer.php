@@ -110,7 +110,7 @@ $this->view('template/header');
                     <?php $no=1; ?>
                     <?php foreach($detilPesan as $data){?>
 
-                    <?php $isi = $this->M_Inbox->detilPesan2($email);
+                    <?php $isi = $this->M_Inbox->detilPesan2($data->nama);
 
                     if($session == $isi) {
 
