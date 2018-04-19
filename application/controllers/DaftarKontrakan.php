@@ -13,19 +13,41 @@ class DaftarKontrakan extends CI_Controller {
 	//assume as view
 	public function index()
 	{
-		if($this->session->name==NULL){
-			redirect('');
-		}
+		if($this->User->ceksession()==true){
+      #validasi bahwa sessionnya masuk
+      $data['session'] = true;
 
-		$allKontrakan = $this->Kontrakan->getAllKontrakan();
-		$nama = $this->session->name;
-		$data['nama'] = $nama;
-		$data['datakontrakan'] = $allKontrakan;
-		$this->load->view('listkontrakan',$data);
-	}
+      #mindahin data session ke variabel baru untuk dipassing di view
+        $data['iduser']=$this->session->userdata('iduser');
+        $data['nama'] = $this->session->userdata('nama');
+        $data['auth']=$this->session->userdata('auth');
 
-	public function View($idkontrakan){
-		$result = $this->Kontrakan->getKontrakan($idkontrakan);
+
+
+		$data['datakontrakan'] = $this->Kontrakan->getAllKontrakan($data['iduser']);
+    if(isset($data['datakontrakan'])){ #jika query berhasil dijalankan
+            $this->load->view('listkontrakan',$data); #jalankan view profil
+    }else{
+        redirect('/','refresh');
+    }
+ }
+
+  }
+  public function getOneKontrakan(){
+    $idkontrakan = $this->uri->segment(2);
+    $data['session'] = true;
+    $data['auth'] = $this->session->userdata('auth');
+    $data['nama'] = $this->session->userdata('nama');
+    $data['iduser']=$this->session->userdata('iduser');
+
+    $data['getdata']= $this->Kontrakan->getOneKontrakan($idkontrakan);
+    If($data['getdata'] != null){
+      $this->load->view('detailkontrakan',$data);
+      }
+  }
+
+	public function View(){
+		$result = $this->Kontrakan->getAllKontrakan();
 
 		$data['data'] = $result;
 
