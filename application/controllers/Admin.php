@@ -10,7 +10,7 @@ class Admin extends CI_Controller
 	public function index()
 	{
 		$data['all'] = $this->Model_Admin->getUser();
-
+        $data['session'] = true;
 		$this->load->view('admin',$data);
 	}
 	public function Penghuni()

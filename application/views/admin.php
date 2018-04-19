@@ -17,8 +17,6 @@ $this->view('template/header');
                     <li style=\"margin-top: 20px;\">
                         <a href=\"#\" style=\"text-transform:Capitalize;font-family: 'Ubuntu', sans-serif;\" class=\"dropdown-toggle\" data-toggle=\"dropdown\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\">Hi, $nama! <span class=\"caret\"></span></a>
                         <ul class=\"dropdown-menu\"  style=\"padding-top: 10px;padding-bottom: 10px;\">
-                            <li><a href=".site_url('Profile').">Profile</a></li>
-                            <li><a href=".site_url('Inbox').">Inbox</a></li>
                             <li><a href=".site_url('Logout').">Log out</a></li>
                         </ul>
                     </li>
