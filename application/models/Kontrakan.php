@@ -66,5 +66,14 @@ class Kontrakan extends CI_Model
         // Return the results.
         return $query->result();
     }
-	
+
+    public function getOne($idrumah){
+        return
+            $this->db->select('*')
+                ->from('kontrakan')
+                ->join('rumah','kontrakan.idkontrakan= rumah.idkontrakan')
+                ->where('rumah.idrumah',$idrumah)
+                ->get()
+                ->row();
+    }
 }
