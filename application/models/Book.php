@@ -30,16 +30,16 @@ class Book extends CI_Model
             return false;
         }
     }
-    public function makeID()
-    {
+
+    public function makeID(){
         $res = "";
         $next = 0;
         $query = $this->db->select('ifnull(max(convert(right(idbooking,7), signed integer)), 0) as kode')->get('booking')->row();
-        $next = ($query->kode) + 1;
-        if ($query->kode != 0) {
+        $next = ($query->kode)+1;
+        if($query->kode != 0){
             $res = "000000" . $next;
-            $res = "B" . substr($res, strlen($res) - 7);
-        } else {
+            $res = "B" . substr($res,strlen($res)-7);
+        }else{
             $res = "B0000001";
         }
         return $res;

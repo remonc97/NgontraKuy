@@ -177,7 +177,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <h4><a href=".site_url('HomeDetails/'.$row->idrumah).">".$row->nmrumah."</a></h4>
                         <p class=\"price\">Price: Rp".$row->harga."</p>
                         <a class='btn btn-primary' href=".site_url('HomeDetails/'.$row->idrumah).">View Details</a>
+<<<<<<< HEAD
                     </div>
+=======
+                    </div>  
+>>>>>>> zacky
                 ";
             }
             ?>
