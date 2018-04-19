@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Apr 18, 2018 at 10:40 AM
+-- Generation Time: Apr 19, 2018 at 02:32 AM
 -- Server version: 10.1.30-MariaDB
 -- PHP Version: 7.2.1
 
@@ -80,15 +80,6 @@ CREATE TABLE `pesan` (
   `penerima` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `pesan`
---
-
-INSERT INTO `pesan` (`idpesan`, `iduser`, `tglpesan`, `subject`, `jenispesan`, `isi`, `status`, `penerima`) VALUES
-(56, 'USR04', '2018-04-18', 'ASD_TUGAS', 'komplain', 'ini komplain', 'Solved', 'Zacky Burhani'),
-(57, 'USR04', '2018-04-18', 'Genteng Bocor Mas', 'komplain', 'genteng bocor mas', 'Solved', 'Zacky Burhani'),
-(58, 'USR04', '2018-04-18', 'Got Penuh mas', 'komplain', 'ini pesan zein', 'Submitted', 'Zein Hanafi');
-
 -- --------------------------------------------------------
 
 --
@@ -101,14 +92,6 @@ CREATE TABLE `pesancustomer` (
   `pesancustomer` text NOT NULL,
   `idpesan` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `pesancustomer`
---
-
-INSERT INTO `pesancustomer` (`id`, `iduser`, `pesancustomer`, `idpesan`) VALUES
-(7, 'USR04', 'kok belum dibales ?', 56),
-(8, 'USR04', 'zein', 58);
 
 -- --------------------------------------------------------
 
@@ -203,8 +186,7 @@ ALTER TABLE `pesan`
 --
 ALTER TABLE `pesancustomer`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `iduser` (`iduser`),
-  ADD KEY `idpesan` (`idpesan`);
+  ADD KEY `iduser` (`iduser`);
 
 --
 -- Indexes for table `rumah`
@@ -240,13 +222,13 @@ ALTER TABLE `kontrakan`
 -- AUTO_INCREMENT for table `pesan`
 --
 ALTER TABLE `pesan`
-  MODIFY `idpesan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
+  MODIFY `idpesan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
 
 --
 -- AUTO_INCREMENT for table `pesancustomer`
 --
 ALTER TABLE `pesancustomer`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `rumah`
