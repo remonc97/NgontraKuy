@@ -127,7 +127,7 @@ $this->view('template/header');
                                                                 <td align="center"><?php echo $data->nmkontrakan;?></td>
                                                                 <td align="center"><?php echo $data->notelp;?></td>
                                                                 <td align="center"><?php echo $data->alamat;?></td>
-                                                                <td align="center"><a href="" class="btn btn-warning" name="btnadd" id="btnadd">View</a> | <a href="<?php echo base_url('DaftarKontrakan/DeleteData/'.$data->idkontrakan.'')?>" class="btn btn-danger" name="btnadd" id="btnadd">Delete</a></td>
+                                                                <td align="center"><a href="<?php echo base_url('ViewKontrakan/'.$data->idkontrakan)?>" class="btn btn-warning" name="btnadd" id="btnadd">View</a> | <a href="<?php echo base_url('DaftarKontrakan/DeleteData/'.$data->idkontrakan.'')?>" class="btn btn-danger" name="btnadd" id="btnadd">Delete</a></td>
                                                              </tr>
                                                              <?php $x = $x+1; ?>
                                                              <?php } ?>
