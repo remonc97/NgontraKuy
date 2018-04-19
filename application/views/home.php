@@ -163,7 +163,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div id="owl-example" class="owl-carousel">
 
             <?php
-            foreach($result as $row){
+            foreach($featured as $row){
                 echo
                 "
                     <div class=\"properties\">
