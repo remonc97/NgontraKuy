@@ -135,7 +135,7 @@ $this->view('template/header');
         <div id="owl-example" class="owl-carousel">
 
             <?php
-            foreach($featured as $row){
+            foreach($result as $row){
                 echo
                 "
                     <div class=\"properties\">

@@ -73,7 +73,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <div class="row">
                     <div class="col-sm-12">
                         <h4>Input Rumah</h4>
-                        <form role="form" action="<?php blink('Takon/InsetRumah')?>" method="post" enctype="multipart/form-data"> 
+                        <form role="form" action="<?php blink('TaKon/InsetRumah')?>" enctype="multipart/form-data" method="post" > 
 							<input type="hidden" id="idrumah" name="idrumah" value="<?php echo $this->uri->segment(3);?>" />
 							<div class="form-group">
                                 <label for="ukuran">ID Kontrakan</label>
@@ -108,11 +108,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <label for="status">Status</label>
                                 <input type="text" class="form-control" id="status" placeholder="Status" name="status">
                             </div>
-							
-							<label class="custom-file">Pilih Gambar
+							<div>
+							<label class="custom-file">Pilih Gambar</label>
 								<input type="file" id="gambar" name="gambar" class="custom-file-input">
 								<span class="custom-file-control"></span>
-							</label>
+							</div>
 							<br>
                             <input type="submit" role="button" class="btn btn-success" value="Create"/>
                         </form>
