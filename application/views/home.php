@@ -65,17 +65,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <div class="header">
         <a href="<?php echo site_url()?>"><img src="<?php echo base_url('assets/images/logo1.png')?>" width="200px" alt="NgontraKuy"></a>
 
-<<<<<<< HEAD
-        <ul class="pull-right">
-            <li style="margin-top: 20px"><a href="#" style="font-family: 'Ubuntu', sans-serif;" data-toggle="modal" data-target="#loginpop">Login</a></li>
-        </ul>
-		<ul class="pull-right">
-            <li style="margin-top: 20px"><a href="#" style="font-family: 'Ubuntu', sans-serif;" data-toggle="modal" data-target="#TamKon">Tambah Rumah</a></li>
-        </ul>
-		<ul class="pull-right">
-            <li style="margin-top: 20px"><a href="#" style="font-family: 'Ubuntu', sans-serif;" data-toggle="modal" data-target="#TamKon2">Tambah Kontrakan</a></li>
-        </ul>
-=======
 
             <?php if(isset($session) && $session == true){
                 echo
@@ -97,7 +86,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <li style=\"margin-top: 20px\"><a href=\"#\" style=\"font-family: 'Ubuntu', sans-serif;\" data-toggle=\"modal\" data-target=\"#loginpop\">Login</a></li>
                 </ul>";
             } ?>
->>>>>>> chintya
     </div>
     <!-- #Header Starts -->
 </div>

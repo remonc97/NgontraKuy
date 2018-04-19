@@ -7,7 +7,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <!-- banner -->
 <div class="inside-banner">
   <div class="container"> 
-    <span class="pull-right"><a href="#">Home</a> / Join Now</span>
+    <span class="pull-right"><a href="<?php echo site_url()?>">Home</a> / Join Now</span>
     <h2>Sign Up</h2>
 </div>
 </div>
