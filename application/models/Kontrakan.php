@@ -22,8 +22,7 @@ class Kontrakan extends CI_Model
 
     public function getAllKontrakan(){
 
-		$result = $this->db->get('kontrakan');
-		return $result->result();
+		return $this->db->where('iduser',$iduser)->get('kontrakan');
 	}
 
   public function DeleteKontrakan($idkontrakan){
