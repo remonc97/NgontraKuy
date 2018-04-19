@@ -11,6 +11,7 @@ class Admin extends CI_Controller
 	{
 		$data['all'] = $this->Model_Admin->getUser();
         $data['session'] = true;
+        $data['nama'] = $this->session->userdata('nama');
 		$this->load->view('admin',$data);
 	}
 	public function Penghuni()

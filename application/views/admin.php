@@ -79,7 +79,6 @@ $this->view('template/header');
 					<ul class="nav nav-pills nav-stacked">
 						<li class="active"><a href="<?php echo base_url('Admin')?>">List Pemilik Kontrakan</a></li>
 						<li><a href="<?php echo base_url('Admin/Penghuni')?>">List Penghuni Kontrakan</a></li>
-						<li><a>Inbox</a></li>
 					</ul>
 				</div>
 			</div>
