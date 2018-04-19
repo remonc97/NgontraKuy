@@ -177,11 +177,11 @@ $this->view('template/header');
                             <div class="panel-body">
                                 <ul style="list-style-type: none">
                                   <?php if($auth=='1'){?>
-                                    <li>Invoices</li>
-                                    <li>List Kontrakan</li>
+                                    <li><a href="<?php echo site_url('Invoices')?>">Invoices</a></li>
+                                    <li><a href="<?php echo site_url('ListKontrakan')?>">List Kontrakan</li>
                                   <?php }
                                     else{?>
-                                    <li>Invoices</li>
+                                    <li><a href="<?php echo site_url('Invoices')?>">Invoices</a></li>
                                   <?php } ?>
                                 </ul>
                             </div>
