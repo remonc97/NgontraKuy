@@ -54,11 +54,9 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
 $route['Home/(:any)']='Home/index';
-$route['About'] = '';
-$route['Agents'] = '';
-$route['ContactUs'] = '';
-$route['NewsLetter'] = '';
-$route['AllHomes'] = '';
+$route['About'] = 'Home/About';
+$route['Agents'] = 'Home/Agents';
+$route['ContactUs'] = 'Home/Contact';
 $route['Search'] = 'TaKon/Search';
 $route['Profile'] = 'Profile/index';
 $route['Inbox'] = '';
