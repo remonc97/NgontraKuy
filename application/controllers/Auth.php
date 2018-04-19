@@ -121,6 +121,7 @@ class Auth extends CI_Controller {
     }
     public function makesession($db){
         $session = array(
+            'iduser' => $db->iduser,
             'email' => $db->email,
             'nama' => $db->nama,
             'auth' => $db->auth,

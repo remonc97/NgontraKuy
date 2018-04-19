@@ -53,18 +53,20 @@ $route['default_controller'] = 'home';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
+$route['Home/(:any)']='Home/index';
 $route['About'] = '';
 $route['Agents'] = '';
 $route['ContactUs'] = '';
 $route['NewsLetter'] = '';
 $route['AllHomes'] = '';
 $route['Search'] = 'TaKon/Search';
-$route['Profile'] = '';
+$route['Profile'] = 'Profile/index';
 $route['Inbox'] = '';
 $route['Booking/(:any)'] = 'Transaksi/formbooking';
 $route['Booking/proses/(:any)'] = 'Transaksi/requestbooking';
 $route['Booking/confirm/(:any)'] = 'Transaksi/book';
 $route['Booking/cancel/(:any)'] = 'Transaksi/cancel';
+$route['HomeDetails/(:any)']='Home/detail';
 
 $route['Register'] = '';
 $route['Login'] = 'Auth/login';

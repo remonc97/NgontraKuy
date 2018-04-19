@@ -76,4 +76,12 @@ class Kontrakan extends CI_Model
                 ->get()
                 ->row();
     }
+
+    public function getRumah($id_rmh){
+        return $this->db->select('*')
+                        ->from('rumah')
+                        ->join('kontrakan','kontrakan.idkontrakan=rumah.idkontrakan')
+                        ->join('user','user.iduser=kontrakan.iduser')
+                        ->where('idrumah',$id_rmh)->get()->row();
+    }
 }
