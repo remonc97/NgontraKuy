@@ -158,7 +158,7 @@ $this->view('template/header');
             </div>
             <div class="col-lg-4 col-sm-4 col-xs-12">
                 <div class="row">
-                  <?php if(isset($auth=='1')){?>
+                  <?php if($auth=='1'){?>
                   <div class="col-md-12">
                       <div class="panel panel-default">
                           <div class="panel-heading"><h4>News</h4></div>
@@ -176,7 +176,7 @@ $this->view('template/header');
                             <div class="panel-heading"><h4>Links</h4></div>
                             <div class="panel-body">
                                 <ul style="list-style-type: none">
-                                  <?php if(isset($auth=='1')){?>
+                                  <?php if($auth=='1'){?>
                                     <li>Invoices</li>
                                     <li>List Kontrakan</li>
                                   <?php }
