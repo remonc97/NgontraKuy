@@ -67,7 +67,8 @@ $route['Booking/confirm/(:any)'] = 'Transaksi/book';
 $route['Booking/cancel/(:any)'] = 'Transaksi/cancel';
 $route['HomeDetails/(:any)']='Home/detail';
 $route['Invoices']='';
-$route['ListKontrakan']='';
+$route['ListKontrakan/(:any)']='DaftarKontrakan/index';
+$route['ViewKontrakan/(:any)'] = 'DaftarKontrakan/getOneKontrakan';
 
 $route['Register'] = '';
 $route['Login'] = 'Auth/login';
