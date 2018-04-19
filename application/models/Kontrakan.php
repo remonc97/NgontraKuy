@@ -53,18 +53,18 @@ class Kontrakan extends CI_Model
 
 	}
 	
-	 public function get_results($search_term='default')
+	 public function get_results($search_term)
     {
         // Use the Active Record class for safer queries.
-        $this->db->select('*');
-        $this->db->from('rumah');
-        $this->db->like('fasilitas',$search_term);
+        $query=$this->db->like('fasilitas',$search_term)->get('rumah');
+		
+		//$this->db->query("select * from rumah where fasilitas like '%kasur%' "); 
 
         // Execute the query.
-        $query = $this->db->get();
+        //$query = $this->db->get();
 
         // Return the results.
-        return $query->result_array();
+        return $query->result();
     }
 	
 }

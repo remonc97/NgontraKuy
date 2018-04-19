@@ -128,15 +128,6 @@ $this->view('template/header');
         </div>
     </div>
 </div>
-<div>
-    <?php
-        // List up all results.
-        foreach ($results as $val)
-        {
-            echo $val['fasilitas'];
-        }
-    ?>
-</div>
 
 <div class="container">
     <div class="properties-listing spacer"> <a href="<?php echo site_url('Search')?>" class="pull-right viewall">View All Listing</a>
@@ -144,18 +135,17 @@ $this->view('template/header');
         <div id="owl-example" class="owl-carousel">
 
             <?php
-            foreach($results as $val){
-                echo 
-                "
-                    <div class=\"properties\">
-                        <div class=\"image-holder\"><img src=\"<?php echo base_url('assets/images/properties/1.jpg')?>\" class=\"img-responsive\" alt=\"properties\"/>
-                            <div class=\"status <?php echo $row->status ?>\"><?php echo $row->status ?></div>
-                        </div>
-                        <h4><a href=\"<?php echo site_url('HomeDetails/'.$row->id_rmh)?>\"><?php echo $row->nm_rmh ?></a></h4>
-                        <p class=\"price\">Price: Rp<?php echo $row->harga?></p>
-                        <a class=\"btn btn-primary\" href=\"<?php echo site_url('HomeDetails/'/$row->id_rmh)?>\">View Details</a>
-                    </div>  
-                ";
+            foreach($results as $row){
+                ?>
+				<div class="properties">
+					<div class="image-holder"><img src="<?php echo base_url('assets/images/rumah/').$row->gambar?>" class="img-responsive" alt="properties"/>
+						<div class="status <?php echo $row->status ?>"><?php echo $row->status ?></div>
+					</div>
+					<h4><a href="<?php echo site_url('HomeDetails/'.$row->idrumah)?>"><?php echo $row->nmrumah ?></a></h4>
+					<p class="price">Price: Rp<?php echo $row->harga?></p>
+					<a class="btn btn-primary" href="<?php echo site_url('HomeDetails/'/$row->idrumah)?>">View Details</a>
+				</div>
+				<?php
             }
             ?>
 
