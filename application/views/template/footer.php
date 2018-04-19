@@ -67,5 +67,99 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         </div>
     </div>
     <!-- /.modal -->
+	<!-- Modal -->
+    <div id="TamKon" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <h4>Input Rumah</h4>
+                        <form role="form" action="<?php blink('TaKon/InsetRumah')?>" method="post" enctype="multipart/form-data"> 
+							<input type="hidden" id="idrumah" name="idrumah" value="<?php echo $this->uri->segment(3);?>" />
+							<div class="form-group">
+                                <label for="ukuran">ID Kontrakan</label>
+                                <input type="text" class="form-control" id="idkontrakan" placeholder="ID Kontrakan" name="idkontrakan">
+                            </div>
+                            <div class="form-group">
+                                <label for="nmrumah">Nama Rumah</label>
+                                <input type="text" class="form-control" id="nmrumah" placeholder="Nama Rumah" name="nmrumah">
+                            </div> 
+							<div class="form-group">
+								<label for="dayatampung">Daya Tampung:</label>
+								<select class="form-control" id="dayatampung" name="dayatampung">
+									<option selected>1</option>
+									<option>2</option>
+									<option>3</option>
+									<option>4</option>
+								</select>
+							</div> 
+                            <div class="form-group">
+                                <label for="ukuran">Ukuran</label>
+                                <input type="text" class="form-control" id="ukuran" placeholder="Ukuran" name="ukuran">
+                            </div>
+                            <div class="form-group">
+                                <label for="harga">Harga</label>
+                                <input type="text" class="form-control" id="harga" placeholder="Rp." name="harga">
+                            </div>
+                            <div class="form-group">
+                                <label for="fasilitas">Fasilitas</label>
+                                <input type="text" class="form-control" id="fasilitas" placeholder="Fasilitas" name="fasilitas">
+                            </div>
+                            <div class="form-group">
+                                <label for="status">Status</label>
+                                <input type="text" class="form-control" id="status" placeholder="Status" name="status">
+                            </div>
+							<div>
+							<label class="custom-file">Pilih Gambar</label>
+								<input type="file" id="gambar" name="gambar" class="custom-file-input">
+								<span class="custom-file-control"></span>
+							</div>
+							<br>
+                            <input type="submit" role="button" class="btn btn-success" value="Create"/>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.modal -->
+	<!-- Modal -->
+    <div id="TamKon2" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <h4>Input Kontrakan</h4>
+                        <form role="form" action="<?php blink('Takon/InsetData')?>" method="post"> 
+							<input type="hidden" id="idkontrakan" name="idkontrakan" value="<?php echo $this->uri->segment(3);?>" />
+							<div class="form-group">
+                                <label for="ukuran">ID User</label>
+                                <input type="text" class="form-control" id="iduser" placeholder="ID User" name="iduser">
+                            </div>
+                            <div class="form-group">
+                                <label for="nmrumah">Nama Kontrakan</label>
+                                <input type="text" class="form-control" id="nmkontrakan" placeholder="Nama Kontrakan" name="nmkontrakan">
+                            </div> 
+                            <div class="form-group">
+                                <label for="ukuran">No. Telpon</label>
+                                <input type="text" class="form-control" id="notelp" placeholder="No. Telpon" name="notelp">
+                            </div>
+                            <div class="form-group">
+                                <label for="harga">Deskripsi</label>
+                                <input type="text" class="form-control" id="deskripsi" placeholder="Deskripsi.." name="deskripsi">
+                            </div>
+                            <div class="form-group">
+                                <label for="harga">Alamat</label>
+                                <input type="text" class="form-control" id="alamat" placeholder="Alamat" name="alamat">
+                            </div>
+							<br>
+                            <input type="submit" role="button" class="btn btn-success" value="Create"/>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.modal -->
 </body>
 </html>

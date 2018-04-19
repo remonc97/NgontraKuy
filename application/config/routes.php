@@ -58,6 +58,7 @@ $route['Agents'] = '';
 $route['ContactUs'] = '';
 $route['NewsLetter'] = '';
 $route['AllHomes'] = '';
+$route['Search'] = 'TaKon/Search';
 
 $route['Register'] = '';
 $route['Login'] = 'Regist/login';

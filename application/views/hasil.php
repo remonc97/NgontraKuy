@@ -1,9 +1,8 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 #include header file
-	$this->view('template/header'); 
+$this->view('template/header');
 ?>
-
 <style>
     .bg-img-1 {
         background-image: url(<?php echo base_url('assets/images/slider/1.jpg')?>);
@@ -90,20 +89,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <blockquote style="font-family:'Ubuntu', sans-serif">
                         <br/><br/>
                         <p>Pengen jalan-jalan tapi nginep di hotel terlalu mahal?<br/>Mending ngontrak aja!</p><br/>
-						
-						
-						<!--<button class="btn btn-success"   data-toggle="modal" data-target="#loginpop">Join Now</button> -->
-						<!--
-						<button type="submit" class="btn btn-success uppercase" href="<//?php echo site_url('views/register')?>">Join Now</button>
-						-->
-						
-						<!--<ul class="pull-right">
-						<a href="#" style="font-family: 'Ubuntu', sans-serif;" data-toggle="modal" data-target="#registerpop">Join Now</a></li>
-						</ul>
-						-->
-						
-						
-                        <a class="btn btn-success" role="button" href="<?php echo blink('Home/regis')?>">Join Now</a>
+                        <a class="btn btn-success" role="button" href="<?php echo site_url('Register')?>">Join Now</a>
                     </blockquote>
                 </div>
             </div>
@@ -142,32 +128,35 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         </div>
     </div>
 </div>
-<!-- banner -->
+
 <div class="container">
-    <div class="properties-listing spacer"> <a href="<?php echo site_url('AllHomes')?>" class="pull-right viewall">View All Listing</a>
-        <h2>Featured Properties</h2>
+        <h2>Kontrakan</h2>
         <div id="owl-example" class="owl-carousel">
 
             <?php
-            foreach($result as $row){
-                echo
-                "
-                    <div class=\"properties\">
-                        <div class=\"image-holder\"><img src=\"<?php echo base_url('assets/images/properties/1.jpg')?>\" class=\"img-responsive\" alt=\"properties\"/>
-                            <div class=\"status <?php echo $row->status ?>\"><?php echo $row->status ?></div>
-                        </div>
-                        <h4><a href=\"<?php echo site_url('HomeDetails/'.$row->id_rmh)?>\"><?php echo $row->nm_rmh ?></a></h4>
-                        <p class=\"price\">Price: Rp<?php echo $row->harga?></p>
-                        <a class=\"btn btn-primary\" href=\"<?php echo site_url('HomeDetails/'/$row->id_rmh)?>\">View Details</a>
-                    </div>  
-                ";
+            foreach($results as $row){
+                ?>
+				<div class="properties">
+					<div class="image-holder">
+						<img src="<?php echo blink('assets/images/rumah/').$row->gambar ?>" class="img-responsive" alt="properties"/>
+					</div>
+					<h4><a href="<?php echo site_url('HomeDetails/'.$row->idrumah)?>"><?php echo $row->nmrumah ?></a></h4>
+					<div>
+					<div class="status"><?php echo $row->status ?></div>
+					<p class="price">Price: Rp<?php echo $row->harga?></p>
+					<p class="price">Ukuran :<?php echo $row->ukuran?></p>
+					</div>
+					
+					<a class="btn btn-primary" href="<?php echo site_url('HomeDetails/'/$row->idrumah)?>">View Details</a>
+				</div>
+				<?php
             }
             ?>
 
         </div>
+		<br>
     </div>
 </div>
-
 <?php
 #include footer file
 $this->view('template/footer');
