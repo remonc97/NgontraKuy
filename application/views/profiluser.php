@@ -182,6 +182,7 @@ $this->view('template/header');
                                   <?php }
                                     else{?>
                                     <li>Invoices</li>
+                                  <?php } ?>
                                 </ul>
                             </div>
                         </div>
