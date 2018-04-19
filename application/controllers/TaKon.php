@@ -45,8 +45,8 @@ class TaKon extends CI_Controller {
 	}
 	
 	public function InsetRumah(){
-		$config['upload_path']          = './assets/images/rumah';
-		$config['allowed_types']        = 'gif|jpg|png|gif';
+		$config['upload_path']          = './assets/images/rumah'; //call paath
+		$config['allowed_types']        = 'gif|jpg|png|gif';	//type file upload
 		$config['file_name'] 			='gambar';
 		$this->load->library('upload', $config);
 		$this->upload->initialize($config);

@@ -130,19 +130,23 @@ $this->view('template/header');
 </div>
 
 <div class="container">
-    <div class="properties-listing spacer"> <a href="<?php echo site_url('Search')?>" class="pull-right viewall">View All Listing</a>
-        <h2>Featured Properties</h2>
+        <h2>Kontrakan</h2>
         <div id="owl-example" class="owl-carousel">
 
             <?php
             foreach($results as $row){
                 ?>
 				<div class="properties">
-					<div class="image-holder"><img src="<?php echo base_url('assets/images/rumah/').$row->gambar?>" class="img-responsive" alt="properties"/>
-						<div class="status <?php echo $row->status ?>"><?php echo $row->status ?></div>
+					<div class="image-holder">
+						<img src="<?php echo blink('assets/images/rumah/').$row->gambar ?>" class="img-responsive" alt="properties"/>
 					</div>
 					<h4><a href="<?php echo site_url('HomeDetails/'.$row->idrumah)?>"><?php echo $row->nmrumah ?></a></h4>
+					<div>
+					<div class="status"><?php echo $row->status ?></div>
 					<p class="price">Price: Rp<?php echo $row->harga?></p>
+					<p class="price">Ukuran :<?php echo $row->ukuran?></p>
+					</div>
+					
 					<a class="btn btn-primary" href="<?php echo site_url('HomeDetails/'/$row->idrumah)?>">View Details</a>
 				</div>
 				<?php
@@ -150,6 +154,7 @@ $this->view('template/header');
             ?>
 
         </div>
+		<br>
     </div>
 </div>
 <?php
