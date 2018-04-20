@@ -121,7 +121,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						-->
 						
 						
-                        <a class="btn btn-success" role="button" href="<?php echo base_url('Home/regis')?>">Join Now</a>
+                        <a class="btn btn-success" role="button" href="<?php echo base_url('Register')?>">Join Now</a>
                     </blockquote>
                 </div>
             </div>

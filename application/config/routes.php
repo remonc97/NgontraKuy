@@ -75,3 +75,4 @@ $route['edit/(:any)'] = 'Admin/edit';
 $route['delete/(:any)'] = 'Admin/delete';
 $route['Login'] = 'Auth/login';
 $route['Logout'] = 'Auth/logout';
+$route['Register'] = 'Home/regis';

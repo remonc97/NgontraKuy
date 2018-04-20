@@ -64,7 +64,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <div class="col-sm-6">
                         <h4>New User Sign Up</h4>
                         <p>Join today and book homes of your dream.</p>
-                        <a href="<?php echo base_url('Home/regis')?>" role="button" class="btn btn-info" >Join Now</a>
+                        <a href="<?php echo base_url('Register')?>" role="button" class="btn btn-info" >Join Now</a>
                     </div>
 
                 </div>
