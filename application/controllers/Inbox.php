@@ -14,6 +14,9 @@ class Inbox extends CI_Controller {
 	public function index()
 	{
 		$auth = $this->session->auth;
+        $data['session'] = true;
+        $data['iduser']=$this->session->userdata('iduser');
+        $data['nama'] = $this->session->userdata('nama');
 		if($auth == 0){
 
 			//ini customer
@@ -51,6 +54,9 @@ class Inbox extends CI_Controller {
 		} if($auth == 1) {
 
 			//ini pemilik
+        $data['session'] = true;
+        $data['iduser']=$this->session->userdata('iduser');
+        $data['nama'] = $this->session->userdata('nama');
 			$data['featured'] = $this->Kontrakan->getFeatured();
 		    if($this->User->ceksession() == true){
 		        $nama = $this->session->userdata('nama');
