@@ -10,26 +10,24 @@ $this->view('template/header');
 		<a href="<?php echo site_url()?>"><img src="<?php echo base_url('assets/images/logo1.png')?>" width="200px" alt="NgontraKuy"></a>
 
 
-		<?php if(isset($session) && $session == true){
-			echo
-				"
+        <?php if(isset($session) && $session == true){
+            echo
+                "
                 <ul class=\"pull-right dropdown\">
                     <li style=\"margin-top: 20px;\">
                         <a href=\"#\" style=\"text-transform:Capitalize;font-family: 'Ubuntu', sans-serif;\" class=\"dropdown-toggle\" data-toggle=\"dropdown\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\">Hi, $nama! <span class=\"caret\"></span></a>
                         <ul class=\"dropdown-menu\"  style=\"padding-top: 10px;padding-bottom: 10px;\">
-                            <li><a href=".site_url('Profile').">Profile</a></li>
-                            <li><a href=".site_url('Inbox').">Inbox</a></li>
                             <li><a href=".site_url('Logout').">Log out</a></li>
                         </ul>
                     </li>
                 </ul>
                 ";
-		}else{
-			echo "
+        }else{
+            echo "
                 <ul class=\"pull-right\">
                     <li style=\"margin-top: 20px\"><a href=\"#\" style=\"font-family: 'Ubuntu', sans-serif;\" data-toggle=\"modal\" data-target=\"#loginpop\">Login</a></li>
                 </ul>";
-		} ?>
+        } ?>
 	</div>
 	<!-- #Header Starts -->
 
@@ -102,7 +100,6 @@ $this->view('template/header');
 					<ul class="nav nav-pills nav-stacked">
 						<li><a href="<?php echo base_url('Admin')?>">List Pemilik Kontrakan</a></li>
 						<li><a href="<?php echo base_url('Admin/Penghuni')?>">List Penghuni Kontrakan</a></li>
-						<li><a>Inbox</a></li>
 					</ul>
 				</div>
 			</div>

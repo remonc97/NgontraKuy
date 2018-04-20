@@ -17,17 +17,22 @@ class Admin extends CI_Controller
 	public function Penghuni()
 	{
 		$data['all'] = $this->Model_Admin->getUser();
-
+        $data['session'] = true;
+        $data['nama'] = $this->session->userdata('nama');
 		$this->load->view('Admin_Penghuni',$data);
 	}
 	public function view()
 	{
 		$data1['one'] = $this->Model_Admin->get1User($this->uri->segment(2));
+        $data1['session'] = true;
+        $data1['nama'] = $this->session->userdata('nama');
 		$this->load->view('Modal_Admin/ShowPemilik', $data1);
 	}
 	public function edit()
 	{
 		$data['one1'] = $this->Model_Admin->get1User($this->uri->segment(2));
+        $data['session'] = true;
+        $data['nama'] = $this->session->userdata('nama');
 
 		$this->load->view('Admin_Edit', $data);
 	}
