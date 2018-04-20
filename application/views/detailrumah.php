@@ -103,46 +103,8 @@ $this->view('template/header');
 		<div class="row">
 			<div class="col-lg-3 col-sm-4 hidden-xs">
 				<div class="hot-properties hidden-xs">
-					<h4>Hot Properties</h4>
-					<div class="row">
-						<div class="col-lg-4 col-sm-5">
-							<img src="images/properties/4.jpg" class="img-responsive img-circle" alt="properties"/>
-						</div>
-						<div class="col-lg-8 col-sm-7">
-							<h5><a href="property-detail.php">Integer sed porta quam</a></h5>
-							<p class="price">$300,000</p> </div>
-						</div>
-						<div class="row">
-							<div class="col-lg-4 col-sm-5">
-								<img src="images/properties/1.jpg" class="img-responsive img-circle" alt="properties"/>
-							</div>
-							<div class="col-lg-8 col-sm-7">
-								<h5><a href="property-detail.php">Integer sed porta quam</a></h5>
-								<p class="price">$300,000</p>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-lg-4 col-sm-5">
-								<img src="images/properties/3.jpg" class="img-responsive img-circle" alt="properties"/>
-							</div>
-							<div class="col-lg-8 col-sm-7">
-								<h5><a href="property-detail.php">Integer sed porta quam</a></h5>
-								<p class="price">$300,000</p>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-lg-4 col-sm-5">
-								<img src="images/properties/2.jpg" class="img-responsive img-circle" alt="properties"/>
-							</div>
-						<div class="col-lg-8 col-sm-7">
-							<h5><a href="property-detail.php">Integer sed porta quam</a></h5>
-							<p class="price">$300,000</p>
-						</div>
-					</div>
 				</div>
 				<div class="advertisement">
-					<h4>Advertisements</h4>
-					<img src="images/advertisements.jpg" class="img-responsive" alt="advertisement">
 				</div>
 			</div>
 			<div class="col-lg-9 col-sm-8 ">
