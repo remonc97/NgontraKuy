@@ -28,9 +28,10 @@ class Auth extends CI_Controller {
 		$data = array(
 		'nama' =>$nama,
 		'email' =>$email,
-		'password'=> md5($password),
+		'password'=> $password,
 		'tgllahir'=> $tgllahir,		
-		'notelp'=>$notelp
+		'notelp'=>$notelp,
+            'auth' => '0'
 		);
 		
 		$result = $this->CRUDregist->InsertUser($data);
