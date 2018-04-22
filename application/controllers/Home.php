@@ -8,8 +8,8 @@ class Home extends CI_Controller {
         $data['featured'] = $this->Kontrakan->getFeatured();
 	    if($this->User->ceksession() == true){
 	        $data['session'] = true;
-            $data['iduser']=$this->session->userdata('iduser');
-	        $data['nama'] = $this->session->userdata('nama');
+            $data['iduser']=$this->session->userdata('idpengguna');
+	        $data['nama'] = $this->session->userdata('namalengkap');
             $this->load->view('home',$data);
         }else{
             $this->load->view('home',$data);
