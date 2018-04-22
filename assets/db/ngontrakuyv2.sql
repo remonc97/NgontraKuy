@@ -1,7 +1,6 @@
 ﻿# Host: localhost  (Version 5.5.5-10.1.30-MariaDB)
-# Date: 2018-04-22 10:30:50
+# Date: 2018-04-22 11:52:11
 # Generator: MySQL-Front 6.0  (Build 2.20)
-
 
 drop database if exists ngontrakuy;
 create database ngontrakuy;
@@ -15,6 +14,7 @@ DROP TABLE IF EXISTS `kontrakan`;
 CREATE TABLE `kontrakan` (
   `idkontrakan` int(11) NOT NULL AUTO_INCREMENT,
   `idpengguna` int(11) NOT NULL,
+  `nmkontrakan` varchar(255) DEFAULT NULL,
   `notelp` varchar(14) DEFAULT NULL,
   `alamat` text,
   `kota` varchar(30) DEFAULT NULL,
@@ -33,7 +33,7 @@ CREATE TABLE `kontrakan` (
 # Data for table "kontrakan"
 #
 
-INSERT INTO `kontrakan` VALUES (1,8,'081286923340','jalan sabar','DKI Jakarta','bisa nego','kamar tidur;wi-fi;kamar mandi;garasi;','100x100','k1g1.png;k1g2.png;k1g3.png;k1g4.png;','100000000','available'),(2,8,'081286923340','jalan sabar','Tangerang','bisa nego','kamar tidur;wi-fi;kamar mandi;meja;','100x100','k1g1.png;k1g2.png;k1g3.png;k1g4.png;','100000000','not available'),(3,8,'081286923340','jalan sabar','DKI Jakarta','bisa nego','tempat tidur;wi-fi;kamar mandi;lemari;','100x100','k1g1.png;k1g2.png;k1g3.png;k1g4.png;','200000000','available'),(4,10,'081286923340','jalan sabar','Bekasi','bisa nego','kamar tidur;wi-fi;kamar mandi;garasi;','100x100','k1g1.png;k1g2.png;k1g3.png;k1g4.png;','100000000','available'),(5,8,'081286923340','jalan sabar','DKI Jakarta','bisa nego','kamar tidur;wi-fi;kamar mandi;meja;','100x100','k1g1.png;k1g2.png;k1g3.png;k1g4.png;','200000000','not available'),(6,10,'081286923340','jalan sabar','Bekasi','bisa nego','furnished;wi-fi;kamar mandi;lemari;','100x100','k1g1.png;k1g2.png;k1g3.png;k1g4.png;','100000000','available'),(7,8,'081286923340','jalan sabar','Tangerang','bisa nego','kamar tidur;wi-fi;kamar mandi;garasi;','100x100','k1g1.png;k1g2.png;k1g3.png;k1g4.png;','100000000','available'),(8,11,'081286923340','jalan sabar','DKI Jakarta','bisa nego','kamar tidur;wi-fi;kamar mandi;meja;','100x100','k1g1.png;k1g2.png;k1g3.png;k1g4.png;','300000000','not available'),(9,11,'081286923340','jalan sabar','DKI Jakarta','bisa nego','furnished;wi-fi;kamar mandi;meja;','100x100','k1g1.png;k1g2.png;k1g3.png;k1g4.png;','400000000','available'),(10,11,'081286923340','jalan sabar','Tangerang','bisa nego','kamar tidur;wi-fi;kamar mandi;meja makan;','100x100','k1g1.png;k1g2.png;k1g3.png;k1g4.png;','200000000','not available'),(11,10,'081286923340','jalan sabar','Tangerang','bisa nego','meja belajar;wi-fi;kamar mandi;meja makan;','100x100','k1g1.png;k1g2.png;k1g3.png;k1g4.png;','20000000','not available');
+INSERT INTO `kontrakan` VALUES (1,8,'kontrakan1','081286923340','jalan sabar','DKI Jakarta','bisa nego','kamar tidur;wi-fi;kamar mandi;garasi;','100x100','k1g1.png;k1g2.png;k1g3.png;k1g4.png;','100000000','available'),(2,8,'kontrakan2','081286923340','jalan sabar','Tangerang','bisa nego','kamar tidur;wi-fi;kamar mandi;meja;','100x100','k1g1.png;k1g2.png;k1g3.png;k1g4.png;','100000000','not available'),(3,8,'kontrakan3','081286923340','jalan sabar','DKI Jakarta','bisa nego','tempat tidur;wi-fi;kamar mandi;lemari;','100x100','k1g1.png;k1g2.png;k1g3.png;k1g4.png;','200000000','available'),(4,10,'kontrakan4','081286923340','jalan sabar','Bekasi','bisa nego','kamar tidur;wi-fi;kamar mandi;garasi;','100x100','k1g1.png;k1g2.png;k1g3.png;k1g4.png;','100000000','available'),(5,8,'kontrakan5','081286923340','jalan sabar','DKI Jakarta','bisa nego','kamar tidur;wi-fi;kamar mandi;meja;','100x100','k1g1.png;k1g2.png;k1g3.png;k1g4.png;','200000000','not available'),(6,10,'kontrakan6','081286923340','jalan sabar','Bekasi','bisa nego','furnished;wi-fi;kamar mandi;lemari;','100x100','k1g1.png;k1g2.png;k1g3.png;k1g4.png;','100000000','available'),(7,8,'kontrakan7','081286923340','jalan sabar','Tangerang','bisa nego','kamar tidur;wi-fi;kamar mandi;garasi;','100x100','k1g1.png;k1g2.png;k1g3.png;k1g4.png;','100000000','available'),(8,11,'kontrakan8','081286923340','jalan sabar','DKI Jakarta','bisa nego','kamar tidur;wi-fi;kamar mandi;meja;','100x100','k1g1.png;k1g2.png;k1g3.png;k1g4.png;','300000000','not available'),(9,11,'kontrakan9','081286923340','jalan sabar','DKI Jakarta','bisa nego','furnished;wi-fi;kamar mandi;meja;','100x100','k1g1.png;k1g2.png;k1g3.png;k1g4.png;','400000000','available'),(10,11,'kontrakan10','081286923340','jalan sabar','Tangerang','bisa nego','kamar tidur;wi-fi;kamar mandi;meja makan;','100x100','k1g1.png;k1g2.png;k1g3.png;k1g4.png;','200000000','not available'),(11,10,'kontrakan11','081286923340','jalan sabar','Tangerang','bisa nego','meja belajar;wi-fi;kamar mandi;meja makan;','100x100','k1g1.png;k1g2.png;k1g3.png;k1g4.png;','20000000','not available');
 
 #
 # Structure for table "pengguna"

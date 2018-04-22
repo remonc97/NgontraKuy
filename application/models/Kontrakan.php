@@ -14,7 +14,7 @@ class Kontrakan extends CI_Model
 	}
 	
     public function getFeatured(){
-        return $this->db->get('rumah',11)->result();
+        return $this->db->get('kontrakan',11)->result();
     }
 
 	public function InsertKontra($data){

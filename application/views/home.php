@@ -173,9 +173,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <div class="image-holder"><img src="<?php echo base_url('assets/images/properties/1.jpg')?>" class="img-responsive" alt="properties"/>
                     <div class="status <?php echo $row->status ?>"><?php echo $row->status ?></div>
                 </div>
-                <h4><a href="<?php echo site_url('HomeDetails/'.$row->idrumah)?>"><?php echo $row->nmrumah?></a></h4>
+                <h4><a href="<?php echo site_url('HomeDetails/'.$row->idkontrakan)?>"><?php echo $row->nmkontrakan?></a></h4>
                 <p class="price">Price: Rp <?php echo $row->harga?></p>
-                <a class="btn btn-primary" href="<?php echo site_url('HomeDetails/'.$row->idrumah)?>">View Details</a>
+                <a class="btn btn-primary" href="<?php echo site_url('HomeDetails/'.$row->idkontrakan)?>">View Details</a>
             </div>
                 <?php
             }
