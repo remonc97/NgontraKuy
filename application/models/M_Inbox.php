@@ -44,6 +44,12 @@ class M_Inbox extends CI_Model {
     return $result->result();
   }
 
+  public function isiPesan($idpengirim,$idpenerima)
+  {
+    $result = $this->db->query("SELECT * FROM pesan WHERE idpengirim = '".$idpengirim."' AND idpenerima = '".$idpenerima."'");
+    return $result->result();
+  }
+
   public function getPemilik()
   {
     $result = $this->db->query("SELECT * FROM pengguna where auth = 1");
@@ -70,7 +76,7 @@ class M_Inbox extends CI_Model {
 
   public function getMerge()
   {
-    $result = $this->db->query("SELECT * FROM pengguna,pesan WHERE pengguna.idpengguna = pesan.idpengirim GROUP BY idpengirim");
+    $result = $this->db->query("SELECT * FROM pengguna,pesan WHERE pengguna.idpengguna = pesan.idpengirim GROUP BY idpenerima");
     return $result->result();
   }   
 
@@ -82,7 +88,7 @@ class M_Inbox extends CI_Model {
 
   public function deletePesan($id)
   {
-    $this->db->where('idpesan', $id);
+    $this->db->where('idpenerima', $id);
      $this->db->delete('pesan');
   }
 

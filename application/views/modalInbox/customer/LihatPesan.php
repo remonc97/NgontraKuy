@@ -17,14 +17,21 @@
               <td><?php echo $data2->namalengkap ?></td>
             </tr>
             <?php } ?>
+            <tr>
+              <td>Jenis Pesan :</td>
+              <td><?php echo $data->jenispesan ?></td>
+            </tr>
           </tbody>
         </table>
 
         <table class="table table-striped" border="0">
           <tbody>
+            <?php $isi = $this->M_Inbox->isiPesan($data->idpengirim, $data->idpenerima); ?>
+            <?php foreach($isi as $data3) { ?>
             <tr style="text-transform:capitalize;">
-              <td><?php echo $data->isi ?></td>
+              <td><?php echo $data3->isi ?></td>
             </tr>
+            <?php } ?>
           </tbody>
         </table>     
       </div>

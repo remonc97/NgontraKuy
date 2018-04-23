@@ -122,8 +122,8 @@ $this->view('template/header');
             <thead>
             <tr>
               <th align="center" width="50px">No.</th>
+              <th>Penerima</th>
               <th>Tanggal Pesan</th>
-              <th>Jenis Pesan</th>
               <th>Topik</th>
               <th>Status</th>
               <th width="340px">Action</th>
@@ -142,8 +142,13 @@ $this->view('template/header');
                     ?>
 
                     <td align="center"><?php echo $no ?></td>
+
+                    <?php $namalengkap = $this->M_Inbox->getNamaPenerima($data->idpenerima); ?>
+                    <?php foreach($namalengkap as $data2) { ?>
+                    <td><?php echo $data2->namalengkap ?></td>
+                    <?php } ?>
+
                     <td><?php echo $data->tglpesan;?></td>
-                    <td><?php echo $data->jenispesan;?></td>
                     <td><b><?php echo $data->topik?></b></td>
                     <td>
                         <?php if($data->status == 'Submitted') { ?>

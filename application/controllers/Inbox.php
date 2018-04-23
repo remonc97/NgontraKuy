@@ -95,7 +95,7 @@ class Inbox extends CI_Controller {
 	{
 		$idpesan = $this->input->post('idpesan');
 		$tglpesan = $this->input->post('tglpesan');
-		$iduser = $this->input->post('pengirim');
+		$iduser = $this->input->post('pengirim2');
 		$jenispesan = $this->input->post('jenispesan');
 		$subject = $this->input->post('topik');
 		$isipesan = $this->input->post('isipesan');
