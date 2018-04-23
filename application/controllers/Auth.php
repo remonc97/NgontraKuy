@@ -19,14 +19,14 @@ class Auth extends CI_Controller {
 //	}
 	
 	public function InsetData(){
-		$nama = $this->input->post('nama');
+		$nama = $this->input->post('namalengkap');
 		$email = $this->input->post('email');
 		$password = $this->input->post('password');
 		$tgllahir = $this->input->post('tgllahir');
 		$notelp = $this->input->post('notelp');
 		
 		$data = array(
-		'nama' =>$nama,
+		'namalengkap' =>$nama,
 		'email' =>$email,
 		'password'=> $password,
 		'tgllahir'=> $tgllahir,		
@@ -52,24 +52,24 @@ class Auth extends CI_Controller {
 		$auth = $this->session->auth;		
 		$result = $this->CRUDregis->getUser($id);
 		
-		$data['iduser'] = $id;
+		$data['idpengguna'] = $id;
 		$data['data'] = $result;
-		$data['nama'] = $nama;
+		$data['namalengkap'] = $nama;
 		$data['auth'] = $auth;
 		$this->load->view('Edit',$data);
 		
 	}
 
 	public function EditData(){
-		$id = $this->input->post('iduser');
-		$nama = $this->input->post('nama');
+		$id = $this->input->post('idpengguna');
+		$nama = $this->input->post('namalengkap');
 		$email = $this->input->post('email');
 		$password = $this->input->post('password');
 		$tgllahir = $this->input->post('tgllahir');
 		$notelp = $this->input->post('notelp');
 		
 		$data = array(
-		'nama' => $nama,
+		'namalengkap' => $nama,
 		'email' => $email,
 		'password'=> md5($password),
 		'tgllahir'=>$tgllahir,

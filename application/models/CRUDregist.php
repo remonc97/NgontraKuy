@@ -14,7 +14,7 @@ class CRUDregist extends CI_Model{
 	public function InsertUser($data){	
 		$checkinsert = false;
 		try{
-			$this->db->insert('user',$data);
+			$this->db->insert('pengguna',$data);
 			$checkinsert = true;
 		}catch (Exception $ex) {
 			
@@ -31,12 +31,12 @@ class CRUDregist extends CI_Model{
 	}
 	
 	public function getAllUser(){
-		$result = $this->db->get('user');
+		$result = $this->db->get('pengguna');
 		return $result->result();
 	}
 	
 	public function getUser($id){
-		$result = $this->db->where('iduser',$id)->get('email');
+		$result = $this->db->where('idpengguna',$id)->get('email');
 		return $result->row();
 	}
 	
@@ -44,8 +44,8 @@ class CRUDregist extends CI_Model{
 		$checkupdate = false;
 		
 		try{
-			$this->db->where('iduser',$id);
-			$this->db->update('user', $data);
+			$this->db->where('idpengguna',$id);
+			$this->db->update('pengguna', $data);
 			$checkupdate = true;
 		}catch (Exception $ex) {
 			$checkupdate = false;
@@ -58,8 +58,8 @@ class CRUDregist extends CI_Model{
 		$checkupdate = false;
 		
 		try{
-			$this->db->where('iduser',$id);
-			$this->db->delete('user');
+			$this->db->where('idpengguna',$id);
+			$this->db->delete('pengguna');
 			$checkupdate = true;
 		}catch (Exception $ex) {
 			$checkupdate = false;
