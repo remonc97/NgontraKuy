@@ -40,7 +40,7 @@ class M_Inbox extends CI_Model {
 
   public function detilPesan()
   {
-    $result = $this->db->query("SELECT * FROM pengguna,pesan WHERE pengguna.idpengguna = pesan.idpengirim");
+    $result = $this->db->query("SELECT * FROM pengguna,pesan WHERE pengguna.idpengguna = pesan.idpengirim group by pesan.idpengirim");
     return $result->result();
   }
 

@@ -45,7 +45,6 @@ class Inbox extends CI_Controller {
 			    $this->load->view('InboxCustomer',$data);
 			    $this->load->view('modalInbox/customer/EntryPesan',$data);
 			    $this->load->view('modalInbox/customer/balasPesan',$data);
-			    $this->load->view('modalInbox/customer/LihatPesan',$data);
 			    $this->load->view('modalInbox/customer/HapusPesan',$data);
 			    // $this->load->view('template/footer');
 	        }else{
@@ -79,7 +78,6 @@ class Inbox extends CI_Controller {
 				];
 			    $this->load->view('template/header');
 			    $this->load->view('InboxPemilik',$data);
-			    $this->load->view('modalInbox/pemilik/LihatPesan',$data);
 			    $this->load->view('modalInbox/pemilik/balasPesan',$data);
 			    $this->load->view('modalInbox/pemilik/prosesPesan',$data);
 			    $this->load->view('modalInbox/pemilik/solvePesan',$data);
@@ -167,6 +165,111 @@ class Inbox extends CI_Controller {
 		}else{
 			$this->session->set_flashdata('pesanGagal','Pesan Tidak Berhasil Disimpan');
     		redirect('Inbox');
+		}
+	}
+
+	public function balasPesanCustomerDetil()
+	{
+		$idpesan = $this->input->post('idpesan');
+		$iduser = $this->input->post('idpengirim');
+		$isipesan = $this->input->post('isipesan');
+		$penerima = $this->input->post('idpenerima');
+		$subject = $this->input->post('topik');
+
+		$tglpesan = date("Y/m/d");
+		$jenispesan = "normal";
+		$status = "Submitted";
+
+		$data = array(
+			'idpesan' => $idpesan,
+			'idpengirim' =>$iduser,
+			'tglpesan'=> $tglpesan,
+			'jenispesan	' =>$jenispesan,
+			'topik' => $subject,
+			'isi' => $isipesan,
+			'idpenerima' => $penerima,
+			'status' => $status
+		);
+
+		$result = $this->M_Inbox->InsertPesan($data);
+
+		$data = NULL;
+		if ($result){
+			redirect('Inbox/LihatPesan');
+		}else{
+			redirect('Inbox/LihatPesan');
+		}
+	}
+
+	public function LihatPesan($idpengirim,$idpenerima)
+	{
+		$auth = $this->session->auth;
+        $data['session'] = true;
+        $data['iduser']=$this->session->userdata('iduser');
+        $data['nama'] = $this->session->userdata('nama');
+		if($auth == 0){
+
+			//ini customer
+			$data['featured'] = $this->Kontrakan->getFeatured();
+		    if($this->User->ceksession() == true){
+		        $nama = $this->session->userdata('namalengkap');
+		        $email = $this->session->userdata('email');
+	            
+	            $merge = $this->M_Inbox->getMerge();
+	            $showChat = $this->M_Inbox->isiPesan($idpengirim,$idpenerima);
+				$detilPesan = $this->M_Inbox->detilPesan();
+				$customer = $this->M_Inbox->getCustomer();
+				$pemilik = $this->M_Inbox->getPemilik();
+				$pesan = $this->M_Inbox->getAllPesan();
+				$data = [
+					'customer' => $customer,
+					'showChat' =>$showChat,
+					'email' => $email,
+					'nama' => $nama,
+					'session' => true,
+					'merge' => $merge,
+					'detilPesan' => $detilPesan,
+					'pemilik' => $pemilik,
+					'pesan' => $pesan
+				];
+
+			    $this->load->view('template/header',$data);
+			    $this->load->view('modalInbox/customer/LihatPesan',$data);
+			    $this->load->view('template/footer');
+	        }else{
+	            redirect('');
+	        }	
+		} if($auth == 1) {
+
+			//ini pemilik
+        $data['session'] = true;
+        $data['iduser']=$this->session->userdata('iduser');
+        $data['nama'] = $this->session->userdata('nama');
+			$data['featured'] = $this->Kontrakan->getFeatured();
+		    if($this->User->ceksession() == true){
+		        $nama = $this->session->userdata('nama');
+		        $email = $this->session->userdata('email');
+		        $auth = $this->session->userdata('auth');
+
+				$merge = $this->M_Inbox->getMerge();
+				$detilPesan = $this->M_Inbox->detilPesan();
+				$customer = $this->M_Inbox->getCustomer2();
+				$pesan = $this->M_Inbox->getAllPesan();
+				$data = [
+					'auth' => $auth,
+					'merge' => $merge,
+					'email' => $email,
+					'session' => TRUE,
+					'nama' => $nama,
+					'detilPesan' => $detilPesan,
+					'customer' => $customer,
+					'pesan' => $pesan,
+				];
+			    $this->load->view('template/header');
+			    // $this->load->view('modalInbox/pemilik/LihatPesan',$data);
+			}else{
+				redirect('');
+			}
 		}
 	}
 
