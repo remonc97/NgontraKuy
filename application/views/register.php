@@ -22,13 +22,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			 Enter your personal details below:
 		</p>
 		<div class="form-group">
-			<input class="form-control placeholder-no-fix" type="text" placeholder="Full Name" name="nama" id="nama"/>
+			<input class="form-control placeholder-no-fix" type="text" placeholder="Nama Lengkap" name="nama" id="nama"/>
 		</div>
 		<div class="form-group">
 			<input class="form-control placeholder-no-fix" type="date" placeholder="Tanggal Lahir -> dd-mm-yyyy" name="tgllahir"/>
 		</div>
 		<div class="form-group">
-			<input class="form-control placeholder-no-fix" type="number" placeholder="Phone Number" name="notelp"/>
+			<input class="form-control placeholder-no-fix" type="number" placeholder="Nomor Telepon" name="notelp"/>
 		</div>
 				
 		<p class="hint">
