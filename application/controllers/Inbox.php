@@ -135,7 +135,6 @@ class Inbox extends CI_Controller {
 
 	public function balasPesanCustomer()
 	{
-		$idpesan = $this->input->post('idpesan');
 		$iduser = $this->input->post('idpengirim');
 		$isipesan = $this->input->post('isipesan');
 		$penerima = $this->input->post('idpenerima');
@@ -146,7 +145,6 @@ class Inbox extends CI_Controller {
 		$status = "Submitted";
 
 		$data = array(
-			'idpesan' => $idpesan,
 			'idpengirim' =>$iduser,
 			'tglpesan'=> $tglpesan,
 			'jenispesan	' =>$jenispesan,
@@ -178,7 +176,7 @@ class Inbox extends CI_Controller {
 
 		$tglpesan = date("Y/m/d");
 		$jenispesan = "normal";
-		$status = "Submitted";
+		// $status = "Submitted";
 
 		$data = array(
 			'idpesan' => $idpesan,
@@ -195,9 +193,7 @@ class Inbox extends CI_Controller {
 
 		$data = NULL;
 		if ($result){
-			redirect('Inbox/LihatPesan');
-		}else{
-			redirect('Inbox/LihatPesan');
+			redirect('Inbox');
 		}
 	}
 

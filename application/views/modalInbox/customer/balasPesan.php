@@ -11,11 +11,11 @@
         <form method="POST" action="<?php echo site_url('Inbox/balasPesanCustomer')?>" enctype="multipart/form-data">
             <div class="modal-body">
 
-              <input required class="form-control required text-capitalize" data-placement="top" data-trigger="manual" type="hidden" name="idpengirim" value="<?php echo $data->idpengguna ?>">
+              <input required class="form-control required text-capitalize" data-placement="top" data-trigger="manual" type="hidden" name="idpengirim" value="<?php echo $data->idpengirim ?>">
 
-              <input required class="form-control required text-capitalize" data-placement="top" data-trigger="manual" type="hidden" name="idpesan" value="<?php echo $data->idpesan ?>">
+             <!--  <input required class="form-control required text-capitalize" data-placement="top" data-trigger="manual" type="hidden" name="idpesan" value="<?php echo $data->idpesan ?>"> -->
 
-              <input required class="form-control required text-capitalize" data-placement="top" data-trigger="manual" type="hidden" name="idpesan" value="<?php echo $data->topik ?>">
+              <input required class="form-control required text-capitalize" data-placement="top" data-trigger="manual" type="hidden" name="topik" value="<?php echo $data->topik ?>">
 
               <?php $namalengkap = $this->M_Inbox->getNamaPenerima($data->idpenerima); ?>
               <div class="form-group"><label>Kepada</label>
