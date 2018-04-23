@@ -124,7 +124,7 @@ $this->view('template/header');
               <th align="center" width="50px">No.</th>
               <th>Tanggal Pesan</th>
               <th>Jenis Pesan</th>
-              <th>Subject</th>
+              <th>Topik</th>
               <th>Status</th>
               <th width="340px">Action</th>
             </tr>
@@ -133,9 +133,9 @@ $this->view('template/header');
                 <tr>
 
                     <?php $no=1; ?>
-                    <?php foreach($detilPesan as $data){?>
+                    <?php foreach($merge as $data){?>
 
-                    <?php $isi = $this->M_Inbox->detilPesan2($data->nama);
+                    <?php $isi = $this->M_Inbox->detilPesan2($data->namalengkap);
 
                     if($session == $isi) {
 
@@ -144,7 +144,7 @@ $this->view('template/header');
                     <td align="center"><?php echo $no ?></td>
                     <td><?php echo $data->tglpesan;?></td>
                     <td><?php echo $data->jenispesan;?></td>
-                    <td><b><?php echo $data->subject;?></b></td>
+                    <td><b><?php echo $data->topik?></b></td>
                     <td>
                         <?php if($data->status == 'Submitted') { ?>
                         <span class="label label-primary"><?php echo $data->status;?></span>
@@ -159,7 +159,7 @@ $this->view('template/header');
                     <td>
                         <a href="#balasPesanModal<?php echo $data->idpesan ?>" class="btn btn-default btn-circle" style="background-color: #72b70f; color: white" id="balasPesan" data-toggle="modal"><i class="glyphicon glyphicon-send"></i> Balas Pesan </a>
                         <a href="#detilPesanModal<?php echo $data->idpesan ?>" class="btn btn-default btn-circle" style="background-color: #1ac6ff; color: white" id="lihatPesan" data-toggle="modal"><span class="glyphicon glyphicon-eye-open"></span> Lihat Pesan </a>
-                    <a href="#hapusPesanModal<?php echo $data->idpesan ?>" class="btn btn-danger btn-circle" id="hapusPesan" data-toggle="modal"><span class="glyphicon glyphicon-trash"></span> Hapus Pesan</a></td>
+                        <a href="#hapusPesanModal<?php echo $data->idpesan ?>" class="btn btn-danger btn-circle" id="hapusPesan" data-toggle="modal"><span class="glyphicon glyphicon-trash"></span> Hapus Pesan</a></td>
                 </tr>
                 <?php } $no++; } ?>
               </tbody>

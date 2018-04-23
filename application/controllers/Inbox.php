@@ -22,10 +22,10 @@ class Inbox extends CI_Controller {
 			//ini customer
 			$data['featured'] = $this->Kontrakan->getFeatured();
 		    if($this->User->ceksession() == true){
-		        $nama = $this->session->userdata('nama');
+		        $nama = $this->session->userdata('namalengkap');
 		        $email = $this->session->userdata('email');
 	            
-	            $mergeCustomer = $this->M_Inbox->getMergeCustomer();
+	            $merge = $this->M_Inbox->getMerge();
 				$detilPesan = $this->M_Inbox->detilPesan();
 				$customer = $this->M_Inbox->getCustomer();
 				$pemilik = $this->M_Inbox->getPemilik();
@@ -35,7 +35,7 @@ class Inbox extends CI_Controller {
 					'email' => $email,
 					'nama' => $nama,
 					'session' => true,
-					'mergeCustomer' => $mergeCustomer,
+					'merge' => $merge,
 					'detilPesan' => $detilPesan,
 					'pemilik' => $pemilik,
 					'pesan' => $pesan
@@ -47,7 +47,7 @@ class Inbox extends CI_Controller {
 			    $this->load->view('modalInbox/customer/balasPesan',$data);
 			    $this->load->view('modalInbox/customer/LihatPesan',$data);
 			    $this->load->view('modalInbox/customer/HapusPesan',$data);
-			    $this->load->view('template/footer');
+			    // $this->load->view('template/footer');
 	        }else{
 	            redirect('');
 	        }	
@@ -83,7 +83,6 @@ class Inbox extends CI_Controller {
 			    $this->load->view('modalInbox/pemilik/balasPesan',$data);
 			    $this->load->view('modalInbox/pemilik/prosesPesan',$data);
 			    $this->load->view('modalInbox/pemilik/solvePesan',$data);
-			    $this->load->view('template/footer');
 			}else{
 				redirect('');
 			}
@@ -98,22 +97,22 @@ class Inbox extends CI_Controller {
 		$tglpesan = $this->input->post('tglpesan');
 		$iduser = $this->input->post('pengirim');
 		$jenispesan = $this->input->post('jenispesan');
-		$subject = $this->input->post('subject');
+		$subject = $this->input->post('topik');
 		$isipesan = $this->input->post('isipesan');
-		$penerima = $this->input->post('penerima');
+		$penerima = $this->input->post('namapenerima');
 
 		$tglpesan = date("Y/m/d");
-
+		$jenispesan = "normal";
 		$status = "Submitted";
 
 		$data = array(
 			'idpesan' => $idpesan,
-			'iduser' =>$iduser,
+			'idpengirim' =>$iduser,
 			'tglpesan'=> $tglpesan,
-			'jenispesan' =>$jenispesan,
-			'subject' => $subject,
+			'jenispesan	' =>$jenispesan,
+			'topik' => $subject,
 			'isi' => $isipesan,
-			'penerima' => $penerima,
+			'idpenerima' => $penerima,
 			'status' => $status
 		);
 
@@ -139,20 +138,27 @@ class Inbox extends CI_Controller {
 	public function balasPesanCustomer()
 	{
 		$idpesan = $this->input->post('idpesan');
-		$iduser = $this->input->post('pengirim');
+		$iduser = $this->input->post('idpengirim');
 		$isipesan = $this->input->post('isipesan');
+		$penerima = $this->input->post('idpenerima');
+		$subject = $this->input->post('topik');
 
 		$tglpesan = date("Y/m/d");
-
-		$status="Submitted";
+		$jenispesan = "normal";
+		$status = "Submitted";
 
 		$data = array(
-			'idpesan' =>$idpesan,
-			'iduser' =>$iduser,
-			'pesancustomer' => $isipesan
+			'idpesan' => $idpesan,
+			'idpengirim' =>$iduser,
+			'tglpesan'=> $tglpesan,
+			'jenispesan	' =>$jenispesan,
+			'topik' => $subject,
+			'isi' => $isipesan,
+			'idpenerima' => $penerima,
+			'status' => $status
 		);
 
-		$result = $this->M_Inbox->BalasPesanCustomer($data);
+		$result = $this->M_Inbox->InsertPesan($data);
 
 		$data = NULL;
 		if ($result){

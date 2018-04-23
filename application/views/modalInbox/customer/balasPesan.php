@@ -11,14 +11,18 @@
         <form method="POST" action="<?php echo site_url('Inbox/balasPesanCustomer')?>" enctype="multipart/form-data">
             <div class="modal-body">
 
-              <input required class="form-control required text-capitalize" data-placement="top" data-trigger="manual" type="hidden" name="pengirim" value="<?php echo $data->iduser ?>">
+              <input required class="form-control required text-capitalize" data-placement="top" data-trigger="manual" type="hidden" name="idpengirim" value="<?php echo $data->idpengguna ?>">
 
               <input required class="form-control required text-capitalize" data-placement="top" data-trigger="manual" type="hidden" name="idpesan" value="<?php echo $data->idpesan ?>">
 
-               <input required class="form-control required text-capitalize" data-placement="top" data-trigger="manual" type="hidden" name="tglpesan">
+              <input required class="form-control required text-capitalize" data-placement="top" data-trigger="manual" type="hidden" name="idpesan" value="<?php echo $data->topik ?>">
 
+              <?php $namalengkap = $this->M_Inbox->getNamaPenerima($data->idpenerima); ?>
               <div class="form-group"><label>Kepada</label>
-                <input type="text" name="nama" class="form-control" value="<?php echo $data->penerima?>" readonly="">
+                <?php foreach($namalengkap as $item) { ?>
+                <input type="text" name="namapenerima" class="form-control" value="<?php echo $item->namalengkap ?>" readonly="">
+                <input required class="form-control required text-capitalize" data-placement="top" data-trigger="manual" type="hidden" name="idpenerima" value="<?php echo $data->idpenerima ?>">
+                <?php } ?>
               </div>
 
               <div class="form-group"><label>Jenis Pesan</label>
