@@ -44,49 +44,52 @@ class TaKon extends CI_Controller {
 	
 	}
 	
-	/*public function InsetRumah(){
+	public function InsetRumah(){
 		$config['upload_path']          = './assets/images/rumah'; //call paath
-		$config['allowed_types']        = 'gif|jpg|png|gif';	//type file upload
-		$config['file_name'] 			='gambar';
+		$config['allowed_types'] = 'jpeg|jpg|gif|png';//type file upload
 		$this->load->library('upload', $config);
 		$this->upload->initialize($config);
-		$this->upload->do_upload('gambar');
-		$file_name = $this->upload->data();
+		if($this->upload->do_upload('gambar')){
 		
-		$nmrumah = $this->input->post('nmrumah');
-		$dayatampung = $this->input->post('dayatampung');
-		$ukuran = $this->input->post('ukuran');
+		$notelp = $this->input->post('notelp');
 		$harga = $this->input->post('harga');
-		$idkontrakan = $this->input->post('idkontrakan');
-		$fasilitas = $this->input->post('fasilitas');
+		$deskripsi = $this->input->post('deskripsi');
 		$gambar = $this->input->post('gambar');
-		$status = $this->input->post('status');
-		$idrumah = $this->input->post('idrumah');
+		$alamat = $this->input->post('alamat');
+		$fasilitas = $this->input->post('fasilitas');
+		$kota = $this->input->post('kota');
+		$iduser = $this->input->post('iduser');
+		$idkontrakan = $this->input->post('idkontrakan');
 		
 		$data = array(
-		'nmrumah' =>$nmrumah,
-		'dayatampung'=> $dayatampung,
-		'ukuran'=>$ukuran,
+		'notelp' =>$notelp,
+		'deskripsi'=> $deskripsi,
+		'alamat'=>$alamat,
 		'harga' => $harga,
 		'fasilitas' => $fasilitas,
 		'gambar' => $gambar,
-		'status' => $status,
-		'idkontrakan'=>$idkontrakan
+		'kota' => $kota,
+		'iduser'=>$iduser
 		
 		);
 		
 		$result = $this->Kontrakan->InsertRumah($data);
 		
-		$data = NULL;
+			redirect('Home');
+		}else{
+					
+			echo json_encode(array('success' => false));
+		}
+		/*$data = NULL;
 		if ($result){
 			redirect('Home');
 		}else{
 			echo json_encode(array('success' => false));
-		}
+		}*/
 	
-	}*/
+	}
 	
-	public function InsetRumah(){
+	/*public function InsetRumah(){
 		
 		$config['upload_path'] = './assets/images/rumah/';
 		$config['allowed_types'] = 'jpeg|jpg|gif|png';
@@ -97,45 +100,39 @@ class TaKon extends CI_Controller {
 		$this->load->library('upload',$config);
 		
 		//kalau dia sukses diupload
-		if($this->upload->do_upload('testupload')){
+		if($this->upload->do_upload('gambar')){
 			
 		$notelp = $this->input->post('notelp');
 		$harga = $this->input->post('harga');
 		$deskripsi = $this->input->post('deskripsi');
 		$gambar = $this->input->post('gambar');
 		$alamat = $this->input->post('alamat');
+		$fasilitas = $this->input->post('fasilitas');
+		$kota = $this->input->post('kota');
 		$iduser = $this->input->post('iduser');
 		$idkontrakan = $this->input->post('idkontrakan');
 		
-		//kirim data ke view
-		$nama = $this->session->name;
-		$data['nama'] = $nama;
-		$data['upload_data'] = $this->upload->data();
-		$data['error'] = NULL;
-			
-		
-		$this->load->view('UploadFile',$data);
-			
-		//kalau dia gagal
-		}else{
-			
-			$menu = array(
-			"crudbiasa" => "active",
-			"crudjson" => "",
-			"crudvalidaiton" => ""
+		$data = array(
+		'notelp' =>$notelp,
+		'deskripsi'=> $deskripsi,
+		'alamat'=>$alamat,
+		'harga' => $harga,
+		'fasilitas' => $fasilitas,
+		'gambar' => $gambar,
+		'kota' => $kota,
+		'iduser'=>$iduser
 		
 		);
+		$result = $this->Kontrakan->InsertRumah($data);
 		
-		$data['menu'] = $menu;
-		//kirim data ke view
-		$nama = $this->session->name;
-		$data['nama'] = $nama;
-		$data['error'] = $this->upload->display_errors();
-		$data['upload_data'] = NULL;
-		
-			$this->load->view('UploadFile',$data);
+		var_dump($result);
+		exit;
+		$this->load->view('Home',$data);
+		//kalau dia gagal
+		}else{
+			echo json_encode(array('success' => false));
 		}	
-	}
+	}*/
 	
 	public function Search(){
 		// Retrieve the posted search term.

@@ -41,7 +41,7 @@ class Kontrakan extends CI_Model
 
 		try{
 
-			$this->db->insert('rumah',$data);
+			$this->db->insert('kontrakan',$data);
 			$checkinsert = true;
 		}catch (Exception $ex) {
 
