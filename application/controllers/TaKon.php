@@ -44,7 +44,7 @@ class TaKon extends CI_Controller {
 	
 	}
 	
-	public function InsetRumah(){
+	/*public function InsetRumah(){
 		$config['upload_path']          = './assets/images/rumah'; //call paath
 		$config['allowed_types']        = 'gif|jpg|png|gif';	//type file upload
 		$config['file_name'] 			='gambar';
@@ -84,6 +84,57 @@ class TaKon extends CI_Controller {
 			echo json_encode(array('success' => false));
 		}
 	
+	}*/
+	
+	public function InsetRumah(){
+		
+		$config['upload_path'] = './assets/images/rumah/';
+		$config['allowed_types'] = 'jpeg|jpg|gif|png';
+		$config['max_size']= 100;
+		$config['max_width'] = 1024;
+		$config['max_height'] = 768;
+		
+		$this->load->library('upload',$config);
+		
+		//kalau dia sukses diupload
+		if($this->upload->do_upload('testupload')){
+			
+		$notelp = $this->input->post('notelp');
+		$harga = $this->input->post('harga');
+		$deskripsi = $this->input->post('deskripsi');
+		$gambar = $this->input->post('gambar');
+		$alamat = $this->input->post('alamat');
+		$iduser = $this->input->post('iduser');
+		$idkontrakan = $this->input->post('idkontrakan');
+		
+		//kirim data ke view
+		$nama = $this->session->name;
+		$data['nama'] = $nama;
+		$data['upload_data'] = $this->upload->data();
+		$data['error'] = NULL;
+			
+		
+		$this->load->view('UploadFile',$data);
+			
+		//kalau dia gagal
+		}else{
+			
+			$menu = array(
+			"crudbiasa" => "active",
+			"crudjson" => "",
+			"crudvalidaiton" => ""
+		
+		);
+		
+		$data['menu'] = $menu;
+		//kirim data ke view
+		$nama = $this->session->name;
+		$data['nama'] = $nama;
+		$data['error'] = $this->upload->display_errors();
+		$data['upload_data'] = NULL;
+		
+			$this->load->view('UploadFile',$data);
+		}	
 	}
 	
 	public function Search(){

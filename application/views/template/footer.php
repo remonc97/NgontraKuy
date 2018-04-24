@@ -80,14 +80,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <div class="col-sm-12">
                         <h4>Input Rumah</h4>
                         <form role="form" action="<?php blink('TaKon/InsetRumah')?>" method="post" enctype="multipart/form-data"> 
-							<input type="hidden" id="idrumah" name="idrumah" value="<?php echo $this->uri->segment(3);?>" />
+							<input type="hidden" id="idkontrakan" name="idkontrakan" value="<?php echo $this->uri->segment(3);?>" />
 							<div class="form-group">
-                                <label for="ukuran">ID User</label>
-                                <input type="text" class="form-control" id="idkontrakan" placeholder="ID Kontrakan" name="idkontrakan">
+                                <label for="iduser">ID User</label>
+                                <input type="text" class="form-control" id="iduser" placeholder="ID User" name="iduser" >
                             </div>
                             <div class="form-group">
                                 <label for="kota">Kota</label>
                                 <input type="text" class="form-control" id="kota" placeholder="Kota" name="kota">
+                            </div>
+                            <div class="form-group">
+                                <label for="alamat">Alamat</label>
+                                <input type="text" class="form-control" id="alamat" placeholder="Alamat" name="alamat">
                             </div>
                             <div class="form-group">
                                 <label for="notelp">No Telpon</label>
