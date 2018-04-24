@@ -133,10 +133,9 @@ $this->view('template/header');
                 <tr>
 
                     <?php $no=1; ?>
-                    <?php foreach($merge as $data){?>
+                    <?php foreach($mergeTable as $data){?>
 
-                    <?php $isi = $this->M_Inbox->detilPesan2($data->namalengkap);
-                    
+                    <?php 
                     if($nama == $data->namalengkap) {
 
                     ?>

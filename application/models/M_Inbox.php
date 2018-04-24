@@ -33,7 +33,7 @@ class M_Inbox extends CI_Model {
 
   public function detilPesan2($id)
   {
-    $result = $this->db->query("SELECT * FROM pengguna,pesan WHERE pengguna.idpengguna = pesan.idpengirim and namalengkap ='".$id."'");
+    $result = $this->db->query("SELECT * FROM pesan,pengguna WHERE pesan.idpengirim = pengguna.idpengguna and namalengkap = '".$id."'");
     return $result->result();
   }
 
@@ -67,9 +67,9 @@ class M_Inbox extends CI_Model {
     return $result->result();
   }
 
-  public function getCustomer()
+  public function getCustomerTable($namalengkap)
   {
-    $result = $this->db->query("SELECT * FROM pengguna where auth = 0");
+    $result = $this->db->query("SELECT * FROM pengguna WHERE auth = 1 and namalengkap ='".$namalengkap."'");
     return $result->result();
   }
 
@@ -82,6 +82,12 @@ class M_Inbox extends CI_Model {
   public function getMerge()
   {
     $result = $this->db->query("SELECT * FROM pengguna,pesan WHERE pengguna.idpengguna = pesan.idpengirim GROUP BY idpenerima");
+    return $result->result();
+  }   
+
+  public function getMergeTable()
+  {
+    $result = $this->db->query("SELECT * FROM pesan,pengguna WHERE pesan.idpengirim = pengguna.idpengguna and status is not null");
     return $result->result();
   }   
 
@@ -121,10 +127,10 @@ class M_Inbox extends CI_Model {
   //   return $result->result(); 
   // }
 
-  // public function getTampilPesanCustomer($penerima)
-  // {
-  //   $result = $this->db->query("SELECT * FROM user,pesan where pesan.iduser = user.iduser and penerima = '".$penerima."'");
-  //   return $result->result(); 
-  // }
+  public function getTampilPesanCustomer($idpenerima)
+  {
+    $result = $this->db->query("SELECT * FROM pesan,pengguna where pesan.idpengirim = pengguna.idpengguna and idpenerima = '".$idpenerima."'");
+    return $result->result(); 
+  }
 
 }

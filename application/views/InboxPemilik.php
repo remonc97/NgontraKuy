@@ -132,35 +132,39 @@ $this->view('template/header');
               <tbody>
                 <tr>
                     <?php $no=1; ?>
-                    <?php foreach($customer as $data){?>
+                    <?php 
 
-                    <?php $isi = $this->M_Inbox->getTampilPesanCustomer($nama);
+                    $pelanggan = $this->M_Inbox->getCustomerTable($nama);
 
-                    if($session == $isi) {
+                    foreach($pelanggan as $data) {
 
-                    ?>
+                    $isi = $this->M_Inbox->getTampilPesanCustomer($data->idpengguna);
+
+                    foreach ($isi as $item) {
+
+                     ?>
 
                     <td align="center"><?php echo $no ?></td>
-                    <td><?php echo $data->nama;?></td>
-                    <td><?php echo $data->tglpesan;?></td>
-                    <td><?php echo $data->jenispesan;?></td>
+                    <td><?php echo $item->namalengkap;?></td>
+                    <td><?php echo $item->tglpesan;?></td>
+                    <td><?php echo $item->jenispesan;?></td>
                     <td>
-                        <?php if($data->status == "Submitted") { ?>
-                        <span class="label label-primary"><?php echo $data->status;?></span>
-                        <?php } if($data->status == "On Process") { ?>
-                        <span class="label label-danger"><?php echo $data->status;?></span>
-                        <?php } if($data->status == "Solved") { ?>
-                        <span class="label label-success"><?php echo $data->status;?></span>
+                        <?php if($item->status == "Submitted") { ?>
+                        <span class="label label-primary"><?php echo $item->status;?></span>
+                        <?php } if($item->status == "On Process") { ?>
+                        <span class="label label-danger"><?php echo $item->status;?></span>
+                        <?php } if($item->status == "Solved") { ?>
+                        <span class="label label-success"><?php echo $item->status;?></span>
                         <?php } ?>
                     </td>
                     <td>
-                        <a href="#detilPesanModal<?php echo $data->idpesan ?>" class="btn btn-default btn-circle" id="lihatPesan" data-toggle="modal"><i class="glyphicon glyphicon-envelope"></i> Lihat Pesan </a>
-                        <a href="#balasPesanModal<?php echo $data->idpesan ?>" class="btn btn-default btn-circle" style="background-color: #1ac6ff; color: white" id="lihatPesan" data-toggle="modal"><i class="glyphicon glyphicon-send"></i> Balas Pesan </a>
-                        <?php if($data->status != "On Process" && $data->status != "Solved") { ?>
-                        <a href="#prosesPesanModal<?php echo $data->iduser ?>" class="btn btn-danger btn-circle" id="prosesPesan" data-toggle="modal"><i class="fa fa-gears"></i> Proses </a>
+                        <a href="#detilPesanModal<?php echo $item->idpesan ?>" class="btn btn-default btn-circle" id="lihatPesan" data-toggle="modal"><i class="glyphicon glyphicon-envelope"></i> Lihat Pesan </a>
+                        <a href="#balasPesanModal<?php echo $item->idpesan ?>" class="btn btn-default btn-circle" style="background-color: #1ac6ff; color: white" id="lihatPesan" data-toggle="modal"><i class="glyphicon glyphicon-send"></i> Balas Pesan </a>
+                        <?php if($item->status != "On Process" && $item->status != "Solved") { ?>
+                        <a href="#prosesPesanModal<?php echo $item->idpengguna ?>" class="btn btn-danger btn-circle" id="prosesPesan" data-toggle="modal"><i class="fa fa-gears"></i> Proses </a>
                         <?php } ?>
-                        <?php if($data->status != "Solved") { ?>
-                        <a href="#solvePesanModal<?php echo $data->idpesan ?>" class="btn btn-default btn-circle" style="background-color: #72b70f; color: white" id="solvePesan" data-toggle="modal"><span class="glyphicon glyphicon-ok"></span> Selesai</a></td>
+                        <?php if($item->status != "Solved") { ?>
+                        <a href="#solvePesanModal<?php echo $item->idpesan ?>" class="btn btn-default btn-circle" style="background-color: #72b70f; color: white" id="solvePesan" data-toggle="modal"><span class="glyphicon glyphicon-ok"></span> Selesai</a></td>
                         <?php } ?>
                 </tr>
                 <?php } $no++; } ?>

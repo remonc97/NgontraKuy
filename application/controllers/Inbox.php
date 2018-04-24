@@ -26,11 +26,13 @@ class Inbox extends CI_Controller {
 		        $email = $this->session->userdata('email');
 	            
 	            $merge = $this->M_Inbox->getMerge();
+	            $mergeTable = $this->M_Inbox->getMergeTable();
 				$detilPesan = $this->M_Inbox->detilPesan();
 				$customer = $this->M_Inbox->getCustomer();
 				$pemilik = $this->M_Inbox->getPemilik();
 				$pesan = $this->M_Inbox->getAllPesan();
 				$data = [
+					'mergeTable' => $mergeTable,
 					'customer' => $customer,
 					'email' => $email,
 					'nama' => $nama,
@@ -58,13 +60,14 @@ class Inbox extends CI_Controller {
         $data['nama'] = $this->session->userdata('nama');
 			$data['featured'] = $this->Kontrakan->getFeatured();
 		    if($this->User->ceksession() == true){
-		        $nama = $this->session->userdata('nama');
+		        $nama = $this->session->userdata('namalengkap');
 		        $email = $this->session->userdata('email');
 		        $auth = $this->session->userdata('auth');
 
 				$merge = $this->M_Inbox->getMerge();
+				// $customer = $this->M_Inbox->getTampilPesanCustomer(8);
 				$detilPesan = $this->M_Inbox->detilPesan();
-				$customer = $this->M_Inbox->getCustomer2();
+				$pemilik = $this->M_Inbox->getPemilik();
 				$pesan = $this->M_Inbox->getAllPesan();
 				$data = [
 					'auth' => $auth,
@@ -73,7 +76,7 @@ class Inbox extends CI_Controller {
 					'session' => TRUE,
 					'nama' => $nama,
 					'detilPesan' => $detilPesan,
-					'customer' => $customer,
+					'pemilik' => $pemilik,
 					'pesan' => $pesan,
 				];
 			    $this->load->view('template/header');
@@ -215,6 +218,7 @@ class Inbox extends CI_Controller {
 		        $email = $this->session->userdata('email');
 	            
 	            $merge = $this->M_Inbox->getMerge();
+	            $mergeTable = $this->M_Inbox->getMergeTable();
 	            $showChat = $this->M_Inbox->isiPesan($idpengirim,$idpenerima);
 				$detilPesan = $this->M_Inbox->detilPesan();
 				$customer = $this->M_Inbox->getCustomer();
@@ -222,6 +226,7 @@ class Inbox extends CI_Controller {
 				$pesan = $this->M_Inbox->getAllPesan();
 				$data = [
 					'customer' => $customer,
+					'mergeTable' =>$mergeTable,
 					'showChat' =>$showChat,
 					'email' => $email,
 					'nama' => $nama,

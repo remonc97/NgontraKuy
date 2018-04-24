@@ -1,5 +1,5 @@
  <!-- detil modal Pesan -->
-<?php foreach($detilPesan as $data){ ?>
+
 <!-- <div class="modal fade" tabindex="-1" id="detilPesanModal<?php echo $data->idpesan ?>" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -142,8 +142,12 @@ $this->view('template/header');
           </div>
         </div>
         <form method="POST" action="<?php echo site_url('Inbox/balasPesanCustomerDetil')?>" enctype="multipart/form-data">
-              <input required class="form-control required text-capitalize" data-placement="top" data-trigger="manual" type="hidden" name="idpengirim" value="<?php echo $data->idpengguna ?>">
 
+          <?php 
+          $detilPesan2 = $this->M_Inbox->detilPesan2($nama);
+          foreach($detilPesan2 as $data){ ?>
+              <input required class="form-control required text-capitalize" data-placement="top" data-trigger="manual" type="hidden" name="idpengirim" value="<?php echo $data->idpengguna ?>">
+              
               <!-- <input required class="form-control required text-capitalize" data-placement="top" data-trigger="manual" type="hidden" name="topik" value="<?php echo $data->topik ?>" -->
 
               <?php $namalengkap = $this->M_Inbox->getNamaPenerima($data->idpenerima); ?>
@@ -161,6 +165,8 @@ $this->view('template/header');
                   <input type="hidden" name="jenispesan" class="form-control" value="<?php echo $data->jenispesan?>" readonly="">
                 <?php } ?>
               </div>
+
+              <?php } ?> 
 
               
               <div class="panel-footer">
@@ -186,7 +192,6 @@ $this->view('template/header');
   </div>
 </div> -->
 <!-- /.Detil modal Barang -->
-<?php } ?> 
 
 
 
