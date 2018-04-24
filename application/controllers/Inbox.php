@@ -176,7 +176,7 @@ class Inbox extends CI_Controller {
 
 		$tglpesan = date("Y/m/d");
 		$jenispesan = "normal";
-		// $status = "";
+		// $status = "Submitted";
 
 		$data = array(
 			'idpesan' => $idpesan,
@@ -185,15 +185,15 @@ class Inbox extends CI_Controller {
 			'jenispesan	' =>$jenispesan,
 			'topik' => $subject,
 			'isi' => $isipesan,
-			'idpenerima' => $penerima
-			// 'status' => $status
+			'idpenerima' => $penerima,
+			'status' => $status
 		);
 
 		$result = $this->M_Inbox->InsertPesan($data);
 
 		$data = NULL;
 		if ($result){
-			redirect('Inbox/LihatPesan/'.$iduser.'/'.$penerima);
+			redirect('Inbox');
 		}
 	}
 
