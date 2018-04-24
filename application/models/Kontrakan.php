@@ -67,16 +67,6 @@ class Kontrakan extends CI_Model
         return $query->result();
     }
 
-    public function getOne($idrumah){
-        return
-            $this->db->select('*')
-                ->from('kontrakan')
-                ->join('rumah','kontrakan.idkontrakan= rumah.idkontrakan')
-                ->where('rumah.idrumah',$idrumah)
-                ->get()
-                ->row();
-    }
-
     public function getRumah($id_rmh){
         return $this->db->select('*')
                         ->from('rumah')
@@ -110,4 +100,7 @@ class Kontrakan extends CI_Model
       return $this->db->where('idkontrakan',$idkontrakan)->get('kontrakan')->row();
     }
 
+    public function getNamaPemilik($idpengguna){
+        return $this->db->select('namalengkap')->where('idpengguna',$idpengguna)->get('pengguna')->row();
+    }
 }

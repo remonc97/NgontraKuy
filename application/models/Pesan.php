@@ -11,44 +11,51 @@ class Pesan extends CI_Model
     public function getIdpesan(){
         return $this->db->select('ifnull(max(idpesan),0) as idpesan')->get('pesan')->row();
     }
-    public function requestbook($data){
-        $pesan = array(
-            'iduser' => $data['iduser'],
-            'tglpesan' => $data['tglbooking'],
-            'jenispesan' => 'request',
-            'subject' => 'Book Request',
-            'isi' =>
-                'Book Request <br/>
+    public function updateisi($data){
+        $id = $this->getIdpesan()->idpesan;
+        return $this->db->set('isi',
+            'Book Request <br/>
                 ----------------------<br/>
                 Tenant Name : '.$this->session->userdata('nama').
-                '<br/>Phone No. : '.$data['notelp'].
-                '<br/>Planned Check In Date :'.$data['tglcheckin'].
-                '<br/>Planned Check Out Date :'.$data['tglcheckout'].
-                '<br/><br/>
+            '<br/>Phone No. : '.$data['notelp'].
+            '<br/>Planned Check In Date :'.$data['tglmasuk'].
+            '<br/>Planned Check Out Date :'.$data['tglkeluar'].
+            '<br/><br/>
                 Click this url to confirm the booking request.
-                <br.></br.>'
-                .site_url('Booking/'.md5('confirm').'/'.$data['idbooking'].'_'.$data['iduser'].'_'.$data['tglbooking'].'_'.$data['idrumah'].'_'.
-                    $data['notelp'].'_'.$data['tglcheckin'].'_'.$data['tglcheckout'].'_'.$this->getIdpesan()->idpesan).'_'.$this->session->userdata('nama').
-                '<br/><br/>
+                <br.></br.><a href="'
+            .site_url('BookConfirm/'.$data['idreservasi'].'_'.$data['idpengguna'].'_'.$data['tglreservasi'].'_'.$data['idkontrakan'].'_'.
+                $data['notelp'].'_'.$data['tglmasuk'].'_'.$data['tglkeluar'].'_'.$id.'_'.$this->session->userdata('namalengkap')).
+            '">accept booking request</a><br/><br/>
                 Click this url below to decline the booking request.
-                <br/><br/>'
-                .site_url('Booking/cancel/').$this->getIdpesan()->idpesan,
+                <br/><br/><a href="'
+            .site_url('BookCancel/').$this->getIdpesan()->idpesan.'">Decline booking request</a>'
+            )->where('idpesan',$id)->update('pesan');
+    }
+    public function requestbook($data){
+        $pesan = array(
+            'idpengirim' => $data['idpengguna'],
+            'idpenerima' => $data['idpenerima'],
+            'tglpesan' => $data['tglreservasi'],
+            'jenispesan' => 'request',
+            'topik' => 'Book Request',
+            'isi' =>'',
             'status' => 'submitted',
         );
         return $this->db->insert('pesan',$pesan);
     }
     public function updateconfirm($key){
-        return $this->db->where('idpesan',$key)->update('pesan',array('status' => 'accepted'));
+        return $this->db->set('status','accepted')->where('idpesan',$key)->update('pesan');
     }
     public function updatecancel($key){
-        return $this->db->where('idpesan',$key)->update('pesan',array('status' => 'declined'));
+        return $this->db->set('status','declined')->where('idpesan',$key)->update('pesan');
     }
     public function sendresponsemsg($key){
         $pesan = array(
-            'iduser' => $key[1],
-            'tglpesan' => date('yyyy-mm-dd'),
+            'idpengirim' => $key[1],
+            'idpenerima' => $key[1],
+            'tglpesan' => date('Y-m-d'),
             'jenispesan' => 'request',
-            'subject' => 'Book Request Accepted',
+            'topik' => 'Book Request Accepted',
             'isi' =>
                 'Congrats, You have successfully booked this kontrakan! <br/>
                 Here are your kontrakan booking details:<br/>

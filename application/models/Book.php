@@ -10,19 +10,19 @@ class Book extends CI_Model
 {
     public function insert($key){
         $data = array(
-            'idbooking' => $key[0],
-            'iduser' => $key[1],
-            'tglbooking' => $key[2],
+            'idreservasi' => $key[0],
+            'idpengguna' => $key[1],
+            'tglreservasi' => $key[2],
         );
         $data1 = array(
-            'idbooking' => $key[0],
-            'idrumah' => $key[3],
+            'idreservasi' => $key[0],
+            'idkontrakan' => $key[3],
             'notelp' => $key[4],
-            'tglcheckin' => $key[5],
-            'tglcheckout' => $key[6],
+            'tglmasuk' => $key[5],
+            'tglkeluar' => $key[6],
         );
-        $booking = $this->db->insert('booking',$data);
-        $detail = $this->db->insert('detilbooking',$data1);
+        $booking = $this->db->insert('reservasi',$data);
+        $detail = $this->db->insert('detilreservasi',$data1);
 
         if($booking == true && $detail == true){
             return true;
@@ -34,7 +34,7 @@ class Book extends CI_Model
     public function makeID(){
         $res = "";
         $next = 0;
-        $query = $this->db->select('ifnull(max(convert(right(idbooking,7), signed integer)), 0) as kode')->get('booking')->row();
+        $query = $this->db->select('ifnull(max(convert(right(idreservasi,7), signed integer)), 0) as kode')->get('reservasi')->row();
         $next = ($query->kode)+1;
         if($query->kode != 0){
             $res = "000000" . $next;
@@ -43,9 +43,5 @@ class Book extends CI_Model
             $res = "B0000001";
         }
         return $res;
-    }
-
-    public function getIdBooking($iduser){
-        return $this->db->where('iduser',$iduser)->get('booking')->row();
     }
 }
