@@ -70,7 +70,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 echo
                     "
                 <ul class=\"pull-right\">
-                    <li style=\"margin-top: -10px\"><a href=\"#\" style=\"text-transform:Capitalize;font-family: 'Ubuntu', sans-serif;\" data-toggle=\"modal\" data-target=\"#TamKon2\">Tambah Kontrakan</a></li>
                     <li style=\"margin-top: -10px\"><a href=\"#\" style=\"text-transform:Capitalize;font-family: 'Ubuntu', sans-serif;\" data-toggle=\"modal\" data-target=\"#TamKon\">Tambah Rumah</a></li>
                     <li style=\"margin-top: -10px;padding-top: 10px;padding-bottom: 10px;\">
                         <ul class='dropdown'>
