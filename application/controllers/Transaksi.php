@@ -36,23 +36,27 @@ class Transaksi extends CI_Controller
         );
 
         if($this->Pesan->requestbook($data) == true){
-            echo "<script>alert('booking successful')</script>";
-            $this->session->set_flashdata('successbook','true');
-            redirect('','refresh');
+            if($this->Pesan->updateisi($data) == true){
+                echo "<script>alert('booking successful')</script>";
+                $this->session->set_flashdata('successbook','true');
+                redirect('','refresh');
+            }
         }else{
             echo "<script>alert('booking failed')</script>";
         }
     }
     #proses booking kontrakan
     public function book(){
-        if(md5('confirm') == $this->uri->segment(2)){
-            $key = explode("_",$this->uri->segment(3));
-            if($this->Book->insert($key) == true){
-                if($this->confirm($key) == true){
-                    $this->session->set_flashdata('confirm','true');
-                    redirect('Inbox','refresh');
-                }
+        $key = explode("_",$this->uri->segment(2));
+        if($this->Book->insert($key) == true){
+            if($this->confirm($key) == true){
+                $this->session->set_flashdata('confirm','true');
+                redirect('Inbox','refresh');
+            }else{
+                die('no');
             }
+        }else{
+            die('no');
         }
     }
     #proses update statuspesan to 'accepted'
@@ -61,19 +65,19 @@ class Transaksi extends CI_Controller
             #kirim pesan balik ke user, bahwa pemilik sudah konfirmasi booking
             if($this->Pesan->sendresponsemsg($key) == true){
                 $this->session->set_flashdata('confirm','true');
+                echo "<script>alert('booking confirmed')</script>";
                 redirect('Inbox','refresh');
             }
         }
     }
     #proses update statuspesan to 'declined'
     public function cancel(){
-        if(md5('cancel') == $this->uri->segment(2)){
-            $key = $this->uri->segment(3);
-            #update status pesan menjadi declined
-            if($this->Pesan->updatecancel($key) == true){
-                $this->session->set_flashdata('cancel','true');
-                redirect('Inbox','refresh');
-            }
+        $key = $this->uri->segment(2);
+        #update status pesan menjadi declined
+        if($this->Pesan->updatecancel($key) == true){
+            $this->session->set_flashdata('cancel','true');
+            echo "<script>alert('booking canceled')</script>";
+            redirect('Inbox','refresh');
         }
     }
 }
