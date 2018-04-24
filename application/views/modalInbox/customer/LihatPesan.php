@@ -154,7 +154,7 @@ $this->view('template/header');
               <div class="form-group">
                 <?php foreach($namalengkap as $item) { ?>
                 <input type="hidden" name="namapenerima" class="form-control" value="<?php echo $item->namalengkap ?>" readonly="">
-                <input required class="form-control required text-capitalize" data-placement="top" data-trigger="manual" type="hidden" name="idpenerima" value="<?php echo $show->idpenerima ?>">
+                <input required class="form-control required text-capitalize" data-placement="top" data-trigger="manual" type="hidden" name="idpenerima" value="<?php echo $data->idpenerima ?>">
                 <?php } ?>
               </div>
 

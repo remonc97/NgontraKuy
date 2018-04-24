@@ -29,7 +29,7 @@ class Inbox extends CI_Controller {
 	            $mergeTable = $this->M_Inbox->getMergeTable();
 				$detilPesan = $this->M_Inbox->detilPesan();
 				$customer = $this->M_Inbox->getCustomer();
-				$pemilik = $this->M_Inbox->getPemilik();
+				$pemilik = $this->M_Inbox->getPemilik2();
 				$pesan = $this->M_Inbox->getAllPesan();
 				$data = [
 					'mergeTable' => $mergeTable,
@@ -219,7 +219,7 @@ class Inbox extends CI_Controller {
 	            
 	            $merge = $this->M_Inbox->getMerge();
 	            $mergeTable = $this->M_Inbox->getMergeTable();
-	            $showChat = $this->M_Inbox->isiPesan($idpengirim,$idpenerima);
+	            $showChat = $this->M_Inbox->isiPesan($idpenerima,$idpengirim);
 				$detilPesan = $this->M_Inbox->detilPesan();
 				$customer = $this->M_Inbox->getCustomer();
 				$pemilik = $this->M_Inbox->getPemilik();
@@ -257,12 +257,14 @@ class Inbox extends CI_Controller {
 
 				$merge = $this->M_Inbox->getMerge();
 	            $showChat2 = $this->M_Inbox->isiPesan2($idpengirim,$idpenerima);
+	            $isiPesanBalas = $this->M_Inbox->isiPesanBalas($idpenerima,$idpengirim);
 				$detilPesan = $this->M_Inbox->detilPesan();
 				$pesan = $this->M_Inbox->getAllPesan();
 				$data = [
 					'auth' => $auth,
 					'merge' => $merge,
 					'email' => $email,
+					'isiPesanBalas' => $isiPesanBalas,
 					'showChat2' =>$showChat2,
 					'session' => TRUE,
 					'nama' => $nama,

@@ -67,9 +67,27 @@ class M_Inbox extends CI_Model {
     return $result->result();
   }
 
+  public function isiPesanBalas($idpengirim,$idpenerima)
+  {
+    $result = $this->db->query("SELECT * FROM pengguna,pesan WHERE pesan.idpengirim = pengguna.idpengguna and idpengirim = '".$idpengirim."' AND idpenerima = '".$idpenerima."'");
+    return $result->result();
+  }
+
   public function getPemilik()
   {
     $result = $this->db->query("SELECT * FROM pengguna,pesan where pengguna.idpengguna = pesan.idpenerima and auth = 1");
+    return $result->result();
+  }
+
+  public function getPemilik2()
+  {
+    $result = $this->db->query("SELECT * FROM pengguna WHERE auth = 1");
+    return $result->result();
+  }  
+
+  public function getCustomer()
+  {
+    $result = $this->db->query("SELECT * FROM pengguna WHERE auth = 0");
     return $result->result();
   }
 
