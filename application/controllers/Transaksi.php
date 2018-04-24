@@ -13,10 +13,11 @@ class Transaksi extends CI_Controller
         if($this->User->ceksession() == true) {
             $key = $this->uri->segment(2);
             $data['session'] = true;
-            $data['nama'] = $this->session->userdata('nama');
-            $data['idbooking'] = $this->Book->makeID();
-            $data['idrumah'] = $key;
-            $data['rumah'] = $this->Kontrakan->getOne($data['idrumah']);
+            $data['nama'] = $this->session->userdata('namalengkap');
+            $data['idreservasi'] = $this->Book->makeID();
+            $data['idkontrakan'] = $key;
+            $data['kontrakan'] = $this->Kontrakan->getOneKontrakan($data['idkontrakan']);
+            $data['pemilik'] = $this->Kontrakan->getNamaPemilik($data['kontrakan']->idpengguna);
             $this->load->view('formbooking', $data);
         }
     }
@@ -24,17 +25,22 @@ class Transaksi extends CI_Controller
     public function requestbooking(){
         $key = explode("_",$this->uri->segment(3));
         $data = array(
-            'idbooking' => $key[0],
-            'iduser' => $this->session->userdata('iduser'),
-            'tglbooking' => $this->input->post('tglbooking'),
-            'idrumah' => $key[1],
+            'idreservasi' => $key[0],
+            'idpengguna' => $this->session->userdata('idpengguna'),
+            'idpenerima' => $this->input->post('idpenerima'),
+            'tglreservasi' => $this->input->post('tglreservasi'),
+            'idkontrakan' => $key[1],
             'notelp' => $this->input->post('notelp'),
-            'tglcheckin' => $this->input->post('cekin'),
-            'tglcheckout' => $this->input->post('cekout'),
+            'tglmasuk' => $this->input->post('tglmasuk'),
+            'tglkeluar' => $this->input->post('tglkeluar'),
         );
+
         if($this->Pesan->requestbook($data) == true){
+            echo "<script>alert('booking successful')</script>";
             $this->session->set_flashdata('successbook','true');
             redirect('','refresh');
+        }else{
+            echo "<script>alert('booking failed')</script>";
         }
     }
     #proses booking kontrakan
