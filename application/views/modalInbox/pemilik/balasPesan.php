@@ -1,5 +1,5 @@
    <!-- detil modal Barang -->
-<?php foreach($customer as $data) { ?>
+<?php foreach($pemilik as $data) { ?>
 <div class="modal fade" tabindex="-1" id="balasPesanModal<?php echo $data->idpesan ?>" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">

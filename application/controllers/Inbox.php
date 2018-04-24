@@ -251,26 +251,27 @@ class Inbox extends CI_Controller {
         $data['nama'] = $this->session->userdata('nama');
 			$data['featured'] = $this->Kontrakan->getFeatured();
 		    if($this->User->ceksession() == true){
-		        $nama = $this->session->userdata('nama');
+		        $nama = $this->session->userdata('namalengkap');
 		        $email = $this->session->userdata('email');
 		        $auth = $this->session->userdata('auth');
 
 				$merge = $this->M_Inbox->getMerge();
+	            $showChat2 = $this->M_Inbox->isiPesan2($idpengirim,$idpenerima);
 				$detilPesan = $this->M_Inbox->detilPesan();
-				$customer = $this->M_Inbox->getCustomer2();
 				$pesan = $this->M_Inbox->getAllPesan();
 				$data = [
 					'auth' => $auth,
 					'merge' => $merge,
 					'email' => $email,
+					'showChat2' =>$showChat2,
 					'session' => TRUE,
 					'nama' => $nama,
 					'detilPesan' => $detilPesan,
-					'customer' => $customer,
 					'pesan' => $pesan,
 				];
-			    $this->load->view('template/header');
-			    // $this->load->view('modalInbox/pemilik/LihatPesan',$data);
+			    $this->load->view('template/header',$data);
+			    $this->load->view('modalInbox/pemilik/LihatPesan',$data);
+			    $this->load->view('template/footer');
 			}else{
 				redirect('');
 			}

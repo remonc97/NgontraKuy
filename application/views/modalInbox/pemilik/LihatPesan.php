@@ -1,64 +1,194 @@
-<!-- detil modal Barang -->
-<?php foreach($detilPesan as $data) { ?>
-<div class="modal fade" tabindex="-1" id="detilPesanModal<?php echo $data->idpesan ?>" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+ <!-- detil modal Pesan -->
+
+<!-- <div class="modal fade" tabindex="-1" id="detilPesanModal<?php echo $data->idpesan ?>" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-         <h3 id="myModalLabel"><span class="glyphicon glyphicon-envelope"></span> Pesan</h3>
+         <h4><center><b>History Chat</b><center></h4>
       </div>
-      <div class="modal-body">
+      <div class="modal-body"> -->
+        <!-- <table class="table table-bordered" border="0">
+          <tbody>
+            <?php $namalengkap = $this->M_Inbox->getNamaPenerima($data->idpenerima); ?>
+            <?php foreach($namalengkap as $data2) { ?>
+            <tr style="text-transform:capitalize;">
+              <td width="150px">Kepada : </td>
+              <td><?php echo $data2->namalengkap ?></td>
+            </tr>
+            <?php } ?>
+            <tr>
+              <td>Jenis Pesan :</td>
+              <td><?php echo $data->jenispesan ?></td>
+            </tr>
+          </tbody>
+        </table>
+ -->
+ <?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+#include header file
+$this->view('template/header');
+?>
+<style>
+    .bg-img-1 {
+        background-image: url(<?php echo base_url('assets/images/slider/1.jpg')?>);
+    }
+    .bg-img-2 {
+        background-image: url(<?php echo base_url('assets/images/slider/2.jpg')?>);
+    }
+    .bg-img-3 {
+        background-image: url(<?php echo base_url('assets/images/slider/3.jpg')?>);
+    }
+    .bg-img-4 {
+        background-image: url(<?php echo base_url('assets/images/slider/4.jpg')?>);
+    }
+    .bg-img-5 {
+        background-image: url(<?php echo base_url('assets/images/slider/5.jpg')?>);
+    }
+</style>
+<!-- Header Starts -->
+<div class="navbar-wrapper">
 
-          <form method="POST" action="" enctype="multipart/form-data">
-          <table class="table table-striped" border="0">
-            <tbody>
-              <tr>
-                <td width="150px">Nama Pengirim</td>
-                <td>:</td>
-                <td style="text-transform:capitalize;"><?php echo $data->nama ?></td>
-              </tr>
-              <tr>
-                <td>Jenis Pesan</td>
-                <td>:</td>
-                <td style="text-transform:capitalize;"><?php echo $data->jenispesan ?></td>
-              </tr>
-              <tr>
-                <td>Status</td>
-                <td>:</td>
-                <?php if($data->status == "Submitted") {?>
-                <td style="text-transform:capitalize;"><span class="label label-primary"><?php echo $data->status;?></span>
-                <?php } if($data->status == "On Process") { ?>
-                <td style="text-transform:capitalize;"><span class="label label-danger"><?php echo $data->status;?></span>
-                <?php } if($data->status == "Solved") { ?>
-                <td style="text-transform:capitalize;"><span class="label label-success"><?php echo $data->status;?></span>
+    <div class="navbar-inverse" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+
+
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+            </div>
+            <!-- Nav Starts -->
+            <style>
+                .nav li a{
+                    font-family: 'Ubuntu', sans-serif !important;
+                }
+            </style>
+            <div class="navbar-collapse  collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="active"><a href="<?php echo site_url()?>" >Home</a></li>
+                    <li><a href="<?php echo site_url('Agents')?>">Agents</a></li>
+                    <li><a href="<?php echo site_url('ContactUs')?>">Contact Us</a></li>
+                    <li><a href="<?php echo site_url('About')?>">About</a></li>
+                </ul>
+            </div>
+            <!-- #Nav Ends -->
+
+        </div>
+    </div>
+
+</div>
+<!-- #Header Starts -->
+
+<div class="container">
+
+     <!-- Header Starts -->
+    <div class="header">
+        <a href="<?php echo site_url()?>"><img src="<?php echo base_url('assets/images/logo1.png')?>" width="200px" alt="NgontraKuy"></a>
+        <?php if(isset($session) && $session == true){
+            echo
+                "
+                <ul class=\"pull-right\">
+                    <li style=\"margin-top: -10px\"><a href=\"#\" style=\"text-transform:Capitalize;font-family: 'Ubuntu', sans-serif;\" data-toggle=\"modal\" data-target=\"#TamKon2\">Tambah Kontrakan</a></li>
+                    <li style=\"margin-top: -10px\"><a href=\"#\" style=\"text-transform:Capitalize;font-family: 'Ubuntu', sans-serif;\" data-toggle=\"modal\" data-target=\"#TamKon\">Tambah Rumah</a></li>
+                    <li style=\"margin-top: -10px;padding-top: 10px;padding-bottom: 10px;\">
+                        <ul class='dropdown'>
+                            <li>
+                                <a href=\"#\" style=\"text-transform:Capitalize;font-family: 'Ubuntu', sans-serif;\" class=\"dropdown-toggle\" data-toggle=\"dropdown\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\">Hi, $nama! <span class=\"caret\"></span></a>
+                                <ul class=\"dropdown-menu\"  >
+                                    <li><a href=".site_url('Profile').">Profile</a></li>
+                                    <li><a href=".site_url('Inbox').">Inbox</a></li>
+                                    <li><a href=".site_url('Logout').">Log out</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                ";
+        }else{
+            echo "
+                <ul class=\"pull-right\">
+                    <li style=\"margin-top: 20px\"><a href=\"#\" style=\"font-family: 'Ubuntu', sans-serif;\" data-toggle=\"modal\" data-target=\"#loginpop\">Login</a></li>
+                </ul>";
+        } ?>
+    </div>
+    <!-- #Header Starts -->
+</div>
+
+<div class="panel panel-default" style="background-color: #999999">
+  <div class="panel-body">
+    <div class="conteiner">
+  <div class="row">
+    <div class="col-md-8 col-sm-offset-2">
+      <div class="panel panel-success">
+        <div class="panel-heading"><a href="<?php echo site_url('Inbox') ?>" class="btn btn-default"><span class="glyphicon glyphicon-arrow-left"></span> Kembali</a></div>
+        <div class="panel-body" style="height: 300px; overflow-y: scroll">
+          <div class="row">
+
+            <div class="col-md-6 pull-right">
+              <?php foreach($showChat2 as $show) { ?>
+              <div class="panel panel-warning panel-comment">
+                <div class="panel-heading">
+                  <strong style="opacity: .5; font-size: 12px; color: #2a2709"><?php echo $show->namalengkap ?>:</strong>
+                  <small><?php echo date("d-M-Y H:i:s"); ?></small><br/>
+                  <?php echo $show->isi ?>
+                </div>
+              </div>
+              <?php } ?>
+            </div>
+
+          </div>
+        </div>
+        <form method="POST" action="<?php echo site_url('Inbox/balasPesanCustomerDetil')?>" enctype="multipart/form-data">
+
+              <input required class="form-control required text-capitalize" data-placement="top" data-trigger="manual" type="hidden" name="idpengirim" value="<?php echo $show->idpenerima ?>">
+
+              <!-- <input required class="form-control required text-capitalize" data-placement="top" data-trigger="manual" type="hidden" name="topik" value="<?php echo $data->topik ?>" -->
+
+              <?php $namalengkap = $this->M_Inbox->getNamaPenerima($show->idpenerima); ?>
+              <div class="form-group">
+                <?php foreach($namalengkap as $item) { ?>
+                <input type="hidden" name="namapenerima" class="form-control" value="<?php echo $item->namalengkap ?>" readonly="">
+                <input required class="form-control required text-capitalize" data-placement="top" data-trigger="manual" type="hidden" name="idpenerima" value="<?php echo $show->idpengirim ?>">
                 <?php } ?>
-              </td>
-              </tr>
-              </tbody>
-            </table>
+              </div>
 
-              <hr>
-            <h4><center>History Chat<center></h4>
-              <hr>
-                  <div class="container-fluid" style="margin-top: 20px">
-                    <table class="table table-striped" border="0">
-                    <tbody>
-                      <tr style="text-transform:capitalize;">
-                        <td><?php echo $data->isi ?></td>
-                    </tr>
-                    <?php $isi = $this->M_Inbox->getPesanCustomer($data->idpesan); ?>
-                    <?php foreach($isi as $data2) { ?>
-                    <tr style="text-transform:capitalize;">
-                      <td><?php echo $data2->pesancustomer ?></td>
-                    </tr>
-                      <?php } ?>
-                    </tbody>
-                  </table>
+              <div class="form-group">
+                <?php if( $show->jenispesan=='normal') { ?>
+                  <input type="hidden" name="jenispesan" class="form-control" value="<?php echo $show->jenispesan?>" readonly="">
+                <?php } else { ?>
+                  <input type="hidden" name="jenispesan" class="form-control" value="<?php echo $show->jenispesan?>" readonly="">
+                <?php } ?>
+              </div>
+              
+              <div class="panel-footer">
+                <div class="panel-body">
+                  <div class="form-group">
+                    <textarea name="isipesan" class="form-control"></textarea>
                   </div>
-          </form>   
-         </div>
+                  <button type="submit" class="btn btn-success"><i class="fa fa-send"></i> Kirim Pesan</button>
+                  <p class="help-block pull-left text-danger hide" id="form-error">&nbsp; The form is not valid. </p>
+                </div>
+              </div>
+              
+           </form>
       </div>
     </div>
   </div>
-  <!-- /.Detil modal Barang -->
-  <?php } ?>
+</div>
+  </div>
+</div>
+           <!-- 
+      </div>
+    </div>
+  </div>
+</div> -->
+<!-- /.Detil modal Barang -->
+
+
+
+

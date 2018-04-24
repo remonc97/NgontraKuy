@@ -1,7 +1,7 @@
 <!--MODAL Proses -->
 <?php if (isset($pesan)){
 foreach($pesan as $data){ ?>
-<div class="modal fade" id="prosesPesanModal<?php echo $data->iduser ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<div class="modal fade" id="prosesPesanModal<?php echo $data->idpengirim ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog modal-sm" role="document">
     <div class="modal-content">
       <div class="modal-header">
