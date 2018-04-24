@@ -136,8 +136,8 @@ $this->view('template/header');
                     <?php foreach($merge as $data){?>
 
                     <?php $isi = $this->M_Inbox->detilPesan2($data->namalengkap);
-
-                    if($session == $isi) {
+                    
+                    if($nama == $data->namalengkap) {
 
                     ?>
 
