@@ -225,7 +225,7 @@ $this->view('template/header');
                             </tr>
                             <tr>
                                 <td>&nbsp;</td>
-                                <td><?php echo (!isset($kontrakan->harga)) ? '': $kontrakan->harga?></td>
+                                <td>Rp <?php echo (!isset($kontrakan->harga)) ? '': $kontrakan->harga?></td>
                             </tr>
                         </table>
                     </div>
