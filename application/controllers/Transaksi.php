@@ -30,6 +30,9 @@ class Transaksi extends CI_Controller
                 echo "<script>alert('sorry you cannot book this kontrakan, it is not available. check again later.')</script>";
                 redirect('/','refresh');
             }
+        }else{
+            echo "<script>alert('you must be logged in to book.')</script>";
+            redirect('/','refresh');
         }
     }
     #proses request book kontrakan
