@@ -12,7 +12,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <li class="col-lg-12 col-sm-12 col-xs-3"><a href="<?php echo site_url('About')?>">About</a></li>
                         <li class="col-lg-12 col-sm-12 col-xs-3"><a href="<?php echo site_url('Agents')?>">Agents</a></li>
                         <li class="col-lg-12 col-sm-12 col-xs-3"><a href="<?php echo site_url('ContactUs')?>">Contact Us</a></li>
-						<li class="col-lg-12 col-sm-12 col-xs-3"><a href="<?php echo site_url('ContactUs')?>">Terms of Conditions</a></li>
+						<li class="col-lg-12 col-sm-12 col-xs-3"><a href="<?php echo site_url('TermsConditions')?>">Terms of Conditions</a></li>
                     </ul>
                 </div>
 
