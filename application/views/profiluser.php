@@ -167,7 +167,7 @@ $this->view('template/header');
                                   <ul style="list-style-type: none">
                                       <li>
                                           <?php
-                                          if($tagihan > 0){
+                                          if($tagihan->jumlah > 0){
                                               ?>
                                               You have <a href="<?php echo site_url('Invoices')?>"><?php echo $tagihan->jumlah?></a> invoice(s) waiting to be processed.
                                               <?php
