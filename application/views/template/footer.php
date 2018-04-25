@@ -78,12 +78,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="modal-content">
                 <div class="row">
                     <div class="col-sm-12">
-                        <h4>Input Rumah</h4>
+                        <h4><b>Input Rumah</h4><br>
                         <form name="formupload" action="<?php blink('TaKon/InsetRumah')?>" method="post" enctype="multipart/form-data"> 
 							<input type="hidden" id="idkontrakan" name="idkontrakan" value="<?php echo $this->uri->segment(3);?>" />
 							<div class="form-group">
                                 <label for="idpengguna">ID Pengguna</label>
-                                <input type="text" class="form-control" id="idpengguna" name="idpengguna" value="<?php echo $id->idpengguna;?>" >
+                                <input type="text" class="form-control" id="idpengguna" name="idpengguna" value="<?php echo $this->session->userdata('idpengguna');?>" disabled>
                             </div>
                             <div class="form-group">
                                 <label for="nmkontrakan">Nama Kontrakan</label>
@@ -115,7 +115,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             </div>
 							<label for="jumlah_point" class="control-label input-group">Status</label>
 								<div class="btn-group" data-toggle="buttons">
-									<label class="btn btn-default active">
+									<label class="btn btn-default">
 										<input id="status" type="radio" name="status" value="available">Available        
 									</label>
 									<label class="btn btn-default">

@@ -45,10 +45,6 @@ class TaKon extends CI_Controller {
 	}
 	
 	public function InsetRumah(){
-	        $data['session'] = true;
-            $data1['iduser']=$this->session->userdata('idpengguna');
-	        $data['nama'] = $this->session->userdata('namalengkap');
-			
 		
 		$config['upload_path']          = './assets/images/rumah'; //call paath
 		$config['allowed_types'] = 'jpeg|jpg|gif|png';//type file upload
@@ -64,9 +60,8 @@ class TaKon extends CI_Controller {
 		$kota = $this->input->post('kota');
 		$ukuran = $this->input->post('ukuran');
 		$status = $this->input->post('status');
-		//$idpengguna = $this->input->post('idpengguna');
+        $idpengguna=$this->session->userdata('idpengguna');
 		$idkontrakan = $this->input->post('idkontrakan');
-		
 		
 		if($this->upload->do_upload('gambar')){ //dari sini akan kebuat keterangan ttg data yg diupload
 		$data['upload_data'] = $this->upload->data(); //trus keterangannya masuk ke variabel
