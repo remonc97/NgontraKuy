@@ -7,7 +7,7 @@ $this->view('template/header');
 <div class="container">
 	<!-- Header Starts -->
 	<div class="header">
-		<a href="<?php echo site_url()?>"><img src="<?php echo base_url('assets/images/logo1.png')?>" width="200px" alt="NgontraKuy"></a>
+		<a href="<?php echo site_url('Admin')?>"><img src="<?php echo base_url('assets/images/logo1.png')?>" width="200px" alt="NgontraKuy"></a>
 
 
         <?php if(isset($session) && $session == true){
