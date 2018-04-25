@@ -111,47 +111,47 @@ $this->view('template/header');
                     </div>
                 </div>
             </div>
-            <div class="col-lg-5 col-sm-6 col-xs-12 " style="background-color: white;padding:50px">
+            <div class="col-lg-5 col-sm-6 col-xs-12 " >
                 <div class="row">
                     <div class="col-md-12">
-                        <h3>My Profile</h3><br/>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="table-scrollable">
-                            <table class="table table-hover">
-                                <?php if(isset($datauser)){?>
-                                    <tbody>
-                                    <tr>
-                                        <td align="center">Nama</td>
-                                        <td align="center">:</td>
-                                        <td align="center"><?php echo $datauser->namalengkap;?></td>
-                                    </tr>
-                                    <tr>
-                                        <td align="center">Tanggal Lahir</td>
-                                        <td align="center">:</td>
-                                        <td align="center"><?php echo $datauser->tgllahir;?></td>
-                                    </tr>
-                                    <tr>
-                                        <td align="center">Nomor Telepon</td>
-                                        <td align="center">:</td>
-                                        <td align="center"><?php echo $datauser->notelp;?></td>
-                                    </tr>
-                                    <tr>
-                                        <td align="center">Email</td>
-                                        <td align="center">:</td>
-                                        <td align="center"><?php echo $datauser->email;?></td>
-                                    </tr>
-                                    </tbody>
-                                <?php }else { ?>
-                                    <tbody>
-                                    <tr>
-                                        <td>No data </td>
-                                    </tr>
-                                    </tbody>
-                                <?php } ?>
-                            </table>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" style="background-color: white;border-color: transparent"><h4>My Profile</h4></div>
+                            <div class="panel-body">
+                                <div class="table-scrollable">
+                                    <table class="table table-hover">
+                                        <?php if(isset($datauser)){?>
+                                            <tbody>
+                                            <tr>
+                                                <td align="center">Nama</td>
+                                                <td align="center">:</td>
+                                                <td align="center"><?php echo $datauser->namalengkap;?></td>
+                                            </tr>
+                                            <tr>
+                                                <td align="center">Tanggal Lahir</td>
+                                                <td align="center">:</td>
+                                                <td align="center"><?php echo $datauser->tgllahir;?></td>
+                                            </tr>
+                                            <tr>
+                                                <td align="center">Nomor Telepon</td>
+                                                <td align="center">:</td>
+                                                <td align="center"><?php echo $datauser->notelp;?></td>
+                                            </tr>
+                                            <tr>
+                                                <td align="center">Email</td>
+                                                <td align="center">:</td>
+                                                <td align="center"><?php echo $datauser->email;?></td>
+                                            </tr>
+                                            </tbody>
+                                        <?php }else { ?>
+                                            <tbody>
+                                            <tr>
+                                                <td>No data </td>
+                                            </tr>
+                                            </tbody>
+                                        <?php } ?>
+                                    </table>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -166,7 +166,7 @@ $this->view('template/header');
                               <div class="col-md-12">
                                   <ul style="list-style-type: none">
                                       <li>
-                                          You have <a><?php echo $tagihan->jumlah?></a> invoice(s) waiting to be processed.
+                                          You have <a href="#"><?php echo $tagihan->jumlah?></a> invoice(s) waiting to be processed.
                                       </li>
                                   </ul>
                               </div>
