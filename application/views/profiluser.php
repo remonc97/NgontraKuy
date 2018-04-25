@@ -166,7 +166,7 @@ $this->view('template/header');
                               <div class="col-md-12">
                                   <ul style="list-style-type: none">
                                       <li>
-                                          You have <a href="#"><?php echo $tagihan->jumlah?></a> invoice(s) waiting to be processed.
+                                          You have <a href="<?php echo site_url('Invoices')?>"><?php echo $tagihan->jumlah?></a> invoice(s) waiting to be processed.
                                       </li>
                                   </ul>
                               </div>
