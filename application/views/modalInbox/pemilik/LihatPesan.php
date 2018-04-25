@@ -144,6 +144,8 @@ $this->view('template/header');
                 <?php } ?>
               </div>
 
+<?php echo "pengirim $tampilin->idpenerima" ?>
+<?php echo "penerima $tampilin->idpengirim" ?>
               <div class="form-group">
                 <?php if( $show->jenispesan=='normal') { ?>
                   <input type="hidden" name="jenispesan" class="form-control" value="<?php echo $tampilin->jenispesan?>" readonly="">

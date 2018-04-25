@@ -69,7 +69,7 @@ class M_Inbox extends CI_Model {
 
   public function isiPesanBalas($idpengirim,$idpenerima)
   {
-    $result = $this->db->query("SELECT * FROM pengguna,pesan WHERE pesan.idpengirim = pengguna.idpengguna and idpengirim = '".$idpengirim."' AND idpenerima = '".$idpenerima."' ");
+    $result = $this->db->query("SELECT * FROM pengguna,pesan WHERE pesan.idpengirim = pengguna.idpengguna and idpengirim = '".$idpengirim."' AND idpenerima = '".$idpenerima."'");
     return $result->result();
   }
 

@@ -153,7 +153,6 @@ $this->view('template/header');
                           </td>
                           <td>
                             <a href="<?php echo site_url('Inbox/lihatPesan/'.$item->idpengirim.'/'.$item->idpenerima) ?>" style="background-color: #1ac6ff; color: white" class="btn btn-default btn-circle" id="lihatPesan" data-toggle="modal"><i class="glyphicon glyphicon-envelope"></i> Lihat Pesan </a>
-                            <!-- <a href="#balasPesanModal<?php echo $item->idpesan ?>" class="btn btn-default btn-circle" style="background-color: #1ac6ff; color: white" id="lihatPesan" data-toggle="modal"><i class="glyphicon glyphicon-send"></i> Balas Pesan </a> -->
                             <?php if($item->status != "On Process" && $item->status != "Solved") { ?>
                               <a href="#prosesPesanModal<?php echo $item->idpengguna ?>" class="btn btn-danger btn-circle" id="prosesPesan" data-toggle="modal"><i class="fa fa-gears"></i> Proses </a>
                             <?php } ?>

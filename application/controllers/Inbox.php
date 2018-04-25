@@ -23,7 +23,7 @@ class Inbox extends CI_Controller {
 		        $nama = $this->session->userdata('namalengkap');
 		        $email = $this->session->userdata('email');
 
-	          $merge = $this->M_Inbox->getMerge();
+	          	$merge = $this->M_Inbox->getMerge();
 	         	$mergeTable = $this->M_Inbox->getMergeTable();
 						$detilPesan = $this->M_Inbox->detilPesan();
 						$customer = $this->M_Inbox->getCustomer();
@@ -44,7 +44,7 @@ class Inbox extends CI_Controller {
 				    $this->load->view('template/header',$data);
 				    $this->load->view('InboxCustomer',$data);
 				    $this->load->view('modalInbox/customer/EntryPesan',$data);
-				    $this->load->view('modalInbox/customer/balasPesan',$data);
+				    // $this->load->view('modalInbox/customer/balasPesan',$data);
 				    $this->load->view('modalInbox/customer/HapusPesan',$data);
 			    	$this->load->view('template/footer');
 	    	}else{
@@ -76,7 +76,7 @@ class Inbox extends CI_Controller {
 					];
 			    $this->load->view('template/header');
 			    $this->load->view('InboxPemilik',$data);
-			    $this->load->view('modalInbox/pemilik/balasPesan',$data);
+			    // $this->load->view('modalInbox/pemilik/balasPesan',$data);
 			    $this->load->view('modalInbox/pemilik/prosesPesan',$data);
 			    $this->load->view('modalInbox/pemilik/solvePesan',$data);
 				}else{
@@ -224,9 +224,9 @@ class Inbox extends CI_Controller {
 	public function LihatPesan($idpengirim,$idpenerima)
 	{
 		$auth = $this->session->auth;
-    $data['session'] = true;
-  	$data['iduser']=$this->session->userdata('iduser');
-    $data['nama'] = $this->session->userdata('nama');
+	    $data['session'] = true;
+	  	$data['iduser']=$this->session->userdata('iduser');
+	    $data['nama'] = $this->session->userdata('nama');
 		if($auth == 0){
 			//ini customer
 			$data['featured'] = $this->Kontrakan->getFeatured();
@@ -235,9 +235,9 @@ class Inbox extends CI_Controller {
 		      $email = $this->session->userdata('email');
 
 					$merge = $this->M_Inbox->getMerge();
-	        $mergeTable = $this->M_Inbox->getMergeTable();
-	        $showChat2 = $this->M_Inbox->isiPesan2($idpengirim,$idpenerima);
-	        $isiPesanBalas = $this->M_Inbox->isiPesanBalas($idpenerima,$idpengirim);
+	        		$mergeTable = $this->M_Inbox->getMergeTable();
+	        		$showChat2 = $this->M_Inbox->isiPesan2($idpengirim,$idpenerima);
+	        		$isiPesanBalas = $this->M_Inbox->isiPesanBalas($idpenerima,$idpengirim);
 					$detilPesan = $this->M_Inbox->detilPesan();
 					$customer = $this->M_Inbox->getCustomer();
 					$pemilik = $this->M_Inbox->getPemilik();
@@ -264,9 +264,9 @@ class Inbox extends CI_Controller {
 	      }
 		} if($auth == 1) {
 			//ini pemilik
-        $data['session'] = true;
-        $data['iduser']=$this->session->userdata('iduser');
-        $data['nama'] = $this->session->userdata('nama');
+	        $data['session'] = true;
+	        $data['iduser']=$this->session->userdata('iduser');
+	        $data['nama'] = $this->session->userdata('nama');
 				$data['featured'] = $this->Kontrakan->getFeatured();
 		    if($this->User->ceksession() == true){
 		        $nama = $this->session->userdata('namalengkap');
@@ -274,8 +274,8 @@ class Inbox extends CI_Controller {
 		        $auth = $this->session->userdata('auth');
 
 						$merge = $this->M_Inbox->getMerge();
-	          $showChat2 = $this->M_Inbox->isiPesan2($idpengirim,$idpenerima);
-	          $isiPesanBalas = $this->M_Inbox->isiPesanBalas($idpenerima,$idpengirim);
+	          			$showChat2 = $this->M_Inbox->isiPesan2($idpengirim,$idpenerima);
+	         			$isiPesanBalas = $this->M_Inbox->isiPesanBalas($idpenerima,$idpengirim);
 						$detilPesan = $this->M_Inbox->detilPesan();
 						$pesan = $this->M_Inbox->getAllPesan();
 						$data = [

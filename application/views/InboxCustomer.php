@@ -157,14 +157,12 @@ $this->view('template/header');
                         <?php } ?>
                         </td>
                         <td>
-                          <!-- <a href="#balasPesanModal<?php echo $data->idpesan ?>" class="btn btn-default btn-circle" style="background-color: #72b70f; color: white" id="balasPesan" data-toggle="modal"><i class="glyphicon glyphicon-send"></i> Balas Pesan </a> -->
-                          <!-- <a href="#detilPesanModal<?php echo $data->idpesan ?>" class="btn btn-default btn-circle" style="background-color: #1ac6ff; color: white" id="lihatPesan" data-toggle="modal"><span class="glyphicon glyphicon-eye-open"></span> Lihat Pesan </a> -->
-                          <a href="<?php echo site_url('Inbox/lihatPesan/'.$data->idpengirim.'/'.$data->idpenerima) ?>" class="btn btn-default btn-circle" style="background-color: #1ac6ff; color: white" id="lihatPesan" data-toggle="modal"><span class="glyphicon glyphicon-eye-open"></span> Lihat Pesan </a>
+                          <a href="<?php echo site_url('Inbox/lihatPesan/'.$data->idpengirim.'/'.$data->idpenerima) ?>" class="btn btn-default btn-circle" style="background-color: #1ac6ff; color: white" id="lihatPesan" data-toggle="modal"><span class="glyphicon glyphicon-envelope"></span> Lihat Pesan </a>
                           <a href="#hapusPesanModal<?php echo $data->idpesan ?>" class="btn btn-danger btn-circle" id="hapusPesan" data-toggle="modal"><span class="glyphicon glyphicon-trash"></span> Hapus Pesan</a></td>
                     </tr>
                     <?php } $no++; } ?>
                 </tbody>
-              <?php } ?>
+              <?php } ?>  
             </table>
         </div>
     </div>
