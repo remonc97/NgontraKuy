@@ -163,18 +163,14 @@ class Inbox extends CI_Controller {
 
 		$data = NULL;
 		if ($result){
-			$this->session->set_flashdata('pesan','Pesan Berhasil Dikirim');
-	   		redirect('Inbox');
-		}else{
-			$this->session->set_flashdata('pesanGagal','Pesan Tidak Berhasil Disimpan');
-    		redirect('Inbox');
+			redirect('Inbox/LihatPesan/'. $iduser.'/'.$penerima);
 		}
 	}
 
 	public function balasPesanCustomerDetil()
 	{
 		$idpesan = $this->input->post('idpesan');
-		$iduser = $this->input->post('idpengirim');
+		$idpengirim = $this->input->post('idpengirim');
 		$isipesan = $this->input->post('isipesan');
 		$penerima = $this->input->post('idpenerima');
 		$subject = $this->input->post('topik');
@@ -186,7 +182,7 @@ class Inbox extends CI_Controller {
 
 		$data = array(
 			'idpesan' => $idpesan,
-			'idpengirim' =>$iduser,
+			'idpengirim' =>$idpengirim,
 			'tglpesan'=> $tglpesan,
 			'jenispesan	' =>$jenispesan,
 			'topik' => $subject,
@@ -199,7 +195,39 @@ class Inbox extends CI_Controller {
 
 		$data = NULL;
 		if ($result){
-			redirect('Inbox/LihatPesan/'. $iduser.'/'.$penerima);
+			redirect('Inbox/LihatPesan/'. $idpengirim.'/'.$penerima);
+		}
+	}
+
+	public function balasPesanPemilikDetil()
+	{
+		$idpesan = $this->input->post('idpesan');
+		$idpengirim = $this->input->post('idpengirim');
+		$isipesan = $this->input->post('isipesan');
+		$penerima = $this->input->post('idpenerima');
+		$subject = $this->input->post('topik');
+
+		$tglpesan = date("Y/m/d");
+		$jenispesan = "normal";
+		$status = "Submitted";
+		// $status = "Submitted";
+
+		$data = array(
+			'idpesan' => $idpesan,
+			'idpengirim' =>$idpengirim,
+			'tglpesan'=> $tglpesan,
+			'jenispesan	' =>$jenispesan,
+			'topik' => $subject,
+			'isi' => $isipesan,
+			'idpenerima' => $penerima,
+			// 'status' => $status
+		);
+
+		$result = $this->M_Inbox->InsertPesan($data);
+
+		$data = NULL;
+		if ($result){
+			redirect('Inbox/LihatPesan/'.$penerima.'/'.$idpengirim);
 		}
 	}
 
@@ -219,7 +247,7 @@ class Inbox extends CI_Controller {
 	            
 	            $merge = $this->M_Inbox->getMerge();
 	            $mergeTable = $this->M_Inbox->getMergeTable();
-	            $showChat = $this->M_Inbox->isiPesan($idpenerima,$idpengirim);
+	            $showChat = $this->M_Inbox->isiPesan($idpengirim,$idpenerima);
 				$detilPesan = $this->M_Inbox->detilPesan();
 				$customer = $this->M_Inbox->getCustomer();
 				$pemilik = $this->M_Inbox->getPemilik();

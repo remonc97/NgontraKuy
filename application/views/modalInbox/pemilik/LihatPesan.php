@@ -1,30 +1,4 @@
- <!-- detil modal Pesan -->
-
-<!-- <div class="modal fade" tabindex="-1" id="detilPesanModal<?php echo $data->idpesan ?>" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-         <h4><center><b>History Chat</b><center></h4>
-      </div>
-      <div class="modal-body"> -->
-        <!-- <table class="table table-bordered" border="0">
-          <tbody>
-            <?php $namalengkap = $this->M_Inbox->getNamaPenerima($data->idpenerima); ?>
-            <?php foreach($namalengkap as $data2) { ?>
-            <tr style="text-transform:capitalize;">
-              <td width="150px">Kepada : </td>
-              <td><?php echo $data2->namalengkap ?></td>
-            </tr>
-            <?php } ?>
-            <tr>
-              <td>Jenis Pesan :</td>
-              <td><?php echo $data->jenispesan ?></td>
-            </tr>
-          </tbody>
-        </table>
- -->
- <?php
+<?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 #include header file
 $this->view('template/header');
@@ -129,8 +103,9 @@ $this->view('template/header');
         <div class="panel-body" style="height: 300px; overflow-y: scroll">
           <div class="row">
 
-            <div class="col-md-7 pull-left">
-              <?php foreach($isiPesanBalas as $show) { ?>
+
+             <div class="col-md-7 pull-left">
+              <?php foreach($showChat2 as $show) { ?>
               <div class="panel panel-warning panel-comment">
                 <div class="panel-heading">
                   <strong style="opacity: .5; font-size: 12px; color: #2a2709"><?php echo $show->namalengkap ?>:</strong>
@@ -142,7 +117,7 @@ $this->view('template/header');
             </div>
 
             <div class="col-md-7 pull-right">
-              <?php foreach($showChat2 as $show) { ?>
+              <?php foreach($isiPesanBalas as $show) { ?>
               <div class="panel panel-success panel-comment">
                 <div class="panel-heading">
                   <strong style="opacity: .5; font-size: 12px; color: #2a2709"><?php echo $show->namalengkap ?>:</strong>
@@ -156,31 +131,27 @@ $this->view('template/header');
 
           </div>
         </div>
-        <form method="POST" action="<?php echo site_url('Inbox/balasPesanCustomerDetil')?>" enctype="multipart/form-data">
+        <form method="POST" action="<?php echo site_url('Inbox/balasPesanPemilikDetil')?>" enctype="multipart/form-data">
 
-              <input required class="form-control required text-capitalize" data-placement="top" data-trigger="manual" type="hidden" name="idpengirim" value="<?php echo $show->idpenerima ?>">
+            <?php foreach($showChat2 as $tampilin) { ?>
+              <input required class="form-control required text-capitalize" data-placement="top" data-trigger="manual" type="hidden" name="idpengirim" value="<?php echo $tampilin->idpenerima ?>">
 
-              <!-- <input required class="form-control required text-capitalize" data-placement="top" data-trigger="manual" type="hidden" name="topik" value="<?php echo $data->topik ?>" -->
-
-              <?php $namalengkap = $this->M_Inbox->getNamaPenerima($show->idpenerima); ?>
+              <?php $namalengkap = $this->M_Inbox->getNamaPenerima($tampilin->idpenerima); ?>
               <div class="form-group">
                 <?php foreach($namalengkap as $item) { ?>
                 <input type="hidden" name="namapenerima" class="form-control" value="<?php echo $item->namalengkap ?>" readonly="">
-                <input required class="form-control required text-capitalize" data-placement="top" data-trigger="manual" type="hidden" name="idpenerima" value="<?php echo $show->idpengirim ?>">
+                <input required class="form-control required text-capitalize" data-placement="top" data-trigger="manual" type="hidden" name="idpenerima" value="<?php echo $tampilin->idpengirim ?>">
                 <?php } ?>
               </div>
-
-              <?php echo "idpengirim ".$show->idpengirim ?>
-              <?php echo "idpenerima ".$show->idpenerima ?>
 
               <div class="form-group">
                 <?php if( $show->jenispesan=='normal') { ?>
-                  <input type="hidden" name="jenispesan" class="form-control" value="<?php echo $show->jenispesan?>" readonly="">
+                  <input type="hidden" name="jenispesan" class="form-control" value="<?php echo $tampilin->jenispesan?>" readonly="">
                 <?php } else { ?>
-                  <input type="hidden" name="jenispesan" class="form-control" value="<?php echo $show->jenispesan?>" readonly="">
+                  <input type="hidden" name="jenispesan" class="form-control" value="<?php echo $tampilin->jenispesan?>" readonly="">
                 <?php } ?>
               </div>
-              
+              <?php } ?>
               <div class="panel-footer">
                 <div class="panel-body">
                   <div class="form-group">
@@ -190,8 +161,8 @@ $this->view('template/header');
                   <p class="help-block pull-left text-danger hide" id="form-error">&nbsp; The form is not valid. </p>
                 </div>
               </div>
-              
            </form>
+
       </div>
     </div>
   </div>

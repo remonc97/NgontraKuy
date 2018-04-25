@@ -1,30 +1,4 @@
- <!-- detil modal Pesan -->
-
-<!-- <div class="modal fade" tabindex="-1" id="detilPesanModal<?php echo $data->idpesan ?>" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-         <h4><center><b>History Chat</b><center></h4>
-      </div>
-      <div class="modal-body"> -->
-        <!-- <table class="table table-bordered" border="0">
-          <tbody>
-            <?php $namalengkap = $this->M_Inbox->getNamaPenerima($data->idpenerima); ?>
-            <?php foreach($namalengkap as $data2) { ?>
-            <tr style="text-transform:capitalize;">
-              <td width="150px">Kepada : </td>
-              <td><?php echo $data2->namalengkap ?></td>
-            </tr>
-            <?php } ?>
-            <tr>
-              <td>Jenis Pesan :</td>
-              <td><?php echo $data->jenispesan ?></td>
-            </tr>
-          </tbody>
-        </table>
- -->
- <?php
+<?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 #include header file
 $this->view('template/header');
@@ -147,14 +121,12 @@ $this->view('template/header');
           $detilPesan2 = $this->M_Inbox->detilPesan2($nama);
           foreach($detilPesan2 as $data){ ?>
               <input required class="form-control required text-capitalize" data-placement="top" data-trigger="manual" type="hidden" name="idpengirim" value="<?php echo $data->idpengguna ?>">
-              
-              <!-- <input required class="form-control required text-capitalize" data-placement="top" data-trigger="manual" type="hidden" name="topik" value="<?php echo $data->topik ?>" -->
 
               <?php $namalengkap = $this->M_Inbox->getNamaPenerima($data->idpenerima); ?>
               <div class="form-group">
                 <?php foreach($namalengkap as $item) { ?>
                 <input type="hidden" name="namapenerima" class="form-control" value="<?php echo $item->namalengkap ?>" readonly="">
-                <input required class="form-control required text-capitalize" data-placement="top" data-trigger="manual" type="hidden" name="idpenerima" value="<?php echo $data->idpenerima ?>">
+                <input required class="form-control required text-capitalize" data-placement="top" data-trigger="manual" type="hidden" name="idpenerima" value="<?php echo $show->idpenerima ?>">
                 <?php } ?>
               </div>
 
