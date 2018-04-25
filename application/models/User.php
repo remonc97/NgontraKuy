@@ -9,7 +9,7 @@
 class User extends CI_Model
 {
     public function ceklogin($db){
-        return $this->db->where('email',$db['email'])->where('password',$db['password'])->get('user')->row();
+        return $this->db->where('email',$db['email'])->where('password',$db['password'])->get('pengguna')->row();
     }
     public function ceksession(){
         if($this->session->userdata('email') != null){

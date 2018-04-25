@@ -79,11 +79,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <div class="row">
                     <div class="col-sm-12">
                         <h4>Input Rumah</h4>
-                        <form role="form" action="<?php blink('TaKon/InsetRumah')?>" method="post" enctype="multipart/form-data"> 
+                        <form name="formupload" action="<?php blink('TaKon/InsetRumah')?>" method="post" enctype="multipart/form-data"> 
 							<input type="hidden" id="idkontrakan" name="idkontrakan" value="<?php echo $this->uri->segment(3);?>" />
 							<div class="form-group">
-                                <label for="iduser">ID User</label>
-                                <input type="text" class="form-control" id="iduser" placeholder="ID User" name="iduser" >
+                                <label for="idpengguna">ID Pengguna</label>
+                                <input type="text" class="form-control" id="idpengguna" name="idpengguna" value="<?php echo $id->idpengguna;?>" >
                             </div>
                             <div class="form-group">
                                 <label for="kota">Kota</label>
@@ -106,14 +106,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <input type="text" class="form-control" id="fasilitas" placeholder="Fasilitas" name="fasilitas">
                             </div>
                             <div class="form-group">
+                                <label for="file">Masukan Gambar</label>
+                                <input type="file"  id="gambar"  name="gambar">
+                            </div>
+                            <div class="form-group">
                                 <label for="harga">Harga</label>
                                 <input type="text" class="form-control" id="harga" placeholder="Rp." name="harga">
                             </div>
-							<div>
-							<label class="custom-file">Pilih Gambar</label>
-								<input type="file" id="gambar" name="gambar" class="custom-file-input">
-								<span class="custom-file-control"></span>
-							</div>
 							<br>
                             <input type="submit" role="button" class="btn btn-success" value="Create"/>
                         </form>
