@@ -12,13 +12,18 @@ class Transaksi extends CI_Controller
     public function formbooking(){
         if($this->User->ceksession() == true) {
             $key = $this->uri->segment(2);
-            $data['session'] = true;
-            $data['nama'] = $this->session->userdata('namalengkap');
-            $data['idreservasi'] = $this->Book->makeID();
-            $data['idkontrakan'] = $key;
-            $data['kontrakan'] = $this->Kontrakan->getOneKontrakan($data['idkontrakan']);
-            $data['pemilik'] = $this->Kontrakan->getNamaPemilik($data['kontrakan']->idpengguna);
-            $this->load->view('formbooking', $data);
+            if($this->Kontrakan->checkAvailability($key) != null){
+                $data['session'] = true;
+                $data['nama'] = $this->session->userdata('namalengkap');
+                $data['idreservasi'] = $this->Book->makeID();
+                $data['idkontrakan'] = $key;
+                $data['kontrakan'] = $this->Kontrakan->getOneKontrakan($data['idkontrakan']);
+                $data['pemilik'] = $this->Kontrakan->getNamaPemilik($data['kontrakan']->idpengguna);
+                $this->load->view('formbooking', $data);
+            }else{
+                echo "<script>alert('sorry you cannot book this kontrakan, it is not available. check again later.')</script>";
+                redirect('HomeDetails/'.$key,'refresh');
+            }
         }
     }
     #proses request book kontrakan
@@ -53,10 +58,10 @@ class Transaksi extends CI_Controller
                 $this->session->set_flashdata('confirm','true');
                 redirect('Inbox','refresh');
             }else{
-                die('no');
+                die('no2');
             }
         }else{
-            die('no');
+            die('no1');
         }
     }
     #proses update statuspesan to 'accepted'
@@ -64,9 +69,15 @@ class Transaksi extends CI_Controller
         if($this->Pesan->updateconfirm($key[7]) == true){
             #kirim pesan balik ke user, bahwa pemilik sudah konfirmasi booking
             if($this->Pesan->sendresponsemsg($key) == true){
-                $this->session->set_flashdata('confirm','true');
-                echo "<script>alert('booking confirmed')</script>";
-                redirect('Inbox','refresh');
+                #get data 1 kontrakan
+                if($this->Tagihan->buatTagihan($key)==true){
+                    $this->session->set_flashdata('confirm','true');
+                    echo "<script>alert('booking confirmed and invoice made')</script>";
+                    redirect('Inbox','refresh');
+                }else{
+                    echo "<script>alert('booking confirmed but cannot make invoice')</script>";
+                    redirect('/','refresh');
+                }
             }
         }
     }
