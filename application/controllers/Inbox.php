@@ -247,7 +247,8 @@ class Inbox extends CI_Controller {
 	            
 	            $merge = $this->M_Inbox->getMerge();
 	            $mergeTable = $this->M_Inbox->getMergeTable();
-	            $showChat = $this->M_Inbox->isiPesan($idpengirim,$idpenerima);
+	            $showChat2 = $this->M_Inbox->isiPesan2($idpengirim,$idpenerima);
+	            $isiPesanBalas = $this->M_Inbox->isiPesanBalas($idpenerima,$idpengirim);
 				$detilPesan = $this->M_Inbox->detilPesan();
 				$customer = $this->M_Inbox->getCustomer();
 				$pemilik = $this->M_Inbox->getPemilik();
@@ -255,7 +256,8 @@ class Inbox extends CI_Controller {
 				$data = [
 					'customer' => $customer,
 					'mergeTable' =>$mergeTable,
-					'showChat' =>$showChat,
+					'isiPesanBalas' => $isiPesanBalas,
+					'showChat2' =>$showChat2,
 					'email' => $email,
 					'nama' => $nama,
 					'session' => true,

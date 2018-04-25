@@ -18,7 +18,7 @@ $this->view('template/header');
     }
     .bg-img-5 {
         background-image: url(<?php echo base_url('assets/images/slider/5.jpg')?>);
-    }
+    } 
 </style>
 <!-- Header Starts -->
 <div class="navbar-wrapper">
