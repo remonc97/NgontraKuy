@@ -36,12 +36,33 @@ class Home extends CI_Controller {
 
 	}
 	public function Agents(){
-	    $this->load->view('agents');
+        if($this->User->ceksession() == true) {
+            $data['session'] = true;
+            $data['iduser'] = $this->session->userdata('idpengguna');
+            $data['nama'] = $this->session->userdata('namalengkap');
+            $this->load->view('agents',$data);
+        }else{
+            $this->load->view('agents');
+        }
     }
 	public function About(){
-	    $this->load->view('about');
+        if($this->User->ceksession() == true) {
+            $data['session'] = true;
+            $data['iduser'] = $this->session->userdata('idpengguna');
+            $data['nama'] = $this->session->userdata('namalengkap');
+            $this->load->view('about',$data);
+        }else{
+            $this->load->view('about');
+        }
     }
 	public function Contact(){
-	    $this->load->view('contact');
+        if($this->User->ceksession() == true) {
+            $data['session'] = true;
+            $data['iduser'] = $this->session->userdata('idpengguna');
+            $data['nama'] = $this->session->userdata('namalengkap');
+            $this->load->view('contact',$data);
+        }else{
+            $this->load->view('contact');
+        }
     }
 }
