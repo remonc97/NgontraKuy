@@ -103,4 +103,8 @@ class Kontrakan extends CI_Model
     public function getNamaPemilik($idpengguna){
         return $this->db->select('namalengkap')->where('idpengguna',$idpengguna)->get('pengguna')->row();
     }
+
+    public function checkAvailability($idkontrakan){
+        return $this->db->where('idkontrakan',$idkontrakan)->where('status','available')->get('kontrakan')->row();
+    }
 }
