@@ -44,4 +44,7 @@ class Home extends CI_Controller {
 	public function Contact(){
 	    $this->load->view('contact');
     }
+	public function TermsConditions(){
+		$this->load->view('TermsConditions');
+	}
 }
