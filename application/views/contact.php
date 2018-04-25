@@ -90,7 +90,7 @@ $this->view('template/header');
     </div>
     <div class="inside-banner">
         <div class="container">
-            <span class="pull-right"><a href="#">Home</a> / Contact Us</span>
+            <span class="pull-right"><a href="<?php echo site_url()?>">Home</a> / Contact Us</span>
             <h2>Contact Us</h2>
         </div>
     </div>

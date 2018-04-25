@@ -47,8 +47,7 @@ $this->view('template/header');
                         <li><a href="<?php echo site_url()?>" >Home</a></li>
                         <li><a href="<?php echo site_url('Agents')?>">Agents</a></li>
                         <li><a href="<?php echo site_url('ContactUs')?>">Contact Us</a></li>
-						<li><a href="<?php echo site_url('TermsConditions')?>">Terms of Conditions</a></li>
-                        <li class="active"><a href="<?php echo site_url('About')?>">About</a></li>
+                        <li><a href="<?php echo site_url('About')?>">About</a></li>
                     </ul>
                 </div>
                 <!-- #Nav Ends -->
@@ -91,8 +90,8 @@ $this->view('template/header');
     </div>
     <div class="inside-banner">
         <div class="container">
-            <span class="pull-right"><a href="#">Home</a> / Terms of Conditions</span>
-            /*<h2>About Us</h2>*/
+            <span class="pull-right"><a href="<?php echo site_url()?>">Home</a> / Terms and Conditions</span>
+            /*<h2>Our Terms</h2>*/
         </div>
     </div>
     <div class="container">
@@ -100,7 +99,7 @@ $this->view('template/header');
             <div class="row">
                 <div class="col-lg-8  col-lg-offset-2">
                     <center><img src="<?php echo base_url('assets/images/logo1.png')?>" class="img-responsive thumbnail"  alt="realestate"></center><br/>
-                    <h3>Terms of Conditions</h3>
+                    <h3>Terms and Conditions</h3>
                     <p> 1.	Isikan “Data Pribadi” dengan baik dan benar saat menggunakan Layanan, mendaftarkan akun pada kami,
 							mengunjungi situs web kami, atau mengakses Layanan. Dengan mengisikan data pribadi Anda ke Ngontrakuy,
 							berarti Anda sudah menyetujui tindakan NgontraKuy untuk mengumpulkan, menggunakan, mengungkapkan dan/atau
