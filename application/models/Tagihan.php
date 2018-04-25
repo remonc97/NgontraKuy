@@ -9,12 +9,14 @@
 class Tagihan extends CI_Model
 {
     public function getJmlTagihan($idpengguna){
-//        return $this->db->select('idtagihan,count(idpengguna) as "jumlah"')
-//            ->from('reservasi')
-//            ->join('detilreservasi','reservasi.idreservasi = detilreservasi.idreservasi')
-//            ->where('idpengguna',$idpengguna)
-//            ->get()->row();
-
+        return $this->db->select('count(a.idpengguna) as "jumlah"')
+            ->from('reservasi')
+            ->join('detilreservasi','reservasi.idreservasi = detilreservasi.idreservasi')
+            ->join('tagihan','reservasi.idreservasi = detilreservasi.idreservasi')
+            ->where('reservasi.idpengguna',$idpengguna)
+            ->where('tagihan.statusbayar','0')
+            ->get()
+            ->row();
     }
     public function getHargaKontrakan($idkontrakan){
         return $this->db->select('harga')->where('idkontrakan',$idkontrakan)->get('kontrakan')->row();
