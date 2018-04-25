@@ -62,6 +62,8 @@ class TaKon extends CI_Controller {
 		$alamat = $this->input->post('alamat');
 		$fasilitas = $this->input->post('fasilitas');
 		$kota = $this->input->post('kota');
+		$ukuran = $this->input->post('ukuran');
+		$status = $this->input->post('status');
 		//$idpengguna = $this->input->post('idpengguna');
 		$idkontrakan = $this->input->post('idkontrakan');
 		
@@ -76,6 +78,7 @@ class TaKon extends CI_Controller {
 			}
 		}
 		$data = array(
+		'nmkontrakan' =>$nmkontrakan,
 		'notelp' =>$notelp,
 		'deskripsi'=> $deskripsi,
 		'alamat'=>$alamat,
@@ -83,6 +86,8 @@ class TaKon extends CI_Controller {
 		'fasilitas' => $fasilitas,
 		'gambar' => $gambar, //nanti filenamenya kesimpen disini
 		'kota' => $kota,
+		'ukuran' => $ukuran,
+		'status' => $status,
 		'idpengguna'=>$idpengguna
 		
 		);

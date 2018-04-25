@@ -86,6 +86,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <input type="text" class="form-control" id="idpengguna" name="idpengguna" value="<?php echo $id->idpengguna;?>" >
                             </div>
                             <div class="form-group">
+                                <label for="nmkontrakan">Nama Kontrakan</label>
+                                <input type="text" class="form-control" id="nmkontrakan" placeholder="Nama Kontrakan" name="nmkontrakan">
+                            </div>
+                            <div class="form-group">
                                 <label for="kota">Kota</label>
                                 <input type="text" class="form-control" id="kota" placeholder="Kota" name="kota">
                             </div>
@@ -106,12 +110,26 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <input type="text" class="form-control" id="fasilitas" placeholder="Fasilitas" name="fasilitas">
                             </div>
                             <div class="form-group">
-                                <label for="file">Masukan Gambar</label>
-                                <input type="file"  id="gambar"  name="gambar">
+                                <label for="ukuran">Ukuran</label>
+                                <input type="text" class="form-control" id="ukuran" placeholder="Ukuran" name="ukuran">
                             </div>
+							<label for="jumlah_point" class="control-label input-group">Status</label>
+								<div class="btn-group" data-toggle="buttons">
+									<label class="btn btn-default active">
+										<input id="status" type="radio" name="status" value="available">Available        
+									</label>
+									<label class="btn btn-default">
+            
+										<input id="status" type="radio" name="status" value="not available" >Not Available
+									</label>
+								</div>
                             <div class="form-group">
                                 <label for="harga">Harga</label>
                                 <input type="text" class="form-control" id="harga" placeholder="Rp." name="harga">
+                            </div>
+                            <div class="form-group">
+                                <label for="file">Masukan Gambar</label>
+                                <input type="file"  id="gambar"  name="gambar">
                             </div>
 							<br>
                             <input type="submit" role="button" class="btn btn-success" value="Create"/>
