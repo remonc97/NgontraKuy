@@ -126,7 +126,7 @@ $this->view('template/header');
                                     <tr>
                                         <td align="center">Nama</td>
                                         <td align="center">:</td>
-                                        <td align="center"><?php echo $datauser->nama;?></td>
+                                        <td align="center"><?php echo $datauser->namalengkap;?></td>
                                     </tr>
                                     <tr>
                                         <td align="center">Tanggal Lahir</td>
@@ -158,15 +158,18 @@ $this->view('template/header');
             </div>
             <div class="col-lg-4 col-sm-4 col-xs-12">
                 <div class="row">
-                  <?php if($auth=='1'){?>
+                  <?php if($auth=='0'){?>
                   <div class="col-md-12">
                       <div class="panel panel-default">
-                          <div class="panel-heading"><h4>News</h4></div>
+                          <div class="panel-heading"><h4>Notifications</h4></div>
                           <div class="panel-body">
-                              <ul style="list-style-type: none">
-                                  <li>
-                                  </li>
-                              </ul>
+                              <div class="col-md-12">
+                                  <ul style="list-style-type: none">
+                                      <li>
+                                          You have <a><?php echo $tagihan->jumlah?></a> invoice(s) waiting to be processed.
+                                      </li>
+                                  </ul>
+                              </div>
                           </div>
                       </div>
                     </div>
