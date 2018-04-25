@@ -78,13 +78,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="modal-content">
                 <div class="row">
                     <div class="col-sm-12">
-                        <h4><b>Input Rumah</h4><br>
+                        <h4><b>Input Kontrakan:</h4><br>
                         <form name="formupload" action="<?php blink('TaKon/InsetRumah')?>" method="post" enctype="multipart/form-data"> 
 							<input type="hidden" id="idkontrakan" name="idkontrakan" value="<?php echo $this->uri->segment(3);?>" />
-							<div class="form-group">
-                                <label for="idpengguna">ID Pengguna</label>
-                                <input type="text" class="form-control" id="idpengguna" name="idpengguna" value="<?php echo $this->session->userdata('idpengguna');?>" disabled>
-                            </div>
+                                <input type="hidden" class="form-control" id="idpengguna" name="idpengguna" value="<?php echo $this->session->userdata('idpengguna');?>" disabled>
                             <div class="form-group">
                                 <label for="nmkontrakan">Nama Kontrakan</label>
                                 <input type="text" class="form-control" id="nmkontrakan" placeholder="Nama Kontrakan" name="nmkontrakan">
@@ -113,23 +110,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <label for="ukuran">Ukuran</label>
                                 <input type="text" class="form-control" id="ukuran" placeholder="Ukuran" name="ukuran">
                             </div>
-							<label for="jumlah_point" class="control-label input-group">Status</label>
-								<div class="btn-group" data-toggle="buttons">
-									<label class="btn btn-default">
-										<input id="status" type="radio" name="status" value="available">Available        
-									</label>
-									<label class="btn btn-default">
-            
-										<input id="status" type="radio" name="status" value="not available" >Not Available
-									</label>
-								</div>
+							<input id="status" type="hidden" name="status" value="available" checked>
                             <div class="form-group">
                                 <label for="harga">Harga</label>
                                 <input type="text" class="form-control" id="harga" placeholder="Rp." name="harga">
                             </div>
                             <div class="form-group">
                                 <label for="file">Masukan Gambar</label>
-                                <input type="file"  id="gambar"  name="gambar">
+                                <input type="file" id="gambar"  name="gambar">
                             </div>
 							<br>
                             <input type="submit" role="button" class="btn btn-success" value="Create"/>
