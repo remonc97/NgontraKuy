@@ -8,18 +8,18 @@
 class Model_Admin extends CI_Model
 {
 	public function getUser(){
-		$hasil = $this->db->get('user');
+		$hasil = $this->db->get('pengguna');
 		return $hasil->result();
 	}
 	public function get1User($id){
-		$hasil = $this->db->where('iduser',$id)->get('user')->row();
+		$hasil = $this->db->where('idpengguna',$id)->get('pengguna')->row();
 		return $hasil;
 	}
 	public function update($kode,$data)
 	{
 		try{
-			$this->db->where('iduser', $kode);
-			$q = $this->db->update('user',$data);
+			$this->db->where('idpengguna', $kode);
+			$q = $this->db->update('pengguna',$data);
 		}catch(Exception $e){
 			die($e);
 		}
@@ -28,8 +28,8 @@ class Model_Admin extends CI_Model
 	public function deleteUser($data)
 	{
 		try{
-			$this->db->where('iduser', $data);
-			$q = $this->db->delete('user');
+			$this->db->where('idpengguna', $data);
+			$q = $this->db->delete('pengguna');
 		}catch(Exception $die){
 			die($die);
 		}
