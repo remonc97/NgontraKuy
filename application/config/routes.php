@@ -57,6 +57,7 @@ $route['Home/(:any)']='Home/index';
 $route['About'] = 'Home/About';
 $route['Agents'] = 'Home/Agents';
 $route['ContactUs'] = 'Home/Contact';
+$route['TermsConditions'] = 'Home/TermsConditions';
 $route['Search'] = 'TaKon/Search';
 $route['Profile'] = 'Profile/index';
 $route['Inbox'] = 'Inbox';
