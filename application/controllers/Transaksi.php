@@ -12,7 +12,7 @@ class Transaksi extends CI_Controller
     public function formbooking(){
         if($this->User->ceksession() == true) {
             $key = $this->uri->segment(2);
-            if($this->Kontrakan->checkAvailability($key) != null){
+            if($this->Kontrakan->checkAvailability($key) != null && ($this->session->userdata('auth') == 0 || $this->session->userdata('auth') == 1)){
                 $data['session'] = true;
                 $data['nama'] = $this->session->userdata('namalengkap');
                 $data['idreservasi'] = $this->Book->makeID();
@@ -20,9 +20,15 @@ class Transaksi extends CI_Controller
                 $data['kontrakan'] = $this->Kontrakan->getOneKontrakan($data['idkontrakan']);
                 $data['pemilik'] = $this->Kontrakan->getNamaPemilik($data['kontrakan']->idpengguna);
                 $this->load->view('formbooking', $data);
-            }else{
+            }else if($this->Kontrakan->checkAvailability($key) == null && ($this->session->userdata('auth') == 0 || $this->session->userdata('auth') == 1)){
                 echo "<script>alert('sorry you cannot book this kontrakan, it is not available. check again later.')</script>";
                 redirect('HomeDetails/'.$key,'refresh');
+            }else if($this->session->userdata('auth') == 2){
+                echo "<script>alert('sorry you cannot book this kontrakan, it is not available. check again later.')</script>";
+                redirect('Admin','refresh');
+            }else{
+                echo "<script>alert('sorry you cannot book this kontrakan, it is not available. check again later.')</script>";
+                redirect('/','refresh');
             }
         }
     }
