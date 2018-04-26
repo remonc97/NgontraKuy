@@ -23,8 +23,8 @@ class Home extends CI_Controller {
 
 	public function detail(){
 		$data['nama']=$this->session->userdata('nama');
-		$id_rmh=$this->uri->segment(2);
-		$details=$this->Kontrakan->getRumah($id_rmh);
+		$idkontrakan=$this->uri->segment(2);
+		$details=$this->Kontrakan->getKontrakan($idkontrakan);
 		$data['details']=$details;
 		 if($this->User->ceksession() == true){
 			 $data['session'] = true;
