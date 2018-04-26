@@ -125,7 +125,7 @@ $this->view('template/header');
 								<div class="carousel-inner">
 									<!-- Item 1 -->
 									<div class="item active">
-									  <img src="images/properties/4.jpg" class="properties" alt="properties" />
+									  <img src="<?php echo base_url('assets/images/Rumah/'.$details->gambar)?>"/>
 									</div>
 									<!-- #Item 1 -->
 
