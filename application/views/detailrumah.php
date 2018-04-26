@@ -109,7 +109,7 @@ $this->view('template/header');
 			</div>
 			<div class="col-lg-9 col-sm-8 ">
 				<?php if(isset($details)){?>
-				<h2><?php echo $details->nmrumah;?></h2>
+				<h2><?php echo $details->nmkontrakan;?></h2>
 				<div class="row">
 					<div class="col-lg-8">
 						<div class="property-images">
