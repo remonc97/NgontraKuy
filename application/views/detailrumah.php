@@ -158,6 +158,13 @@ $this->view('template/header');
 							<h4><span class="glyphicon glyphicon-th-list"></span> Properties Detail</h4>
 							<p><?php echo $details->deskripsi;?></p>
 						</div>
+            <h6><span class="glyphicon glyphicon-home"></span> Availabilty</h6>
+            <div class="listing-detail">
+              <span data-toggle="tooltip" data-placement="bottom" data-original-title="Bed Room">5</span>
+              <span data-toggle="tooltip" data-placement="bottom" data-original-title="Living Room">2</span>
+              <span data-toggle="tooltip" data-placement="bottom" data-original-title="Parking">2</span>
+              <span data-toggle="tooltip" data-placement="bottom" data-original-title="Kitchen">1</span>
+            </div>
 						<!--<div>
 							<h4>
 								<span class="glyphicon glyphicon-map-marker"></span> Location
@@ -177,15 +184,8 @@ $this->view('template/header');
 
 								<div class="profile">
 									<span class="glyphicon glyphicon-user"></span> Agent Details
-									<p><?php echo $details->nama;?><br><?php echo $details->notelp;?></p>
+									<p><?php echo $details->nmkontrakan;?><br><?php echo $details->notelp;?></p>
 								</div>
-							</div>
-							<h6><span class="glyphicon glyphicon-home"></span> Availabilty</h6>
-							<div class="listing-detail">
-								<span data-toggle="tooltip" data-placement="bottom" data-original-title="Bed Room">5</span>
-								<span data-toggle="tooltip" data-placement="bottom" data-original-title="Living Room">2</span>
-								<span data-toggle="tooltip" data-placement="bottom" data-original-title="Parking">2</span>
-								<span data-toggle="tooltip" data-placement="bottom" data-original-title="Kitchen">1</span>
 							</div>
 						</div>
 						<div class="col-lg-12 col-sm-6 ">
