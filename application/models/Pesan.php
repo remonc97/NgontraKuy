@@ -16,7 +16,7 @@ class Pesan extends CI_Model
         return $this->db->set('isi',
             'Book Request <br/>
                 ----------------------<br/>
-                Tenant Name : '.$this->session->userdata('nama').
+                Tenant Name : '.$this->session->userdata('namalengkap').
             '<br/>Phone No. : '.$data['notelp'].
             '<br/>Planned Check In Date :'.$data['tglmasuk'].
             '<br/>Planned Check Out Date :'.$data['tglkeluar'].
@@ -25,9 +25,9 @@ class Pesan extends CI_Model
                 <br.></br.><a href="'
             .site_url('BookConfirm/'.$data['idreservasi'].'_'.$data['idpengguna'].'_'.$data['tglreservasi'].'_'.$data['idkontrakan'].'_'.
                 $data['notelp'].'_'.$data['tglmasuk'].'_'.$data['tglkeluar'].'_'.$id.'_'.$this->session->userdata('namalengkap')).
-            '">accept booking request</a><br/><br/>
+            '"><br/>accept booking request</a><br/><br/>
                 Click this url below to decline the booking request.
-                <br/><br/><a href="'
+                <br/><a href="'
             .site_url('BookCancel/').$this->getIdpesan()->idpesan.'">Decline booking request</a>'
             )->where('idpesan',$id)->update('pesan');
     }
