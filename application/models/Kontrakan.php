@@ -49,14 +49,12 @@ class Kontrakan extends CI_Model
 	// 	}
 	//
 	// 	return $checkinsert;
-	//
-	//
 	// }
 
 	 public function get_results($search_term)
     {
         // Use the Active Record class for safer queries.
-        $query=$this->db->like('fasilitas',$search_term)->get('rumah');
+        $query=$this->db->like('fasilitas',$search_term)->get('kontrakan');
 
 		//$this->db->query("select * from rumah where fasilitas like '%kasur%' ");
 
