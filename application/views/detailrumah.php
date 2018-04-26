@@ -190,7 +190,7 @@ $this->view('template/header');
 								<h6>
 									<span class="glyphicon glyphicon-envelope"></span> Post Enquiry
 								</h6>
-								<form role="form" action="<?php echo ?>">
+								<form role="form" action="#">
 									<input type="text" class="form-control" placeholder="Nama Lengkap" name="namalengkap" />
 									<input type="text" class="form-control" placeholder="kamu@domainmu.com" name="email"/>
 									<input type="text" class="form-control" placeholder="Nomor Teleponmu" name="notelp"/>
