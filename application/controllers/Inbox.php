@@ -25,21 +25,21 @@ class Inbox extends CI_Controller {
 
 	          	$merge = $this->M_Inbox->getMerge();
 	         	$mergeTable = $this->M_Inbox->getMergeTable();
-						$detilPesan = $this->M_Inbox->detilPesan();
-						$customer = $this->M_Inbox->getCustomer();
-						$pemilik = $this->M_Inbox->getPemilik2();
-						$pesan = $this->M_Inbox->getAllPesan();
-						$data = [
-							'mergeTable' => $mergeTable,
-							'customer' => $customer,
-							'email' => $email,
-							'nama' => $nama,
-							'session' => true,
-							'merge' => $merge,
-							'detilPesan' => $detilPesan,
-							'pemilik' => $pemilik,
-							'pesan' => $pesan
-						];
+				$detilPesan = $this->M_Inbox->detilPesan();
+				$customer = $this->M_Inbox->getCustomer();
+				$pemilik = $this->M_Inbox->getPemilik2();
+				$pesan = $this->M_Inbox->getAllPesan();
+				$data = [
+					'mergeTable' => $mergeTable,
+					'customer' => $customer,
+					'email' => $email,
+					'nama' => $nama,
+					'session' => true,
+					'merge' => $merge,
+					'detilPesan' => $detilPesan,
+					'pemilik' => $pemilik,
+					'pesan' => $pesan
+				];
 
 				    $this->load->view('template/header',$data);
 				    $this->load->view('InboxCustomer',$data);

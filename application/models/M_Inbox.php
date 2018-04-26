@@ -27,8 +27,8 @@ class M_Inbox extends CI_Model {
 
   public function getAllPesan()
   {
-		$result = $this->db->get('pesan');
-		return $result->result();
+		$result = $this->db->query("SELECT * FROM pesan,pengguna WHERE pesan.idpengirim = pengguna.idpengguna");
+    return $result->result();
 	}
 
   public function detilPesan2($id)
@@ -144,4 +144,11 @@ class M_Inbox extends CI_Model {
     $result = $this->db->query("SELECT * FROM pesan,pengguna where pesan.idpengirim = pengguna.idpengguna and idpenerima = '".$idpenerima."' and status is not null");
     return $result->result();
   }
+
+  public function notifikasi()
+  {
+    $result = $this->db->query("SELECT max(idpesan) FROM pesan,pengguna where pesan.idpengirim = pengguna.idpengguna");
+      return $result->result();
+  }
+
 }

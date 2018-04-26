@@ -103,17 +103,6 @@ $this->view('template/header');
               <div class="panel-body" style="height: 300px; overflow-y: scroll">
                 <div class="row">
 
-                  <div class="col-md-7 pull-left">
-                    <?php foreach($showChat2 as $show) { ?>
-                      <div class="panel panel-warning panel-comment">
-                        <div class="panel-heading">
-                          <strong style="opacity: .5; font-size: 12px; color: #2a2709"><?php echo $show->namalengkap ?>:</strong>
-                          <small><?php echo date("d-M-Y H:i:s"); ?></small><br/>
-                          <?php echo $show->isi ?>
-                        </div>
-                      </div>
-                    <?php } ?>
-                  </div>
 
                   <div class="col-md-7 pull-right">
                     <?php foreach($isiPesanBalas as $show) { ?>
@@ -122,6 +111,18 @@ $this->view('template/header');
                           <strong style="opacity: .5; font-size: 12px; color: #2a2709"><?php echo $show->namalengkap ?>:</strong>
                             <small><?php echo date("d-M-Y H:i:s"); ?></small><br/>
                             <?php echo $show->isi ?>
+                        </div>
+                      </div>
+                    <?php } ?>
+                  </div>
+
+                  <div class="col-md-7 pull-left">
+                    <?php foreach($showChat2 as $show) { ?>
+                      <div class="panel panel-warning panel-comment">
+                        <div class="panel-heading">
+                          <strong style="opacity: .5; font-size: 12px; color: #2a2709"><?php echo $show->namalengkap ?>:</strong>
+                          <small><?php echo date("d-M-Y H:i:s"); ?></small><br/>
+                          <?php echo $show->isi ?>
                         </div>
                       </div>
                     <?php } ?>
@@ -140,7 +141,6 @@ $this->view('template/header');
                         <input required class="form-control required text-capitalize" data-placement="top" data-trigger="manual" type="hidden" name="idpenerima" value="<?php echo $idpengirim ?>">
                       <?php } ?>
                     </div>
-<?php echo $idpenerima ?>
                     <div class="form-group">
                       <?php if( $data->jenispesan=='normal') { ?>
                         <input type="hidden" name="jenispesan" class="form-control" value="<?php echo $data->jenispesan?>" readonly="">
