@@ -60,7 +60,7 @@ class Pesan extends CI_Model
                 'Congrats, You have successfully booked this kontrakan! <br/>
                 Here are your kontrakan booking details:<br/>
                 Booking ID : '.$key[0].
-                'Tenant Name : '.$key[8].
+                '<br/>Tenant Name : '.$key[8].
                 '<br/>Phone No. : '.$key[4].
                 '<br/>Booking Date : '.$key[2].
                 '<br/>Planned Check In Date :'.$key[5].
