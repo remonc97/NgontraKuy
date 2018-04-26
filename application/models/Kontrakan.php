@@ -65,15 +65,6 @@ class Kontrakan extends CI_Model
         return $query->result();
     }
 
-    public function getOne($idkontrakan){
-        return
-            $this->db->select('*')
-                ->from('kontrakan')
-                ->where('idkontrakan',$idkontrakan)
-                ->get()
-                ->row();
-    }
-
     public function getKontrakan($idkontrakan){
         return $this->db->select('*')
                         ->from('kontrakan')
@@ -102,8 +93,15 @@ class Kontrakan extends CI_Model
 
   	}
 
-    // public function getOneKontrakan($idkontrakan){
-    //   return $this->db->where('idkontrakan',$idkontrakan)->get('kontrakan')->row();
-    // }
+     public function getOneKontrakan($idkontrakan){
+       return $this->db->where('idkontrakan',$idkontrakan)->get('kontrakan')->row();
+     }
 
+    public function getNamaPemilik($idpengguna){
+        return $this->db->select('namalengkap')->where('idpengguna',$idpengguna)->get('pengguna')->row();
+    }
+
+    public function checkAvailability($idkontrakan){
+        return $this->db->where('idkontrakan',$idkontrakan)->where('status','available')->get('kontrakan')->row();
+    }
 }

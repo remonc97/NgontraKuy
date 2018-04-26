@@ -101,72 +101,93 @@ $this->view('template/header');
 
 <div class="container">
     <div class="spacer">
-        <div class="row register">
-            <div class="col-lg-3 col-sm-4 col-xs-12">
-                <div class="col-md-3">
-                    <div class="card">
-                      <div class="card-body text-center">
-                        <p><img class=" img-fluid" src="<?php echo base_url('assets/images/woman.png')?>" alt="card image" width="200px" height="200px"></p>
-                      </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-5 col-sm-6 col-xs-12 " style="background-color: white;padding:50px">
+        <div class="row">
+            <div class="col-md-3">
                 <div class="row">
                     <div class="col-md-12">
-                        <h3>My Profile</h3><br/>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="table-scrollable">
-                            <table class="table table-hover">
-                                <?php if(isset($datauser)){?>
-                                    <tbody>
-                                    <tr>
-                                        <td align="center">Nama</td>
-                                        <td align="center">:</td>
-                                        <td align="center"><?php echo $datauser->nama;?></td>
-                                    </tr>
-                                    <tr>
-                                        <td align="center">Tanggal Lahir</td>
-                                        <td align="center">:</td>
-                                        <td align="center"><?php echo $datauser->tgllahir;?></td>
-                                    </tr>
-                                    <tr>
-                                        <td align="center">Nomor Telepon</td>
-                                        <td align="center">:</td>
-                                        <td align="center"><?php echo $datauser->notelp;?></td>
-                                    </tr>
-                                    <tr>
-                                        <td align="center">Email</td>
-                                        <td align="center">:</td>
-                                        <td align="center"><?php echo $datauser->email;?></td>
-                                    </tr>
-                                    </tbody>
-                                <?php }else { ?>
-                                    <tbody>
-                                    <tr>
-                                        <td>No data </td>
-                                    </tr>
-                                    </tbody>
-                                <?php } ?>
-                            </table>
+                        <div class="panel" style="background-color: transparent">
+                            <div class="panel-body text-center">
+                                <div class="row">
+                                    <img class="img-fluid" src="<?php echo base_url('assets/images/girl.png')?>" alt="card image" width="150px">
+                                    <br/><br/>
+                                    <h3>My Profile</h3>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 col-sm-4 col-xs-12">
+            <div class="col-md-5">
                 <div class="row">
-                  <?php if($auth=='1'){?>
+                    <div class="col-md-12">
+                        <br/>
+                        <br/>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" style="background-color: white;border-color: transparent"></div>
+                            <div class="panel-body">
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <?php if(isset($datauser)){?>
+                                            <tbody>
+                                            <tr>
+                                                <td align="center">Nama</td>
+                                                <td align="center">:</td>
+                                                <td align="center"><?php echo $datauser->namalengkap;?></td>
+                                            </tr>
+                                            <tr>
+                                                <td align="center">Tanggal Lahir</td>
+                                                <td align="center">:</td>
+                                                <td align="center"><?php echo $datauser->tgllahir;?></td>
+                                            </tr>
+                                            <tr>
+                                                <td align="center">Nomor Telepon</td>
+                                                <td align="center">:</td>
+                                                <td align="center"><?php echo $datauser->notelp;?></td>
+                                            </tr>
+                                            <tr>
+                                                <td align="center">Email</td>
+                                                <td align="center">:</td>
+                                                <td align="center"><?php echo $datauser->email;?></td>
+                                            </tr>
+                                            </tbody>
+                                        <?php }else { ?>
+                                            <tbody>
+                                            <tr>
+                                                <td>No data </td>
+                                            </tr>
+                                            </tbody>
+                                        <?php } ?>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="row">
+                  <?php if($auth=='0'){?>
                   <div class="col-md-12">
                       <div class="panel panel-default">
-                          <div class="panel-heading"><h4>News</h4></div>
+                          <div class="panel-heading"><h4>Notifications</h4></div>
                           <div class="panel-body">
-                              <ul style="list-style-type: none">
-                                  <li>
-                                  </li>
-                              </ul>
+                              <div class="col-md-12">
+                                  <ul style="list-style-type: none">
+                                      <li>
+                                          <?php
+                                          if($tagihan->jumlah > 0){
+                                              ?>
+                                              You have <a href="<?php echo site_url('Invoices')?>"><?php echo $tagihan->jumlah?></a> invoice(s) waiting to be processed.
+                                              <?php
+                                          }else{
+                                              ?>
+                                              you have <u>no</u> invoice waiting to be processed.
+                                              <?php
+                                          }
+                                          ?>
+                                      </li>
+                                  </ul>
+                              </div>
                           </div>
                       </div>
                     </div>

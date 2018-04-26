@@ -99,25 +99,35 @@ $this->view('template/header');
 
 <div class="container">
     <div class="spacer">
-        <?php echo form_open(site_url('Booking/proses/'.$this->input->post('idbooking').'_'.$this->input->post('idrumah')))?>
+        <?php echo form_open(site_url('Booking/proses/'.$idreservasi.'_'.$idkontrakan))?>
         <div class="row">
             <div class="col-lg-7 col-sm-7 ">
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="idbooking">Booking ID</label>
-                            <input type="text" id="idbooking" name="idbooking" class="form-control" readonly value="<?php echo (!isset($idbooking)) ? '': $idbooking ?>">
+                            <label for="idreservasi">Booking ID</label>
+                            <input type="text" id="idreservasi" name="idreservasi" class="form-control" readonly value="<?php echo (!isset($idreservasi)) ? '': $idreservasi?>">
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="bookingdate">Booking Date</label>
-                            <input type="date" id="bookingdate" name="tglbooking" class="form-control" value="<?php echo date('Y-m-d')?>">
+                            <input type="date" id="bookingdate" name="tglreservasi" class="form-control" value="<?php echo date('Y-m-d')?>">
                         </div>
                     </div>
                 </div>
                 <div class="row">
 
+                </div>
+            </div>
+            <div class="col-lg-5 col-sm-5">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group" style="display:none">
+                            <label for="name">&nbsp;</label>
+                            <input type="text" id="idpenerima" name="idpenerima" class="form-control" value="<?php echo $kontrakan->idpengguna ?>">
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -138,7 +148,7 @@ $this->view('template/header');
                     <div class="col-md-12">
                         <div class="form-group">
                             <label for="name">Tenant Name</label>
-                            <input type="text" id="name" name="nama" class="form-control" value="<?php echo $nama ?>">
+                            <input type="text" id="name" name="namalengkap" class="form-control" value="<?php echo $nama ?>">
                         </div>
                     </div>
                 </div>
@@ -154,13 +164,13 @@ $this->view('template/header');
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="cekin">Check In Date</label>
-                            <input type="date" id="cekin" name="tglcheckin" class="form-control">
+                            <input type="date" id="cekin" name="tglmasuk" class="form-control">
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="cekout">Check Out Date</label>
-                            <input type="date" id="cekout" name="tglcheckout" class="form-control">
+                            <input type="date" id="cekout" name="tglkeluar" class="form-control">
                         </div>
                     </div>
                 </div>
@@ -183,31 +193,39 @@ $this->view('template/header');
                             </tr>
                             <tr>
                                 <td>&nbsp;</td>
-                                <td><?php echo (!isset($rumah->nmkontrakan)) ? '': $rumah->nmkontrakan?></td>
+                                <td><?php echo (!isset($kontrakan->nmkontrakan)) ? '': $kontrakan->nmkontrakan?></td>
                             </tr>
                             <tr>
                                 <td>2.&nbsp;&nbsp;</td>
+                                <td>Kontrakan Owner&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td>&nbsp;</td>
+                                <td><?php echo (!isset($pemilik->namalengkap)) ? '': $pemilik->namalengkap?></td>
+                            </tr>
+                            <tr>
+                                <td>3.&nbsp;&nbsp;</td>
                                 <td>Kontrakan Address&nbsp;</td>
                             </tr>
                             <tr>
                                 <td>&nbsp;</td>
-                                <td><?php echo (!isset($rumah->alamat)) ? '': $rumah->alamat?></td>
+                                <td><?php echo (!isset($kontrakan->alamat)) ? '': $kontrakan->alamat?></td>
                             </tr>
                             <tr>
-                                <td>3.&nbsp;&nbsp;</td>
+                                <td>4.&nbsp;&nbsp;</td>
                                 <td>Kontrakan Phone No.&nbsp;</td>
                             </tr>
                             <tr>
                                 <td>&nbsp;</td>
-                                <td><?php echo (!isset($rumah->notelp)) ? '': $rumah->notelp?></td>
+                                <td><?php echo (!isset($kontrakan->notelp)) ? '': $kontrakan->notelp?></td>
                             </tr>
                             <tr>
-                                <td>4.&nbsp;&nbsp;</td>
+                                <td>5.&nbsp;&nbsp;</td>
                                 <td>Kontrakan Fee&nbsp;</td>
                             </tr>
                             <tr>
                                 <td>&nbsp;</td>
-                                <td><?php echo (!isset($rumah->harga)) ? '': $rumah->harga?></td>
+                                <td>Rp <?php echo (!isset($kontrakan->harga)) ? '': $kontrakan->harga?></td>
                             </tr>
                         </table>
                     </div>
@@ -219,7 +237,7 @@ $this->view('template/header');
                 <br/>
                 <div class="checkbox">
                     <label style="font-size: 12pt">
-                        <input type="checkbox" name="agree"> by clicking this, you, the new Tenant, will follow the terms and conditions
+                        <input type="checkbox" name="agree" required> by clicking this, you, the new Tenant, will follow the terms and conditions
                         in NgontraKuy.
                     </label>
                 </div>
