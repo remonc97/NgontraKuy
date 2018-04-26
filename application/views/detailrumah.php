@@ -158,12 +158,9 @@ $this->view('template/header');
 							<h4><span class="glyphicon glyphicon-th-list"></span> Properties Detail</h4>
 							<p><?php echo $details->deskripsi;?></p>
 						</div>
-            <h6><span class="glyphicon glyphicon-home"></span> Availabilty</h6>
+            <h6><span class="glyphicon glyphicon-home"></span> Facility</h6>
             <div class="listing-detail">
-              <span data-toggle="tooltip" data-placement="bottom" data-original-title="Bed Room">5</span>
-              <span data-toggle="tooltip" data-placement="bottom" data-original-title="Living Room">2</span>
-              <span data-toggle="tooltip" data-placement="bottom" data-original-title="Parking">2</span>
-              <span data-toggle="tooltip" data-placement="bottom" data-original-title="Kitchen">1</span>
+              <p><?php echo $details->fasilitas;?></p>
             </div>
 						<!--<div>
 							<h4>
