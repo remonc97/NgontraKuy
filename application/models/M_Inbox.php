@@ -121,6 +121,12 @@ class M_Inbox extends CI_Model {
     return $result->result();
   }
 
+  public function getMergeTable1()
+  {
+    $result = $this->db->query("SELECT * FROM pesan,pengguna WHERE pesan.idpengirim = pengguna.idpengguna and status is not null and pesan.topik != 'Book Request'");
+    return $result->result();
+  }
+
   public function getMergeCustomer()
   {
     $result = $this->db->query("SELECT * FROM pengguna,pesan WHERE pengguna.idpengguna = pesan.idpengirim and auth = 0 group by topik");
