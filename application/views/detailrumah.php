@@ -118,9 +118,9 @@ $this->view('template/header');
 								<!-- Indicators -->
 								<ol class="carousel-indicators hidden-xs">
 									<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-									<li data-target="#myCarousel" data-slide-to="1" class=""></li>
+									<!-- <li data-target="#myCarousel" data-slide-to="1" class=""></li>
 									<li data-target="#myCarousel" data-slide-to="2" class=""></li>
-									<li data-target="#myCarousel" data-slide-to="3" class=""></li>
+									<li data-target="#myCarousel" data-slide-to="3" class=""></li> -->
 								</ol>
 								<div class="carousel-inner">
 									<!-- Item 1 -->
@@ -130,23 +130,23 @@ $this->view('template/header');
 									<!-- #Item 1 -->
 
 									<!-- Item 2 -->
-									<div class="item">
+									<!-- <div class="item">
 									  <img src="images/properties/2.jpg" class="properties" alt="properties" />
 
-									</div>
+									</div> -->
 									<!-- #Item 2 -->
 
 									<!-- Item 3 -->
-									 <div class="item">
+									 <!-- <div class="item">
 									  <img src="images/properties/1.jpg" class="properties" alt="properties" />
-									</div>
+									</div> -->
 									<!-- #Item 3 -->
 
 									<!-- Item 4 -->
-									<div class="item ">
+									<!-- <div class="item ">
 									  <img src="images/properties/3.jpg" class="properties" alt="properties" />
 
-									</div>
+									</div> -->
 									<!-- # Item 4 -->
 								</div>
 								<a class="left carousel-control" href="#myCarousel" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
