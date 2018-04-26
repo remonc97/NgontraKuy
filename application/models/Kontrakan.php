@@ -83,7 +83,7 @@ class Kontrakan extends CI_Model
                         ->where('idkontrakan',$idkontrakan)->get()->row();
     }
 
-    public function getAllKontrakan($iduser){
+    public function getAllKontrakan($idpengguna){
 
 		return $this->db->where('idpengguna',$idpengguna)->get('kontrakan')->result();
 	}
