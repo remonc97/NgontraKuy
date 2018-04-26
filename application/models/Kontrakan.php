@@ -8,11 +8,11 @@
 
 class Kontrakan extends CI_Model
 {
-	
+
 	  public function __construct(){
 		parent::__construct();
 	}
-	
+
     public function getFeatured(){
         return $this->db->get('kontrakan',11)->result();
     }
@@ -34,31 +34,31 @@ class Kontrakan extends CI_Model
 
 
 	}
-	
-	public function InsertRumah($data){
 
-		$checkinsert = false;
+	// public function InsertRumah($data){
+	//
+	// 	$checkinsert = false;
+	//
+	// 	try{
+	//
+	// 		$this->db->insert('rumah',$data);
+	// 		$checkinsert = true;
+	// 	}catch (Exception $ex) {
+	//
+	// 		$checkinsert = false;
+	// 	}
+	//
+	// 	return $checkinsert;
+	//
+	//
+	// }
 
-		try{
-
-			$this->db->insert('rumah',$data);
-			$checkinsert = true;
-		}catch (Exception $ex) {
-
-			$checkinsert = false;
-		}
-
-		return $checkinsert;
-
-
-	}
-	
 	 public function get_results($search_term)
     {
         // Use the Active Record class for safer queries.
         $query=$this->db->like('fasilitas',$search_term)->get('rumah');
-		
-		//$this->db->query("select * from rumah where fasilitas like '%kasur%' "); 
+
+		//$this->db->query("select * from rumah where fasilitas like '%kasur%' ");
 
         // Execute the query.
         //$query = $this->db->get();
@@ -67,27 +67,25 @@ class Kontrakan extends CI_Model
         return $query->result();
     }
 
-    public function getOne($idrumah){
+    public function getOne($idkontrakan){
         return
             $this->db->select('*')
                 ->from('kontrakan')
-                ->join('rumah','kontrakan.idkontrakan= rumah.idkontrakan')
-                ->where('rumah.idrumah',$idrumah)
+                ->where('idkontrakan',$idkontrakan)
                 ->get()
                 ->row();
     }
 
-    public function getRumah($id_rmh){
+    public function getKontrakan($idkontrakan){
         return $this->db->select('*')
-                        ->from('rumah')
-                        ->join('kontrakan','kontrakan.idkontrakan=rumah.idkontrakan')
-                        ->join('user','user.iduser=kontrakan.iduser')
-                        ->where('idrumah',$id_rmh)->get()->row();
+                        ->from('kontrakan')
+                        ->join('pengguna','pengguna.idpengguna=kontrakan.idpengguna')
+                        ->where('idkontrakan',$idkontrakan)->get()->row();
     }
 
-    public function getAllKontrakan($iduser){
+    public function getAllKontrakan($idpengguna){
 
-		return $this->db->where('iduser',$iduser)->get('kontrakan')->result();
+		return $this->db->where('idpengguna',$idpengguna)->get('kontrakan')->result();
 	}
 
     public function DeleteKontrakan($idkontrakan){
@@ -106,8 +104,8 @@ class Kontrakan extends CI_Model
 
   	}
 
-    public function getOneKontrakan($idkontrakan){
-      return $this->db->where('idkontrakan',$idkontrakan)->get('kontrakan')->row();
-    }
+    // public function getOneKontrakan($idkontrakan){
+    //   return $this->db->where('idkontrakan',$idkontrakan)->get('kontrakan')->row();
+    // }
 
 }

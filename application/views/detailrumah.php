@@ -109,7 +109,7 @@ $this->view('template/header');
 			</div>
 			<div class="col-lg-9 col-sm-8 ">
 				<?php if(isset($details)){?>
-				<h2><?php echo $details->nmrumah;?></h2>
+				<h2><?php echo $details->nmkontrakan;?></h2>
 				<div class="row">
 					<div class="col-lg-8">
 						<div class="property-images">
@@ -118,35 +118,35 @@ $this->view('template/header');
 								<!-- Indicators -->
 								<ol class="carousel-indicators hidden-xs">
 									<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-									<li data-target="#myCarousel" data-slide-to="1" class=""></li>
+									<!-- <li data-target="#myCarousel" data-slide-to="1" class=""></li>
 									<li data-target="#myCarousel" data-slide-to="2" class=""></li>
-									<li data-target="#myCarousel" data-slide-to="3" class=""></li>
+									<li data-target="#myCarousel" data-slide-to="3" class=""></li> -->
 								</ol>
 								<div class="carousel-inner">
 									<!-- Item 1 -->
 									<div class="item active">
-									  <img src="images/properties/4.jpg" class="properties" alt="properties" />
+									  <img src="<?php echo base_url('assets/images/Rumah/'.$details->gambar)?>"/>
 									</div>
 									<!-- #Item 1 -->
 
 									<!-- Item 2 -->
-									<div class="item">
+									<!-- <div class="item">
 									  <img src="images/properties/2.jpg" class="properties" alt="properties" />
 
-									</div>
+									</div> -->
 									<!-- #Item 2 -->
 
 									<!-- Item 3 -->
-									 <div class="item">
+									 <!-- <div class="item">
 									  <img src="images/properties/1.jpg" class="properties" alt="properties" />
-									</div>
+									</div> -->
 									<!-- #Item 3 -->
 
 									<!-- Item 4 -->
-									<div class="item ">
+									<!-- <div class="item ">
 									  <img src="images/properties/3.jpg" class="properties" alt="properties" />
 
-									</div>
+									</div> -->
 									<!-- # Item 4 -->
 								</div>
 								<a class="left carousel-control" href="#myCarousel" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
@@ -158,6 +158,10 @@ $this->view('template/header');
 							<h4><span class="glyphicon glyphicon-th-list"></span> Properties Detail</h4>
 							<p><?php echo $details->deskripsi;?></p>
 						</div>
+            <h6><span class="glyphicon glyphicon-home"></span> Facility</h6>
+            <div class="listing-detail">
+              <p><?php echo $details->fasilitas;?></p>
+            </div>
 						<!--<div>
 							<h4>
 								<span class="glyphicon glyphicon-map-marker"></span> Location
@@ -172,36 +176,29 @@ $this->view('template/header');
 						<div class="col-lg-12  col-sm-6">
 							<div class="property-info">
 								<p class="price">Rp <?php echo $details->harga;?></p>
-                                <a class="btn btn-success" href="<?php echo site_url('Booking/'.$details->idrumah)?>">Tertarik</a>
+                                <a class="btn btn-success" href="<?php echo site_url('Booking/'.$details->idkontrakan)?>">Tertarik</a>
 								<!-- <p class="area"><span class="glyphicon glyphicon-map-marker"></span> 344 Villa, Syndey, Australia</p> -->
 
 								<div class="profile">
 									<span class="glyphicon glyphicon-user"></span> Agent Details
-									<p><?php echo $details->nama;?><br><?php echo $details->notelp;?></p>
+									<p><?php echo $details->nmkontrakan;?><br><?php echo $details->notelp;?></p>
 								</div>
 							</div>
-							<h6><span class="glyphicon glyphicon-home"></span> Availabilty</h6>
-							<div class="listing-detail">
-								<span data-toggle="tooltip" data-placement="bottom" data-original-title="Bed Room">5</span>
-								<span data-toggle="tooltip" data-placement="bottom" data-original-title="Living Room">2</span>
-								<span data-toggle="tooltip" data-placement="bottom" data-original-title="Parking">2</span>
-								<span data-toggle="tooltip" data-placement="bottom" data-original-title="Kitchen">1</span>
-							</div>
 						</div>
-						<div class="col-lg-12 col-sm-6 ">
+						<!-- <div class="col-lg-12 col-sm-6 ">
 							<div class="enquiry">
 								<h6>
 									<span class="glyphicon glyphicon-envelope"></span> Post Enquiry
 								</h6>
-								<form role="form">
-									<input type="text" class="form-control" placeholder="Full Name"/>
-									<input type="text" class="form-control" placeholder="you@yourdomain.com"/>
-									<input type="text" class="form-control" placeholder="your number"/>
-									<textarea rows="6" class="form-control" placeholder="Whats on your mind?"></textarea>
+								<form role="form" action="#">
+									<input type="text" class="form-control" placeholder="Nama Lengkap" name="namalengkap" />
+									<input type="text" class="form-control" placeholder="kamu@domainmu.com" name="email"/>
+									<input type="text" class="form-control" placeholder="Nomor Teleponmu" name="notelp"/>
+									<textarea rows="6" class="form-control" placeholder="Apa yang kamu pikirkan?" name="isi"></textarea>
 									<button type="submit" class="btn btn-primary" name="Submit">Send Message</button>
 								</form>
 							</div>
-						</div>
+						</div> -->
 					</div>
 				</div>
 				<?php }
