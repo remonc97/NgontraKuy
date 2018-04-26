@@ -169,7 +169,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             foreach($featured as $row){
                 ?>
             <div class="properties">
-                <div class="image-holder"><img src="<?php echo base_url('assets/images/properties/1.jpg')?>" class="img-responsive" alt="properties"/>
+                <div class="image-holder"><img src="<?php echo base_url('assets/images/Rumah/'.$row->gambar)?>" class="img-responsive" alt="properties"/>
                     <div class="status <?php echo $row->status ?>"><?php echo $row->status ?></div>
                 </div>
                 <h4><a href="<?php echo site_url('HomeDetails/'.$row->idkontrakan)?>"><?php echo $row->nmkontrakan?></a></h4>
