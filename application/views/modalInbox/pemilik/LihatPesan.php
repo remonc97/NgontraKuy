@@ -18,7 +18,7 @@ $this->view('template/header');
     }
     .bg-img-5 {
         background-image: url(<?php echo base_url('assets/images/slider/5.jpg')?>);
-    } 
+    }
 </style>
 <!-- Header Starts -->
 <div class="navbar-wrapper">
@@ -144,8 +144,6 @@ $this->view('template/header');
                 <?php } ?>
               </div>
 
-<?php echo "pengirim $tampilin->idpenerima" ?>
-<?php echo "penerima $tampilin->idpengirim" ?>
               <div class="form-group">
                 <?php if( $show->jenispesan=='normal') { ?>
                   <input type="hidden" name="jenispesan" class="form-control" value="<?php echo $tampilin->jenispesan?>" readonly="">

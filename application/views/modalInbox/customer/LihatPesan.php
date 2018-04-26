@@ -103,9 +103,9 @@ $this->view('template/header');
               <div class="panel-body" style="height: 300px; overflow-y: scroll">
                 <div class="row">
 
-                  <div class="col-md-7 pull-right">
+                  <div class="col-md-7 pull-left">
                     <?php foreach($showChat2 as $show) { ?>
-                      <div class="panel panel-success panel-comment">
+                      <div class="panel panel-warning panel-comment">
                         <div class="panel-heading">
                           <strong style="opacity: .5; font-size: 12px; color: #2a2709"><?php echo $show->namalengkap ?>:</strong>
                           <small><?php echo date("d-M-Y H:i:s"); ?></small><br/>
@@ -115,9 +115,9 @@ $this->view('template/header');
                     <?php } ?>
                   </div>
 
-                  <div class="col-md-7 pull-left">
+                  <div class="col-md-7 pull-right">
                     <?php foreach($isiPesanBalas as $show) { ?>
-                      <div class="panel panel-warning panel-comment">
+                      <div class="panel panel-success panel-comment">
                         <div class="panel-heading">
                           <strong style="opacity: .5; font-size: 12px; color: #2a2709"><?php echo $show->namalengkap ?>:</strong>
                             <small><?php echo date("d-M-Y H:i:s"); ?></small><br/>
@@ -132,15 +132,15 @@ $this->view('template/header');
 
               <form method="POST" action="<?php echo site_url('Inbox/balasPesanCustomerDetil')?>" enctype="multipart/form-data">
                 <?php foreach($isiPesanBalas as $data) { ?>
-                  <input required class="form-control required text-capitalize" data-placement="top" data-trigger="manual" type="hidden" name="idpengirim" value="<?php echo $data->idpenerima ?>">
+                  <input required class="form-control required text-capitalize" data-placement="top" data-trigger="manual" type="hidden" name="idpengirim" value="<?php echo $idpenerima ?>">
                   <?php $namalengkap = $this->M_Inbox->getNamaPenerima($data->idpenerima); ?>
                     <div class="form-group">
                       <?php foreach($namalengkap as $item) { ?>
                         <input type="hidden" name="namapenerima" class="form-control" value="<?php echo $item->namalengkap ?>" readonly="">
-                        <input required class="form-control required text-capitalize" data-placement="top" data-trigger="manual" type="hidden" name="idpenerima" value="<?php echo $show->idpengirim ?>">
+                        <input required class="form-control required text-capitalize" data-placement="top" data-trigger="manual" type="hidden" name="idpenerima" value="<?php echo $idpengirim ?>">
                       <?php } ?>
                     </div>
-
+<?php echo $idpenerima ?>
                     <div class="form-group">
                       <?php if( $data->jenispesan=='normal') { ?>
                         <input type="hidden" name="jenispesan" class="form-control" value="<?php echo $data->jenispesan?>" readonly="">
@@ -159,7 +159,6 @@ $this->view('template/header');
                     <p class="help-block pull-left text-danger hide" id="form-error">&nbsp; The form is not valid. </p>
                   </div>
                 </div>
-
               </form>
             </div>
           </div>

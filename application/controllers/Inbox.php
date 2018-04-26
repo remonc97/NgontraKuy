@@ -186,7 +186,7 @@ class Inbox extends CI_Controller {
 
 		$data = NULL;
 		if ($result){
-			redirect('Inbox/LihatPesan/'. $idpengirim.'/'.$penerima);
+			redirect('Inbox/LihatPesan/'. $penerima.'/'.$idpengirim);
 		}
 	}
 
@@ -245,6 +245,10 @@ class Inbox extends CI_Controller {
 					$data = [
 						'customer' => $customer,
 						'mergeTable' =>$mergeTable,
+
+						'idpenerima' => $idpenerima,
+						'idpengirim' => $idpengirim,
+						
 						'isiPesanBalas' => $isiPesanBalas,
 						'showChat2' =>$showChat2,
 						'email' => $email,
