@@ -146,13 +146,13 @@ $this->view('template/header');
                         <td><?php echo $data->tglpesan;?></td>
                         <td><b><?php echo $data->topik?></b></td>
                         <td>
-                        <?php if($data->status == 'Submitted') { ?>
+                        <?php if($data->status == 'Submitted' || $data->status == 'submitted') { ?>
                           <span class="label label-primary"><?php echo $data->status;?></span>
                         <?php } ?>
-                        <?php if($data->status == 'On Process') { ?>
+                        <?php if($data->status == 'On Process' || $data->status == 'on process') { ?>
                           <span class="label label-danger"><?php echo $data->status;?></span>
                         <?php } ?>
-                        <?php if($data->status == 'Solved') { ?>
+                        <?php if($data->status == 'Solved' || $data->status == 'solved') { ?>
                           <span class="label label-success"><?php echo $data->status;?></span>
                         <?php } ?>
                         </td>
