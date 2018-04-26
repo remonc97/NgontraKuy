@@ -30,4 +30,7 @@ class Tagihan extends CI_Model
         );
         return $this->db->insert('tagihan',$data1);
     }
+    public function getDataTagihan($idtagihan){
+        return $this->db->where('idtagihan',$idtagihan)->get('tagihan')->row();
+    }
 }

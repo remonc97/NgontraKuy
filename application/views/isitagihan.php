@@ -116,7 +116,7 @@ $this->view('template/header');
             <div class="col-lg-8 col-sm-12 col-xs-12 " style="background-color: white;padding:50px">
                 <div class="row">
                     <div class="col-md-12">
-                        <h3>List Tabel Tagihan</h3><br/>
+                        <h3>Isi Tagihan</h3><br/>
                     </div>
                 </div>
                 <div class="row">
@@ -133,37 +133,37 @@ $this->view('template/header');
                                 </thead>
                                 <tbody>
                                 <?php foreach($all as $tagihan) {
-                                        ?>
-                                        <tr>
-                                            <td class="center"><?php echo $tagihan->idreservasi; ?></td>
-                                            <td class="center"><?php echo $tagihan->tgltagihan; ?></td>
-                                            <td class="center"><?php echo $tagihan->totaltagihan; ?></td>
-                                            <td class="center">
-                                                <?php if($tagihan->statusbayar == 0)
-                                                {
-                                                    echo "Belum Dibayar";
-                                                }elseif ($tagihan->statusbayar == 1)
-                                                {
-                                                    echo "Sudah Dibayar";
-                                                }else{}
-                                                ?>
-                                            </td>
-                                            <td class="center">
+                                    ?>
+                                    <tr>
+                                        <td class="center"><?php echo $tagihan->idreservasi; ?></td>
+                                        <td class="center"><?php echo $tagihan->tgltagihan; ?></td>
+                                        <td class="center"><?php echo $tagihan->totaltagihan; ?></td>
+                                        <td class="center">
+                                            <?php if($tagihan->statusbayar == 0)
+                                            {
+                                                echo "Belum Dibayar";
+                                            }elseif ($tagihan->statusbayar == 1)
+                                            {
+                                                echo "Sudah Dibayar";
+                                            }else{}
+                                            ?>
+                                        </td>
+                                        <td class="center">
 
-                                                <a href="<?php echo base_url('viewinvoice/' . $tagihan->idtagihan) ?>" data-toggle="modal" class="btn btn-default" style="background-color: aquamarine;"><b>View</b></a>
-                                                <?php
-                                                if($user->auth == 1)
-                                                {
+                                            <a href="<?php echo base_url('viewinvoice/' . $tagihan->idtagihan) ?>" data-toggle="modal" class="btn btn-default" style="background-color: aquamarine;"><b>View</b></a>
+                                            <?php
+                                            if($user->auth == 1)
+                                            {
                                                 ?>
                                                 |
                                                 <a href="<?php echo base_url('confirm/'.$tagihan->idtagihan)?>" type="button" class="btn btn-default" style="background-color: #0a6aa1; color: white;"><b>Confirm</b></a>
-                                                <?php } ?>
-<!--                                                |-->
-<!--                                                <a href="#" type="button" class="btn btn-danger"><b>Delete</b></a>-->
-                                            </td>
-                                        </tr>
-                                        <?php
-                                    }
+                                            <?php } ?>
+                                            <!--                                                |-->
+                                            <!--                                                <a href="#" type="button" class="btn btn-danger"><b>Delete</b></a>-->
+                                        </td>
+                                    </tr>
+                                    <?php
+                                }
                                 ?>
                                 </tbody>
                             </table>
@@ -204,7 +204,7 @@ $this->view('template/header');
                             <div class="panel-heading"><h4>Links</h4></div>
                             <div class="panel-body">
                                 <ul style="list-style-type: none">
-                                        <li><a href="<?php echo site_url('Invoices')?>">Invoices</a></li>
+                                    <li><a href="<?php echo site_url('Invoices')?>">Invoices</a></li>
                                 </ul>
                             </div>
                         </div>
