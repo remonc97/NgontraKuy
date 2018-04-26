@@ -34,29 +34,44 @@ class Kontrakan extends CI_Model
 
 
 	}
+	
+	public function InsertRumah($data){
 
-	// public function InsertRumah($data){
-	//
-	// 	$checkinsert = false;
-	//
-	// 	try{
-	//
-	// 		$this->db->insert('rumah',$data);
-	// 		$checkinsert = true;
-	// 	}catch (Exception $ex) {
-	//
-	// 		$checkinsert = false;
-	// 	}
-	//
-	// 	return $checkinsert;
-	// }
+		$checkinsert = false;
 
+		try{
+
+			$this->db->insert('kontrakan',$data);
+			$checkinsert = true;
+		}catch (Exception $ex) {
+
+			$checkinsert = false;
+		}
+
+	}
+	public function UpdateAuth($ubah){
+
+	
+		$checkinsert = false;
+
+		try{
+			$this->db->update('pengguna',$idpengguna, array('ubah' => $ubah));
+			$checkinsert = true;
+		}catch (Exception $ex) {
+
+			$checkinsert = false;
+		}
+
+		return $checkinsert;
+
+	}
 	 public function get_results($search_term)
     {
         // Use the Active Record class for safer queries.
         $query=$this->db->like('fasilitas',$search_term)->get('kontrakan');
 
-		//$this->db->query("select * from rumah where fasilitas like '%kasur%' ");
+		
+		//$this->db->query("select * from rumah where fasilitas like '%kasur%' "); 
 
         // Execute the query.
         //$query = $this->db->get();
@@ -78,7 +93,7 @@ class Kontrakan extends CI_Model
 	}
 
     public function DeleteKontrakan($idkontrakan){
-  		$checkupdate = false;
+  		$checkupdate = false;	
 
   		try{
   			$this->db->where('idkontrakan',$idkontrakan);

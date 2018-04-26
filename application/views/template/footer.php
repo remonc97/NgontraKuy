@@ -79,87 +79,49 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="modal-content">
                 <div class="row">
                     <div class="col-sm-12">
-                        <h4>Input Rumah</h4>
-                        <form role="form" action="<?php blink('TaKon/InsetRumah')?>" method="post" enctype="multipart/form-data"> 
-							<input type="hidden" id="idrumah" name="idrumah" value="<?php echo $this->uri->segment(3);?>" />
-							<div class="form-group">
-                                <label for="ukuran">ID Kontrakan</label>
-                                <input type="text" class="form-control" id="idkontrakan" placeholder="ID Kontrakan" name="idkontrakan">
+                        <h4><b>Input Kontrakan:</h4><br>
+                        <form name="formupload" action="<?php blink('TaKon/InsetRumah')?>" method="post" enctype="multipart/form-data"> 
+							<input type="hidden" id="idkontrakan" name="idkontrakan" value="<?php echo $this->uri->segment(3);?>" />
+                                <input type="hidden" class="form-control" id="idpengguna" name="idpengguna" value="<?php echo $this->session->userdata('idpengguna');?>" disabled>
+                            <div class="form-group">
+                                <label for="nmkontrakan">Nama Kontrakan</label>
+                                <input type="text" class="form-control" id="nmkontrakan" placeholder="Nama Kontrakan" name="nmkontrakan">
                             </div>
                             <div class="form-group">
-                                <label for="nmrumah">Nama Rumah</label>
-                                <input type="text" class="form-control" id="nmrumah" placeholder="Nama Rumah" name="nmrumah">
+                                <label for="kota">Kota</label>
+                                <input type="text" class="form-control" id="kota" placeholder="Kota" name="kota">
+                            </div>
+                            <div class="form-group">
+                                <label for="alamat">Alamat</label>
+                                <input type="text" class="form-control" id="alamat" placeholder="Alamat" name="alamat">
+                            </div>
+                            <div class="form-group">
+                                <label for="notelp">No Telpon</label>
+                                <input type="text" class="form-control" id="notelp" placeholder="No Telpon" name="notelp">
                             </div> 
-							<div class="form-group">
-								<label for="dayatampung">Daya Tampung:</label>
-								<select class="form-control" id="dayatampung" name="dayatampung">
-									<option selected>1</option>
-									<option>2</option>
-									<option>3</option>
-									<option>4</option>
-								</select>
-							</div> 
                             <div class="form-group">
-                                <label for="ukuran">Ukuran</label>
-                                <input type="text" class="form-control" id="ukuran" placeholder="Ukuran" name="ukuran">
-                            </div>
-                            <div class="form-group">
-                                <label for="harga">Harga</label>
-                                <input type="text" class="form-control" id="harga" placeholder="Rp." name="harga">
+                                <label for="deskripsi">Deskripsi</label>
+                                <input type="text" class="form-control" id="deskripsi" placeholder="Deskripsi" name="deskripsi">
                             </div>
                             <div class="form-group">
                                 <label for="fasilitas">Fasilitas</label>
                                 <input type="text" class="form-control" id="fasilitas" placeholder="Fasilitas" name="fasilitas">
                             </div>
                             <div class="form-group">
-                                <label for="status">Status</label>
-                                <input type="text" class="form-control" id="status" placeholder="Status" name="status">
+                                <label for="ukuran">Ukuran</label>
+                                <input type="text" class="form-control" id="ukuran" placeholder="Ukuran" name="ukuran">
                             </div>
-							<div>
-							<label class="custom-file">Pilih Gambar</label>
-								<input type="file" id="gambar" name="gambar" class="custom-file-input">
-								<span class="custom-file-control"></span>
-							</div>
-							<br>
-                            <input type="submit" role="button" class="btn btn-success" value="Create"/>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- /.modal -->
-	<!-- Modal -->
-    <div id="TamKon2" class="modal fade">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="row">
-                    <div class="col-sm-12">
-                        <h4>Input Kontrakan</h4>
-                        <form role="form" action="<?php blink('Takon/InsetData')?>" method="post"> 
-							<input type="hidden" id="idkontrakan" name="idkontrakan" value="<?php echo $this->uri->segment(3);?>" />
-							<div class="form-group">
-                                <label for="ukuran">ID User</label>
-                                <input type="text" class="form-control" id="iduser" placeholder="ID User" name="iduser">
+							<input id="status" type="hidden" name="status" value="available" checked>
+                            <div class="form-group">
+                                <label for="harga">Harga</label>
+                                <input type="text" class="form-control" id="harga" placeholder="Rp." name="harga">
                             </div>
                             <div class="form-group">
-                                <label for="nmrumah">Nama Kontrakan</label>
-                                <input type="text" class="form-control" id="nmkontrakan" placeholder="Nama Kontrakan" name="nmkontrakan">
-                            </div> 
-                            <div class="form-group">
-                                <label for="ukuran">No. Telpon</label>
-                                <input type="text" class="form-control" id="notelp" placeholder="No. Telpon" name="notelp">
-                            </div>
-                            <div class="form-group">
-                                <label for="harga">Deskripsi</label>
-                                <input type="text" class="form-control" id="deskripsi" placeholder="Deskripsi.." name="deskripsi">
-                            </div>
-                            <div class="form-group">
-                                <label for="harga">Alamat</label>
-                                <input type="text" class="form-control" id="alamat" placeholder="Alamat" name="alamat">
+                                <label for="file">Masukan Gambar</label>
+                                <input type="file" id="gambar"  name="gambar[]" multiple>
                             </div>
 							<br>
-                            <input type="submit" role="button" class="btn btn-success" value="Create"/>
+                            <input type="submit" role="button"  name="buat" class="btn btn-success" value="Create"/>
                         </form>
                     </div>
                 </div>

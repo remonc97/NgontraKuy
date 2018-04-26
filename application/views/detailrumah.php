@@ -92,8 +92,8 @@ $this->view('template/header');
 <!-- banner -->
 <div class="inside-banner">
 	<div class="container">
-		<span class="pull-right"><a href="<?php echo site_url()?>">Home</a> / Buy</span>
-		<h2>Buy</h2>
+		<span class="pull-right"><a href="<?php echo site_url()?>">Home</a> / Kontrakan Info</span>
+		<h2>Kontrakan Info</h2>
 	</div>
 </div>
 <!-- banner -->
@@ -125,7 +125,7 @@ $this->view('template/header');
 								<div class="carousel-inner">
 									<!-- Item 1 -->
 									<div class="item active">
-									  <img src="<?php echo base_url('assets/images/Rumah/'.$details->gambar)?>"/>
+									  <img src="<?php echo base_url('assets/images/Rumah/'.$details->gambar)?>" class="image-responsive"/>
 									</div>
 									<!-- #Item 1 -->
 
