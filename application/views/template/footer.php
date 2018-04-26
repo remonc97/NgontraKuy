@@ -117,10 +117,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             </div>
                             <div class="form-group">
                                 <label for="file">Masukan Gambar</label>
-                                <input type="file" id="gambar"  name="gambar">
+                                <input type="file" id="gambar"  name="gambar[]" multiple>
                             </div>
 							<br>
-                            <input type="submit" role="button" class="btn btn-success" value="Create"/>
+                            <input type="submit" role="button"  name="buat" class="btn btn-success" value="Create"/>
                         </form>
                     </div>
                 </div>

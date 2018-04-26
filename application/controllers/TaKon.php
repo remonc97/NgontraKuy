@@ -46,11 +46,20 @@ class TaKon extends CI_Controller {
 	
 	public function InsetRumah(){
 		
+		$data = array();
+            $filesCount = count($_FILES['gambar']['name']);
+            for($i = 0; $i < $filesCount; $i++){
+                $_FILES['gambar']['name'] = $_FILES['gambar']['name'][$i];
+                $_FILES['gambar']['type'] = $_FILES['gambar']['type'][$i];
+                $_FILES['gambar']['tmp_name'] = $_FILES['gambar']['tmp_name'][$i];
+                $_FILES['gambar']['error'] = $_FILES['gambar']['error'][$i];
+                $_FILES['gambar']['size'] = $_FILES['gambar']['size'][$i];
+			
 		$config['upload_path']          = './assets/images/rumah'; //call paath
 		$config['allowed_types'] = 'jpeg|jpg|gif|png';//type file upload
 		$this->load->library('upload', $config);
 		
-		$nmkontrakan = $this->input->post('nmkontrakan'); //ohiya. sori. kebiasaan suka bablas wkwk. oke semangat! btw sessionnya belom jalan loh itu 
+		$nmkontrakan = $this->input->post('nmkontrakan'); 
 		$notelp = $this->input->post('notelp');
 		$harga = $this->input->post('harga');
 		$deskripsi = $this->input->post('deskripsi');
@@ -60,13 +69,14 @@ class TaKon extends CI_Controller {
 		$kota = $this->input->post('kota');
 		$ukuran = $this->input->post('ukuran');
 		$status = $this->input->post('status');
-        $idpengguna=$this->session->userdata('idpengguna');
+        $idpengguna=$this->session->userdata('idpengguna'); 
+		$auth = $this->session->userdata('auth');
 		$idkontrakan = $this->input->post('idkontrakan');
 		
 		if($this->upload->do_upload('gambar')){ //dari sini akan kebuat keterangan ttg data yg diupload
-		$data['upload_data'] = $this->upload->data(); //trus keterangannya masuk ke variabel
+		$data[$i]['upload_data'] = $this->upload->data(); //trus keterangannya masuk ke variabel
 		
-		foreach ($data['upload_data'] as $item => $value) { //ini ngeloop data yg keupload, kayak file type, file name, blabla, full path, dsb
+		foreach ($data[$i]['upload_data'] as $item => $value) { //ini ngeloop data yg keupload, kayak file type, file name, blabla, full path, dsb
 			if ($item == 'file_name') { //kita cuma mau ambil file name nya aja beserta format filenya kan?
 				$gambar = $value; //ini dia ngesave file name si gambar berdasarkan data yg keupload
 				break;
@@ -87,7 +97,12 @@ class TaKon extends CI_Controller {
 		
 		);
 		
+		$ubah = array(
+		'auth' => true,
+		'idpengguna' => $idpengguna
+		);
 		
+		$result = $this->Kontrakan->UpdateAuth($ubah);
 		$result = $this->Kontrakan->InsertRumah($data);
 		
 			redirect('Home');
@@ -101,7 +116,8 @@ class TaKon extends CI_Controller {
 		}else{
 			echo json_encode(array('success' => false));
 		}*/
-	
+		
+			}
 	}
 	
 	/*public function InsetRumah(){
