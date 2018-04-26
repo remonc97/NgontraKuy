@@ -35,19 +35,4 @@ class Model_Admin extends CI_Model
 		}
 		return $q;
 	}
-	public function getTagihan()
-    {
-        $hasil = $this->db->get('tagihan');
-        return $hasil->result();
-
-    }
-    public function Confirm($idtagihan)
-    {
-        try{
-          $q = $this->db->set('statusbayar','1')->where('idtagihan',$idtagihan)->update('tagihan');
-        }catch(Exception $e){
-            die($e);
-        }
-        return $q;
-    }
 }

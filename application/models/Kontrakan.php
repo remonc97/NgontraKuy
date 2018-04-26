@@ -119,4 +119,12 @@ class Kontrakan extends CI_Model
     public function checkAvailability($idkontrakan){
         return $this->db->where('idkontrakan',$idkontrakan)->where('status','available')->get('kontrakan')->row();
     }
+    public function getData($idtagihan){
+        return $this->db->select('kontrakan.*')
+            ->from('tagihan')
+            ->join('reservasi','tagihan.idreservasi = reservasi.idreservasi')
+            ->join('kontrakan','reservasi.idpengguna = kontrakan.idpengguna')
+            ->where('tagihan.idtagihan',$idtagihan)
+            ->get()->row();
+    }
 }

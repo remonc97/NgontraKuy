@@ -152,7 +152,7 @@ $this->view('template/header');
 
                                                 <a href="<?php echo base_url('viewinvoice/' . $tagihan->idtagihan) ?>" data-toggle="modal" class="btn btn-default" style="background-color: aquamarine;"><b>View</b></a>
                                                 <?php
-                                                if($user->auth == 1)
+                                                if($auth == 1)
                                                 {
                                                 ?>
                                                 |
@@ -173,7 +173,7 @@ $this->view('template/header');
             </div>
             <div class="col-lg-4 col-sm-4 col-xs-12">
                 <div class="row">
-                    <?php if($user->auth == 0) {?>
+                    <?php if($auth == 0) {?>
                         <div class="col-md-12">
                             <div class="panel panel-default">
                                 <div class="panel-heading"><h4>Notification</h4></div>
@@ -181,9 +181,9 @@ $this->view('template/header');
                                     <ul style="list-style-type: none">
                                         <li>
                                             <?php
-                                            if($tagihan->jumlah > 0){
+                                            if($tagihan1->jumlah > 0){
                                                 ?>
-                                                You have <a href="<?php echo site_url('Invoices')?>"><?php echo $tagihan->jumlah?></a> invoice(s) waiting to be processed.
+                                                You have <a href="<?php echo site_url('Invoices')?>"><?php echo $tagihan1->jumlah ?></a> invoice(s) waiting to be processed.
                                                 <?php
                                             }else{
                                                 ?>

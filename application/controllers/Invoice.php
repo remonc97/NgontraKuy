@@ -17,16 +17,14 @@ class Invoice extends CI_Controller
     {
         if($this->User->ceksession() == true) {
 
-            $id = $this->session->userdata('idpengguna');
-            $data['all'] = $this->Model_Admin->getTagihan();
-            $data['user'] = $this->Model_Admin->get1User($id);
             $data['session'] = true;
             $data['namalengkap'] = $this->session->userdata('namalengkap');
-            $data['result'] = 'Konfirmasi Berhasil';
             $data['idpengguna']=$this->session->userdata('idpengguna');
             $data['nama'] = $this->session->userdata('namalengkap');
             $data['auth']=$this->session->userdata('auth');
-            $data['tagihan'] = $this->Tagihan->getJmlTagihan($data['idpengguna']);
+
+            $data['all'] = $this->Tagihan->getTagihan($data['idpengguna']);
+            $data['tagihan1'] = $this->Tagihan->getJmlTagihan($data['idpengguna']);
             $this->load->view('Invoices', $data);
         }else{
             redirect('/','refresh');
@@ -41,6 +39,9 @@ class Invoice extends CI_Controller
             $data['nama'] = $this->session->userdata('namalengkap');
             $data['auth']=$this->session->userdata('auth');
             $data['tagihan'] = $this->Tagihan->getJmlTagihan($data['idpengguna']);
+            $data['kontrakan'] = $this->Kontrakan->getData($idtagihan);
+            print_r($data['kontrakan']);die();
+
             if($data['tagihan'] != null){
                 $this->load->view('isitagihan',$data);
             }else{

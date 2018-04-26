@@ -112,8 +112,8 @@ $this->view('template/header');
 
 <div class="container">
     <div class="spacer">
-        <div class="row register">
-            <div class="col-lg-8 col-sm-12 col-xs-12 " style="background-color: white;padding:50px">
+        <div class="row">
+            <div class="col-lg-8 col-sm-12 col-xs-12 ">
                 <div class="row">
                     <div class="col-md-12">
                         <h3>Isi Tagihan</h3><br/>
@@ -121,59 +121,28 @@ $this->view('template/header');
                 </div>
                 <div class="row">
                     <div class="col-md-12">
-                        <div class="table-scrollable">
-                            <table class="table table-hover">
-                                <thead>
-                                <tr>
-                                    <th class="center">Id Reservasi</th>
-                                    <th class="center">Tanggal Tagihan</th>
-                                    <th class="center">Total Tagihan</th>
-                                    <th class="center">Status Bayar</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <?php foreach($all as $tagihan) {
-                                    ?>
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                <table class="table-responsive">
                                     <tr>
-                                        <td class="center"><?php echo $tagihan->idreservasi; ?></td>
-                                        <td class="center"><?php echo $tagihan->tgltagihan; ?></td>
-                                        <td class="center"><?php echo $tagihan->totaltagihan; ?></td>
-                                        <td class="center">
-                                            <?php if($tagihan->statusbayar == 0)
-                                            {
-                                                echo "Belum Dibayar";
-                                            }elseif ($tagihan->statusbayar == 1)
-                                            {
-                                                echo "Sudah Dibayar";
-                                            }else{}
-                                            ?>
-                                        </td>
-                                        <td class="center">
-
-                                            <a href="<?php echo base_url('viewinvoice/' . $tagihan->idtagihan) ?>" data-toggle="modal" class="btn btn-default" style="background-color: aquamarine;"><b>View</b></a>
-                                            <?php
-                                            if($user->auth == 1)
-                                            {
-                                                ?>
-                                                |
-                                                <a href="<?php echo base_url('confirm/'.$tagihan->idtagihan)?>" type="button" class="btn btn-default" style="background-color: #0a6aa1; color: white;"><b>Confirm</b></a>
-                                            <?php } ?>
-                                            <!--                                                |-->
-                                            <!--                                                <a href="#" type="button" class="btn btn-danger"><b>Delete</b></a>-->
-                                        </td>
+                                        <td>ID Reservasi</td>
+                                        <td>&nbsp;:&nbsp;</td>
+                                        <td><?php echo $tagihan->idreservasi?></td>
                                     </tr>
-                                    <?php
-                                }
-                                ?>
-                                </tbody>
-                            </table>
+                                    <tr>
+                                        <td>ID Reservasi</td>
+                                        <td>&nbsp;:&nbsp;</td>
+                                        <td><?php echo $tagihan->idreservasi?></td>
+                                    </tr>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="col-lg-4 col-sm-4 col-xs-12">
                 <div class="row">
-                    <?php if($user->auth == 0) {?>
+                    <?php if($auth == 0) {?>
                         <div class="col-md-12">
                             <div class="panel panel-default">
                                 <div class="panel-heading"><h4>Notification</h4></div>

@@ -33,4 +33,24 @@ class Tagihan extends CI_Model
     public function getDataTagihan($idtagihan){
         return $this->db->where('idtagihan',$idtagihan)->get('tagihan')->row();
     }
+
+    public function getTagihan($idpengguna)
+    {
+        return $this->db->select('tagihan.*')
+            ->from('tagihan')
+            ->join('reservasi','tagihan.idreservasi = reservasi.idreservasi')
+            ->join('pengguna','reservasi.idpengguna = pengguna.idpengguna')
+            ->where('pengguna.idpengguna',$idpengguna)
+            ->get()->result();
+
+    }
+    public function confirm($idtagihan)
+    {
+        try{
+            $q = $this->db->set('statusbayar','1')->where('idtagihan',$idtagihan)->update('tagihan');
+        }catch(Exception $e){
+            die($e);
+        }
+        return $q;
+    }
 }
