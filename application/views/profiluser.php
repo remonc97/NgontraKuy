@@ -101,24 +101,32 @@ $this->view('template/header');
 
 <div class="container">
     <div class="spacer">
-        <div class="row register">
-            <div class="col-lg-3 col-sm-4 col-xs-12">
-                <div class="col-md-3">
-                    <div class="card">
-                      <div class="card-body text-center">
-                        <p><img class=" img-fluid" src="<?php echo base_url('assets/images/woman.png')?>" alt="card image" width="200px" height="200px"></p>
-                      </div>
+        <div class="row">
+            <div class="col-md-3">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="panel" style="background-color: transparent">
+                            <div class="panel-body text-center">
+                                <div class="row">
+                                    <img class="img-fluid" src="<?php echo base_url('assets/images/girl.png')?>" alt="card image" width="150px">
+                                    <br/><br/>
+                                    <h3>My Profile</h3>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-5 col-sm-6 col-xs-12 " >
+            <div class="col-md-5">
                 <div class="row">
                     <div class="col-md-12">
+                        <br/>
+                        <br/>
                         <div class="panel panel-default">
-                            <div class="panel-heading" style="background-color: white;border-color: transparent"><h4>My Profile</h4></div>
+                            <div class="panel-heading" style="background-color: white;border-color: transparent"></div>
                             <div class="panel-body">
-                                <div class="table-scrollable">
-                                    <table class="table table-hover">
+                                <div class="table-responsive">
+                                    <table class="table">
                                         <?php if(isset($datauser)){?>
                                             <tbody>
                                             <tr>
@@ -156,7 +164,7 @@ $this->view('template/header');
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 col-sm-4 col-xs-12">
+            <div class="col-md-4">
                 <div class="row">
                   <?php if($auth=='0'){?>
                   <div class="col-md-12">
