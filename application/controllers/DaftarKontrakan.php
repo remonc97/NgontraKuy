@@ -18,13 +18,13 @@ class DaftarKontrakan extends CI_Controller {
             $data['session'] = true;
 
             #mindahin data session ke variabel baru untuk dipassing di view
-            $data['iduser']=$this->session->userdata('iduser');
-            $data['nama'] = $this->session->userdata('nama');
+            $data['idpengguna']=$this->session->userdata('idpengguna');
+            $data['namalengkap'] = $this->session->userdata('namalengkap');
             $data['auth']=$this->session->userdata('auth');
 
 
 
-		    $data['datakontrakan'] = $this->Kontrakan->getAllKontrakan($data['iduser']);
+		    $data['datakontrakan'] = $this->Kontrakan->getAllKontrakan($data['idpengguna']);
             $this->load->view('listkontrakan',$data); #jalankan view profil
 
         }
@@ -34,8 +34,8 @@ class DaftarKontrakan extends CI_Controller {
         $idkontrakan = $this->uri->segment(2);
         $data['session'] = true;
         $data['auth'] = $this->session->userdata('auth');
-        $data['nama'] = $this->session->userdata('nama');
-        $data['iduser']=$this->session->userdata('iduser');
+        $data['namalengkap'] = $this->session->userdata('namalengkap');
+        $data['idpengguna']=$this->session->userdata('idpengguna');
 
         $data['getdata']= $this->Kontrakan->getOneKontrakan($idkontrakan);
         If($data['getdata'] != null){
@@ -44,7 +44,7 @@ class DaftarKontrakan extends CI_Controller {
     }
 
 	public function View(){
-		$result = $this->Kontrakan->getAllKontrakan($this->session->userdata('iduser'));
+		$result = $this->Kontrakan->getAllKontrakan($this->session->userdata('idpengguna'));
 
 		$data['data'] = $result;
 
