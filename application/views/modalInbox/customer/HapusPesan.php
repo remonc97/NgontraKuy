@@ -11,7 +11,7 @@ foreach($pesan as $data){ ?>
       <div class='modal-body'>Anda yakin ingin menghapus ?
       </div>
       <div class='modal-footer'>
-        <form class="" action="<?php echo site_url('Inbox/hapusPesan/'.$data->idpesan) ?>" method="post">
+        <form class="" action="<?php echo site_url('Inbox/hapusPesan/'.$data->idpenerima) ?>" method="post">
           <input type='hidden' value='<?php echo $data->idpesan?>' name='idpesan'>
             <button type='button' class='btn btn-default' data-dismiss='modal'>Batal</button>
             <button class='btn btn-danger' aria-label='Delete'type='submit' name='hapus'></span>Hapus</button>

@@ -19,63 +19,117 @@ class M_Inbox extends CI_Model {
 		return $checkinsert;
 	}
 
+  public function getNamaPenerima($idpenerima)
+  {
+    $result = $this->db->query("SELECT * FROM pengguna where idpengguna ='".$idpenerima."'");
+    return $result->result();
+  }
+
   public function getAllPesan()
   {
-		$result = $this->db->get('pesan');
-		return $result->result();
+		$result = $this->db->query("SELECT * FROM pesan,pengguna WHERE pesan.idpengirim = pengguna.idpengguna");
+    return $result->result();
 	}
 
   public function detilPesan2($id)
   {
-    $result = $this->db->query("SELECT * FROM user,pesan WHERE user.iduser = pesan.iduser and nama ='".$id."'");
+    $result = $this->db->query("SELECT * FROM pesan,pengguna WHERE pesan.idpengirim = pengguna.idpengguna and namalengkap = '".$id."'");
+    return $result->result();
+  }
+
+  public function detilPesanPemilik($id)
+  {
+    $result = $this->db->query("SELECT * FROM pesan,pengguna WHERE pesan.idpengirim = pengguna.idpengguna and idpenerima = '".$id."'");
+    return $result->result();
+  }
+
+  public function authTabelPesan($idpengirim)
+  {
+    $result = $this->db->query("SELECT * FROM pesan WHERE idpengirim = '".$idpengirim."'");
     return $result->result();
   }
 
   public function detilPesan()
   {
-    $result = $this->db->query("SELECT * FROM user,pesan WHERE user.iduser = pesan.iduser");
+    $result = $this->db->query("SELECT * FROM pengguna,pesan WHERE pengguna.idpengguna = pesan.idpengirim group by pesan.idpengirim");
+    return $result->result();
+  }
+
+  public function isiPesan($idpengirim,$idpenerima)
+  {
+    $result = $this->db->query("SELECT * FROM pesan WHERE idpengirim = '".$idpengirim."' AND idpenerima = '".$idpenerima."'");
+    return $result->result();
+  }
+
+  public function isiPesan2($idpengirim,$idpenerima)
+  {
+    $result = $this->db->query("SELECT * FROM pengguna,pesan WHERE pesan.idpengirim = pengguna.idpengguna and idpengirim = '".$idpengirim."' AND idpenerima = '".$idpenerima."'");
+    return $result->result();
+  }
+
+  public function isiPesanBalas($idpengirim,$idpenerima)
+  {
+    $result = $this->db->query("SELECT * FROM pengguna,pesan WHERE pesan.idpengirim = pengguna.idpengguna and idpengirim = '".$idpengirim."' AND idpenerima = '".$idpenerima."'");
     return $result->result();
   }
 
   public function getPemilik()
   {
-    $result = $this->db->query("SELECT * FROM user where auth = 1");
+    $result = $this->db->query("SELECT * FROM pengguna,pesan where pengguna.idpengguna = pesan.idpenerima and auth = 1");
     return $result->result();
   }
 
-  public function getCustomer2()
+  public function getPemilik2()
   {
-    $result = $this->db->query("SELECT * FROM user,pesan where pesan.iduser = user.iduser and auth = 0");
+    $result = $this->db->query("SELECT * FROM pengguna WHERE auth = 1");
     return $result->result();
   }
 
   public function getCustomer()
   {
-    $result = $this->db->query("SELECT * FROM user where auth = 0");
+    $result = $this->db->query("SELECT * FROM pengguna WHERE auth = 0");
+    return $result->result();
+  }
+
+  public function getCustomer2($namalengkap)
+  {
+    $result = $this->db->query("SELECT * FROM pengguna WHERE namalengkap = '".$namalengkap."'");
+    return $result->result();
+  }
+
+  public function getCustomerTable($namalengkap)
+  {
+    $result = $this->db->query("SELECT * FROM pengguna WHERE auth = 1 and namalengkap ='".$namalengkap."'");
     return $result->result();
   }
 
   public function getIsi($iduser)
   {
-    $result = $this->db->query("SELECT tglpesan,isi from pesan where iduser = '".$iduser."'");
+    $result = $this->db->query("SELECT tglpesan,isi from pesan where idpengguna = '".$iduser."'");
     return $result->result();
   }
 
   public function getMerge()
   {
-    $result = $this->db->query("SELECT * FROM user,pesan WHERE user.iduser = pesan.iduser and auth = 1 group by user.iduser");
+    $result = $this->db->query("SELECT * FROM pengguna,pesan WHERE pengguna.idpengguna = pesan.idpengirim GROUP BY idpenerima");
     return $result->result();
-  }   
+  }
+
+  public function getMergeTable()
+  {
+    $result = $this->db->query("SELECT * FROM pesan,pengguna WHERE pesan.idpengirim = pengguna.idpengguna and status is not null");
+    return $result->result();
+  }
 
   public function getMergeCustomer()
   {
-    $result = $this->db->query("SELECT * FROM user,pesan WHERE user.iduser = pesan.iduser and auth = 0 group by subject");
+    $result = $this->db->query("SELECT * FROM pengguna,pesan WHERE pengguna.idpengguna = pesan.idpengirim and auth = 0 group by topik");
     return $result->result();
-  }  
+  }
 
   public function deletePesan($id)
   {
-    $this->db->where('idpesan', $id);
+    $this->db->where('idpenerima', $id);
      $this->db->delete('pesan');
   }
 
@@ -85,28 +139,16 @@ class M_Inbox extends CI_Model {
     $this->db->update('pesan',$data);
   }
 
-  public function BalasPesanCustomer($data){
-
-    $checkinsert = false;
-    try{
-      $this->db->insert('pesancustomer',$data);
-      $checkinsert = true;
-    }catch (Exception $ex) {
-      $checkinsert = false;
-    }
-    return $checkinsert;
+  public function getTampilPesanCustomer($idpenerima)
+  {
+    $result = $this->db->query("SELECT * FROM pesan,pengguna where pesan.idpengirim = pengguna.idpengguna and idpenerima = '".$idpenerima."' and status is not null");
+    return $result->result();
   }
 
-  public function getPesanCustomer($idpesan)
+  public function notifikasi()
   {
-    $result = $this->db->query("SELECT * FROM pesancustomer,pesan WHERE pesan.iduser = pesancustomer.iduser and pesancustomer.idpesan = '".$idpesan."'  group by id");
-    return $result->result(); 
-  }
-
-  public function getTampilPesanCustomer($penerima)
-  {
-    $result = $this->db->query("SELECT * FROM user,pesan where pesan.iduser = user.iduser and penerima = '".$penerima."'");
-    return $result->result(); 
+    $result = $this->db->query("SELECT max(idpesan) FROM pesan,pengguna where pesan.idpengirim = pengguna.idpengguna");
+      return $result->result();
   }
 
 }
