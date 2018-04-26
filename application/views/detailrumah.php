@@ -185,20 +185,20 @@ $this->view('template/header');
 								</div>
 							</div>
 						</div>
-						<div class="col-lg-12 col-sm-6 ">
+						<!-- <div class="col-lg-12 col-sm-6 ">
 							<div class="enquiry">
 								<h6>
 									<span class="glyphicon glyphicon-envelope"></span> Post Enquiry
 								</h6>
-								<form role="form">
-									<input type="text" class="form-control" placeholder="Full Name"/>
-									<input type="text" class="form-control" placeholder="you@yourdomain.com"/>
-									<input type="text" class="form-control" placeholder="your number"/>
-									<textarea rows="6" class="form-control" placeholder="Whats on your mind?"></textarea>
+								<form role="form" action="<?php echo ?>">
+									<input type="text" class="form-control" placeholder="Nama Lengkap" name="namalengkap" />
+									<input type="text" class="form-control" placeholder="kamu@domainmu.com" name="email"/>
+									<input type="text" class="form-control" placeholder="Nomor Teleponmu" name="notelp"/>
+									<textarea rows="6" class="form-control" placeholder="Apa yang kamu pikirkan?" name="isi"></textarea>
 									<button type="submit" class="btn btn-primary" name="Submit">Send Message</button>
 								</form>
 							</div>
-						</div>
+						</div> -->
 					</div>
 				</div>
 				<?php }
