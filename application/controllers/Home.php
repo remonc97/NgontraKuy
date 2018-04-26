@@ -22,13 +22,13 @@ class Home extends CI_Controller {
 	}
 
 	public function detail(){
-		$data['nama']=$this->session->userdata('nama');
+		$data['nama']=$this->session->userdata('namalengkap');
 		$idkontrakan=$this->uri->segment(2);
 		$details=$this->Kontrakan->getKontrakan($idkontrakan);
 		$data['details']=$details;
 		 if($this->User->ceksession() == true){
 			 $data['session'] = true;
-			 $data['nama'] = $this->session->userdata('nama');
+			 $data['nama'] = $this->session->userdata('namalengkap');
 			 $this->load->view('detailrumah',$data);
 		 }else{
 			 $this->load->view('detailrumah',$data);
