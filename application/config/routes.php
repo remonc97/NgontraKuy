@@ -66,7 +66,6 @@ $route['Booking/proses/(:any)'] = 'Transaksi/requestbooking';
 $route['BookConfirm/(:any)'] = 'Transaksi/book';
 $route['BookCancel/(:any)'] = 'Transaksi/cancel';
 $route['HomeDetails/(:any)']='Home/detail';
-$route['Invoices']='';
 $route['ListKontrakan']='DaftarKontrakan/index';
 $route['ViewKontrakan/(:any)'] = 'DaftarKontrakan/getOneKontrakan';
 $route['Login'] = 'Auth/login';
@@ -77,3 +76,9 @@ $route['delete/(:any)'] = 'Admin/delete';
 $route['Login'] = 'Auth/login';
 $route['Logout'] = 'Auth/logout';
 $route['Register'] = 'Home/regis';
+
+//Invoices
+$route['Invoices']='Invoice';
+$route['viewinvoice/(:any)'] = 'Invoice/view';
+$route['confirm/(:any)'] = 'Invoice/confirm';
+$route['deleteinvoice/(:any)'] = 'Invoice/delete';

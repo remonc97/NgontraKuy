@@ -15,7 +15,7 @@ $this->view('template/header');
 				"
                 <ul class=\"pull-right dropdown\">
                     <li style=\"margin-top: 20px;\">
-                        <a href=\"#\" style=\"text-transform:Capitalize;font-family: 'Ubuntu', sans-serif;\" class=\"dropdown-toggle\" data-toggle=\"dropdown\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\">Hi, $nama! <span class=\"caret\"></span></a>
+                        <a href=\"#\" style=\"text-transform:Capitalize;font-family: 'Ubuntu', sans-serif;\" class=\"dropdown-toggle\" data-toggle=\"dropdown\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\">Hi, $namalengkap! <span class=\"caret\"></span></a>
                         <ul class=\"dropdown-menu\"  style=\"padding-top: 10px;padding-bottom: 10px;\">
                             <li><a href=".site_url('Profile').">Profile</a></li>
                             <li><a href=".site_url('Inbox').">Inbox</a></li>
@@ -37,7 +37,7 @@ $this->view('template/header');
 <!-- banner -->
 <div class="container-center" style="margin: 10px;">
 	<div class="header">
-		<h2>Detail Pemilik Kontrakan atas nama, <?php echo $one->nama?></h2>
+		<h2>Detail Pemilik Kontrakan atas nama, <?php echo $one->namalengkap?></h2>
 	</div>
 		<div class="row" style="font-size: large">
 			<div class="col-lg-1"></div>
@@ -45,11 +45,11 @@ $this->view('template/header');
 				<table style="background-color: transparent; margin: 10px;">
 					<th>ID</th>
 					<th>:</th>
-					<th><?php echo $one->iduser?></th>
+					<th><?php echo $one->idpengguna?></th>
 					<tr>
 						<td>Nama</td>
 						<td>:</td>
-						<td><?php echo $one->nama;?></td>
+						<td><?php echo $one->namalengkap;?></td>
 					</tr>
 					<tr>
 						<td>E-mail</td>

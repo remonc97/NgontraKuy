@@ -7,21 +7,19 @@ $this->view('template/header');
 <div class="container">
     <!-- Header Starts -->
 	<div class="header">
-		<a href="<?php echo site_url()?>"><img src="<?php echo base_url('assets/images/logo1.png')?>" width="200px" alt="NgontraKuy"></a>
+		<a href="<?php echo site_url('Admin')?>"><img src="<?php echo base_url('assets/images/logo1.png')?>" width="200px" alt="NgontraKuy"></a>
 
 
 		<?php if(isset($session) && $session == true){
 			echo
-				"
-                <ul class=\"pull-right dropdown\">
+				"<ul class=\"pull-right dropdown\">
                     <li style=\"margin-top: 20px;\">
-                        <a href=\"#\" style=\"text-transform:Capitalize;font-family: 'Ubuntu', sans-serif;\" class=\"dropdown-toggle\" data-toggle=\"dropdown\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\">Hi, $nama! <span class=\"caret\"></span></a>
+                        <a href=\"#\" style=\"text-transform:Capitalize;font-family: 'Ubuntu', sans-serif;\" class=\"dropdown-toggle\" data-toggle=\"dropdown\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\">Hi, $namalengkap! <span class=\"caret\"></span></a>
                         <ul class=\"dropdown-menu\"  style=\"padding-top: 10px;padding-bottom: 10px;\">
                             <li><a href=".site_url('Logout').">Log out</a></li>
                         </ul>
                     </li>
-                </ul>
-                ";
+                </ul>";
 		}else{
 			echo "
                 <ul class=\"pull-right\">
@@ -58,10 +56,10 @@ $this->view('template/header');
 						?>
 						<tr>
 							<td class="center"><?php echo $user->email; ?></td>
-							<td class="center"><?php echo $user->nama; ?></td>
+							<td class="center"><?php echo $user->namalengkap; ?></td>
 							<td class="center"><?php echo 'Pemilik Kontrakan'; ?></td>
-							<td class="center"><a href="<?php echo base_url('view/' . $user->iduser) ?>" data-toggle="modal" class="btn btn-default" style="background-color: aquamarine;"><b>View</b></a> |
-								<a href="<?php echo base_url('edit/'.$user->iduser)?>" type="button" class="btn btn-warning"><b>Edit</b></a>
+							<td class="center"><a href="<?php echo base_url('view/' . $user->idpengguna) ?>" data-toggle="modal" class="btn btn-default" style="background-color: aquamarine;"><b>View</b></a> |
+								<a href="<?php echo base_url('edit/'.$user->idpengguna)?>" type="button" class="btn btn-warning"><b>Edit</b></a>
 								| <a href="#" type="button" class="btn btn-danger"><b>Delete</b></a></td>
 						</tr>
 						<?php
