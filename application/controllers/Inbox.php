@@ -14,8 +14,8 @@ class Inbox extends CI_Controller {
 	{
 		$auth = $this->session->auth;
         $data['session'] = true;
-        $data['iduser']=$this->session->userdata('iduser');
-        $data['nama'] = $this->session->userdata('nama');
+        $data['idpengguna']=$this->session->userdata('idpengguna');
+        $data['nama'] = $this->session->userdata('namalengkap');
 		if($auth == 0){
 			//ini customer
 			$data['featured'] = $this->Kontrakan->getFeatured();
@@ -24,7 +24,7 @@ class Inbox extends CI_Controller {
 		        $email = $this->session->userdata('email');
 
 	          	$merge = $this->M_Inbox->getMerge();
-	         	$mergeTable = $this->M_Inbox->getMergeTable();
+	         	$mergeTable = $this->M_Inbox->getMergeTable1();
 				$detilPesan = $this->M_Inbox->detilPesan();
 				$customer = $this->M_Inbox->getCustomer();
 				$pemilik = $this->M_Inbox->getPemilik2();
@@ -53,8 +53,8 @@ class Inbox extends CI_Controller {
 		} if($auth == 1) {
 			//ini pemilik
       $data['session'] = true;
-      $data['iduser']=$this->session->userdata('iduser');
-      $data['nama'] = $this->session->userdata('nama');
+      $data['iduser']=$this->session->userdata('idpengguna');
+      $data['nama'] = $this->session->userdata('namalengkap');
 			$data['featured'] = $this->Kontrakan->getFeatured();
 		    if($this->User->ceksession() == true){
 		    	$nama = $this->session->userdata('namalengkap');
@@ -225,8 +225,8 @@ class Inbox extends CI_Controller {
 	{
 		$auth = $this->session->auth;
 	    $data['session'] = true;
-	  	$data['iduser']=$this->session->userdata('iduser');
-	    $data['nama'] = $this->session->userdata('nama');
+	  	$data['iduser']=$this->session->userdata('idpengguna');
+	    $data['nama'] = $this->session->userdata('namalengkap');
 		if($auth == 0){
 			//ini customer
 			$data['featured'] = $this->Kontrakan->getFeatured();
