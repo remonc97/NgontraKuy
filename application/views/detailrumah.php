@@ -133,7 +133,7 @@ $this->view('template/header');
                                                 <!-- Item 1 -->
                                                 <div class="item active">
                                                     <div class="image-holder">
-                                                        <img src="<?php echo base_url('assets/images/Rumah/'.$details->gambar)?>" style="width: 200px"/>
+                                                        <img src="<?php echo base_url('assets/images/Rumah/'.$details->gambar)?>" class="img-responsive"/>
                                                     </div>
                                                 </div>
                                                 <!-- #Item 1 -->
