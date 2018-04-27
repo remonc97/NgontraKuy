@@ -63,10 +63,7 @@ $this->view('template/header');
             ?>
             <ul class="pull-right" style="padding-top: 20px;padding-bottom: 20px;">
                 <li>
-                    <a href="#" style="text-transform:Capitalize;font-family: 'Ubuntu', sans-serif;" data-toggle="modal" data-target="#TamKon2">Tambah Kontrakan</a>
-                </li>
-                <li>
-                    <a href="#" style="text-transform:Capitalize;font-family: 'Ubuntu', sans-serif;" data-toggle="modal" data-target="#TamKon">Tambah Rumah</a>
+                    <a href="#" style="text-transform:Capitalize;font-family: 'Ubuntu', sans-serif;" data-toggle="modal" data-target="#TamKon">Tambah Kontrakan</a>
                 </li>
                 <li>
                     <h3 style="text-transform:Capitalize;font-family: 'Ubuntu', sans-serif;color:#72b70f;font-size: 15pt;"><?php echo "Hi, $nama!";?></h3>
