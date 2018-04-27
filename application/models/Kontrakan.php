@@ -55,7 +55,7 @@ class Kontrakan extends CI_Model
 		$checkinsert = false;
 
 		try{
-			$this->db->update('pengguna',$idpengguna, array('ubah' => $ubah));
+			$this->db->set('auth',$ubah['auth'])->where('idpengguna',$ubah['idpengguna'])->update('pengguna');
 			$checkinsert = true;
 		}catch (Exception $ex) {
 
