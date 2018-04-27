@@ -22,35 +22,36 @@ $this->view('template/header');
 </style>
 <!-- Header Starts -->
 <div class="navbar-wrapper">
-  <div class="navbar-inverse" role="navigation">
-    <div class="container">
-      <div class="navbar-header">
+    <div class="navbar-inverse" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
 
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
 
-      </div>
-      <!-- Nav Starts -->
-      <style>
-        .nav li a {
-          font-family: 'Ubuntu', sans-serif !important;
-        }
-      </style>
-        <div class="navbar-collapse  collapse">
-          <ul class="nav navbar-nav navbar-right">
-            <li class="active"><a href="<?php echo site_url()?>" >Home</a></li>
-            <li><a href="<?php echo site_url('Agents')?>">Agents</a></li>
-            <li><a href="<?php echo site_url('ContactUs')?>">Contact Us</a></li>
-            <li><a href="<?php echo site_url('About')?>">About</a></li>
-          </ul>
+            </div>
+            <!-- Nav Starts -->
+            <style>
+                .nav li a {
+                    font-family: 'Ubuntu', sans-serif !important;
+                }
+            </style>
+            <div class="navbar-collapse  collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="active"><a href="<?php echo site_url()?>" >Home</a></li>
+                    <li><a href="<?php echo site_url('Agents')?>">Agents</a></li>
+                    <li><a href="<?php echo site_url('ContactUs')?>">Contact Us</a></li>
+                    <li><a href="<?php echo site_url('About')?>">About</a></li>
+                    <li><a href="<?php echo site_url('Logout')?>">Logout</a></li>
+                </ul>
+            </div>
+        <!-- #Nav Ends -->
         </div>
-      <!-- #Nav Ends -->
     </div>
-  </div>
 </div>
 <!-- #Header Starts -->
 
@@ -59,25 +60,19 @@ $this->view('template/header');
     <div class="header">
         <a href="<?php echo site_url()?>"><img src="<?php echo base_url('assets/images/logo1.png')?>" width="200px" alt="NgontraKuy"></a>
         <?php if(isset($session) && $session == true){
-            echo
-                "
-                <ul class=\"pull-right\">
-                    <li style=\"margin-top: -10px\"><a href=\"#\" style=\"text-transform:Capitalize;font-family: 'Ubuntu', sans-serif;\" data-toggle=\"modal\" data-target=\"#TamKon2\">Tambah Kontrakan</a></li>
-                    <li style=\"margin-top: -10px\"><a href=\"#\" style=\"text-transform:Capitalize;font-family: 'Ubuntu', sans-serif;\" data-toggle=\"modal\" data-target=\"#TamKon\">Tambah Rumah</a></li>
-                    <li style=\"margin-top: -10px;padding-top: 10px;padding-bottom: 10px;\">
-                        <ul class='dropdown'>
-                            <li>
-                                <a href=\"#\" style=\"text-transform:Capitalize;font-family: 'Ubuntu', sans-serif;\" class=\"dropdown-toggle\" data-toggle=\"dropdown\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\">Hi, $nama! <span class=\"caret\"></span></a>
-                                <ul class=\"dropdown-menu\"  >
-                                    <li><a href=".site_url('Profile').">Profile</a></li>
-                                    <li><a href=".site_url('Inbox').">Inbox</a></li>
-                                    <li><a href=".site_url('Logout').">Log out</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-                ";
+            ?>
+            <ul class="pull-right" style="padding-top: 20px;padding-bottom: 20px;">
+                <li>
+                    <a href="#" style="text-transform:Capitalize;font-family: 'Ubuntu', sans-serif;" data-toggle="modal" data-target="#TamKon2">Tambah Kontrakan</a>
+                </li>
+                <li>
+                    <a href="#" style="text-transform:Capitalize;font-family: 'Ubuntu', sans-serif;" data-toggle="modal" data-target="#TamKon">Tambah Rumah</a>
+                </li>
+                <li>
+                    <h3 style="text-transform:Capitalize;font-family: 'Ubuntu', sans-serif;color:#72b70f;font-size: 15pt;"><?php echo "Hi, $nama!";?></h3>
+                </li>
+            </ul>
+            <?php
         }else{
             echo "
                 <ul class=\"pull-right\">
