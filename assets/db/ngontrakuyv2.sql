@@ -7,6 +7,29 @@ create database ngontrakuy;
 use ngontrakuy;
 
 #
+# Structure for table "pengguna"
+#
+
+DROP TABLE IF EXISTS `pengguna`;
+CREATE TABLE `pengguna` (
+  `idpengguna` int(11) NOT NULL AUTO_INCREMENT,
+  `email` varchar(50) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `namalengkap` varchar(100) NOT NULL,
+  `tgllahir` date DEFAULT NULL,
+  `notelp` varchar(14) DEFAULT NULL,
+  `auth` char(1) DEFAULT NULL,
+  PRIMARY KEY (`idpengguna`)
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=latin1;
+
+#
+# Data for table "pengguna"
+#
+
+INSERT INTO `pengguna` VALUES (1,'chia@gmail.com','chia','chintya','1997-05-17','081286923340','2'),(2,'nikko@gmail.com','nikko','nikko','1997-05-17','081286923340','2'),(3,'zein@gmail.com','zein','zein','1997-05-17','081286923340','2'),(4,'zacky@gmail.com','zacky','zacky','1997-05-17','081286923340','2'),(5,'rinaldy@gmail.com','rinaldy','rinaldy','1997-05-17','081286923340','2'),(6,'rafly@gmail.com','rafly','rafly','1997-05-17','081286923340','2'),(7,'puspa@gmail.com','puspa','puspa','1997-05-17','081286923340','2'),(8,'meydita@gmail.com','meydita','meydita','1997-05-17','081286923340','1'),(9,'fakhri@gmail.com','fakhri','fakhri','1997-05-17','081286923340','0'),(10,'aldis@gmail.com','aldis','aldis','1997-05-17','081286923340','1'),(11,'gugum@gmail.com','gugum','gugum','1997-05-17','081286923340','1'),(12,'pandu@gmail.com','pandu','pandu','1997-05-17','081286923340','0'),(13,'mufidah@gmail.com','mufidah','mufidah','1997-05-17','081286923340','0'),(14,'rivaldy@gmail.com','rivaldy','rivaldy','1997-05-17','081286923340','0'),(15,'hilmi@gmail.com','hilmi','hilmi','1997-05-17','081286923340','0'),(16,'andy@gmail.com','andy','andy','1997-05-17','081286923340','0'),(17,'rinaldy@gmail.com','rinaldy','rinaldy','1997-05-17','081286923340','0'),(18,'fadilah@gmail.com','fadilah','fadilah','1997-05-17','081286923340','0');
+
+
+#
 # Structure for table "kontrakan"
 #
 
@@ -34,28 +57,6 @@ CREATE TABLE `kontrakan` (
 #
 
 INSERT INTO `kontrakan` VALUES (1,8,'kontrakan1','081286923340','jalan sabar','DKI Jakarta','bisa nego','kamar tidur;wi-fi;kamar mandi;garasi;','100x100','k1g1.png;k1g2.png;k1g3.png;k1g4.png;','100000000','available'),(2,8,'kontrakan2','081286923340','jalan sabar','Tangerang','bisa nego','kamar tidur;wi-fi;kamar mandi;meja;','100x100','k1g1.png;k1g2.png;k1g3.png;k1g4.png;','100000000','not available'),(3,8,'kontrakan3','081286923340','jalan sabar','DKI Jakarta','bisa nego','tempat tidur;wi-fi;kamar mandi;lemari;','100x100','k1g1.png;k1g2.png;k1g3.png;k1g4.png;','200000000','available'),(4,10,'kontrakan4','081286923340','jalan sabar','Bekasi','bisa nego','kamar tidur;wi-fi;kamar mandi;garasi;','100x100','k1g1.png;k1g2.png;k1g3.png;k1g4.png;','100000000','available'),(5,8,'kontrakan5','081286923340','jalan sabar','DKI Jakarta','bisa nego','kamar tidur;wi-fi;kamar mandi;meja;','100x100','k1g1.png;k1g2.png;k1g3.png;k1g4.png;','200000000','not available'),(6,10,'kontrakan6','081286923340','jalan sabar','Bekasi','bisa nego','furnished;wi-fi;kamar mandi;lemari;','100x100','k1g1.png;k1g2.png;k1g3.png;k1g4.png;','100000000','available'),(7,8,'kontrakan7','081286923340','jalan sabar','Tangerang','bisa nego','kamar tidur;wi-fi;kamar mandi;garasi;','100x100','k1g1.png;k1g2.png;k1g3.png;k1g4.png;','100000000','available'),(8,11,'kontrakan8','081286923340','jalan sabar','DKI Jakarta','bisa nego','kamar tidur;wi-fi;kamar mandi;meja;','100x100','k1g1.png;k1g2.png;k1g3.png;k1g4.png;','300000000','not available'),(9,11,'kontrakan9','081286923340','jalan sabar','DKI Jakarta','bisa nego','furnished;wi-fi;kamar mandi;meja;','100x100','k1g1.png;k1g2.png;k1g3.png;k1g4.png;','400000000','available'),(10,11,'kontrakan10','081286923340','jalan sabar','Tangerang','bisa nego','kamar tidur;wi-fi;kamar mandi;meja makan;','100x100','k1g1.png;k1g2.png;k1g3.png;k1g4.png;','200000000','not available'),(11,10,'kontrakan11','081286923340','jalan sabar','Tangerang','bisa nego','meja belajar;wi-fi;kamar mandi;meja makan;','100x100','k1g1.png;k1g2.png;k1g3.png;k1g4.png;','20000000','not available');
-
-#
-# Structure for table "pengguna"
-#
-
-DROP TABLE IF EXISTS `pengguna`;
-CREATE TABLE `pengguna` (
-  `idpengguna` int(11) NOT NULL AUTO_INCREMENT,
-  `email` varchar(50) NOT NULL,
-  `password` varchar(255) NOT NULL,
-  `namalengkap` varchar(100) NOT NULL,
-  `tgllahir` date DEFAULT NULL,
-  `notelp` varchar(14) DEFAULT NULL,
-  `auth` char(1) DEFAULT NULL,
-  PRIMARY KEY (`idpengguna`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=latin1;
-
-#
-# Data for table "pengguna"
-#
-
-INSERT INTO `pengguna` VALUES (1,'chia@gmail.com','chia','chintya','1997-05-17','081286923340','2'),(2,'nikko@gmail.com','nikko','nikko','1997-05-17','081286923340','2'),(3,'zein@gmail.com','zein','zein','1997-05-17','081286923340','2'),(4,'zacky@gmail.com','zacky','zacky','1997-05-17','081286923340','2'),(5,'rinaldy@gmail.com','rinaldy','rinaldy','1997-05-17','081286923340','2'),(6,'rafly@gmail.com','rafly','rafly','1997-05-17','081286923340','2'),(7,'puspa@gmail.com','puspa','puspa','1997-05-17','081286923340','2'),(8,'meydita@gmail.com','meydita','meydita','1997-05-17','081286923340','1'),(9,'fakhri@gmail.com','fakhri','fakhri','1997-05-17','081286923340','0'),(10,'aldis@gmail.com','aldis','aldis','1997-05-17','081286923340','1'),(11,'gugum@gmail.com','gugum','gugum','1997-05-17','081286923340','1'),(12,'pandu@gmail.com','pandu','pandu','1997-05-17','081286923340','0'),(13,'mufidah@gmail.com','mufidah','mufidah','1997-05-17','081286923340','0'),(14,'rivaldy@gmail.com','rivaldy','rivaldy','1997-05-17','081286923340','0'),(15,'hilmi@gmail.com','hilmi','hilmi','1997-05-17','081286923340','0'),(16,'andy@gmail.com','andy','andy','1997-05-17','081286923340','0'),(17,'rinaldy@gmail.com','rinaldy','rinaldy','1997-05-17','081286923340','0'),(18,'fadilah@gmail.com','fadilah','fadilah','1997-05-17','081286923340','0');
 
 #
 # Structure for table "pesan"
