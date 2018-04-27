@@ -67,10 +67,10 @@ class Transaksi extends CI_Controller
                 $this->session->set_flashdata('confirm','true');
                 redirect('Inbox','refresh');
             }else{
-                die('no2');
+                die('failed to confirm');
             }
         }else{
-            die('no1');
+            die('failed to connect');
         }
     }
     #proses update statuspesan to 'accepted'
@@ -81,7 +81,7 @@ class Transaksi extends CI_Controller
                 #get data 1 kontrakan
                 if($this->Tagihan->buatTagihan($key)==true){
                     $this->session->set_flashdata('confirm','true');
-                    echo "<script>alert('booking confirmed and invoice made')</script>";
+                    echo "<script>alert('booking confirmed and invoice made.')</script>";
                     redirect('Inbox','refresh');
                 }else{
                     echo "<script>alert('booking confirmed but cannot make invoice')</script>";

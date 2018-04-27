@@ -103,8 +103,8 @@ $this->view('template/header');
 <!-- banner -->
 <div class="inside-banner">
     <div class="container">
-        <span class="pull-right"><a href="<?php echo site_url()?>">Home</a> / Invoices</span>
-        <h2>Invoices</h2>
+        <span class="pull-right"><a href="<?php echo site_url('Profile')?>">Profile</a> / <a href="<?php echo site_url('Invoices')?>">Invoices</a> / Details</span>
+        <h2>Invoice Detail</h2>
     </div>
 </div>
 <!-- banner -->
@@ -114,27 +114,108 @@ $this->view('template/header');
     <div class="spacer">
         <div class="row">
             <div class="col-lg-8 col-sm-12 col-xs-12 ">
-                <div class="row">
-                    <div class="col-md-12">
-                        <h3>Isi Tagihan</h3><br/>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="panel panel-default">
-                            <div class="panel-body">
-                                <table class="table-responsive">
-                                    <tr>
-                                        <td>ID Reservasi</td>
-                                        <td>&nbsp;:&nbsp;</td>
-                                        <td><?php echo $tagihan->idreservasi?></td>
-                                    </tr>
-                                    <tr>
-                                        <td>ID Reservasi</td>
-                                        <td>&nbsp;:&nbsp;</td>
-                                        <td><?php echo $tagihan->idreservasi?></td>
-                                    </tr>
-                                </table>
+                <div class="col-md-12">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <u><h4>Kontrakan Info</h4></u>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <br/>
+                                    <table class="table-responsive">
+                                        <tr>
+                                            <td>Nama Pemilik Kontrakan</td>
+                                            <td>&nbsp;:&nbsp;</td>
+                                            <td><?php echo $owner->namalengkap?></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Nomor Telepon</td>
+                                            <td>&nbsp;:&nbsp;</td>
+                                            <td><?php echo $datakontrakan->notelp?></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Alamat</td>
+                                            <td>&nbsp;:&nbsp;</td>
+                                            <td><?php echo $datakontrakan->alamat?></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Kota</td>
+                                            <td>&nbsp;:&nbsp;</td>
+                                            <td><?php echo $datakontrakan->kota?></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div class="col-md-6">
+                                    <br/>
+                                    <table class="table-responsive">
+                                        <tr>
+                                            <td>Nama Kontrakan</td>
+                                            <td>&nbsp;:&nbsp;</td>
+                                            <td><?php echo $datakontrakan->nmkontrakan?></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Harga</td>
+                                            <td>&nbsp;:&nbsp;</td>
+                                            <td><?php echo "Rp ".$datakontrakan->harga?></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <hr/>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <u><h4>Invoice Details</h4></u>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <br/>
+                                    <table class="table-responsive">
+                                        <tr>
+                                            <td>ID Reservasi</td>
+                                            <td>&nbsp;:&nbsp;</td>
+                                            <td><?php echo $datatagihan->idreservasi?></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Total Tagihan</td>
+                                            <td>&nbsp;:&nbsp;</td>
+                                            <td><?php echo "Rp ".$datatagihan->totaltagihan?></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Status Pembayaran</td>
+                                            <td>&nbsp;:&nbsp;</td>
+                                            <td>
+                                                <?php
+                                                if($datatagihan->statusbayar == '0'){
+                                                    echo "<b style='color:firebrick'>Belum Lunas</b>";
+                                                }else if($datatagihan->statusbayar == '1'){
+                                                    echo "<b style='color:#72b70f'>Lunas</b>";
+                                                }
+                                                ?>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div class="col-md-6">
+                                    <br/>
+                                    <table class="table-responsive">
+                                        <tr>
+                                            <td>Tanggal Tagihan</td>
+                                            <td>&nbsp;:&nbsp;</td>
+                                            <td>
+                                                <?php
+                                                    $tanggal = explode('-',$datatagihan->tgltagihan);
+                                                    echo $tanggal[2]."-".$tanggal[1]."-".$tanggal[0];
+                                                ?>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
                             </div>
                         </div>
                     </div>

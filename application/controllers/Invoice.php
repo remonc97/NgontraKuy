@@ -35,11 +35,14 @@ class Invoice extends CI_Controller
             $idtagihan = $this->uri->segment(2);
             $data['tagihanuser'] = $this->Tagihan->getDataTagihan($idtagihan);
             $data['idpengguna']=$this->session->userdata('idpengguna');
-            $data['nama'] = $this->session->userdata('namalengkap');
+            $data['namalengkap'] = $this->session->userdata('namalengkap');
             $data['auth']=$this->session->userdata('auth');
+            $data['session'] = true;
+
             $data['tagihan'] = $this->Tagihan->getJmlTagihan($data['idpengguna']);
-            $data['kontrakan'] = $this->Kontrakan->getData($idtagihan);
-            print_r($data['kontrakan']);die();
+            $data['datatagihan'] = $this->Kontrakan->getData($idtagihan);
+            $data['datakontrakan'] = $this->Kontrakan->getDataUntukTagihan($data['datatagihan']->idreservasi);
+            $data['owner'] = $this->Kontrakan->getNamaPemilik($data['datakontrakan']->idpengguna);
 
             if($data['tagihan'] != null){
                 $this->load->view('isitagihan',$data);
