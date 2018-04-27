@@ -17,11 +17,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 </div>
 
                 <div class="col-lg-3 col-sm-3">
-                    <h4>Follow us</h4>
-                    <a href="#"><img src="<?php echo base_url('assets/images/facebook.png')?>" alt="facebook"></a>
-                    <a href="#"><img src="<?php echo base_url('assets/images/twitter.png')?>" alt="twitter"></a>
-                    <a href="#"><img src="<?php echo base_url('assets/images/linkedin.png')?>" alt="linkedin"></a>
-                    <a href="#"><img src="<?php echo base_url('assets/images/instagram.png')?>" alt="instagram"></a>
+<!--                    <h4>Follow us</h4>-->
+<!--                    <a href="#"><img src="--><?php //echo base_url('assets/images/facebook.png')?><!--" alt="facebook"></a>-->
+<!--                    <a href="#"><img src="--><?php //echo base_url('assets/images/twitter.png')?><!--" alt="twitter"></a>-->
+<!--                    <a href="#"><img src="--><?php //echo base_url('assets/images/linkedin.png')?><!--" alt="linkedin"></a>-->
+<!--                    <a href="#"><img src="--><?php //echo base_url('assets/images/instagram.png')?><!--" alt="instagram"></a>-->
                 </div>
 
                 <div class="col-lg-3 col-sm-3 col-sm-offset-3">
