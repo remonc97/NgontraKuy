@@ -53,11 +53,14 @@ $route['default_controller'] = 'home';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
-$route['Home/(:any)']='Home/index';
+#Main pages
+//$route['Home/(:any)']='Home/index';
 $route['About'] = 'Home/About';
 $route['Agents'] = 'Home/Agents';
 $route['ContactUs'] = 'Home/Contact';
 $route['TermsConditions'] = 'Home/TermsConditions';
+
+
 $route['Search'] = 'TaKon/Search';
 $route['Profile'] = 'Profile/index';
 $route['Inbox'] = 'Inbox';
@@ -73,6 +76,8 @@ $route['Logout'] = 'Auth/logout';
 $route['view/(:any)'] = 'Admin/view';
 $route['edit/(:any)'] = 'Admin/edit';
 $route['delete/(:any)'] = 'Admin/delete';
+
+#user sessions
 $route['Login'] = 'Auth/login';
 $route['Logout'] = 'Auth/logout';
 $route['Register'] = 'Home/regis';

@@ -6,8 +6,6 @@ class Inbox extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
-		$this->load->helper('url');
-		$this->load->model('M_Inbox');
 	}
 
 	public function index()
@@ -52,28 +50,29 @@ class Inbox extends CI_Controller {
 	      }
 		} if($auth == 1) {
 			//ini pemilik
-      $data['session'] = true;
-      $data['iduser']=$this->session->userdata('idpengguna');
-      $data['nama'] = $this->session->userdata('namalengkap');
+            $data['session'] = true;
+            $data['iduser']=$this->session->userdata('idpengguna');
+            $data['nama'] = $this->session->userdata('namalengkap');
 			$data['featured'] = $this->Kontrakan->getFeatured();
 		    if($this->User->ceksession() == true){
 		    	$nama = $this->session->userdata('namalengkap');
-		      $email = $this->session->userdata('email');
-		      $auth = $this->session->userdata('auth');
-					$merge = $this->M_Inbox->getMerge();
-					$detilPesan = $this->M_Inbox->detilPesan();
-					$pemilik = $this->M_Inbox->getPemilik();
-					$pesan = $this->M_Inbox->getAllPesan();
-					$data = [
-						'auth' => $auth,
-						'merge' => $merge,
-						'email' => $email,
-						'session' => TRUE,
-						'nama' => $nama,
-						'detilPesan' => $detilPesan,
-						'pemilik' => $pemilik,
-						'pesan' => $pesan,
-					];
+                $email = $this->session->userdata('email');
+                $auth = $this->session->userdata('auth');
+
+                $merge = $this->M_Inbox->getMerge();
+                $detilPesan = $this->M_Inbox->detilPesan();
+                $pemilik = $this->M_Inbox->getPemilik();
+                $pesan = $this->M_Inbox->getAllPesan();
+                $data = [
+                    'auth' => $auth,
+                    'merge' => $merge,
+                    'email' => $email,
+                    'session' => TRUE,
+                    'nama' => $nama,
+                    'detilPesan' => $detilPesan,
+                    'pemilik' => $pemilik,
+                    'pesan' => $pesan,
+                ];
 			    $this->load->view('template/header');
 			    $this->load->view('InboxPemilik',$data);
 			    // $this->load->view('modalInbox/pemilik/balasPesan',$data);
@@ -232,33 +231,33 @@ class Inbox extends CI_Controller {
 			$data['featured'] = $this->Kontrakan->getFeatured();
 		    if($this->User->ceksession() == true){
 		   		$nama = $this->session->userdata('namalengkap');
-		      $email = $this->session->userdata('email');
+		        $email = $this->session->userdata('email');
 
-					$merge = $this->M_Inbox->getMerge();
-	        		$mergeTable = $this->M_Inbox->getMergeTable();
-	        		$showChat2 = $this->M_Inbox->isiPesan2($idpengirim,$idpenerima);
-	        		$isiPesanBalas = $this->M_Inbox->isiPesanBalas($idpenerima,$idpengirim);
-					$detilPesan = $this->M_Inbox->detilPesan();
-					$customer = $this->M_Inbox->getCustomer();
-					$pemilik = $this->M_Inbox->getPemilik();
-					$pesan = $this->M_Inbox->getAllPesan();
-					$data = [
-						'customer' => $customer,
-						'mergeTable' =>$mergeTable,
+                $merge = $this->M_Inbox->getMerge();
+                $mergeTable = $this->M_Inbox->getMergeTable();
+                $showChat2 = $this->M_Inbox->isiPesan2($idpengirim,$idpenerima);
+                $isiPesanBalas = $this->M_Inbox->isiPesanBalas($idpenerima,$idpengirim);
+                $detilPesan = $this->M_Inbox->detilPesan();
+                $customer = $this->M_Inbox->getCustomer();
+                $pemilik = $this->M_Inbox->getPemilik();
+                $pesan = $this->M_Inbox->getAllPesan();
+                $data = [
+                    'customer' => $customer,
+                    'mergeTable' =>$mergeTable,
 
-						'idpenerima' => $idpenerima,
-						'idpengirim' => $idpengirim,
-						
-						'isiPesanBalas' => $isiPesanBalas,
-						'showChat2' =>$showChat2,
-						'email' => $email,
-						'nama' => $nama,
-						'session' => true,
-						'merge' => $merge,
-						'detilPesan' => $detilPesan,
-						'pemilik' => $pemilik,
-						'pesan' => $pesan
-					];
+                    'idpenerima' => $idpenerima,
+                    'idpengirim' => $idpengirim,
+
+                    'isiPesanBalas' => $isiPesanBalas,
+                    'showChat2' =>$showChat2,
+                    'email' => $email,
+                    'nama' => $nama,
+                    'session' => true,
+                    'merge' => $merge,
+                    'detilPesan' => $detilPesan,
+                    'pemilik' => $pemilik,
+                    'pesan' => $pesan
+                ];
 
 			    $this->load->view('template/header',$data);
 			    $this->load->view('modalInbox/customer/LihatPesan',$data);
@@ -277,22 +276,22 @@ class Inbox extends CI_Controller {
 		        $email = $this->session->userdata('email');
 		        $auth = $this->session->userdata('auth');
 
-						$merge = $this->M_Inbox->getMerge();
-	          			$showChat2 = $this->M_Inbox->isiPesan2($idpengirim,$idpenerima);
-	         			$isiPesanBalas = $this->M_Inbox->isiPesanBalas($idpenerima,$idpengirim);
-						$detilPesan = $this->M_Inbox->detilPesan();
-						$pesan = $this->M_Inbox->getAllPesan();
-						$data = [
-							'auth' => $auth,
-							'merge' => $merge,
-							'email' => $email,
-							'isiPesanBalas' => $isiPesanBalas,
-							'showChat2' =>$showChat2,
-							'session' => TRUE,
-							'nama' => $nama,
-							'detilPesan' => $detilPesan,
-							'pesan' => $pesan,
-						];
+                $merge = $this->M_Inbox->getMerge();
+                $showChat2 = $this->M_Inbox->isiPesan2($idpengirim,$idpenerima);
+                $isiPesanBalas = $this->M_Inbox->isiPesanBalas($idpenerima,$idpengirim);
+                $detilPesan = $this->M_Inbox->detilPesan();
+                $pesan = $this->M_Inbox->getAllPesan();
+                $data = [
+                    'auth' => $auth,
+                    'merge' => $merge,
+                    'email' => $email,
+                    'isiPesanBalas' => $isiPesanBalas,
+                    'showChat2' =>$showChat2,
+                    'session' => TRUE,
+                    'nama' => $nama,
+                    'detilPesan' => $detilPesan,
+                    'pesan' => $pesan,
+                ];
 
 			    	$this->load->view('template/header',$data);
 			    	$this->load->view('modalInbox/pemilik/LihatPesan',$data);

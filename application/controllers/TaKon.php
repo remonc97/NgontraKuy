@@ -3,14 +3,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class TaKon extends CI_Controller {
 
-	public function __construct() {
+	public function __construct(){
 		parent::__construct();
-		$this->load->model('Kontrakan');
-
 	}
 
-	public function index()
-	{
+	public function index(){
 		$this->load->view('Home');
 	}
 
@@ -118,51 +115,6 @@ class TaKon extends CI_Controller {
             }
         }
 	}
-	
-	/*public function InsetRumah(){
-		
-		$config['upload_path'] = './assets/images/rumah/';
-		$config['allowed_types'] = 'jpeg|jpg|gif|png';
-		$config['max_size']= 100;
-		$config['max_width'] = 1024;
-		$config['max_height'] = 768;
-		
-		$this->load->library('upload',$config);
-		
-		//kalau dia sukses diupload
-		if($this->upload->do_upload('gambar')){
-			
-		$notelp = $this->input->post('notelp');
-		$harga = $this->input->post('harga');
-		$deskripsi = $this->input->post('deskripsi');
-		$gambar = $this->input->post('gambar');
-		$alamat = $this->input->post('alamat');
-		$fasilitas = $this->input->post('fasilitas');
-		$kota = $this->input->post('kota');
-		$iduser = $this->input->post('iduser');
-		$idkontrakan = $this->input->post('idkontrakan');
-		
-		$data = array(
-		'notelp' =>$notelp,
-		'deskripsi'=> $deskripsi,
-		'alamat'=>$alamat,
-		'harga' => $harga,
-		'fasilitas' => $fasilitas,
-		'gambar' => $gambar,
-		'kota' => $kota,
-		'iduser'=>$iduser
-		
-		);
-		$result = $this->Kontrakan->InsertRumah($data);
-		
-		var_dump($result);
-		exit;
-		$this->load->view('Home',$data);
-		//kalau dia gagal
-		}else{
-			echo json_encode(array('success' => false));
-		}	
-	}*/
 
 	public function Search(){
 		// Retrieve the posted search term.
@@ -170,12 +122,6 @@ class TaKon extends CI_Controller {
 
         // Use a model to retrieve the results.
         $data['results'] = $this->Kontrakan->get_results($search_term);
-//        echo "<pre>";
-//        foreach ($data['results'] as $row){
-//            echo $row->gambar . " ee ";
-//        }
-//        echo "</pre>";
-//        die();
 
         // Pass the results to the view.
         $this->load->view('hasil',$data);

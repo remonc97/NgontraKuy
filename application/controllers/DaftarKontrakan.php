@@ -6,8 +6,6 @@ class DaftarKontrakan extends CI_Controller {
 
 	public function __construct() {
 		parent::__construct();
-		$this->load->model('Kontrakan');
-
 	}
 
 	//assume as view
@@ -21,9 +19,6 @@ class DaftarKontrakan extends CI_Controller {
             $data['idpengguna']=$this->session->userdata('idpengguna');
             $data['namalengkap'] = $this->session->userdata('namalengkap');
             $data['auth']=$this->session->userdata('auth');
-
-
-
 		    $data['datakontrakan'] = $this->Kontrakan->getAllKontrakan($data['idpengguna']);
             $this->load->view('listkontrakan',$data); #jalankan view profil
 
@@ -36,7 +31,6 @@ class DaftarKontrakan extends CI_Controller {
         $data['auth'] = $this->session->userdata('auth');
         $data['namalengkap'] = $this->session->userdata('namalengkap');
         $data['idpengguna']=$this->session->userdata('idpengguna');
-
         $data['getdata']= $this->Kontrakan->getOneKontrakan($idkontrakan);
         If($data['getdata'] != null){
             $this->load->view('detailkontrakan',$data);

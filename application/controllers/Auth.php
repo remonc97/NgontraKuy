@@ -2,22 +2,6 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 class Auth extends CI_Controller {
 
-//	public function Add(){
-//		if($this->session->nama==NULL){
-//			redirect('');
-//		}
-//
-//		$nama = $this->session->nama;
-//		$auth = $this->session->auth;
-//		$data['nama'] = $nama;
-//		$data['auth'] = $auth;
-//		$this->load->view('register',$data);
-//	}
-	
-//	public function NewData(){
-//		$this->load->view('register');
-//	}
-	
 	public function InsetData(){
 		$nama = $this->input->post('namalengkap');
 		$email = $this->input->post('email');
@@ -92,15 +76,6 @@ class Auth extends CI_Controller {
 		}else{
 		}
 	}
-	
-//	public function ShowSession(){
-//
-//		$username = $this->session->username;
-//
-//		$data['email'] = $email;
-//
-//		$this->load->view('ShowSession',$data);
-//	}
 
     public function login(){
         $data = array(
