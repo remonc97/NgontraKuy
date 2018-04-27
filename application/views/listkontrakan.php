@@ -95,7 +95,7 @@ $this->view('template/header');
 <!-- banner -->
 <div class="inside-banner">
     <div class="container">
-        <span class="pull-right"><a href="#">Home</a> / Profile</span>
+        <span class="pull-right"><a href="<?php echo site_url('Profile')?>">Profile</a> / List Kontrakan</span>
         <h2>List Kontrakan</h2>
     </div>
 </div>
