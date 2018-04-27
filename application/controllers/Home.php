@@ -18,7 +18,11 @@ class Home extends CI_Controller {
 
 	public function regis()
 	{
-		$this->load->view('register');
+        if($this->User->ceksession() == true){
+            redirect('/','refresh');
+        }else{
+            $this->load->view('register');
+        }
 	}
 
 	public function detail(){

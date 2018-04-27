@@ -80,7 +80,10 @@ $this->view('template/header');
             echo
                 "
               <ul class=\"pull-right dropdown\">
-                  <li style=\"margin-top: 20px;\">
+                  <li>
+                      <a href=\"#\" style=\"text-transform:Capitalize;font-family: 'Ubuntu', sans-serif;\" data-toggle=\"modal\" data-target=\"#TamKon\">Tambah Kontrakan</a>
+                  </li>
+                  <li style=\"margin-top: 20px;\" class='dropdown'>
                       <a href=\"#\" style=\"text-transform:Capitalize;font-family: 'Ubuntu', sans-serif;\" class=\"dropdown-toggle\" data-toggle=\"dropdown\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\">Hi, $namalengkap! <span class=\"caret\"></span></a>
                       <ul class=\"dropdown-menu\"  style=\"padding-top: 10px;padding-bottom: 10px;\">
                           <li><a href=".site_url('Profile').">Profile</a></li>

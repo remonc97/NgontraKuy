@@ -69,18 +69,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <?php if(isset($session) && $session == true){
                 echo
                     "
-                <ul class=\"pull-right\">
-                    <li style=\"margin-top: -10px\"><a href=\"#\" style=\"text-transform:Capitalize;font-family: 'Ubuntu', sans-serif;\" data-toggle=\"modal\" data-target=\"#TamKon\">Tambah Kontrakan</a></li>
-                    <li style=\"margin-top: -10px;padding-top: 10px;padding-bottom: 10px;\">
-                        <ul class='dropdown'>
-                            <li>
-                                <a href=\"#\" style=\"text-transform:Capitalize;font-family: 'Ubuntu', sans-serif;\" class=\"dropdown-toggle\" data-toggle=\"dropdown\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\">Hi, $nama! <span class=\"caret\"></span></a>
-                                <ul class=\"dropdown-menu\"  >
-                                    <li><a href=".site_url('Profile').">Profile</a></li>
-                                    <li><a href=".site_url('Inbox').">Inbox</a></li>
-                                    <li><a href=".site_url('Logout').">Log out</a></li>
-                                </ul>
-                            </li>
+                <ul class=\"pull-right\" style=\"padding-top: 20px;padding-bottom: 10px;\">
+                    <li><a href=\"#\" style=\"text-transform:Capitalize;font-family: 'Ubuntu', sans-serif;\" data-toggle=\"modal\" data-target=\"#TamKon\">Tambah Kontrakan</a></li>
+                    <li class='dropdown'>
+                        <a href=\"#\" style=\"text-transform:Capitalize;font-family: 'Ubuntu', sans-serif;\" class=\"dropdown-toggle\" data-toggle=\"dropdown\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\">Hi, $nama! <span class=\"caret\"></span></a>
+                        <ul class=\"dropdown-menu\"  >
+                            <li><a href=".site_url('Profile').">Profile</a></li>
+                            <li><a href=".site_url('Inbox').">Inbox</a></li>
+                            <li><a href=".site_url('Logout').">Log out</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -107,20 +103,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <blockquote style="font-family:'Ubuntu', sans-serif">
                         <br/><br/>
                         <p>Pengen jalan-jalan tapi nginep di hotel terlalu mahal?<br/>Mending ngontrak aja!</p><br/>
-						
-						
-						<!--<button class="btn btn-success"   data-toggle="modal" data-target="#loginpop">Join Now</button> -->
-						<!--
-						<button type="submit" class="btn btn-success uppercase" href="<//?php echo site_url('views/register')?>">Join Now</button>
-						-->
-						
-						<!--<ul class="pull-right">
-						<a href="#" style="font-family: 'Ubuntu', sans-serif;" data-toggle="modal" data-target="#registerpop">Join Now</a></li>
-						</ul>
-						-->
-						
-						
+                        <?php if($this->session->userdata('email') == null){?>
                         <a class="btn btn-success" role="button" href="<?php echo base_url('Register')?>">Join Now</a>
+                        <?php } ?>
                     </blockquote>
                 </div>
             </div>
@@ -136,11 +121,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <div class="banner-search">
     <div class="container">
         <!-- banner -->
+        <br/>
         <h3>Book your homes here</h3>
         <div class="searchbar">
             <div class="row">
                 <div class="col-lg-6 col-sm-6">
-						
+
 					<?php
 						echo form_open('TaKon/search');
 
@@ -148,10 +134,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 						echo form_submit(array('id' => 'submit','value' => 'Find Now', 'class'=>'btn btn-success'));
 
-
+                        echo form_close();
 					?>
-						
-                    </form>
+
+                    <br/>
                 </div>
                 <div class="col-lg-5 col-lg-offset-1 col-sm-6 ">
                 </div>
@@ -169,7 +155,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             foreach($featured as $row){
                 ?>
             <div class="properties">
-                <div class="image-holder"><img src="<?php echo base_url('assets/images/Rumah/'.$row->gambar)?>" class="img-responsive" alt="properties"/>
+                <div class="image-holder"><img src="<?php echo base_url('assets/images/Rumah/'.$row->gambar)?>" alt="properties" style="height: 150px"/>
                     <div class="status <?php echo $row->status ?>"><?php echo $row->status ?></div>
                 </div>
                 <h4><a href="<?php echo site_url('HomeDetails/'.$row->idkontrakan)?>"><?php echo $row->nmkontrakan?></a></h4>

@@ -68,8 +68,9 @@ $this->view('template/header');
             echo
                 "
                 <ul class=\"pull-right\">
-                    <li style=\"margin-top: -10px\"><a href=\"#\" style=\"text-transform:Capitalize;font-family: 'Ubuntu', sans-serif;\" data-toggle=\"modal\" data-target=\"#TamKon2\">Tambah Kontrakan</a></li>
-                    <li style=\"margin-top: -10px\"><a href=\"#\" style=\"text-transform:Capitalize;font-family: 'Ubuntu', sans-serif;\" data-toggle=\"modal\" data-target=\"#TamKon\">Tambah Rumah</a></li>
+                    <li>
+                      <a href=\"#\" style=\"text-transform:Capitalize;font-family: 'Ubuntu', sans-serif;\" data-toggle=\"modal\" data-target=\"#TamKon\">Tambah Kontrakan</a>
+                  </li>
                     <li style=\"margin-top: -10px;padding-top: 10px;padding-bottom: 10px;\">
                         <ul class='dropdown'>
                             <li>
@@ -122,6 +123,7 @@ $this->view('template/header');
 <div class="banner-search">
     <div class="container">
         <!-- banner -->
+        <br/>
         <h3>Book your homes here</h3>
         <div class="searchbar">
             <div class="row">
@@ -134,10 +136,10 @@ $this->view('template/header');
 
 						echo form_submit(array('id' => 'submit','value' => 'Find Now', 'class'=>'btn btn-success'));
 
-
+						echo form_close();
 					?>
 						
-                    </form>
+                    <br/>
                 </div>
                 <div class="col-lg-5 col-lg-offset-1 col-sm-6 ">
                 </div>
@@ -156,7 +158,7 @@ $this->view('template/header');
                 ?>
 				<div class="properties">
 					<div class="image-holder">
-						<img src="<?php echo base_url('assets/images/Rumah/').$row->gambar ?>" class="img-responsive" alt="properties"/>
+						<img src="<?php echo base_url('assets/images/Rumah/').$row->gambar ?>" alt="properties" style="height: 150px"/>
                         <div class="status <?php echo $row->status ?>"><?php echo $row->status ?></div>
 					</div>
 					<h4><a href="<?php echo site_url('HomeDetails/'.$row->idkontrakan)?>"><?php echo $row->nmkontrakan ?></a></h4>

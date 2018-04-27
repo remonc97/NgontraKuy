@@ -68,8 +68,11 @@ $this->view('template/header');
           <?php if(isset($session) && $session == true){
               echo
                   "
-              <ul class=\"pull-right dropdown\">
-                  <li style=\"margin-top: 20px;\">
+              <ul class=\"pull-right\">
+                  <li>
+                      <a href=\"#\" style=\"text-transform:Capitalize;font-family: 'Ubuntu', sans-serif;\" data-toggle=\"modal\" data-target=\"#TamKon\">Tambah Kontrakan</a>
+                  </li>
+                  <li style=\"margin-top: 20px;\" class='dropdown'>
                       <a href=\"#\" style=\"text-transform:Capitalize;font-family: 'Ubuntu', sans-serif;\" class=\"dropdown-toggle\" data-toggle=\"dropdown\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\">Hi, $nama! <span class=\"caret\"></span></a>
                       <ul class=\"dropdown-menu\"  style=\"padding-top: 10px;padding-bottom: 10px;\">
                           <li><a href=".site_url('Profile').">Profile</a></li>
@@ -111,94 +114,81 @@ $this->view('template/header');
 				<?php if(isset($details)){?>
 				<h2><?php echo $details->nmkontrakan;?></h2>
 				<div class="row">
-					<div class="col-lg-8">
-						<div class="property-images">
-							<!-- Slider Starts -->
-							<div id="myCarousel" class="carousel slide" data-ride="carousel">
-								<!-- Indicators -->
-								<ol class="carousel-indicators hidden-xs">
-									<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-									<!-- <li data-target="#myCarousel" data-slide-to="1" class=""></li>
-									<li data-target="#myCarousel" data-slide-to="2" class=""></li>
-									<li data-target="#myCarousel" data-slide-to="3" class=""></li> -->
-								</ol>
-								<div class="carousel-inner">
-									<!-- Item 1 -->
-									<div class="item active">
-									  <img src="<?php echo base_url('assets/images/Rumah/'.$details->gambar)?>" class="image-responsive"/>
-									</div>
-									<!-- #Item 1 -->
-
-									<!-- Item 2 -->
-									<!-- <div class="item">
-									  <img src="images/properties/2.jpg" class="properties" alt="properties" />
-
-									</div> -->
-									<!-- #Item 2 -->
-
-									<!-- Item 3 -->
-									 <!-- <div class="item">
-									  <img src="images/properties/1.jpg" class="properties" alt="properties" />
-									</div> -->
-									<!-- #Item 3 -->
-
-									<!-- Item 4 -->
-									<!-- <div class="item ">
-									  <img src="images/properties/3.jpg" class="properties" alt="properties" />
-
-									</div> -->
-									<!-- # Item 4 -->
-								</div>
-								<a class="left carousel-control" href="#myCarousel" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
-								<a class="right carousel-control" href="#myCarousel" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
-							</div>
-							<!-- #Slider Ends -->
-						</div>
-						<div class="spacer">
-							<h4><span class="glyphicon glyphicon-th-list"></span> Properties Detail</h4>
-							<p><?php echo $details->deskripsi;?></p>
-						</div>
-            <h6><span class="glyphicon glyphicon-home"></span> Facility</h6>
-            <div class="listing-detail">
-              <p><?php echo $details->fasilitas;?></p>
-            </div>
-						<!--<div>
-							<h4>
-								<span class="glyphicon glyphicon-map-marker"></span> Location
-							</h4>
-							<div class="well">
-								<iframe width="100%" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Pulchowk,+Patan,+Central+Region,+Nepal&amp;aq=0&amp;oq=pulch&amp;sll=37.0625,-95.677068&amp;sspn=39.371738,86.572266&amp;ie=UTF8&amp;hq=&amp;hnear=Pulchowk,+Patan+Dhoka,+Patan,+Bagmati,+Central+Region,+Nepal&amp;ll=27.678236,85.316853&amp;spn=0.001347,0.002642&amp;t=m&amp;z=14&amp;output=embed"></iframe>
-							</div>
-							<a class="btn btn-success" href="">Tersedia</a>
-						</div>-->
+					<div class="col-lg-8 col-md-8">
+						<div class="col-md-12">
+                            <div class="property-images">
+                                <div class="col-md-12">
+                                    <div class="col-md-2"></div>
+                                    <div class="col-md-8">
+                                        <!-- Slider Starts -->
+                                        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                                            <!-- Indicators -->
+                                            <ol class="carousel-indicators hidden-xs">
+                                                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                                                <!-- <li data-target="#myCarousel" data-slide-to="1" class=""></li>
+                                                <li data-target="#myCarousel" data-slide-to="2" class=""></li>
+                                                <li data-target="#myCarousel" data-slide-to="3" class=""></li> -->
+                                            </ol>
+                                            <div class="carousel-inner text-center">
+                                                <!-- Item 1 -->
+                                                <div class="item active">
+                                                    <div class="image-holder">
+                                                        <img src="<?php echo base_url('assets/images/Rumah/'.$details->gambar)?>" style="width: 200px"/>
+                                                    </div>
+                                                </div>
+                                                <!-- #Item 1 -->
+                                            </div>
+                                            <a class="left carousel-control" href="#myCarousel" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
+                                            <a class="right carousel-control" href="#myCarousel" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+                                        </div>
+                                        <!-- #Slider Ends -->
+                                        <br/>
+                                    </div>
+                                    <div class="col-md-2"></div>
+                                </div>
+                            </div>
+                            <div class="spacer">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <h4><span class="glyphicon glyphicon-th-list"></span> Properties Detail</h4>
+                                        <p><?php echo $details->deskripsi;?></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="spacer">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <h4><span class="glyphicon glyphicon-home"></span> Facility</h4>
+                                        <div class="listing-detail">
+                                            <p><?php echo $details->fasilitas;?></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 					</div>
-					<div class="col-lg-4">
-						<div class="col-lg-12  col-sm-6">
+					<div class="col-lg-4 col-md-4">
+						<div class="col-lg-12 col-sm-6">
 							<div class="property-info">
-								<p class="price">Rp <?php echo $details->harga;?></p>
-                                <a class="btn btn-success" href="<?php echo site_url('Booking/'.$details->idkontrakan)?>">Tertarik</a>
-								<!-- <p class="area"><span class="glyphicon glyphicon-map-marker"></span> 344 Villa, Syndey, Australia</p> -->
-
-								<div class="profile">
-									<span class="glyphicon glyphicon-user"></span> Agent Details
-									<p><?php echo $details->nmkontrakan;?><br><?php echo $details->notelp;?></p>
-								</div>
+                                <div class="spacer">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <h4><span class="glyphicon glyphicon-user"></span> Agent Details</h4>
+                                            <p><?php echo $details->nmkontrakan;?><br><?php echo $details->notelp;?></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="spacer">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <h4><span class="glyphicon glyphicon-usd"></span> Price</h4>
+                                            <p class="price">Rp <?php echo $details->harga;?></p><br/>
+                                            <a class="btn btn-success" href="<?php echo site_url('Booking/'.$details->idkontrakan)?>">Tertarik</a>
+                                        </div>
+                                    </div>
+                                </div>
 							</div>
 						</div>
-						<!-- <div class="col-lg-12 col-sm-6 ">
-							<div class="enquiry">
-								<h6>
-									<span class="glyphicon glyphicon-envelope"></span> Post Enquiry
-								</h6>
-								<form role="form" action="#">
-									<input type="text" class="form-control" placeholder="Nama Lengkap" name="namalengkap" />
-									<input type="text" class="form-control" placeholder="kamu@domainmu.com" name="email"/>
-									<input type="text" class="form-control" placeholder="Nomor Teleponmu" name="notelp"/>
-									<textarea rows="6" class="form-control" placeholder="Apa yang kamu pikirkan?" name="isi"></textarea>
-									<button type="submit" class="btn btn-primary" name="Submit">Send Message</button>
-								</form>
-							</div>
-						</div> -->
 					</div>
 				</div>
 				<?php }
