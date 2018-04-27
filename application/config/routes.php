@@ -53,36 +53,39 @@ $route['default_controller'] = 'home';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
-#Main pages
-//$route['Home/(:any)']='Home/index';
-$route['About'] = 'Home/About';
-$route['Agents'] = 'Home/Agents';
-$route['ContactUs'] = 'Home/Contact';
-$route['TermsConditions'] = 'Home/TermsConditions';
-
-
-$route['Search'] = 'TaKon/Search';
-$route['Profile'] = 'Profile/index';
-$route['Inbox'] = 'Inbox';
-$route['Booking/(:any)'] = 'Transaksi/formbooking';
-$route['Booking/proses/(:any)'] = 'Transaksi/requestbooking';
-$route['BookConfirm/(:any)'] = 'Transaksi/book';
-$route['BookCancel/(:any)'] = 'Transaksi/cancel';
-$route['HomeDetails/(:any)']='Home/detail';
-$route['ListKontrakan']='DaftarKontrakan/index';
-$route['ViewKontrakan/(:any)'] = 'DaftarKontrakan/getOneKontrakan';
-$route['Login'] = 'Auth/login';
-$route['Logout'] = 'Auth/logout';
+#admin features
 $route['view/(:any)'] = 'Admin/view';
 $route['edit/(:any)'] = 'Admin/edit';
 $route['delete/(:any)'] = 'Admin/delete';
 
+#Main pages
+$route['About'] = 'Home/About';
+$route['Agents'] = 'Home/Agents';
+$route['ContactUs'] = 'Home/Contact';
+$route['TermsConditions'] = 'Home/TermsConditions';
+$route['Search'] = 'TaKon/Search';
+$route['HomeDetails/(:any)']='Home/detail';
+
 #user sessions
+$route['Register'] = 'Home/regis';
 $route['Login'] = 'Auth/login';
 $route['Logout'] = 'Auth/logout';
-$route['Register'] = 'Home/regis';
 
-//Invoices
+#user features after logging in
+$route['Profile'] = 'Profile/index';
+$route['Inbox'] = 'Inbox';
+
+#booking processes
+$route['Booking/(:any)'] = 'Transaksi/formbooking';
+$route['Booking/proses/(:any)'] = 'Transaksi/requestbooking';
+$route['BookConfirm/(:any)'] = 'Transaksi/book';
+$route['BookCancel/(:any)'] = 'Transaksi/cancel';
+
+#list kontrakan per owner
+$route['ListKontrakan']='DaftarKontrakan/index';
+$route['ViewKontrakan/(:any)'] = 'DaftarKontrakan/getOneKontrakan';
+
+#Invoices
 $route['Invoices']='Invoice';
 $route['viewinvoice/(:any)'] = 'Invoice/view';
 $route['confirm/(:any)'] = 'Invoice/confirm';
