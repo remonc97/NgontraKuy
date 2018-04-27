@@ -106,95 +106,59 @@ $this->view('template/header');
 
       <?php } ?>
         <div class="panel-body">
-          <table style="table-layout:fixed" class="table table-striped table-bordered table-hover" id="datatablepesan">
+            <div class="col-md-12">
+                <table style="<?php #echo "table-layout:fixed"?>" class="table table-striped table-bordered table-hover" id="datatablepesan">
 
-            <?php if($detilPesan == null) { ?>
-              <center><h4><b>Anda Tidak Memiliki Pesan</b></h4></center>
-            <?php } else { ?>
+                    <?php if($detilPesan == null) { ?>
+                        <center><h4><b>Anda Tidak Memiliki Pesan</b></h4></center>
+                    <?php } else { ?>
 
-            <thead>
-              <tr>
-                <th align="center" width="50px">No.</th>
-                <th>Nama Customer</th>
-                <th>Tanggal Pesan</th>
-                <th>Jenis Pesan</th>
-                <th>Status</th>
-                <th width="280px">Action</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <?php $no=1; ?>
-                  <?php $pelanggan = $this->M_Inbox->getCustomerTable($nama); ?>
-                    <?php foreach($pelanggan as $data) { ?>
-                      <?php $isi = $this->M_Inbox->getTampilPesanCustomer($data->idpengguna); ?>
-                        <?php foreach ($isi as $item) { ?>
+                        <thead>
+                        <tr>
+                            <th align="center" width="50px">No.</th>
+                            <th>Nama Customer</th>
+                            <th>Tanggal Pesan</th>
+                            <th>Jenis Pesan</th>
+                            <th>Status</th>
+                            <th width="280px">Action</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <?php $no=1; ?>
+                            <?php $pelanggan = $this->M_Inbox->getCustomerTable($nama); ?>
+                            <?php foreach($pelanggan as $data) { ?>
+                            <?php $isi = $this->M_Inbox->getTampilPesanCustomer($data->idpengguna); ?>
+                            <?php foreach ($isi as $item) { ?>
 
-                          <td align="center"><?php echo $no ?></td>
-                          <td><?php echo $item->namalengkap;?></td>
-                          <td><?php echo $item->tglpesan;?></td>
-                          <td><?php echo $item->jenispesan;?></td>
-                          <td>
-                            <?php if($item->status == "Submitted") { ?>
-                              <span class="label label-primary"><?php echo $item->status;?></span>
-                            <?php } if($item->status == "On Process") { ?>
-                              <span class="label label-danger"><?php echo $item->status;?></span>
-                            <?php } if($item->status == "Solved") { ?>
-                              <span class="label label-success"><?php echo $item->status;?></span>
-                            <?php } ?>
-                          </td>
-                          <td>
-                            <a href="<?php echo site_url('Inbox/lihatPesan/'.$item->idpengirim.'/'.$item->idpenerima) ?>" style="background-color: #1ac6ff; color: white" class="btn btn-default btn-circle" id="lihatPesan" data-toggle="modal"><i class="glyphicon glyphicon-envelope"></i> Lihat Pesan </a>
-                            <?php if($item->status != "On Process" && $item->status != "Solved" && $item->jenispesan != "request") { ?>
-                              <a href="#prosesPesanModal<?php echo $item->idpesan ?>" class="btn btn-danger btn-circle" id="prosesPesan" data-toggle="modal"><i class="fa fa-gears"></i> Proses </a>
-                            <?php } ?>
-                            <?php if($item->status != "Solved" && $item->jenispesan != "request") { ?>
-                              <a href="#solvePesanModal<?php echo $item->idpesan ?>" class="btn btn-default btn-circle" style="background-color: #72b70f; color: white" id="solvePesan" data-toggle="modal"><span class="glyphicon glyphicon-ok"></span> Selesai</a></td>
-                            <?php } ?>
-              </tr>
-            <?php } $no++; } ?>
-          </tbody>
-        <?php } ?>
-      </table>
-    </div>
-  </div>
-</div>
-
-
-<div class="banner-search">
-  <div class="container">
-  <!-- banner -->
-    <h3>Book your homes here</h3>
-      <div class="searchbar">
-        <div class="row">
-          <div class="col-lg-6 col-sm-6">
-            <form action="<?php echo site_url('FindHomes')?>" method="post">
-              <input type="text" class="form-control" placeholder="Search of Properties">
-                <div class="row">
-                    <div class="col-lg-3 col-sm-3 ">
-                    <select class="form-control" name="type">
-                      <option>Type</option>
-                      <option value="furnished">Furnished</option>
-                      <option value="unfurnished">Unfurnished</option>
-                    </select>
-                  </div>
-                  <div class="col-lg-3 col-sm-4">
-                    <select name="price" class="form-control">
-                      <option>Price</option>
-                      <option value="lo-hi">Lowest - Highest</option>
-                      <option value="hi-lo">Highest - Lowest</option>
-                    </select>
-                  </div>
-                  <div class="col-lg-3 col-sm-4 col-sm-offset-3">
-                    <input class="btn btn-success" role="button" type="submit" value="Find Now"/>
-                  </div>
-                </div>
-            </form>
-          </div>
-        <div class="col-lg-5 col-lg-offset-1 col-sm-6 ">
+                            <td align="center"><?php echo $no ?></td>
+                            <td><?php echo $item->namalengkap;?></td>
+                            <td><?php echo $item->tglpesan;?></td>
+                            <td><?php echo $item->jenispesan;?></td>
+                            <td>
+                                <?php if($item->status == "Submitted") { ?>
+                                    <span class="label label-primary"><?php echo $item->status;?></span>
+                                <?php } if($item->status == "On Process") { ?>
+                                    <span class="label label-danger"><?php echo $item->status;?></span>
+                                <?php } if($item->status == "Solved") { ?>
+                                    <span class="label label-success"><?php echo $item->status;?></span>
+                                <?php } ?>
+                            </td>
+                            <td>
+                                <a href="<?php echo site_url('Inbox/lihatPesan/'.$item->idpengirim.'/'.$item->idpenerima) ?>" style="background-color: #1ac6ff; color: white" class="btn btn-default btn-circle" id="lihatPesan" data-toggle="modal"><i class="glyphicon glyphicon-envelope"></i> Lihat Pesan </a>
+                                <?php if($item->status != "On Process" && $item->status != "Solved" && $item->jenispesan != "request") { ?>
+                                    <a href="#prosesPesanModal<?php echo $item->idpesan ?>" class="btn btn-danger btn-circle" id="prosesPesan" data-toggle="modal"><i class="fa fa-gears"></i> Proses </a>
+                                <?php } ?>
+                                <?php if($item->status != "Solved" && $item->jenispesan != "request") { ?>
+                                <a href="#solvePesanModal<?php echo $item->idpesan ?>" class="btn btn-default btn-circle" style="background-color: #72b70f; color: white" id="solvePesan" data-toggle="modal"><span class="glyphicon glyphicon-ok"></span> Selesai</a></td>
+                        <?php } ?>
+                        </tr>
+                        <?php $no++;}  } ?>
+                        </tbody>
+                    <?php } ?>
+                </table>
+            </div>
         </div>
-      </div>
-    </div>
   </div>
 </div>
 
