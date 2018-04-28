@@ -104,7 +104,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <br/><br/>
                         <p>Pengen jalan-jalan tapi nginep di hotel terlalu mahal?<br/>Mending ngontrak aja!</p><br/>
                         <?php if($this->session->userdata('email') == null){?>
-                        <a class="btn btn-success" role="button" href="<?php blink('Register')?>">Join Now</a>
+                        <a class="btn btn-success" role="button" href="<?php echo base_url('Register')?>">Join Now</a>
                         <?php } ?>
                     </blockquote>
                 </div>
