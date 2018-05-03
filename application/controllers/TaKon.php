@@ -91,15 +91,7 @@ class TaKon extends CI_Controller {
             'idpengguna'=>$idpengguna
 
             );
-			var_dump($data);
-			exit;
 			
-            $ubah = array(
-            'auth' => true,
-            'idpengguna' => $idpengguna
-            );
-
-            $result = $this->Kontrakan->UpdateAuth($ubah);
             $result = $this->Kontrakan->InsertRumah($data);
 
                 redirect('Home');
