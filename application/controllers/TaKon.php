@@ -96,7 +96,7 @@ class TaKon extends CI_Controller {
 
                 redirect('Home');
             }else{
-				redirect('Home');
+			echo json_encode(array('success' => false));
             }
         }
 
