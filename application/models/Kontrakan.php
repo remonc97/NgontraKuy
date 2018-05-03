@@ -43,8 +43,6 @@ class Kontrakan extends CI_Model
 
 			$this->db->insert('kontrakan',$data);
 			$checkinsert = true;
-			var_dump($data);
-			exit;
 		}catch (Exception $ex) {
 
 			$checkinsert = false;
@@ -110,6 +108,10 @@ class Kontrakan extends CI_Model
 
   	}
 
+	public function updateGambarRumah($data1,$idkontrakan){
+					return $this->db->set($data1)->where('idkontrakan',$idkontrakan)->update('kontrakan');
+				}
+	
      public function getOneKontrakan($idkontrakan){
        return $this->db->where('idkontrakan',$idkontrakan)->get('kontrakan')->row();
      }

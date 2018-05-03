@@ -48,8 +48,7 @@ class TaKon extends CI_Controller {
 	}
 
 	public function InsetRumah(){
-		
-		
+
             $config['upload_path']          = './assets/images/rumah'; //call paath
             $config['allowed_types'] = 'jpeg|jpg|gif|png';//type file upload
             $this->load->library('upload', $config);
@@ -58,7 +57,7 @@ class TaKon extends CI_Controller {
             $notelp = $this->input->post('notelp');
             $harga = $this->input->post('harga');
             $deskripsi = $this->input->post('deskripsi');
-            //$gambar = $this->input->post('gambar');
+            $gambar = $this->input->post('gambar');
             $alamat = $this->input->post('alamat');
             $fasilitas = $this->input->post('fasilitas');
             $kota = $this->input->post('kota');
@@ -77,7 +76,6 @@ class TaKon extends CI_Controller {
                     break;
                 }
             }
-			
             $data = array(
             'nmkontrakan' =>$nmkontrakan,
             'notelp' =>$notelp,
@@ -93,21 +91,14 @@ class TaKon extends CI_Controller {
 
             );
 
-            $ubah = array(
-            'auth' => true,
-            'idpengguna' => $idpengguna
-            );
-
-            $result = $this->Kontrakan->UpdateAuth($ubah);
+            
             $result = $this->Kontrakan->InsertRumah($data);
 
                 redirect('Home');
             }else{
-
-                echo json_encode(array('success' => false));
+				redirect('Home');
             }
-        
-	}
+        }
 
 	public function Search(){
 		// Retrieve the posted search term.
