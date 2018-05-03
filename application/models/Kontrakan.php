@@ -43,6 +43,8 @@ class Kontrakan extends CI_Model
 
 			$this->db->insert('kontrakan',$data);
 			$checkinsert = true;
+			var_dump($data);
+			exit;
 		}catch (Exception $ex) {
 
 			$checkinsert = false;

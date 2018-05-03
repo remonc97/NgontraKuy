@@ -49,7 +49,7 @@ class TaKon extends CI_Controller {
 
 	public function InsetRumah(){
 		
-
+		
             $config['upload_path']          = './assets/images/rumah'; //call paath
             $config['allowed_types'] = 'jpeg|jpg|gif|png';//type file upload
             $this->load->library('upload', $config);
@@ -70,13 +70,14 @@ class TaKon extends CI_Controller {
 
             if($this->upload->do_upload('gambar')){ //dari sini akan kebuat keterangan ttg data yg diupload
             $data['upload_data'] = $this->upload->data(); //trus keterangannya masuk ke variabel
-			
+
             foreach ($data['upload_data'] as $item => $value) { //ini ngeloop data yg keupload, kayak file type, file name, blabla, full path, dsb
                 if ($item == 'file_name') { //kita cuma mau ambil file name nya aja beserta format filenya kan?
                     $gambar = $value; //ini dia ngesave file name si gambar berdasarkan data yg keupload
                     break;
                 }
             }
+			
             $data = array(
             'nmkontrakan' =>$nmkontrakan,
             'notelp' =>$notelp,
@@ -91,13 +92,21 @@ class TaKon extends CI_Controller {
             'idpengguna'=>$idpengguna
 
             );
-			
+
+            $ubah = array(
+            'auth' => true,
+            'idpengguna' => $idpengguna
+            );
+
+            $result = $this->Kontrakan->UpdateAuth($ubah);
             $result = $this->Kontrakan->InsertRumah($data);
 
                 redirect('Home');
             }else{
-			echo json_encode(array('success' => false));
+
+                echo json_encode(array('success' => false));
             }
+        
 	}
 
 	public function Search(){
