@@ -49,14 +49,6 @@ class TaKon extends CI_Controller {
 
 	public function InsetRumah(){
 		
-		$data = array();
-        $filesCount = count($_FILES['gambar']['name']);
-        for($i = 0; $i < $filesCount; $i++){
-            $_FILES['gambar']['name'] = $_FILES['gambar']['name'][$i];
-            $_FILES['gambar']['type'] = $_FILES['gambar']['type'][$i];
-            $_FILES['gambar']['tmp_name'] = $_FILES['gambar']['tmp_name'][$i];
-            $_FILES['gambar']['error'] = $_FILES['gambar']['error'][$i];
-            $_FILES['gambar']['size'] = $_FILES['gambar']['size'][$i];
 
             $config['upload_path']          = './assets/images/rumah'; //call paath
             $config['allowed_types'] = 'jpeg|jpg|gif|png';//type file upload
@@ -75,11 +67,14 @@ class TaKon extends CI_Controller {
             $idpengguna=$this->session->userdata('idpengguna');
             $auth = $this->session->userdata('auth');
             $idkontrakan = $this->input->post('idkontrakan');
+			
+			var_dump($idkontrakan);
+			exit;
 
             if($this->upload->do_upload('gambar')){ //dari sini akan kebuat keterangan ttg data yg diupload
-            $data[$i]['upload_data'] = $this->upload->data(); //trus keterangannya masuk ke variabel
-
-            foreach ($data[$i]['upload_data'] as $item => $value) { //ini ngeloop data yg keupload, kayak file type, file name, blabla, full path, dsb
+            $data['upload_data'] = $this->upload->data(); //trus keterangannya masuk ke variabel
+			
+            foreach ($data['upload_data'] as $item => $value) { //ini ngeloop data yg keupload, kayak file type, file name, blabla, full path, dsb
                 if ($item == 'file_name') { //kita cuma mau ambil file name nya aja beserta format filenya kan?
                     $gambar = $value; //ini dia ngesave file name si gambar berdasarkan data yg keupload
                     break;
@@ -99,7 +94,7 @@ class TaKon extends CI_Controller {
             'idpengguna'=>$idpengguna
 
             );
-
+			
             $ubah = array(
             'auth' => true,
             'idpengguna' => $idpengguna
@@ -110,10 +105,8 @@ class TaKon extends CI_Controller {
 
                 redirect('Home');
             }else{
-
-                echo json_encode(array('success' => false));
+				redirect('Home');
             }
-        }
 	}
 
 	public function Search(){
