@@ -47,7 +47,7 @@ class Kontrakan extends CI_Model
 
 			$checkinsert = false;
 		}
-
+		return $checkinsert;
 	}
 	public function UpdateAuth($ubah){
 
