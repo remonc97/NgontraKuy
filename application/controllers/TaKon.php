@@ -67,9 +67,6 @@ class TaKon extends CI_Controller {
             $idpengguna=$this->session->userdata('idpengguna');
             $auth = $this->session->userdata('auth');
             $idkontrakan = $this->input->post('idkontrakan');
-			
-			var_dump($idkontrakan);
-			exit;
 
             if($this->upload->do_upload('gambar')){ //dari sini akan kebuat keterangan ttg data yg diupload
             $data['upload_data'] = $this->upload->data(); //trus keterangannya masuk ke variabel
