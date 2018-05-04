@@ -9,30 +9,10 @@ use ngontrakuy;
 # Structure for table "kontrakan"
 #
 
-DROP TABLE IF EXISTS `kontrakan`;
-CREATE TABLE `kontrakan` (
-  `idkontrakan` int(11) NOT NULL AUTO_INCREMENT,
-  `idpengguna` int(11) NOT NULL,
-  `nmkontrakan` varchar(255) DEFAULT NULL,
-  `notelp` varchar(14) DEFAULT NULL,
-  `alamat` text,
-  `kota` varchar(30) DEFAULT NULL,
-  `deskripsi` text,
-  `fasilitas` text,
-  `ukuran` varchar(40) DEFAULT NULL,
-  `gambar` text,
-  `harga` varchar(10) DEFAULT NULL,
-  `status` varchar(30) DEFAULT NULL,
-  PRIMARY KEY (`idkontrakan`),
-  KEY `idpengguna` (`idpengguna`),
-  CONSTRAINT `kontrakan_ibfk_1` FOREIGN KEY (`idpengguna`) REFERENCES `pengguna` (`idpengguna`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
 
 #
 # Data for table "kontrakan"
 #
-
-INSERT INTO `kontrakan` VALUES (1,8,'kontrakan1','081286923340','jalan sabar','DKI Jakarta','bisa nego','kamar tidur;wi-fi;kamar mandi;garasi;','100x100','k1g1.png','100000000','available'),(2,8,'kontrakan2','081286923340','jalan sabar','Tangerang','bisa nego','kamar tidur;wi-fi;kamar mandi;meja;','100x100','k1g1.png','100000000','not available'),(3,8,'kontrakan3','081286923340','jalan sabar','DKI Jakarta','bisa nego','tempat tidur;wi-fi;kamar mandi;lemari;','100x100','k1g1.png','200000000','available'),(4,10,'kontrakan4','081286923340','jalan sabar','Bekasi','bisa nego','kamar tidur;wi-fi;kamar mandi;garasi;','100x100','k1g1.png','100000000','available'),(5,8,'kontrakan5','081286923340','jalan sabar','DKI Jakarta','bisa nego','kamar tidur;wi-fi;kamar mandi;meja;','100x100','k1g1.png','200000000','not available'),(6,10,'kontrakan6','081286923340','jalan sabar','Bekasi','bisa nego','furnished;wi-fi;kamar mandi;lemari;','100x100','k1g1.png','100000000','available'),(7,8,'kontrakan7','081286923340','jalan sabar','Tangerang','bisa nego','kamar tidur;wi-fi;kamar mandi;garasi;','100x100','k1g1.png','100000000','available'),(8,11,'kontrakan8','081286923340','jalan sabar','DKI Jakarta','bisa nego','kamar tidur;wi-fi;kamar mandi;meja;','100x100','k1g1.png','300000000','not available'),(9,11,'kontrakan9','081286923340','jalan sabar','DKI Jakarta','bisa nego','furnished;wi-fi;kamar mandi;meja;','100x100','k1g1.png','400000000','available'),(10,11,'kontrakan10','081286923340','jalan sabar','Tangerang','bisa nego','kamar tidur;wi-fi;kamar mandi;meja makan;','100x100','k1g1.png','200000000','not available'),(11,10,'kontrakan11','081286923340','jalan sabar','Tangerang','bisa nego','meja belajar;wi-fi;kamar mandi;meja makan;','100x100','k1g1.png','20000000','not available'),(12,13,'hehe','2930','hehe','hehe','hehe','hehe','hehe','girl1.png','832900','available'),(13,8,'hdhdjsj','9028034','KDJLJD','hsfjsl','LDKSDL','ldsaljd','lsndlasL',NULL,'028339','available');
 
 #
 # Structure for table "pengguna"
@@ -59,6 +39,28 @@ INSERT INTO `pengguna` VALUES (1,'chia@gmail.com','chia','chintya','1997-05-17',
 #
 # Structure for table "pesan"
 #
+DROP TABLE IF EXISTS `kontrakan`;
+CREATE TABLE `kontrakan` (
+  `idkontrakan` int(11) NOT NULL AUTO_INCREMENT,
+  `idpengguna` int(11) NOT NULL,
+  `nmkontrakan` varchar(255) DEFAULT NULL,
+  `notelp` varchar(14) DEFAULT NULL,
+  `alamat` text,
+  `kota` varchar(30) DEFAULT NULL,
+  `deskripsi` text,
+  `fasilitas` text,
+  `ukuran` varchar(40) DEFAULT NULL,
+  `gambar` text,
+  `harga` varchar(10) DEFAULT NULL,
+  `status` varchar(30) DEFAULT NULL,
+  PRIMARY KEY (`idkontrakan`),
+  KEY `idpengguna` (`idpengguna`),
+  CONSTRAINT `kontrakan_ibfk_1` FOREIGN KEY (`idpengguna`) REFERENCES `pengguna` (`idpengguna`)
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
+
+
+INSERT INTO `kontrakan` VALUES (1,8,'kontrakan1','081286923340','jalan sabar','DKI Jakarta','bisa nego','kamar tidur;wi-fi;kamar mandi;garasi;','100x100','k1g1.png','100000000','available'),(2,8,'kontrakan2','081286923340','jalan sabar','Tangerang','bisa nego','kamar tidur;wi-fi;kamar mandi;meja;','100x100','k1g1.png','100000000','not available'),(3,8,'kontrakan3','081286923340','jalan sabar','DKI Jakarta','bisa nego','tempat tidur;wi-fi;kamar mandi;lemari;','100x100','k1g1.png','200000000','available'),(4,10,'kontrakan4','081286923340','jalan sabar','Bekasi','bisa nego','kamar tidur;wi-fi;kamar mandi;garasi;','100x100','k1g1.png','100000000','available'),(5,8,'kontrakan5','081286923340','jalan sabar','DKI Jakarta','bisa nego','kamar tidur;wi-fi;kamar mandi;meja;','100x100','k1g1.png','200000000','not available'),(6,10,'kontrakan6','081286923340','jalan sabar','Bekasi','bisa nego','furnished;wi-fi;kamar mandi;lemari;','100x100','k1g1.png','100000000','available'),(7,8,'kontrakan7','081286923340','jalan sabar','Tangerang','bisa nego','kamar tidur;wi-fi;kamar mandi;garasi;','100x100','k1g1.png','100000000','available'),(8,11,'kontrakan8','081286923340','jalan sabar','DKI Jakarta','bisa nego','kamar tidur;wi-fi;kamar mandi;meja;','100x100','k1g1.png','300000000','not available'),(9,11,'kontrakan9','081286923340','jalan sabar','DKI Jakarta','bisa nego','furnished;wi-fi;kamar mandi;meja;','100x100','k1g1.png','400000000','available'),(10,11,'kontrakan10','081286923340','jalan sabar','Tangerang','bisa nego','kamar tidur;wi-fi;kamar mandi;meja makan;','100x100','k1g1.png','200000000','not available'),(11,10,'kontrakan11','081286923340','jalan sabar','Tangerang','bisa nego','meja belajar;wi-fi;kamar mandi;meja makan;','100x100','k1g1.png','20000000','not available'),(12,13,'hehe','2930','hehe','hehe','hehe','hehe','hehe','girl1.png','832900','available'),(13,8,'hdhdjsj','9028034','KDJLJD','hsfjsl','LDKSDL','ldsaljd','lsndlasL',NULL,'028339','available');
+
 
 DROP TABLE IF EXISTS `pesan`;
 CREATE TABLE `pesan` (
