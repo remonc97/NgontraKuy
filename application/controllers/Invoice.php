@@ -71,7 +71,7 @@ class Invoice extends CI_Controller
         $data = NULL;
         if ($result){
             $id = $this->session->userdata('idpengguna');
-            $data['all'] = $this->Model_Admin->getTagihan();
+            $data['all'] = $this->Tagihan->getTagihan();
             $data['user'] = $this->Model_Admin->get1User($id);
             $data['session'] = true;
             $data['namalengkap'] = $this->session->userdata('namalengkap');
