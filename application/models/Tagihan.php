@@ -34,6 +34,10 @@ class Tagihan extends CI_Model
         return $this->db->where('idtagihan',$idtagihan)->get('tagihan')->row();
     }
 
+    public function getAllTagihan(){
+        return $this->db->get('tagihan')->result();
+    }
+
     public function getTagihan($idpengguna,$idpengguna1)
     {
         return $this->db->select('tagihan.*')

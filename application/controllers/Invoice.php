@@ -22,7 +22,9 @@ class Invoice extends CI_Controller
             $data['nama'] = $this->session->userdata('namalengkap');
             $data['auth']=$this->session->userdata('auth');
 
-            $data['all'] = $this->Tagihan->getTagihan($data['idpengguna']);
+//            $datapengguna1 = $this->
+//            $data['all'] = $this->Tagihan->getTagihan($data['idpengguna'],$datapengguna1);
+            $data['all'] = $this->Tagihan->getAllTagihan();
             $data['tagihan1'] = $this->Tagihan->getJmlTagihan($data['idpengguna']);
             $this->load->view('Invoices', $data);
         }else{
