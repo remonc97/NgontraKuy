@@ -66,7 +66,7 @@ class Invoice extends CI_Controller
 
         $idtagihan = $this->uri->segment(2);
 
-        $result = $this->Model_Admin->Confirm($idtagihan);
+        $result = $this->Tagihan->Confirm($idtagihan);
 
         $data = NULL;
         if ($result){
@@ -79,7 +79,7 @@ class Invoice extends CI_Controller
             $this->load->view('Invoices', $data);
         }else{
             $id = $this->session->userdata('idpengguna');
-            $data['all'] = $this->Model_Admin->getTagihan();
+            $data['all'] = $this->Tagihan->getTagihan();
             $data['user'] = $this->Model_Admin->get1User($id);
             $data['session'] = true;
             $data['namalengkap'] = $this->session->userdata('namalengkap');
