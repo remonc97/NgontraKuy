@@ -74,6 +74,7 @@ class Invoice extends CI_Controller
             $data['all'] = $this->Tagihan->getTagihan($this->session->idpengguna);
             $data['user'] = $this->Model_Admin->get1User($id);
             $data['session'] = true;
+            $data['auth'] = $this->session->auth;
             $data['namalengkap'] = $this->session->userdata('namalengkap');
             $data['result'] ='Konfirmasi Berhasil';
             $this->load->view('Invoices', $data);
@@ -81,6 +82,7 @@ class Invoice extends CI_Controller
             $id = $this->session->userdata('idpengguna');
             $data['all'] = $this->Tagihan->getTagihan($this->session->idpengguna);
             $data['user'] = $this->Model_Admin->get1User($id);
+            $data['auth'] = $this->session->auth;
             $data['session'] = true;
             $data['namalengkap'] = $this->session->userdata('namalengkap');
             $data['result'] ='Konfirmasi Gagal';
