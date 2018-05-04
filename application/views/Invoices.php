@@ -186,7 +186,8 @@ $this->view('template/header');
                                             <?php
                                             if($tagihan1->jumlah > 0){
                                                 ?>
-                                                You have <a href="<?php echo site_url('Invoices')?>"><?php echo $tagihan1->jumlah ?></a> invoice(s) waiting to be processed.
+<!--                                                You have <a href="--><?php //echo site_url('Invoices')?><!--">--><?php //echo $tagihan1->jumlah ?><!--</a> invoice(s) waiting to be processed.-->
+                                                You have invoice(s) waiting to be processed.
                                                 <?php
                                             }else{
                                                 ?>
