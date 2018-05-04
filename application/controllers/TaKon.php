@@ -110,7 +110,6 @@ class TaKon extends CI_Controller {
             }else{
 
                 echo "<script>alert('berhasil menambahkan kontrakan, namun gambar tidak dapat diupload. Coba beberapa saat lagi.')</script>";
-				redirect('Home');
             }
 	}
 
