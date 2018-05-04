@@ -82,7 +82,7 @@ class TaKon extends CI_Controller {
             );
 
             $result = $this->Kontrakan->UpdateAuth($ubah);
-            $result = $this->Kontrakan->InsertRumah($data);
+            $resultrumah = $this->Kontrakan->InsertRumah($data);
 			
 			$config['upload_path']          = './assets/images/Rumah/'; //call paath
             $config['allowed_types'] = 'jpeg|jpg|gif|png';//type file upload
@@ -102,16 +102,20 @@ class TaKon extends CI_Controller {
 				$data1 = array(
 				'gambar' =>$gambar
 				);
-				print_r($data1); die();
-				$result = $this->Kontrakan->updateGambarRumah($data1,$idkontrakan);
-				
-				
-                redirect('Home');
+//				print_r($data1); die();
+				$resultgambar = $this->Kontrakan->updateGambarRumah($data1,$idkontrakan);
+
+//                redirect('Home');
             }else{
-                $error = array('error' => $this->upload->display_errors());
-                print_r($error);die();
+//                $error = array('error' => $this->upload->display_errors());
+//                print_r($error);die();
                 echo "<script>alert('Fail Input Data.Please try again.')</script>";
-				Redirect('/','refresh');
+				redirect('/','refresh');
+            }
+
+            if($resultrumah == true && $resultgambar == true){
+                echo "<script>alert('berhasil menambah data kontrakan!')</script>";
+                redirect('/','refresh');
             }
 	}
 
