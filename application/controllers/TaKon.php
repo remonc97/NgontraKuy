@@ -84,7 +84,7 @@ class TaKon extends CI_Controller {
             $result = $this->Kontrakan->UpdateAuth($ubah);
             $result = $this->Kontrakan->InsertRumah($data);
 			
-			$config['upload_path']          = './assets/images/rumah'; //call paath
+			$config['upload_path']          = './assets/images/Rumah'; //call paath
             $config['allowed_types'] = 'jpeg|jpg|gif|png';//type file upload
             $this->load->library('upload', $config);
 			
