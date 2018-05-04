@@ -38,19 +38,29 @@ class Tagihan extends CI_Model
         return $this->db->get('tagihan')->result();
     }
 
-    public function getTagihan($idpengguna,$idpengguna1)
+    public function getTagihan($idpengguna)
     {
         return $this->db->select('tagihan.*')
             ->from('tagihan')
             ->join('reservasi','tagihan.idreservasi = reservasi.idreservasi')
             ->join('pengguna','reservasi.idpengguna = pengguna.idpengguna')
-            ->join('detilreservasi','reservasi.idreservasi = detilreservasi.idreservasi')
-            ->join('kontrakan','detilreservasi.idkontrakan = kontrakan.idkontrakan')
             ->where('pengguna.idpengguna',$idpengguna)
-            ->where('kontrakan.idpengguna',$idpengguna1)
             ->get()->result();
 
     }
+//    public function getTagihan($idpengguna,$idpengguna1)
+//    {
+//        return $this->db->select('tagihan.*')
+//            ->from('tagihan')
+//            ->join('reservasi','tagihan.idreservasi = reservasi.idreservasi')
+//            ->join('pengguna','reservasi.idpengguna = pengguna.idpengguna')
+//            ->join('detilreservasi','reservasi.idreservasi = detilreservasi.idreservasi')
+//            ->join('kontrakan','detilreservasi.idkontrakan = kontrakan.idkontrakan')
+//            ->where('pengguna.idpengguna',$idpengguna)
+//            ->where('kontrakan.idpengguna',$idpengguna1)
+//            ->get()->result();
+//
+//    }
     public function confirm($idtagihan)
     {
         try{
