@@ -108,7 +108,8 @@ class TaKon extends CI_Controller {
 				
                 redirect('Home');
             }else{
-
+                $error = array('error' => $this->upload->display_errors());
+                print_r($error);die();
                 echo "<script>alert('Fail Input Data.Please try again.')</script>";
 				Redirect('/','refresh');
             }
