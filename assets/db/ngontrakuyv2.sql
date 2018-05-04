@@ -1,18 +1,10 @@
 ﻿# Host: localhost  (Version 5.5.5-10.1.30-MariaDB)
-# Date: 2018-05-04 08:18:33
+# Date: 2018-05-04 08:27:55
 # Generator: MySQL-Front 6.0  (Build 2.20)
 
 drop database if exists ngontrakuy;
 create database ngontrakuy;
 use ngontrakuy;
-#
-# Structure for table "kontrakan"
-#
-
-
-#
-# Data for table "kontrakan"
-#
 
 #
 # Structure for table "pengguna"
@@ -37,8 +29,9 @@ CREATE TABLE `pengguna` (
 INSERT INTO `pengguna` VALUES (1,'chia@gmail.com','chia','chintya','1997-05-17','081286923340','2'),(2,'nikko@gmail.com','nikko','nikko','1997-05-17','081286923340','2'),(3,'zein@gmail.com','zein','zein','1997-05-17','081286923340','2'),(4,'zacky@gmail.com','zacky','zacky','1997-05-17','081286923340','2'),(5,'rinaldy@gmail.com','rinaldy','rinaldy','1997-05-17','081286923340','2'),(6,'rafly@gmail.com','rafly','rafly','1997-05-17','081286923340','2'),(7,'puspa@gmail.com','puspa','puspa','1997-05-17','081286923340','2'),(8,'meydita@gmail.com','meydita','meydita','1997-05-17','081286923340','1'),(9,'fakhri@gmail.com','fakhri','fakhri','1997-05-17','081286923340','0'),(10,'aldis@gmail.com','aldis','aldis','1997-05-17','081286923340','1'),(11,'gugum@gmail.com','gugum','gugum','1997-05-17','081286923340','1'),(12,'pandu@gmail.com','pandu','pandu','1997-05-17','081286923340','0'),(13,'mufidah@gmail.com','mufidah','mufidah','1997-05-17','081286923340','1'),(14,'rivaldy@gmail.com','rivaldy','rivaldy','1997-05-17','081286923340','0'),(15,'hilmi@gmail.com','hilmi','hilmi','1997-05-17','081286923340','0'),(16,'andy@gmail.com','andy','andy','1997-05-17','081286923340','0'),(17,'rinaldy@gmail.com','rinaldy','rinaldy','1997-05-17','081286923340','0'),(18,'fadilah@gmail.com','fadilah','fadilah','1997-05-17','081286923340','0'),(19,'ehehe@yahoo.com','ehehe','ehehe','2008-08-08','0829','0'),(20,'ehyou@gmail.com','ehyou','ehyou','2008-08-08','3849','0');
 
 #
-# Structure for table "pesan"
+# Structure for table "kontrakan"
 #
+
 DROP TABLE IF EXISTS `kontrakan`;
 CREATE TABLE `kontrakan` (
   `idkontrakan` int(11) NOT NULL AUTO_INCREMENT,
@@ -58,9 +51,15 @@ CREATE TABLE `kontrakan` (
   CONSTRAINT `kontrakan_ibfk_1` FOREIGN KEY (`idpengguna`) REFERENCES `pengguna` (`idpengguna`)
 ) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
 
+#
+# Data for table "kontrakan"
+#
 
-INSERT INTO `kontrakan` VALUES (1,8,'kontrakan1','081286923340','jalan sabar','DKI Jakarta','bisa nego','kamar tidur;wi-fi;kamar mandi;garasi;','100x100','k1g1.png','100000000','available'),(2,8,'kontrakan2','081286923340','jalan sabar','Tangerang','bisa nego','kamar tidur;wi-fi;kamar mandi;meja;','100x100','k1g1.png','100000000','not available'),(3,8,'kontrakan3','081286923340','jalan sabar','DKI Jakarta','bisa nego','tempat tidur;wi-fi;kamar mandi;lemari;','100x100','k1g1.png','200000000','available'),(4,10,'kontrakan4','081286923340','jalan sabar','Bekasi','bisa nego','kamar tidur;wi-fi;kamar mandi;garasi;','100x100','k1g1.png','100000000','available'),(5,8,'kontrakan5','081286923340','jalan sabar','DKI Jakarta','bisa nego','kamar tidur;wi-fi;kamar mandi;meja;','100x100','k1g1.png','200000000','not available'),(6,10,'kontrakan6','081286923340','jalan sabar','Bekasi','bisa nego','furnished;wi-fi;kamar mandi;lemari;','100x100','k1g1.png','100000000','available'),(7,8,'kontrakan7','081286923340','jalan sabar','Tangerang','bisa nego','kamar tidur;wi-fi;kamar mandi;garasi;','100x100','k1g1.png','100000000','available'),(8,11,'kontrakan8','081286923340','jalan sabar','DKI Jakarta','bisa nego','kamar tidur;wi-fi;kamar mandi;meja;','100x100','k1g1.png','300000000','not available'),(9,11,'kontrakan9','081286923340','jalan sabar','DKI Jakarta','bisa nego','furnished;wi-fi;kamar mandi;meja;','100x100','k1g1.png','400000000','available'),(10,11,'kontrakan10','081286923340','jalan sabar','Tangerang','bisa nego','kamar tidur;wi-fi;kamar mandi;meja makan;','100x100','k1g1.png','200000000','not available'),(11,10,'kontrakan11','081286923340','jalan sabar','Tangerang','bisa nego','meja belajar;wi-fi;kamar mandi;meja makan;','100x100','k1g1.png','20000000','not available'),(12,13,'hehe','2930','hehe','hehe','hehe','hehe','hehe','girl1.png','832900','available'),(13,8,'hdhdjsj','9028034','KDJLJD','hsfjsl','LDKSDL','ldsaljd','lsndlasL',NULL,'028339','available');
+INSERT INTO `kontrakan` VALUES (1,8,'kontrakan1','081286923340','jalan sabar','DKI Jakarta','bisa nego','kamar tidur;wi-fi;kamar mandi;garasi;','100x100','k1g1.PNG','100000000','available'),(2,8,'kontrakan2','081286923340','jalan sabar','Tangerang','bisa nego','kamar tidur;wi-fi;kamar mandi;meja;','100x100','k1g1.PNG\n','100000000','not available'),(3,8,'kontrakan3','081286923340','jalan sabar','DKI Jakarta','bisa nego','tempat tidur;wi-fi;kamar mandi;lemari;','100x100','k1g1.PNG\n','200000000','available'),(4,10,'kontrakan4','081286923340','jalan sabar','Bekasi','bisa nego','kamar tidur;wi-fi;kamar mandi;garasi;','100x100','k1g1.PNG\n','100000000','available'),(5,8,'kontrakan5','081286923340','jalan sabar','DKI Jakarta','bisa nego','kamar tidur;wi-fi;kamar mandi;meja;','100x100','k1g1.PNG\n','200000000','not available'),(6,10,'kontrakan6','081286923340','jalan sabar','Bekasi','bisa nego','furnished;wi-fi;kamar mandi;lemari;','100x100','k1g1.PNG\n','100000000','available'),(7,8,'kontrakan7','081286923340','jalan sabar','Tangerang','bisa nego','kamar tidur;wi-fi;kamar mandi;garasi;','100x100','k1g1.PNG\n','100000000','available'),(8,11,'kontrakan8','081286923340','jalan sabar','DKI Jakarta','bisa nego','kamar tidur;wi-fi;kamar mandi;meja;','100x100','k1g1.PNG\n','300000000','not available'),(9,11,'kontrakan9','081286923340','jalan sabar','DKI Jakarta','bisa nego','furnished;wi-fi;kamar mandi;meja;','100x100','k1g1.PNG\n','400000000','available'),(10,11,'kontrakan10','081286923340','jalan sabar','Tangerang','bisa nego','kamar tidur;wi-fi;kamar mandi;meja makan;','100x100','k1g1.PNG\n','200000000','not available'),(11,10,'kontrakan11','081286923340','jalan sabar','Tangerang','bisa nego','meja belajar;wi-fi;kamar mandi;meja makan;','100x100','k1g1.PNG\n','20000000','not available');
 
+#
+# Structure for table "pesan"
+#
 
 DROP TABLE IF EXISTS `pesan`;
 CREATE TABLE `pesan` (
