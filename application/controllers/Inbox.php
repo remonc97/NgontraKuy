@@ -21,9 +21,7 @@ class Inbox extends CI_Controller {
 		        $nama = $this->session->userdata('namalengkap');
 		        $email = $this->session->userdata('email');
 
-	          	$merge = $this->M_Inbox->getMerge();
 	         	$mergeTable = $this->M_Inbox->getMergeTable1();
-				$detilPesan = $this->M_Inbox->detilPesan();
 				$customer = $this->M_Inbox->getCustomer();
 				$pemilik = $this->M_Inbox->getPemilik2();
 				$pesan = $this->M_Inbox->getAllPesan();
@@ -33,8 +31,6 @@ class Inbox extends CI_Controller {
 					'email' => $email,
 					'nama' => $nama,
 					'session' => true,
-					'merge' => $merge,
-					'detilPesan' => $detilPesan,
 					'pemilik' => $pemilik,
 					'pesan' => $pesan
 				];
@@ -59,17 +55,13 @@ class Inbox extends CI_Controller {
                 $email = $this->session->userdata('email');
                 $auth = $this->session->userdata('auth');
 
-                $merge = $this->M_Inbox->getMerge();
-                $detilPesan = $this->M_Inbox->detilPesan();
                 $pemilik = $this->M_Inbox->getPemilik();
                 $pesan = $this->M_Inbox->getAllPesan();
                 $data = [
                     'auth' => $auth,
-                    'merge' => $merge,
                     'email' => $email,
                     'session' => TRUE,
                     'nama' => $nama,
-                    'detilPesan' => $detilPesan,
                     'pemilik' => $pemilik,
                     'pesan' => $pesan,
                 ];
@@ -233,11 +225,9 @@ class Inbox extends CI_Controller {
 		   		$nama = $this->session->userdata('namalengkap');
 		        $email = $this->session->userdata('email');
 
-                $merge = $this->M_Inbox->getMerge();
                 $mergeTable = $this->M_Inbox->getMergeTable();
                 $showChat2 = $this->M_Inbox->isiPesan2($idpengirim,$idpenerima);
                 $isiPesanBalas = $this->M_Inbox->isiPesanBalas($idpenerima,$idpengirim);
-                $detilPesan = $this->M_Inbox->detilPesan();
                 $customer = $this->M_Inbox->getCustomer();
                 $pemilik = $this->M_Inbox->getPemilik();
                 $pesan = $this->M_Inbox->getAllPesan();
@@ -253,8 +243,6 @@ class Inbox extends CI_Controller {
                     'email' => $email,
                     'nama' => $nama,
                     'session' => true,
-                    'merge' => $merge,
-                    'detilPesan' => $detilPesan,
                     'pemilik' => $pemilik,
                     'pesan' => $pesan
                 ];
@@ -276,20 +264,16 @@ class Inbox extends CI_Controller {
 		        $email = $this->session->userdata('email');
 		        $auth = $this->session->userdata('auth');
 
-                $merge = $this->M_Inbox->getMerge();
                 $showChat2 = $this->M_Inbox->isiPesan2($idpengirim,$idpenerima);
                 $isiPesanBalas = $this->M_Inbox->isiPesanBalas($idpenerima,$idpengirim);
-                $detilPesan = $this->M_Inbox->detilPesan();
                 $pesan = $this->M_Inbox->getAllPesan();
                 $data = [
                     'auth' => $auth,
-                    'merge' => $merge,
                     'email' => $email,
                     'isiPesanBalas' => $isiPesanBalas,
                     'showChat2' =>$showChat2,
                     'session' => TRUE,
                     'nama' => $nama,
-                    'detilPesan' => $detilPesan,
                     'pesan' => $pesan,
                 ];
 

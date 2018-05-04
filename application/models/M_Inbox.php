@@ -49,12 +49,6 @@ class M_Inbox extends CI_Model {
     return $result->result();
   }
 
-  public function detilPesan()
-  {
-    $result = $this->db->query("SELECT * FROM pengguna,pesan WHERE pengguna.idpengguna = pesan.idpengirim group by pesan.idpengirim");
-    return $result->result();
-  }
-
   public function isiPesan($idpengirim,$idpenerima)
   {
     $result = $this->db->query("SELECT * FROM pesan WHERE idpengirim = '".$idpengirim."' AND idpenerima = '".$idpenerima."'");
@@ -109,12 +103,6 @@ class M_Inbox extends CI_Model {
     return $result->result();
   }
 
-  public function getMerge()
-  {
-    $result = $this->db->query("SELECT * FROM pengguna,pesan WHERE pengguna.idpengguna = pesan.idpengirim GROUP BY idpenerima");
-    return $result->result();
-  }
-
   public function getMergeTable()
   {
     $result = $this->db->query("SELECT * FROM pesan,pengguna WHERE pesan.idpengirim = pengguna.idpengguna and status is not null");
@@ -124,12 +112,6 @@ class M_Inbox extends CI_Model {
   public function getMergeTable1()
   {
     $result = $this->db->query("SELECT * FROM pesan,pengguna WHERE pesan.idpengirim = pengguna.idpengguna and status is not null and pesan.topik != 'Book Request'");
-    return $result->result();
-  }
-
-  public function getMergeCustomer()
-  {
-    $result = $this->db->query("SELECT * FROM pengguna,pesan WHERE pengguna.idpengguna = pesan.idpengirim and auth = 0 group by topik");
     return $result->result();
   }
 

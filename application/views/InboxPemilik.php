@@ -109,7 +109,7 @@ $this->view('template/header');
             <div class="col-md-12">
                 <table style="<?php #echo "table-layout:fixed"?>" class="table table-striped table-bordered table-hover" id="datatablepesan">
 
-                    <?php if($detilPesan == null) { ?>
+                    <?php if($pesan == null) { ?>
                         <center><h4><b>Anda Tidak Memiliki Pesan</b></h4></center>
                     <?php } else { ?>
 
