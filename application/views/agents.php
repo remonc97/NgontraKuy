@@ -113,7 +113,7 @@ $this->view('template/header');
                             </p>
                         </div>
                         <div class="col-lg-3 col-sm-3 ">
-                            <span class="glyphicon glyphicon-envelope"></span> <a href="mailto:chintyarifyaningrum07@gmail.com">chintyarifyaningrum07@gmail.com</a><br>
+                            <span class="glyphicon glyphicon-envelope"></span> <a href="mailto:penerimadummy@gmail.com">email us</a><br>
                         </div>
                     </div>
                     <!-- agents -->
@@ -132,7 +132,7 @@ $this->view('template/header');
                             </p>
                         </div>
                         <div class="col-lg-3 col-sm-3 ">
-                            <span class="glyphicon glyphicon-envelope"></span> <a href="mailto:1512500628@student.budiluhur.ac.id">1512500628@student.budiluhur.ac.id</a><br>
+                            <span class="glyphicon glyphicon-envelope"></span> <a href="mailto:penerimadummy@gmail.com">email us</a><br>
                         </div>
                     </div>
                     <!-- agents -->
@@ -149,7 +149,7 @@ $this->view('template/header');
                             </p>
                         </div>
                         <div class="col-lg-3 col-sm-3 ">
-                            <span class="glyphicon glyphicon-envelope"></span> <a href="mailto:1512500768@student.budiluhur.ac.id">1512500768@student.budiluhur.ac.id</a><br>
+                            <span class="glyphicon glyphicon-envelope"></span> <a href="mailto:penerimadummy@gmail.com">email us</a><br>
                         </div>
                     </div>
                     <!-- agents -->
@@ -166,7 +166,7 @@ $this->view('template/header');
                             </p>
                         </div>
                         <div class="col-lg-3 col-sm-3 ">
-                            <span class="glyphicon glyphicon-envelope"></span> <a href="mailto:hazinokaime@gmail.com"><br/>hazinokaime@gmail.com</a><br>
+                            <span class="glyphicon glyphicon-envelope"></span> <a href="mailto:penerimadummy@gmail.com"><br/>email us</a><br>
                         </div>
                     </div>
                     <!-- agents -->
@@ -183,7 +183,7 @@ $this->view('template/header');
                             </p>
                         </div>
                         <div class="col-lg-3 col-sm-3 ">
-                            <span class="glyphicon glyphicon-envelope"></span> <a href="mailto:1512501790@budiluhur.ac.id">1512501790@budiluhur.ac.id</a><br>
+                            <span class="glyphicon glyphicon-envelope"></span> <a href="mailto:penerimadummy@gmail.com">email us</a><br>
                         </div>
                     </div>
                     <!-- agents -->
@@ -200,7 +200,7 @@ $this->view('template/header');
                             </p>
                         </div>
                         <div class="col-lg-3 col-sm-3 ">
-                            <span class="glyphicon glyphicon-envelope"></span> <a href="mailto:1512502707@budiluhur.ac.id">1512502707@budiluhur.ac.id</a><br>
+                            <span class="glyphicon glyphicon-envelope"></span> <a href="mailto:penerimadummy@gmail.com">email us</a><br>
                         </div>
                     </div>
                     <!-- agents -->
