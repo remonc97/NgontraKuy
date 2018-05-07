@@ -114,7 +114,6 @@ $this->view('template/header');
                         </div>
                         <div class="col-lg-3 col-sm-3 ">
                             <span class="glyphicon glyphicon-envelope"></span> <a href="mailto:chintyarifyaningrum07@gmail.com">chintyarifyaningrum07@gmail.com</a><br>
-                            <span class="glyphicon glyphicon-earphone"></span> (+62) 812 8692 3340
                         </div>
                     </div>
                     <!-- agents -->
@@ -134,7 +133,6 @@ $this->view('template/header');
                         </div>
                         <div class="col-lg-3 col-sm-3 ">
                             <span class="glyphicon glyphicon-envelope"></span> <a href="mailto:1512500628@student.budiluhur.ac.id">1512500628@student.budiluhur.ac.id</a><br>
-                            <span class="glyphicon glyphicon-earphone"></span> (+62) 877 6908 3042
                         </div>
                     </div>
                     <!-- agents -->
@@ -152,7 +150,6 @@ $this->view('template/header');
                         </div>
                         <div class="col-lg-3 col-sm-3 ">
                             <span class="glyphicon glyphicon-envelope"></span> <a href="mailto:1512500768@student.budiluhur.ac.id">1512500768@student.budiluhur.ac.id</a><br>
-                            <span class="glyphicon glyphicon-earphone"></span> (+62) 856 9720 6701
                         </div>
                     </div>
                     <!-- agents -->
@@ -170,7 +167,6 @@ $this->view('template/header');
                         </div>
                         <div class="col-lg-3 col-sm-3 ">
                             <span class="glyphicon glyphicon-envelope"></span> <a href="mailto:hazinokaime@gmail.com"><br/>hazinokaime@gmail.com</a><br>
-                            <span class="glyphicon glyphicon-earphone"></span> (+62) 812 9805 0217
                         </div>
                     </div>
                     <!-- agents -->
@@ -188,7 +184,6 @@ $this->view('template/header');
                         </div>
                         <div class="col-lg-3 col-sm-3 ">
                             <span class="glyphicon glyphicon-envelope"></span> <a href="mailto:1512501790@budiluhur.ac.id">1512501790@budiluhur.ac.id</a><br>
-                            <span class="glyphicon glyphicon-earphone"></span> (+62) 857 1538 9997
                         </div>
                     </div>
                     <!-- agents -->
@@ -206,7 +201,6 @@ $this->view('template/header');
                         </div>
                         <div class="col-lg-3 col-sm-3 ">
                             <span class="glyphicon glyphicon-envelope"></span> <a href="mailto:1512502707@budiluhur.ac.id">1512502707@budiluhur.ac.id</a><br>
-                            <span class="glyphicon glyphicon-earphone"></span> (+62) 895 8015 79549
                         </div>
                     </div>
                     <!-- agents -->
