@@ -108,9 +108,6 @@ $this->view('template/header');
                         </div>
                         <div class="col-lg-7 col-sm-7 ">
                             <h4>Chintya Rifyaningrum</h4>
-                            <p>
-                                [Student ID: 1511500868]<br/>
-                            </p>
                         </div>
                         <div class="col-lg-3 col-sm-3 ">
                             <span class="glyphicon glyphicon-envelope"></span> <a href="mailto:penerimadummy@gmail.com">email us</a><br>
@@ -127,9 +124,6 @@ $this->view('template/header');
                         </div>
                         <div class="col-lg-7 col-sm-7 ">
                             <h4>Rafly Aswin</h4>
-                            <p>
-                                [Student ID: 1512500628]<br/>
-                            </p>
                         </div>
                         <div class="col-lg-3 col-sm-3 ">
                             <span class="glyphicon glyphicon-envelope"></span> <a href="mailto:penerimadummy@gmail.com">email us</a><br>
@@ -144,9 +138,6 @@ $this->view('template/header');
                         </div>
                         <div class="col-lg-7 col-sm-7 ">
                             <h4>Puspa Budiarti</h4>
-                            <p>
-                                [Student ID: 1512500768]<br/>
-                            </p>
                         </div>
                         <div class="col-lg-3 col-sm-3 ">
                             <span class="glyphicon glyphicon-envelope"></span> <a href="mailto:penerimadummy@gmail.com">email us</a><br>
@@ -161,9 +152,6 @@ $this->view('template/header');
                         </div>
                         <div class="col-lg-7 col-sm-7 ">
                             <h4>Nikko Handiarto</h4>
-                            <p>
-                                [Student ID: 1512501170]<br/>
-                            </p>
                         </div>
                         <div class="col-lg-3 col-sm-3 ">
                             <span class="glyphicon glyphicon-envelope"></span> <a href="mailto:penerimadummy@gmail.com"><br/>email us</a><br>
@@ -178,9 +166,6 @@ $this->view('template/header');
                         </div>
                         <div class="col-lg-7 col-sm-7 ">
                             <h4>Muhamad Rinaldy</h4>
-                            <p>
-                                [Student ID: 1512501790]<br/>
-                            </p>
                         </div>
                         <div class="col-lg-3 col-sm-3 ">
                             <span class="glyphicon glyphicon-envelope"></span> <a href="mailto:penerimadummy@gmail.com">email us</a><br>
@@ -195,9 +180,6 @@ $this->view('template/header');
                         </div>
                         <div class="col-lg-7 col-sm-7 ">
                             <h4>Zacky Burhani</h4>
-                            <p>
-                                [Student ID: 1512502707]<br/>
-                            </p>
                         </div>
                         <div class="col-lg-3 col-sm-3 ">
                             <span class="glyphicon glyphicon-envelope"></span> <a href="mailto:penerimadummy@gmail.com">email us</a><br>
