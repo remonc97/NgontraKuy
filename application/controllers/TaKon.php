@@ -77,7 +77,7 @@ class TaKon extends CI_Controller {
 
             );
 			$ubah = array(
-            'auth' => true,
+            'auth' => '1',
             'idpengguna' => $idpengguna
             );
 
