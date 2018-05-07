@@ -154,7 +154,7 @@ $this->view('template/header');
                             <h4>Nikko Handiarto</h4>
                         </div>
                         <div class="col-lg-3 col-sm-3 ">
-                            <span class="glyphicon glyphicon-envelope"></span> <a href="mailto:kelkul7.source@gmail.com"><br/>email us</a><br>
+                            <span class="glyphicon glyphicon-envelope"></span> <a href="mailto:kelkul7.source@gmail.com">email us</a><br>
                         </div>
                     </div>
                     <!-- agents -->
