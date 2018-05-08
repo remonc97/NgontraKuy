@@ -176,6 +176,20 @@ $this->view('template/header');
                     <!-- agents -->
                     <div class="row">
                         <div class="col-lg-2 col-sm-2 ">
+                            <a href="#"><img src="<?php echo base_url('assets/images/agents/zein.jpg')?>" class="img-responsive" alt="agent name"></a>
+                        </div>
+                        <div class="col-lg-7 col-sm-7 ">
+                            <h4>Muhammad Zein Hanafi</h4>
+                        </div>
+                        <div class="col-lg-3 col-sm-3 ">
+                            <span class="glyphicon glyphicon-envelope"></span> <a href="mailto:kelkul7.source@gmail.com">email us</a><br>
+                        </div>
+                    </div>
+                    <!-- agents -->
+
+                    <!-- agents -->
+                    <div class="row">
+                        <div class="col-lg-2 col-sm-2 ">
                             <a href="#"><img src="<?php echo base_url('assets/images/agents/zacky.jpg')?>" class="img-responsive" alt="agent name"></a>
                         </div>
                         <div class="col-lg-7 col-sm-7 ">
