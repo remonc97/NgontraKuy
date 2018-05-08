@@ -176,7 +176,7 @@ $this->view('template/header');
                     <!-- agents -->
                     <div class="row">
                         <div class="col-lg-2 col-sm-2 ">
-                            <a href="#"><img src="<?php echo base_url('assets/images/agents/zein.jpg')?>" class="img-responsive" alt="agent name"></a>
+                            <a href="#"><img src="<?php echo base_url('assets/images/agents/zein.jpg')?>" class="img-fluid" alt="agent name"></a>
                         </div>
                         <div class="col-lg-7 col-sm-7 ">
                             <h4>Muhammad Zein Hanafi</h4>
@@ -190,7 +190,7 @@ $this->view('template/header');
                     <!-- agents -->
                     <div class="row">
                         <div class="col-lg-2 col-sm-2 ">
-                            <a href="#"><img src="<?php echo base_url('assets/images/agents/zacky.jpg')?>" class="img-responsive" alt="agent name"></a>
+                            <a href="#"><img src="<?php echo base_url('assets/images/agents/zacky.jpg')?>" class="img-fluid" alt="agent name"></a>
                         </div>
                         <div class="col-lg-7 col-sm-7 ">
                             <h4>Zacky Burhani</h4>
